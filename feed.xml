@@ -2,11 +2,11 @@
 <rss version="2.0">
 <channel>
 <title>HG Analytics</title>
-<link>https://YOUR_GITHUB_USERNAME.github.io/hg-analytics</link>
+<link>https://hori0827.github.io/hg-site</link>
 <description>AIによる日次株価分析レポート</description>
 <language>ja</language>
-<item><title>20260510版 注目銘柄 トップ5選</title><link>https://YOUR_GITHUB_USERNAME.github.io/hg-analytics/articles/20260510/</link><pubDate>Sun, 10 May 2026 07:00:00 +0900</pubDate></item>
-<item><title>20260509版 注目銘柄 トップ5選</title><link>https://YOUR_GITHUB_USERNAME.github.io/hg-analytics/articles/20260509/</link><pubDate>Sat, 09 May 2026 07:00:00 +0900</pubDate></item>
+<item><title>20260510版 注目銘柄 トップ5選</title><link>https://hori0827.github.io/hg-site/articles/20260510/</link><pubDate>Sun, 10 May 2026 07:00:00 +0900</pubDate></item>
+<item><title>20260509版 注目銘柄 トップ5選</title><link>https://hori0827.github.io/hg-site/articles/20260509/</link><pubDate>Sat, 09 May 2026 07:00:00 +0900</pubDate></item>
 
 </channel>
 </rss>
