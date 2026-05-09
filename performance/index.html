@@ -12,27 +12,47 @@
   <meta property="og:site_name" content="HG Analytics">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="canonical" href="https://YOUR_GITHUB_USERNAME.github.io/hg-analytics">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap">
   <link rel="stylesheet" href="/assets/style.css">
   
 </head>
 <body>
 <header class="site-header">
-  <div class="container">
-    <a href="/" class="logo">HG Analytics</a>
-    <nav>
+  <div class="header-inner container">
+    <a href="/" class="logo">
+      <span class="logo-icon">&#9642;</span>HG Analytics
+    </a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle">
+    <label for="nav-toggle" class="nav-burger">&#9776;</label>
+    <nav class="nav-menu">
       <a href="/">トップ</a>
       <a href="/articles/">記事一覧</a>
       <a href="/performance/">予測実績</a>
     </nav>
   </div>
 </header>
-<main class="container">
+<main>
 <h1>予測実績</h1><p>データ蓄積中です（最初の分析から5営業日後に掲載されます）。</p>
 </main>
-<footer>
+<footer class="site-footer">
   <div class="container">
-    <p>HG Analytics — AIによる株価分析情報サイト</p>
-    <p class="disclaimer">本サイトの情報は投資助言ではありません。投資判断はご自身の責任で行ってください（金融商品取引法準拠）。</p>
+    <div class="footer-grid">
+      <div>
+        <p class="footer-logo">HG Analytics</p>
+        <p class="footer-desc">AIが毎日分析する株価情報サイト</p>
+      </div>
+      <div>
+        <p class="footer-heading">コンテンツ</p>
+        <a href="/">トップ</a>
+        <a href="/articles/">記事一覧</a>
+        <a href="/performance/">予測実績</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="disclaimer">本サイトの情報は投資助言ではありません。投資判断はご自身の責任で行ってください（金融商品取引法第2条準拠）。</p>
+      <p>&copy; 2026 HG Analytics</p>
+    </div>
   </div>
 </footer>
 </body>
