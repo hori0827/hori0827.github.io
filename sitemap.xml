@@ -2,7 +2,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://hori0827.github.io/hg-site/</loc><changefreq>daily</changefreq></url>
   <url><loc>https://hori0827.github.io/hg-site/articles/</loc><changefreq>daily</changefreq></url>
+  <url><loc>https://hori0827.github.io/hg-site/brokers/</loc><changefreq>daily</changefreq></url>
   <url><loc>https://hori0827.github.io/hg-site/performance/</loc><changefreq>daily</changefreq></url>
+  <url><loc>https://hori0827.github.io/hg-site/privacy/</loc><changefreq>daily</changefreq></url>
   <url><loc>https://hori0827.github.io/hg-site/articles/20260510/</loc><changefreq>daily</changefreq></url>
   <url><loc>https://hori0827.github.io/hg-site/articles/20260509/</loc><changefreq>daily</changefreq></url>
 </urlset>
