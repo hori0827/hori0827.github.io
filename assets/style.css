@@ -535,3 +535,12 @@ a:hover { text-decoration: underline; }
 .faq-q { background: var(--primary-light); padding: .85rem 1.25rem; font-weight: 700; font-size: .9rem; color: var(--primary-dark); }
 .faq-q::before { content: 'Q. '; }
 .faq-a { padding: .85rem 1.25rem; font-size: .88rem; line-height: 1.7; background: var(--card); }
+
+/* ── Learn ── */
+.learn-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.25rem; margin: 1.5rem 0; }
+.learn-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.25rem 1.5rem; box-shadow: var(--shadow); text-decoration: none; color: var(--text); display: flex; flex-direction: column; gap: .5rem; transition: box-shadow .2s, transform .2s; }
+.learn-card:hover { box-shadow: 0 8px 24px rgba(37,99,235,.12); transform: translateY(-2px); text-decoration: none; color: var(--text); }
+.learn-card-category { font-size: .72rem; font-weight: 700; color: var(--primary); text-transform: uppercase; letter-spacing: .05em; }
+.learn-card-title { font-size: .95rem; font-weight: 700; line-height: 1.5; }
+.learn-card-desc { font-size: .82rem; color: var(--text-sub); line-height: 1.55; flex: 1; }
+.learn-card-more { font-size: .8rem; font-weight: 700; color: var(--primary); margin-top: .25rem; }

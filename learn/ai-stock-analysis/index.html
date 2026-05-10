@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AIによる株式分析とは？HG Analyticsの仕組みをわかりやすく解説 | HG Analytics</title>
+  <meta name="description" content="AIが株式分析を行う仕組みと、HG AnalyticsのAIが毎日注目銘柄を選定するプロセスを解説。ファンダメンタル×テクニカルの複合分析で有望銘柄を厳選する方法を紹介。">
+  <meta property="og:title" content="AIによる株式分析とは？HG Analyticsの仕組みをわかりやすく解説">
+  <meta property="og:description" content="AIが株式分析を行う仕組みと、HG AnalyticsのAIが毎日注目銘柄を選定するプロセスを解説。ファンダメンタル×テクニカルの複合分析で有望銘柄を厳選する方法を紹介。">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://hori0827.github.io/assets/ogp.png">
+  <meta property="og:url" content="https://hori0827.github.io/learn/ai-stock-analysis/">
+  <meta property="og:site_name" content="HG Analytics">
+  <meta property="og:locale" content="ja_JP">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AIによる株式分析とは？HG Analyticsの仕組みをわかりやすく解説">
+  <meta name="twitter:description" content="AIが株式分析を行う仕組みと、HG AnalyticsのAIが毎日注目銘柄を選定するプロセスを解説。ファンダメンタル×テクニカルの複合分析で有望銘柄を厳選する方法を紹介。">
+  <meta name="google-site-verification" content="7V_zOAQD8Wj-WW75kGPzPHq8kAcria_PGfj-kt5j11c">
+  <link rel="canonical" href="https://hori0827.github.io/learn/ai-stock-analysis/">
+  <link rel="alternate" type="application/rss+xml" title="HG Analytics" href="https://hori0827.github.io/feed.xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap">
+  <link rel="stylesheet" href="/assets/style.css">
+  
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5716635999318915" crossorigin="anonymous"></script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "AIによる株式分析とは？HG Analyticsの仕組みをわかりやすく解説", "description": "AIが株式分析を行う仕組みと、HG AnalyticsのAIが毎日注目銘柄を選定するプロセスを解説。ファンダメンタル×テクニカルの複合分析で有望銘柄を厳選する方法を紹介。", "keywords": "AI 株 分析, AI 投資 とは, 株 AI スクリーニング, AI 注目銘柄", "author": {"@type": "Organization", "name": "HG Analytics AI"}, "publisher": {"@type": "Organization", "name": "HG Analytics", "url": "https://hori0827.github.io"}, "mainEntityOfPage": {"@type": "WebPage", "@id": "https://hori0827.github.io/learn/ai-stock-analysis/"}}</script>
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner container">
+    <a href="/" class="logo">
+      <span class="logo-icon">&#9642;</span>HG Analytics
+    </a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle">
+    <label for="nav-toggle" class="nav-burger">&#9776;</label>
+    <nav class="nav-menu">
+      <a href="/">トップ</a>
+      <a href="/articles/">記事一覧</a>
+      <a href="/learn/">学習コンテンツ</a>
+      <a href="/brokers/">証券会社比較</a>
+      <a href="/performance/">予測実績</a>
+    </nav>
+  </div>
+</header>
+<main>
+
+<div class="article-wrap">
+<div class="art-header fade-up">
+  <div class="art-header-meta">
+    <span><a href="/learn/" style="color:var(--primary)">学習コンテンツ</a></span>
+    <span>AI投資</span>
+  </div>
+  <h1>AIによる株式分析とは？HG Analyticsの仕組みをわかりやすく解説</h1>
+</div>
+
+
+<div class="editorial-summary">
+  <div class="summary-header">&#128203; この記事のポイント</div>
+  <ul class="summary-list">
+    <li>AIは感情に左右されず、<strong>大量のデータを客観的・高速に処理</strong>できる</li>
+    <li>HG AnalyticsのAIは<strong>毎日数百銘柄を自動スクリーニング</strong>して注目銘柄を選定</li>
+    <li>ファンダメンタル（財務・業績）とテクニカル（チャート・指標）を<strong>複合スコア化</strong></li>
+    <li>AIはあくまで参考情報。最終的な投資判断は<strong>必ず自分で行う</strong>こと</li>
+  </ul>
+</div>
+
+<h2>AIによる株式分析とは</h2>
+<p>従来、プロのアナリストが何時間もかけて行ってきた株式分析を、AIが自動・高速で処理する手法です。人間と違い、AIは感情に影響されず、多くの指標を同時に処理して客観的なスコアを算出できます。</p>
+
+<h2>HG Analyticsの分析プロセス</h2>
+<h3>STEP 1：スクリーニング（銘柄の絞り込み）</h3>
+<p>国内外の数百銘柄について、毎日リアルタイムで株価・財務データを取得します。</p>
+
+<h3>STEP 2：ファンダメンタル分析</h3>
+<p>PER・PBR・ROE・売上成長率・財務健全性などを評価し、企業の「割安度・成長性・財務安定性」をスコア化します。</p>
+
+<h3>STEP 3：テクニカル分析</h3>
+<p>RSI・移動平均線・トレンドなどのテクニカル指標を分析し、「エントリータイミング・需給バランス」を評価します。</p>
+
+<h3>STEP 4：複合スコアで上位銘柄を選定</h3>
+<p>ファンダメンタルスコアとテクニカルスコアを総合した複合スコアを算出し、上位銘柄を「本日の注目銘柄」として選定・公開します。</p>
+
+<h2>AIを使う上での注意点</h2>
+<p>AIの分析は過去データに基づいており、<strong>突発的な事件・政策変更・業績下方修正などの予測は困難</strong>です。AI分析は有益な参考情報ですが、投資の最終判断は必ずご自身で行ってください。</p>
+<div style="background:var(--primary-light);border-radius:var(--radius);padding:1rem 1.5rem;margin:1rem 0">
+  <strong>当サイトについて：</strong> HG Analyticsは毎日17時頃、AIが分析した当日の注目銘柄レポートを無料で公開しています。証券口座を開設した上で、AI分析を銘柄選定の参考としてご活用ください。
+</div>
+
+
+<div class="ad-unit">
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5716635999318915"
+     data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+
+<div class="af-box">
+  <div class="af-box-header">
+    <div class="af-box-title">&#9654; 証券口座を開くなら — 広告・PR</div>
+    <div class="af-notice">&#9888; 広告・PR（アフィリエイトリンクを含みます）</div>
+  </div>
+<div class="af-item">
+  <div class="af-item-info">
+    <div class="af-item-name">SBI証券</div>
+    <div class="af-item-desc">国内最大手ネット証券。手数料無料・豊富な銘柄数</div>
+  </div>
+  <a href="https://ck.jp.ap.valuecommerce.com/servlet/referral?sid=YOUR_SID&pid=YOUR_PID" class="af-btn" rel="nofollow sponsored" target="_blank"
+     onclick="gtag&&gtag('event','affiliate_click',{broker:'sbi',campaign:'learn_ai-stock-analysis'})">
+    【無料口座開設】SBI証券で今すぐ始める
+  </a>
+</div><div class="af-item">
+  <div class="af-item-info">
+    <div class="af-item-name">楽天証券</div>
+    <div class="af-item-desc">楽天ポイントが貯まる。使いやすいUI・充実のツール</div>
+  </div>
+  <a href="https://ck.jp.ap.valuecommerce.com/servlet/referral?sid=YOUR_SID&pid=YOUR_PID2" class="af-btn" rel="nofollow sponsored" target="_blank"
+     onclick="gtag&&gtag('event','affiliate_click',{broker:'rakuten',campaign:'learn_ai-stock-analysis'})">
+    【楽天ポイント活用】楽天証券で口座開設
+  </a>
+</div><div class="af-item">
+  <div class="af-item-info">
+    <div class="af-item-name">松井証券</div>
+    <div class="af-item-desc">1日50万円以下なら手数料無料。初心者向け</div>
+  </div>
+  <a href="https://px.a8.net/svt/ejp?a8mat=YOUR_A8_CODE" class="af-btn" rel="nofollow sponsored" target="_blank"
+     onclick="gtag&&gtag('event','affiliate_click',{broker:'matsui',campaign:'learn_ai-stock-analysis'})">
+    【手数料無料】松井証券で投資デビュー
+  </a>
+</div>
+</div>
+
+<div class="share-buttons">
+  <p class="share-label">この記事をシェアする</p>
+  <div class="share-row">
+    <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fhori0827.github.io%2Flearn%2Fai-stock-analysis%2F&text=AI%E3%81%AB%E3%82%88%E3%82%8B%E6%A0%AA%E5%BC%8F%E5%88%86%E6%9E%90%E3%81%A8%E3%81%AF%EF%BC%9FHG%20Analytics%E3%81%AE%E4%BB%95%E7%B5%84%E3%81%BF%E3%82%92%E3%82%8F%E3%81%8B%E3%82%8A%E3%82%84%E3%81%99%E3%81%8F%E8%A7%A3%E8%AA%AC%20%23%E6%A0%AA%E5%BC%8F%E6%8A%95%E8%B3%87%20%23AI%E5%88%86%E6%9E%90" target="_blank" rel="noopener noreferrer" class="share-btn share-x">X (Twitter)</a>
+    <a href="https://line.me/R/msg/text/?AI%E3%81%AB%E3%82%88%E3%82%8B%E6%A0%AA%E5%BC%8F%E5%88%86%E6%9E%90%E3%81%A8%E3%81%AF%EF%BC%9FHG%20Analytics%E3%81%AE%E4%BB%95%E7%B5%84%E3%81%BF%E3%82%92%E3%82%8F%E3%81%8B%E3%82%8A%E3%82%84%E3%81%99%E3%81%8F%E8%A7%A3%E8%AA%AC%20%23%E6%A0%AA%E5%BC%8F%E6%8A%95%E8%B3%87%20%23AI%E5%88%86%E6%9E%90%0Ahttps%3A%2F%2Fhori0827.github.io%2Flearn%2Fai-stock-analysis%2F" target="_blank" rel="noopener noreferrer" class="share-btn share-line">LINE</a>
+  </div>
+</div>
+
+<div class="sh" style="margin-top:2rem"><div class="sh-title">関連記事</div></div><div class="learn-grid"><a class="learn-card" href="/learn/what-is-rsi/">
+  <div class="learn-card-category">テクニカル分析</div>
+  <div class="learn-card-title">RSIとは？株の売られすぎ・買われすぎを見極める指標をわかりやすく解説</div>
+  <div class="learn-card-more">読む &rarr;</div>
+</a><a class="learn-card" href="/learn/what-is-per/">
+  <div class="learn-card-category">ファンダメンタル分析</div>
+  <div class="learn-card-title">PERとは？株価が割安か割高かを判断する基本指標をわかりやすく解説</div>
+  <div class="learn-card-more">読む &rarr;</div>
+</a><a class="learn-card" href="/learn/what-is-pbr/">
+  <div class="learn-card-category">ファンダメンタル分析</div>
+  <div class="learn-card-title">PBRとは？1倍割れの意味と割安株の見つけ方を初心者向けに解説</div>
+  <div class="learn-card-more">読む &rarr;</div>
+</a></div>
+
+<div style="text-align:center;margin:2rem 0">
+  <a href="/learn/" class="hero-cta" style="display:inline-block;font-size:.9rem">&#8592; 学習コンテンツ一覧へ戻る</a>
+</div>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <p class="footer-logo">HG Analytics</p>
+        <p class="footer-desc">AIが毎日分析する株価情報サイト</p>
+      </div>
+      <div>
+        <p class="footer-heading">コンテンツ</p>
+        <a href="/">トップ</a>
+        <a href="/articles/">記事一覧</a>
+        <a href="/learn/">学習コンテンツ</a>
+        <a href="/brokers/">証券会社比較</a>
+        <a href="/performance/">予測実績</a>
+        <a href="/privacy/">プライバシーポリシー</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="disclaimer">本サイトの情報は投資助言ではありません。投資判断はご自身の責任で行ってください（金融商品取引法第2条準拠）。</p>
+      <p>&copy; 2026 HG Analytics</p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
