@@ -241,6 +241,25 @@ body {
 .perf-dn { background: var(--down-bg); color: var(--down); }
 .perf-ne { background: var(--border); color: var(--text-sub); }
 
+/* ── Article TOC (anchor links to JP / US sections) ── */
+.article-toc {
+  background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+  border: 1px solid var(--border); border-radius: var(--radius);
+  padding: .9rem 1.1rem; margin: 1.2rem 0 1.5rem;
+  box-shadow: var(--shadow);
+}
+.article-toc strong {
+  display: block; font-size: .82rem; color: var(--text-sub);
+  letter-spacing: .04em; margin-bottom: .5rem;
+}
+.article-toc ul { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: .5rem .9rem; }
+.article-toc li { font-size: .88rem; }
+.article-toc a {
+  color: var(--primary); text-decoration: none; font-weight: 500;
+  border-bottom: 1px dashed transparent; transition: border-color .15s;
+}
+.article-toc a:hover { border-bottom-color: var(--primary); }
+
 /* ── Source distinction tags (external data vs in-house AI) ── */
 .src-tag {
   display: inline-block; font-size: .65rem; font-weight: 700;
