@@ -241,6 +241,28 @@ body {
 .perf-dn { background: var(--down-bg); color: var(--down); }
 .perf-ne { background: var(--border); color: var(--text-sub); }
 
+/* ── Source distinction tags (external data vs in-house AI) ── */
+.src-tag {
+  display: inline-block; font-size: .65rem; font-weight: 700;
+  padding: .15em .55em; border-radius: 1em; margin-left: .4rem;
+  vertical-align: middle; letter-spacing: .02em;
+}
+.src-tag-ext { background: #e0f2fe; color: #075985; border: 1px solid #bae6fd; }
+.src-tag-ai  { background: #ecfccb; color: #4d7c0f; border: 1px solid #d9f99d; }
+.src-h-ext { font-size: .92rem; margin: .8rem 0 .25rem; color: #0f172a; }
+.src-h-ai  { font-size: .92rem; margin: .8rem 0 .25rem; color: #365314; }
+.src-note {
+  font-size: .72rem; color: var(--text-sub); line-height: 1.55;
+  margin: 0 0 .5rem; padding: .35rem .6rem;
+  background: #f1f5f9; border-radius: .35rem; border-left: 3px solid #0ea5e9;
+}
+.src-note.ai { background: #f7fee7; border-left-color: #84cc16; }
+.ai-section {
+  background: linear-gradient(180deg, #fafff5 0%, #ffffff 100%);
+  border: 1px solid #d9f99d; border-radius: .55rem;
+  padding: .7rem .9rem .9rem; margin: .8rem 0;
+}
+
 /* ── Pick Detail Card (chart + analyst consensus + earnings + timeframes + take-profit) ── */
 .pick-detail-card {
   background: var(--card); border-radius: var(--radius-lg);
