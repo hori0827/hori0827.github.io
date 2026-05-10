@@ -241,6 +241,38 @@ body {
 .perf-dn { background: var(--down-bg); color: var(--down); }
 .perf-ne { background: var(--border); color: var(--text-sub); }
 
+/* ── Pick Detail Card (chart + analyst consensus + earnings + timeframes + take-profit) ── */
+.pick-detail-card {
+  background: var(--card); border-radius: var(--radius-lg);
+  box-shadow: var(--shadow); margin-bottom: 1.5rem; overflow: hidden;
+}
+.pick-detail-head {
+  padding: 1rem 1.25rem; border-bottom: 1px solid var(--border);
+}
+.pick-detail-chart {
+  background: #fafbfc; padding: .75rem; text-align: center; border-bottom: 1px solid var(--border);
+}
+.pick-detail-chart img { max-width: 100%; height: auto; display: inline-block; border-radius: .4rem; }
+.pick-detail-body { padding: 1rem 1.25rem 1.25rem; }
+.detail-table {
+  width: 100%; border-collapse: collapse; font-size: .85rem; line-height: 1.7;
+}
+.detail-table td, .detail-table th {
+  padding: .35rem .6rem; border-bottom: 1px solid var(--border); text-align: left;
+}
+.detail-table td:first-child { color: var(--text-sub); width: 35%; }
+.detail-table thead th { font-size: .75rem; color: var(--muted); font-weight: 600; }
+.tf-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: .65rem;
+}
+.tf-box {
+  border: 1px solid var(--border); border-radius: .5rem; padding: .65rem .8rem;
+  background: #fafbfc;
+}
+.tf-head { font-size: .78rem; color: var(--text-sub); margin-bottom: .25rem; }
+.tf-label { font-weight: 700; font-size: .95rem; }
+.tf-comment { font-size: .78rem; color: var(--text-sub); line-height: 1.55; margin-top: .2rem; }
+
 /* ── Article cards (list) ── */
 .article-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
 .art-card {
