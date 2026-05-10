@@ -536,6 +536,11 @@ a:hover { text-decoration: underline; }
 .faq-q::before { content: 'Q. '; }
 .faq-a { padding: .85rem 1.25rem; font-size: .88rem; line-height: 1.7; background: var(--card); }
 
+/* ── Volume indicator ── */
+.vol-high   { color: var(--up); font-weight: 700; }
+.vol-low    { color: var(--muted); }
+.vol-normal { color: var(--text); }
+
 /* ── Learn ── */
 .learn-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.25rem; margin: 1.5rem 0; }
 .learn-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.25rem 1.5rem; box-shadow: var(--shadow); text-decoration: none; color: var(--text); display: flex; flex-direction: column; gap: .5rem; transition: box-shadow .2s, transform .2s; }
