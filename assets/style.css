@@ -536,6 +536,27 @@ a:hover { text-decoration: underline; }
 .faq-q::before { content: 'Q. '; }
 .faq-a { padding: .85rem 1.25rem; font-size: .88rem; line-height: 1.7; background: var(--card); }
 
+/* ── Hot Stocks ── */
+.hot-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.25rem; margin: 1.25rem 0; }
+.hot-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.25rem 1.5rem; box-shadow: var(--shadow); }
+.hot-card-head { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: .75rem; }
+.hot-label { display: inline-block; font-size: .65rem; font-weight: 800; padding: .2em .7em; border-radius: 2em; margin-bottom: .3rem; text-transform: uppercase; letter-spacing: .05em; }
+.hot-label-surge { background: #dcfce7; color: #166534; }
+.hot-label-crash { background: #fee2e2; color: #991b1b; }
+.hot-name { font-weight: 800; font-size: 1rem; }
+.hot-ticker { font-size: .75rem; color: var(--muted); }
+.hot-metrics { display: flex; flex-wrap: wrap; gap: .5rem; margin: .75rem 0; }
+.hot-metric { background: var(--bg); border-radius: .4rem; padding: .3rem .65rem; font-size: .82rem; display: flex; gap: .35rem; align-items: center; }
+.hot-metric-l { color: var(--muted); font-size: .72rem; }
+.hot-signal { background: var(--bg); border-radius: var(--radius); padding: .85rem 1rem; margin-top: .75rem; }
+/* ── News ── */
+.news-list { display: flex; flex-direction: column; gap: .85rem; margin: 1rem 0; }
+.news-item { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: .85rem 1.1rem; }
+.news-ticker-tag { font-size: .68rem; font-weight: 700; color: var(--primary); text-transform: uppercase; letter-spacing: .04em; margin-bottom: .25rem; }
+.news-title { font-size: .9rem; font-weight: 700; color: var(--text); text-decoration: none; display: block; margin-bottom: .2rem; line-height: 1.5; }
+.news-title:hover { color: var(--primary); }
+.news-meta { font-size: .72rem; color: var(--muted); }
+
 /* ── Volume indicator ── */
 .vol-high   { color: var(--up); font-weight: 700; }
 .vol-low    { color: var(--muted); }
