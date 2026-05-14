@@ -829,3 +829,7 @@ a:hover { text-decoration: underline; }
 
 /* ── Earnings Trend Badge ── */
 .earnings-trend-row { display: flex; align-items: center; gap: .5rem; flex-wrap: wrap; margin: .5rem 0 .25rem; }
+/* Article prev/next navigation */
+.article-nav { display: flex; justify-content: space-between; align-items: center; margin: 2rem 0 1rem; padding-top: 1.25rem; border-top: 1px solid var(--border); }
+.article-nav-link { color: var(--primary); text-decoration: none; font-size: .9rem; font-weight: 500; padding: .4rem .75rem; border: 1px solid var(--primary-light); border-radius: .375rem; transition: background .15s; }
+.article-nav-link:hover { background: var(--primary-light); text-decoration: none; }
