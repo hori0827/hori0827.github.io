@@ -829,6 +829,17 @@ a:hover { text-decoration: underline; }
 
 /* ── Earnings Trend Badge ── */
 .earnings-trend-row { display: flex; align-items: center; gap: .5rem; flex-wrap: wrap; margin: .5rem 0 .25rem; }
+/* Attention page — reason / rationale / risk */
+.attn-summary { font-size:.85rem; line-height:1.65; color:var(--text); margin:.55rem 0 .4rem; font-weight:500; }
+.attn-rationale { font-size:.78rem; color:var(--text-sub); line-height:1.7; margin:.3rem 0 .5rem; padding-left:1.2rem; }
+.attn-rationale li { margin:.15rem 0; }
+.attn-risks { background:#fef9f0; border-left:3px solid var(--accent); border-radius:0 .375rem .375rem 0; padding:.45rem .7rem; margin:.55rem 0 0; font-size:.75rem; }
+.attn-risks-label { font-weight:700; color:var(--accent-dark); margin-bottom:.2rem; display:block; }
+.attn-risks ul { margin:0; padding-left:1.1rem; color:var(--text-sub); line-height:1.6; }
+.attn-risks li { margin:.1rem 0; }
+.attn-entry { font-size:.8rem; color:var(--text-sub); margin:.5rem 0 .3rem; padding:.4rem .65rem; background:var(--bg); border-radius:.375rem; line-height:1.7; }
+.attn-conviction { font-size:.72rem; color:var(--muted); margin-left:.5rem; }
+.attention-rec { display:flex; align-items:center; margin:.45rem 0 .3rem; }
 /* Article prev/next navigation */
 .article-nav { display: flex; justify-content: space-between; align-items: center; margin: 2rem 0 1rem; padding-top: 1.25rem; border-top: 1px solid var(--border); }
 .article-nav-link { color: var(--primary); text-decoration: none; font-size: .9rem; font-weight: 500; padding: .4rem .75rem; border: 1px solid var(--primary-light); border-radius: .375rem; transition: background .15s; }
