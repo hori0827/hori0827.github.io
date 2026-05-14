@@ -807,3 +807,25 @@ a:hover { text-decoration: underline; }
 .wl-btn:hover { border-color: var(--accent); color: var(--accent); }
 .wl-empty { text-align: center; padding: 2.5rem 1rem; color: var(--muted); font-size: .88rem; line-height: 1.7; }
 .wl-empty-icon { font-size: 2rem; margin-bottom: .5rem; display: block; }
+
+/* ── Verdict Card (BUY/HOLD/AVOID) ── */
+.verdict-card { display: flex; align-items: center; gap: .75rem; padding: .65rem 1rem; border-radius: .5rem; margin-bottom: .75rem; border: 1.5px solid; }
+.verdict-buy   { background: #f0fdf4; border-color: #86efac; }
+.verdict-hold  { background: #fffbeb; border-color: #fcd34d; }
+.verdict-avoid { background: #fef2f2; border-color: #fca5a5; }
+.verdict-badge { font-size: 1.05rem; font-weight: 900; letter-spacing: .05em; flex-shrink: 0; }
+.verdict-buy .verdict-badge   { color: var(--up); }
+.verdict-hold .verdict-badge  { color: #d97706; }
+.verdict-avoid .verdict-badge { color: var(--down); }
+.verdict-reason { font-size: .8rem; color: var(--text-sub); line-height: 1.5; }
+
+/* ── 52w / BB Range Bar ── */
+.range-bar-wrap { margin: .65rem 0 .85rem; }
+.range-bar-labels { display: flex; justify-content: space-between; font-size: .68rem; color: var(--text-sub); margin-bottom: .3rem; }
+.range-bar-labels .range-bar-mid { color: var(--primary); font-weight: 700; text-align: center; }
+.range-bar-track { position: relative; height: 8px; background: linear-gradient(90deg, #dcfce7 0%, #fef9c3 50%, #fee2e2 100%); border-radius: 4px; }
+.range-bar-cursor { position: absolute; top: 50%; width: 14px; height: 14px; background: var(--primary); border-radius: 50%; border: 2px solid #fff; box-shadow: 0 1px 4px rgba(0,0,0,.25); transform: translate(-50%,-50%); }
+.range-bar-foot { font-size: .67rem; color: var(--muted); margin-top: .3rem; }
+
+/* ── Earnings Trend Badge ── */
+.earnings-trend-row { display: flex; align-items: center; gap: .5rem; flex-wrap: wrap; margin: .5rem 0 .25rem; }
