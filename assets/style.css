@@ -655,3 +655,107 @@ a:hover { text-decoration: underline; }
 /* ── Win-rate hero badge ── */
 .win-badge { display: inline-flex; align-items: center; gap: .45rem; background: rgba(34,197,94,.15); border: 1px solid rgba(34,197,94,.35); color: #15803d; font-size: .82rem; font-weight: 700; padding: .4em 1.1em; border-radius: 2em; margin-top: .85rem; }
 .win-badge .win-pct { font-size: 1.15rem; font-weight: 800; }
+
+/* ── Sentiment banner ── */
+.sentiment-banner { padding: .55rem 0; font-size: .78rem; font-weight: 700; text-align: center; letter-spacing: .04em; }
+.sentiment-banner.risk-on  { background: linear-gradient(90deg,#052e16,#166534); color: #bbf7d0; }
+.sentiment-banner.risk-off { background: linear-gradient(90deg,#450a0a,#991b1b); color: #fecaca; }
+.sentiment-banner.neutral  { background: linear-gradient(90deg,#0c1445,#1e3a8a); color: #bfdbfe; }
+.sentiment-banner-inner { max-width: 1000px; margin: 0 auto; padding: 0 1.5rem; display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; justify-content: center; }
+.sentiment-pill { background: rgba(255,255,255,.12); border-radius: 2em; padding: .2em .8em; }
+
+/* ── Featured #1 pick card ── */
+.featured-pick { background: linear-gradient(135deg,#0f172a,#1e3a8a); border-radius: var(--radius-lg); padding: 1.75rem; margin: 1.25rem 0; color: #fff; position: relative; overflow: hidden; box-shadow: var(--shadow-xl); }
+.featured-pick::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 70% 0%, rgba(245,158,11,.2) 0%, transparent 60%); pointer-events: none; }
+.featured-crown { font-size: 2.2rem; margin-bottom: .5rem; display: block; }
+.featured-pick-name { font-size: 1.55rem; font-weight: 800; line-height: 1.2; }
+.featured-pick-ticker { font-size: .85rem; color: rgba(255,255,255,.55); margin: .2rem 0 1rem; }
+.featured-pick-score { font-size: 3rem; font-weight: 800; color: var(--accent); line-height: 1; }
+.featured-pick-score-label { font-size: .72rem; color: rgba(255,255,255,.55); margin-bottom: 1rem; }
+.featured-pick-metrics { display: flex; gap: .75rem; flex-wrap: wrap; margin-top: 1rem; }
+.featured-metric { background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.12); border-radius: .5rem; padding: .4rem .75rem; font-size: .82rem; }
+.featured-metric-l { color: rgba(255,255,255,.5); font-size: .7rem; }
+.featured-reasons { margin-top: 1rem; font-size: .82rem; color: rgba(255,255,255,.75); line-height: 1.6; }
+.featured-cta { display: inline-block; margin-top: 1.25rem; background: var(--accent); color: var(--navy); font-weight: 700; padding: .55rem 1.3rem; border-radius: .5rem; text-decoration: none; font-size: .88rem; }
+
+/* ── Score delta / rank change badges ── */
+.delta-badge { display: inline-block; font-size: .68rem; font-weight: 800; padding: .15em .55em; border-radius: .35em; margin-left: .3rem; }
+.delta-up   { background: #dcfce7; color: #166534; }
+.delta-dn   { background: #fee2e2; color: #991b1b; }
+.delta-ne   { background: #f3f4f6; color: #6b7280; }
+.rank-chg   { font-size: .72rem; font-weight: 700; }
+.rank-chg-up { color: var(--up); }
+.rank-chg-dn { color: var(--down); }
+
+/* ── Tab filter ── */
+.tab-bar { display: flex; gap: .5rem; margin: 1.25rem 0 .75rem; flex-wrap: wrap; }
+.tab-btn { background: var(--bg); border: 1.5px solid var(--border); border-radius: 2em; padding: .35em 1.1em; font-size: .82rem; font-weight: 700; cursor: pointer; color: var(--text-sub); transition: all .15s; }
+.tab-btn.active,.tab-btn:hover { background: var(--primary); border-color: var(--primary); color: #fff; }
+.tab-content { display: none; }
+.tab-content.active { display: block; }
+
+/* ── Sector heatmap ── */
+.sector-heatmap { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: .6rem; margin: 1rem 0; }
+.sector-cell { border-radius: .6rem; padding: .65rem .9rem; font-size: .78rem; }
+.sector-cell-name { font-weight: 700; margin-bottom: .2rem; }
+.sector-cell-score { font-size: 1.15rem; font-weight: 800; }
+.sector-cell-etf { font-size: .65rem; opacity: .7; }
+.sc-hot  { background: #dcfce7; color: #14532d; }
+.sc-warm { background: #fef9c3; color: #713f12; }
+.sc-cool { background: #fee2e2; color: #7f1d1d; }
+.sc-mid  { background: var(--bg); color: var(--text-sub); }
+
+/* ── Quick summary box ── */
+.quick-summary { background: #eff6ff; border: 1.5px solid #bfdbfe; border-radius: var(--radius); padding: 1rem 1.25rem; margin: 1.25rem 0; }
+.quick-summary-title { font-size: .72rem; font-weight: 800; color: var(--primary); text-transform: uppercase; letter-spacing: .06em; margin-bottom: .5rem; }
+.quick-summary ul { padding-left: 1.2rem; margin: 0; }
+.quick-summary li { font-size: .88rem; line-height: 1.7; color: var(--text); }
+
+/* ── Mobile pick carousel ── */
+.pick-scroll { display: flex; gap: 1rem; overflow-x: auto; padding-bottom: .5rem; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; }
+.pick-scroll::-webkit-scrollbar { height: 4px; }
+.pick-scroll::-webkit-scrollbar-track { background: var(--bg); }
+.pick-scroll::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+.pick-scroll .pick-card { min-width: 260px; scroll-snap-align: start; flex-shrink: 0; }
+@media (min-width: 640px) { .pick-scroll { display: grid; grid-template-columns: repeat(auto-fill,minmax(280px,1fr)); overflow: visible; } .pick-scroll .pick-card { min-width: unset; } }
+
+/* ── Portfolio page ── */
+.portfolio-hero { background: linear-gradient(135deg,#0a1628,#1e3a8a); color: #fff; padding: 2.5rem 0; }
+.portfolio-hero h1 { font-size: 1.8rem; font-weight: 800; }
+.portfolio-hero p { color: rgba(255,255,255,.7); margin-top: .5rem; }
+.style-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(300px,1fr)); gap: 1.25rem; margin: 1.5rem 0; }
+.style-card { background: var(--card); border-radius: var(--radius-lg); box-shadow: var(--shadow); overflow: hidden; }
+.style-card-head { padding: 1rem 1.25rem; display: flex; align-items: center; gap: .75rem; border-bottom: 1px solid var(--border); }
+.style-emoji { font-size: 1.5rem; }
+.style-name { font-size: 1rem; font-weight: 700; }
+.style-desc { font-size: .78rem; color: var(--text-sub); margin-top: .1rem; }
+.style-card-body { padding: 1rem 1.25rem; }
+.style-return { font-size: 2rem; font-weight: 800; line-height: 1; }
+.style-return.up { color: var(--up); }
+.style-return.dn { color: var(--down); }
+.style-return-label { font-size: .72rem; color: var(--muted); margin-top: .2rem; }
+.style-metrics { display: flex; gap: .5rem; flex-wrap: wrap; margin-top: .85rem; }
+.style-metric-pill { background: var(--bg); border-radius: .4rem; padding: .25rem .6rem; font-size: .78rem; }
+.positions-table { width: 100%; border-collapse: collapse; font-size: .82rem; margin-top: 1.25rem; }
+.positions-table th { background: var(--navy); color: rgba(255,255,255,.8); padding: .5rem .75rem; text-align: left; font-size: .72rem; }
+.positions-table td { padding: .5rem .75rem; border-bottom: 1px solid var(--border); }
+.positions-table tr:hover td { background: var(--bg); }
+
+/* ── Attention page ── */
+.attention-hero { background: linear-gradient(135deg,#1a0533,#4a1d96); color: #fff; padding: 2.5rem 0; }
+.attention-hero h1 { font-size: 1.8rem; font-weight: 800; }
+.attention-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(320px,1fr)); gap: 1.25rem; margin: 1.5rem 0; }
+.attention-card { background: var(--card); border-radius: var(--radius-lg); box-shadow: var(--shadow); overflow: hidden; }
+.attention-trigger { display: flex; align-items: center; gap: .5rem; padding: .75rem 1.1rem; border-bottom: 1px solid var(--border); }
+.attention-trigger-emoji { font-size: 1.2rem; }
+.attention-trigger-label { font-size: .72rem; font-weight: 800; text-transform: uppercase; letter-spacing: .06em; }
+.attention-card-body { padding: 1rem 1.1rem; }
+.attention-stock-name { font-size: 1.05rem; font-weight: 800; }
+.attention-ticker { font-size: .78rem; color: var(--muted); }
+.attention-metrics { display: flex; gap: .5rem; flex-wrap: wrap; margin: .65rem 0; }
+.attention-metric { background: var(--bg); border-radius: .4rem; padding: .2rem .6rem; font-size: .78rem; }
+.attention-rec { background: #f0fdf4; border-left: 3px solid var(--up); border-radius: .4rem; padding: .65rem .85rem; margin-top: .75rem; font-size: .83rem; }
+.attention-rec.watch { background: #fffbeb; border-color: var(--accent); }
+.attention-rec.sell  { background: #fef2f2; border-color: var(--down); }
+.attention-rec-action { font-weight: 800; font-size: .88rem; margin-bottom: .3rem; }
+.attention-rec-horizon { font-size: .72rem; color: var(--muted); }
