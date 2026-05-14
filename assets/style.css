@@ -780,3 +780,30 @@ a:hover { text-decoration: underline; }
 .attention-rec.sell  { background: #fef2f2; border-color: var(--down); }
 .attention-rec-action { font-weight: 800; font-size: .88rem; margin-bottom: .3rem; }
 .attention-rec-horizon { font-size: .72rem; color: var(--muted); }
+
+/* ── Score Breakdown Bars ── */
+.score-breakdown { margin: .55rem 0 0; }
+.score-bar-row { display: flex; align-items: center; gap: .45rem; margin: .28rem 0; font-size: .75rem; }
+.score-bar-label { width: 76px; color: var(--text-sub); flex-shrink: 0; }
+.score-bar-track { flex: 1; height: 7px; background: var(--border); border-radius: 4px; overflow: hidden; }
+.score-bar-fill { height: 100%; border-radius: 4px; }
+.score-bar-val { width: 44px; text-align: right; font-weight: 700; color: var(--text); font-variant-numeric: tabular-nums; font-size: .73rem; }
+
+/* ── Radar Chart ── */
+.radar-wrap { display: flex; flex-direction: column; align-items: center; }
+.radar-caption { font-size: .67rem; color: var(--muted); margin-top: .2rem; text-align: center; }
+
+/* ── Earnings Calendar ── */
+.earnings-cal-row { display: flex; gap: .65rem; flex-wrap: wrap; margin: .75rem 0; }
+.earnings-item { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: .6rem .85rem; min-width: 148px; flex: 1; box-shadow: var(--shadow-sm); }
+.earnings-date { font-size: .68rem; font-weight: 700; color: var(--primary); margin-bottom: .15rem; }
+.earnings-name { font-size: .85rem; font-weight: 700; line-height: 1.3; }
+.earnings-ticker { font-size: .7rem; color: var(--muted); margin-top: .1rem; }
+.earnings-eps { font-size: .72rem; color: var(--text-sub); margin-top: .2rem; }
+
+/* ── Watchlist ── */
+.wl-btn { background: none; border: 1.5px solid var(--border); border-radius: .35rem; padding: .2rem .45rem; cursor: pointer; font-size: .8rem; color: var(--muted); transition: all .15s; line-height: 1; margin-left: auto; }
+.wl-btn.starred { border-color: var(--accent); color: var(--accent); background: #fffbeb; }
+.wl-btn:hover { border-color: var(--accent); color: var(--accent); }
+.wl-empty { text-align: center; padding: 2.5rem 1rem; color: var(--muted); font-size: .88rem; line-height: 1.7; }
+.wl-empty-icon { font-size: 2rem; margin-bottom: .5rem; display: block; }

@@ -94,10 +94,15 @@
   <button class="tab-btn active" onclick="switchTab(event,'all')">すべて</button>
   <button class="tab-btn" onclick="switchTab(event,'jp')">日本株</button>
   <button class="tab-btn" onclick="switchTab(event,'us')">米国株</button>
+  <button class="tab-btn" onclick="switchTab(event,'watchlist')">&#9733; ウォッチリスト</button>
 </div>
 <div id="tab-all" class="tab-content active"><div class="pick-scroll"><div class="pick-card fade-up market-us">
 <div class="pick-card-top">
-  <div class="pick-card-rank"><span class="rank-medal">🥇</span> 第1位</div>
+  <div class="pick-card-rank"><span class="rank-medal">🥇</span> 第1位
+    <button class="wl-btn" id="wl-ZM" data-ticker="ZM"
+      onclick="toggleWatchlist('ZM','ズーム',this)"
+      title="ウォッチリストに追加">☆</button>
+  </div>
   <div class="pick-card-name"><a href="https://finance.yahoo.com/quote/ZM" class="stock-name-link" target="_blank" rel="noopener noreferrer">ズーム&nbsp;↗</a></div>
   <div class="pick-card-ticker-row">
     <a href="https://finance.yahoo.com/quote/ZM" class="pick-card-ticker stock-ticker-link" target="_blank" rel="noopener noreferrer">ZM</a>
@@ -128,7 +133,11 @@
 </div>
 </div><div class="pick-card fade-up market-jp">
 <div class="pick-card-top">
-  <div class="pick-card-rank"><span class="rank-medal">🥈</span> 第2位</div>
+  <div class="pick-card-rank"><span class="rank-medal">🥈</span> 第2位
+    <button class="wl-btn" id="wl-4847_T" data-ticker="4847.T"
+      onclick="toggleWatchlist('4847.T','インテリジェントウェイブ',this)"
+      title="ウォッチリストに追加">☆</button>
+  </div>
   <div class="pick-card-name"><a href="https://finance.yahoo.co.jp/quote/4847.T" class="stock-name-link" target="_blank" rel="noopener noreferrer">インテリジェントウェイブ&nbsp;↗</a></div>
   <div class="pick-card-ticker-row">
     <a href="https://finance.yahoo.co.jp/quote/4847.T" class="pick-card-ticker stock-ticker-link" target="_blank" rel="noopener noreferrer">4847.T</a>
@@ -159,7 +168,11 @@
 </div>
 </div><div class="pick-card fade-up market-jp">
 <div class="pick-card-top">
-  <div class="pick-card-rank"><span class="rank-medal">🥉</span> 第3位</div>
+  <div class="pick-card-rank"><span class="rank-medal">🥉</span> 第3位
+    <button class="wl-btn" id="wl-1721_T" data-ticker="1721.T"
+      onclick="toggleWatchlist('1721.T','コムシスHD',this)"
+      title="ウォッチリストに追加">☆</button>
+  </div>
   <div class="pick-card-name"><a href="https://finance.yahoo.co.jp/quote/1721.T" class="stock-name-link" target="_blank" rel="noopener noreferrer">コムシスHD&nbsp;↗</a></div>
   <div class="pick-card-ticker-row">
     <a href="https://finance.yahoo.co.jp/quote/1721.T" class="pick-card-ticker stock-ticker-link" target="_blank" rel="noopener noreferrer">1721.T</a>
@@ -190,7 +203,11 @@
 </div>
 </div><div class="pick-card fade-up market-jp">
 <div class="pick-card-top">
-  <div class="pick-card-rank"><span class="rank-medal">4位</span> 第4位</div>
+  <div class="pick-card-rank"><span class="rank-medal">4位</span> 第4位
+    <button class="wl-btn" id="wl-6562_T" data-ticker="6562.T"
+      onclick="toggleWatchlist('6562.T','ジーニー',this)"
+      title="ウォッチリストに追加">☆</button>
+  </div>
   <div class="pick-card-name"><a href="https://finance.yahoo.co.jp/quote/6562.T" class="stock-name-link" target="_blank" rel="noopener noreferrer">ジーニー&nbsp;↗</a></div>
   <div class="pick-card-ticker-row">
     <a href="https://finance.yahoo.co.jp/quote/6562.T" class="pick-card-ticker stock-ticker-link" target="_blank" rel="noopener noreferrer">6562.T</a>
@@ -221,7 +238,11 @@
 </div>
 </div><div class="pick-card fade-up market-jp">
 <div class="pick-card-top">
-  <div class="pick-card-rank"><span class="rank-medal">5位</span> 第5位</div>
+  <div class="pick-card-rank"><span class="rank-medal">5位</span> 第5位
+    <button class="wl-btn" id="wl-5711_T" data-ticker="5711.T"
+      onclick="toggleWatchlist('5711.T','三菱マテリアル',this)"
+      title="ウォッチリストに追加">☆</button>
+  </div>
   <div class="pick-card-name"><a href="https://finance.yahoo.co.jp/quote/5711.T" class="stock-name-link" target="_blank" rel="noopener noreferrer">三菱マテリアル&nbsp;↗</a></div>
   <div class="pick-card-ticker-row">
     <a href="https://finance.yahoo.co.jp/quote/5711.T" class="pick-card-ticker stock-ticker-link" target="_blank" rel="noopener noreferrer">5711.T</a>
@@ -253,7 +274,11 @@
 </div></div></div>
 <div id="tab-jp"  class="tab-content"><div class="pick-scroll"><div class="pick-card fade-up market-jp">
 <div class="pick-card-top">
-  <div class="pick-card-rank"><span class="rank-medal">🥇</span> 第1位</div>
+  <div class="pick-card-rank"><span class="rank-medal">🥇</span> 第1位
+    <button class="wl-btn" id="wl-4847_T" data-ticker="4847.T"
+      onclick="toggleWatchlist('4847.T','インテリジェントウェイブ',this)"
+      title="ウォッチリストに追加">☆</button>
+  </div>
   <div class="pick-card-name"><a href="https://finance.yahoo.co.jp/quote/4847.T" class="stock-name-link" target="_blank" rel="noopener noreferrer">インテリジェントウェイブ&nbsp;↗</a></div>
   <div class="pick-card-ticker-row">
     <a href="https://finance.yahoo.co.jp/quote/4847.T" class="pick-card-ticker stock-ticker-link" target="_blank" rel="noopener noreferrer">4847.T</a>
@@ -284,7 +309,11 @@
 </div>
 </div><div class="pick-card fade-up market-jp">
 <div class="pick-card-top">
-  <div class="pick-card-rank"><span class="rank-medal">🥈</span> 第2位</div>
+  <div class="pick-card-rank"><span class="rank-medal">🥈</span> 第2位
+    <button class="wl-btn" id="wl-1721_T" data-ticker="1721.T"
+      onclick="toggleWatchlist('1721.T','コムシスHD',this)"
+      title="ウォッチリストに追加">☆</button>
+  </div>
   <div class="pick-card-name"><a href="https://finance.yahoo.co.jp/quote/1721.T" class="stock-name-link" target="_blank" rel="noopener noreferrer">コムシスHD&nbsp;↗</a></div>
   <div class="pick-card-ticker-row">
     <a href="https://finance.yahoo.co.jp/quote/1721.T" class="pick-card-ticker stock-ticker-link" target="_blank" rel="noopener noreferrer">1721.T</a>
@@ -315,7 +344,11 @@
 </div>
 </div><div class="pick-card fade-up market-jp">
 <div class="pick-card-top">
-  <div class="pick-card-rank"><span class="rank-medal">🥉</span> 第3位</div>
+  <div class="pick-card-rank"><span class="rank-medal">🥉</span> 第3位
+    <button class="wl-btn" id="wl-6562_T" data-ticker="6562.T"
+      onclick="toggleWatchlist('6562.T','ジーニー',this)"
+      title="ウォッチリストに追加">☆</button>
+  </div>
   <div class="pick-card-name"><a href="https://finance.yahoo.co.jp/quote/6562.T" class="stock-name-link" target="_blank" rel="noopener noreferrer">ジーニー&nbsp;↗</a></div>
   <div class="pick-card-ticker-row">
     <a href="https://finance.yahoo.co.jp/quote/6562.T" class="pick-card-ticker stock-ticker-link" target="_blank" rel="noopener noreferrer">6562.T</a>
@@ -346,7 +379,11 @@
 </div>
 </div><div class="pick-card fade-up market-jp">
 <div class="pick-card-top">
-  <div class="pick-card-rank"><span class="rank-medal">4位</span> 第4位</div>
+  <div class="pick-card-rank"><span class="rank-medal">4位</span> 第4位
+    <button class="wl-btn" id="wl-5711_T" data-ticker="5711.T"
+      onclick="toggleWatchlist('5711.T','三菱マテリアル',this)"
+      title="ウォッチリストに追加">☆</button>
+  </div>
   <div class="pick-card-name"><a href="https://finance.yahoo.co.jp/quote/5711.T" class="stock-name-link" target="_blank" rel="noopener noreferrer">三菱マテリアル&nbsp;↗</a></div>
   <div class="pick-card-ticker-row">
     <a href="https://finance.yahoo.co.jp/quote/5711.T" class="pick-card-ticker stock-ticker-link" target="_blank" rel="noopener noreferrer">5711.T</a>
@@ -377,7 +414,11 @@
 </div>
 </div><div class="pick-card fade-up market-jp">
 <div class="pick-card-top">
-  <div class="pick-card-rank"><span class="rank-medal">5位</span> 第5位</div>
+  <div class="pick-card-rank"><span class="rank-medal">5位</span> 第5位
+    <button class="wl-btn" id="wl-6273_T" data-ticker="6273.T"
+      onclick="toggleWatchlist('6273.T','SMC',this)"
+      title="ウォッチリストに追加">☆</button>
+  </div>
   <div class="pick-card-name"><a href="https://finance.yahoo.co.jp/quote/6273.T" class="stock-name-link" target="_blank" rel="noopener noreferrer">SMC&nbsp;↗</a></div>
   <div class="pick-card-ticker-row">
     <a href="https://finance.yahoo.co.jp/quote/6273.T" class="pick-card-ticker stock-ticker-link" target="_blank" rel="noopener noreferrer">6273.T</a>
@@ -409,7 +450,11 @@
 </div></div></div>
 <div id="tab-us"  class="tab-content"><div class="pick-scroll"><div class="pick-card fade-up market-us">
 <div class="pick-card-top">
-  <div class="pick-card-rank"><span class="rank-medal">🥇</span> 第1位</div>
+  <div class="pick-card-rank"><span class="rank-medal">🥇</span> 第1位
+    <button class="wl-btn" id="wl-ZM" data-ticker="ZM"
+      onclick="toggleWatchlist('ZM','ズーム',this)"
+      title="ウォッチリストに追加">☆</button>
+  </div>
   <div class="pick-card-name"><a href="https://finance.yahoo.com/quote/ZM" class="stock-name-link" target="_blank" rel="noopener noreferrer">ズーム&nbsp;↗</a></div>
   <div class="pick-card-ticker-row">
     <a href="https://finance.yahoo.com/quote/ZM" class="pick-card-ticker stock-ticker-link" target="_blank" rel="noopener noreferrer">ZM</a>
@@ -440,7 +485,11 @@
 </div>
 </div><div class="pick-card fade-up market-us">
 <div class="pick-card-top">
-  <div class="pick-card-rank"><span class="rank-medal">🥈</span> 第2位</div>
+  <div class="pick-card-rank"><span class="rank-medal">🥈</span> 第2位
+    <button class="wl-btn" id="wl-OKTA" data-ticker="OKTA"
+      onclick="toggleWatchlist('OKTA','Okta, Inc.',this)"
+      title="ウォッチリストに追加">☆</button>
+  </div>
   <div class="pick-card-name"><a href="https://finance.yahoo.com/quote/OKTA" class="stock-name-link" target="_blank" rel="noopener noreferrer">Okta, Inc.&nbsp;↗</a></div>
   <div class="pick-card-ticker-row">
     <a href="https://finance.yahoo.com/quote/OKTA" class="pick-card-ticker stock-ticker-link" target="_blank" rel="noopener noreferrer">OKTA</a>
@@ -471,7 +520,11 @@
 </div>
 </div><div class="pick-card fade-up market-us">
 <div class="pick-card-top">
-  <div class="pick-card-rank"><span class="rank-medal">🥉</span> 第3位</div>
+  <div class="pick-card-rank"><span class="rank-medal">🥉</span> 第3位
+    <button class="wl-btn" id="wl-SM" data-ticker="SM"
+      onclick="toggleWatchlist('SM','SM Energy Company',this)"
+      title="ウォッチリストに追加">☆</button>
+  </div>
   <div class="pick-card-name"><a href="https://finance.yahoo.com/quote/SM" class="stock-name-link" target="_blank" rel="noopener noreferrer">SM Energy Company&nbsp;↗</a></div>
   <div class="pick-card-ticker-row">
     <a href="https://finance.yahoo.com/quote/SM" class="pick-card-ticker stock-ticker-link" target="_blank" rel="noopener noreferrer">SM</a>
@@ -502,7 +555,11 @@
 </div>
 </div><div class="pick-card fade-up market-us">
 <div class="pick-card-top">
-  <div class="pick-card-rank"><span class="rank-medal">4位</span> 第4位</div>
+  <div class="pick-card-rank"><span class="rank-medal">4位</span> 第4位
+    <button class="wl-btn" id="wl-MPC" data-ticker="MPC"
+      onclick="toggleWatchlist('MPC','Marathon Petroleum Corporation',this)"
+      title="ウォッチリストに追加">☆</button>
+  </div>
   <div class="pick-card-name"><a href="https://finance.yahoo.com/quote/MPC" class="stock-name-link" target="_blank" rel="noopener noreferrer">Marathon Petroleum Corporation&nbsp;↗</a></div>
   <div class="pick-card-ticker-row">
     <a href="https://finance.yahoo.com/quote/MPC" class="pick-card-ticker stock-ticker-link" target="_blank" rel="noopener noreferrer">MPC</a>
@@ -533,7 +590,11 @@
 </div>
 </div><div class="pick-card fade-up market-us">
 <div class="pick-card-top">
-  <div class="pick-card-rank"><span class="rank-medal">5位</span> 第5位</div>
+  <div class="pick-card-rank"><span class="rank-medal">5位</span> 第5位
+    <button class="wl-btn" id="wl-TEAM" data-ticker="TEAM"
+      onclick="toggleWatchlist('TEAM','Atlassian Corporation',this)"
+      title="ウォッチリストに追加">☆</button>
+  </div>
   <div class="pick-card-name"><a href="https://finance.yahoo.com/quote/TEAM" class="stock-name-link" target="_blank" rel="noopener noreferrer">Atlassian Corporation&nbsp;↗</a></div>
   <div class="pick-card-ticker-row">
     <a href="https://finance.yahoo.com/quote/TEAM" class="pick-card-ticker stock-ticker-link" target="_blank" rel="noopener noreferrer">TEAM</a>
@@ -563,13 +624,73 @@
   <a href="/articles/20260514/" class="pick-card-cta">詳細レポートを見る &rarr;</a>
 </div>
 </div></div></div>
+<div id="tab-watchlist" class="tab-content">
+  <div id="watchlist-cards" class="pick-scroll" style="display:none"></div>
+  <div id="watchlist-empty" class="wl-empty">
+    <span class="wl-empty-icon">&#9734;</span>
+    ウォッチリストに追加した銘柄がここに表示されます。<br>
+    各銘柄カードの ☆ ボタンでリストに追加できます。
+  </div>
+</div>
 <script>
 function switchTab(e, id) {
-  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-  document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(function(b){ b.classList.remove('active'); });
+  document.querySelectorAll('.tab-content').forEach(function(c){ c.classList.remove('active'); });
   e.currentTarget.classList.add('active');
   document.getElementById('tab-' + id).classList.add('active');
+  if (id === 'watchlist') renderWatchlist();
 }
+
+/* ── Watchlist (localStorage) ── */
+function getWatchlist() {
+  try { return JSON.parse(localStorage.getItem('hg_watchlist') || '[]'); } catch(e) { return []; }
+}
+function saveWatchlist(list) {
+  localStorage.setItem('hg_watchlist', JSON.stringify(list));
+}
+function toggleWatchlist(ticker, name, btn) {
+  var wl = getWatchlist();
+  var idx = wl.findIndex(function(x) { return x.ticker === ticker; });
+  if (idx >= 0) { wl.splice(idx, 1); } else { wl.push({ticker: ticker, name: name}); }
+  saveWatchlist(wl);
+  updateAllWlBtns();
+}
+function updateAllWlBtns() {
+  var tickers = getWatchlist().map(function(x){ return x.ticker; });
+  document.querySelectorAll('.wl-btn').forEach(function(btn) {
+    var t = btn.getAttribute('data-ticker');
+    if (tickers.indexOf(t) >= 0) { btn.textContent = '★'; btn.classList.add('starred'); }
+    else { btn.textContent = '☆'; btn.classList.remove('starred'); }
+  });
+}
+function renderWatchlist() {
+  var wl = getWatchlist();
+  var empty = document.getElementById('watchlist-empty');
+  var cardsEl = document.getElementById('watchlist-cards');
+  if (!wl.length) {
+    empty.style.display = 'block'; cardsEl.style.display = 'none'; return;
+  }
+  empty.style.display = 'none'; cardsEl.style.display = 'flex';
+  cardsEl.innerHTML = wl.map(function(item) {
+    var safeT = item.ticker.split('.').join('_').split('^').join('_');
+    var url = item.ticker.indexOf('.T') > -1
+      ? 'https://finance.yahoo.co.jp/quote/' + item.ticker
+      : 'https://finance.yahoo.com/quote/' + item.ticker;
+    return '<div class="pick-card" style="min-width:220px">'
+      + '<div class="pick-card-top">'
+      + '<div class="pick-card-rank">'
+      + '<button class="wl-btn starred" id="wl-' + safeT + '" data-ticker="' + item.ticker + '"'
+      + ' onclick="toggleWatchlist(\'' + item.ticker + '\',\'' + item.name.replace(/'/g,"\'") + '\',this)">&#9733;</button>'
+      + '</div>'
+      + '<div class="pick-card-name"><a href="' + url + '" class="stock-name-link" target="_blank" rel="noopener noreferrer">' + item.name + '&nbsp;&#8599;</a></div>'
+      + '<div class="pick-card-ticker-row"><span class="pick-card-ticker">' + item.ticker + '</span></div>'
+      + '</div>'
+      + '<div class="pick-card-body" style="padding:.75rem 1.25rem">'
+      + '<a href="' + url + '" target="_blank" rel="noopener noreferrer" class="pick-card-cta">チャートを見る &#8599;</a>'
+      + '</div></div>';
+  }).join('');
+}
+document.addEventListener('DOMContentLoaded', function() { updateAllWlBtns(); });
 </script>
 
   <div class="af-box">
@@ -606,6 +727,8 @@ function switchTab(e, id) {
   </a>
 </div>
 </div>
+
+  
 
   
 
