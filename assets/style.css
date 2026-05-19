@@ -220,6 +220,19 @@ body {
 .pick-card-body { padding: .9rem 1.25rem 1.1rem; }
 .pick-card-cta { display: block; margin-top: .75rem; padding: .4em .75em; background: var(--primary-light); color: var(--primary-dark); border-radius: var(--radius); font-size: .75rem; font-weight: 700; text-align: center; text-decoration: none; transition: background .15s; }
 .pick-card-cta:hover { background: var(--primary); color: #fff; }
+.detail-toggle-btn { display: block; width: 100%; background: #f1f5f9; border: 1.5px solid #e2e8f0; border-radius: .45rem; padding: .42rem .8rem; font-size: .8rem; color: var(--primary); font-weight: 700; cursor: pointer; margin-top: .6rem; text-align: center; transition: background .15s, border-color .15s; }
+.detail-toggle-btn:hover { background: #eff6ff; border-color: #93c5fd; }
+.detail-toggle-btn.open { background: #eff6ff; border-color: var(--primary); }
+.detail-panel { display: none; margin: .2rem 0 .8rem; }
+.detail-panel.open { display: block; animation: detailFadeIn .2s ease; }
+@keyframes detailFadeIn { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
+.pick-detail-collapsible { border: 1px solid #e2e8f0; border-radius: .55rem; margin-bottom: .75rem; overflow: hidden; }
+.pick-detail-summary { padding: .65rem 1rem; font-size: .9rem; font-weight: 700; cursor: pointer; background: #f8fafc; color: var(--primary-dark); list-style: none; display: flex; align-items: center; gap: .5rem; }
+.pick-detail-summary::-webkit-details-marker { display: none; }
+.pick-detail-summary::before { content: "▶"; font-size: .65rem; color: var(--primary); transition: transform .2s; flex-shrink: 0; }
+details.pick-detail-collapsible[open] > .pick-detail-summary::before { transform: rotate(90deg); }
+.pick-detail-summary .pdc-rank { color: var(--muted); font-size: .78rem; font-weight: 600; }
+.pick-detail-summary .pdc-ticker { color: var(--muted); font-size: .78rem; }
 /* 銘柄名リンク */
 .stock-name-link { color: var(--primary); text-decoration: underline; text-underline-offset: 2px; text-decoration-color: rgba(37,99,235,.4); transition: text-decoration-color .15s; cursor: pointer; }
 .stock-name-link:hover { text-decoration-color: var(--primary); }

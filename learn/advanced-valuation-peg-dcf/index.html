@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PEGレシオとDCF（割引現在価値）｜成長株の本質的価値を見極める中級評価法 | HG Analytics</title>
+  <meta name="description" content="PEGレシオ（PER÷成長率）とDCF法（割引現在価値）を使った株の本質的価値の算出方法を中級者向けに解説。高PERの成長株が割安かどうかを客観的に判断する方法を紹介。">
+  <meta property="og:title" content="PEGレシオとDCF（割引現在価値）｜成長株の本質的価値を見極める中級評価法">
+  <meta property="og:description" content="PEGレシオ（PER÷成長率）とDCF法（割引現在価値）を使った株の本質的価値の算出方法を中級者向けに解説。高PERの成長株が割安かどうかを客観的に判断する方法を紹介。">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://hori0827.github.io/assets/ogp.png">
+  <meta property="og:url" content="https://hori0827.github.io/learn/advanced-valuation-peg-dcf/">
+  <meta property="og:site_name" content="HG Analytics">
+  <meta property="og:locale" content="ja_JP">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="PEGレシオとDCF（割引現在価値）｜成長株の本質的価値を見極める中級評価法">
+  <meta name="twitter:description" content="PEGレシオ（PER÷成長率）とDCF法（割引現在価値）を使った株の本質的価値の算出方法を中級者向けに解説。高PERの成長株が割安かどうかを客観的に判断する方法を紹介。">
+  <meta name="google-site-verification" content="7V_zOAQD8Wj-WW75kGPzPHq8kAcria_PGfj-kt5j11c">
+  <link rel="canonical" href="https://hori0827.github.io/learn/advanced-valuation-peg-dcf/">
+  <link rel="alternate" type="application/rss+xml" title="HG Analytics" href="https://hori0827.github.io/feed.xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap">
+  <link rel="stylesheet" href="/assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%232563eb'/><text x='3' y='24' font-family='sans-serif' font-size='18' font-weight='900' fill='white'>HG</text></svg>">
+  
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5716635999318915" crossorigin="anonymous"></script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "PEGレシオとDCF（割引現在価値）｜成長株の本質的価値を見極める中級評価法", "description": "PEGレシオ（PER÷成長率）とDCF法（割引現在価値）を使った株の本質的価値の算出方法を中級者向けに解説。高PERの成長株が割安かどうかを客観的に判断する方法を紹介。", "keywords": "PEGレシオ とは, DCF 株価 計算, 本質的価値 株, 成長株 バリュエーション", "author": {"@type": "Organization", "name": "HG Analytics AI"}, "publisher": {"@type": "Organization", "name": "HG Analytics", "url": "https://hori0827.github.io"}, "mainEntityOfPage": {"@type": "WebPage", "@id": "https://hori0827.github.io/learn/advanced-valuation-peg-dcf/"}}</script>
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner container">
+    <a href="/" class="logo">
+      <span class="logo-icon">&#9642;</span>HG Analytics
+    </a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle">
+    <label for="nav-toggle" class="nav-burger">&#9776;</label>
+    <nav class="nav-menu">
+      <a href="/">トップ</a>
+      <a href="/articles/">記事一覧</a>
+      <a href="/attention/">注目銘柄分析</a>
+      <a href="/portfolio/">仮想ポートフォリオ</a>
+      <a href="/hot/">急騰・急落</a>
+      <a href="/learn/">学習</a>
+      <a href="/brokers/">証券会社比較</a>
+      <a href="/performance/">予測実績</a>
+      <a href="/about/">運営者情報</a>
+    </nav>
+  </div>
+</header>
+<main>
+
+<div class="article-wrap">
+<div class="art-header fade-up">
+  <div class="art-header-meta">
+    <span><a href="/learn/" style="color:var(--primary)">学習コンテンツ</a></span>
+    <span>ファンダメンタル分析</span>
+  </div>
+  <h1>PEGレシオとDCF（割引現在価値）｜成長株の本質的価値を見極める中級評価法</h1>
+</div>
+
+
+<div class="editorial-summary">
+  <div class="summary-header">&#128203; この記事のポイント</div>
+  <ul class="summary-list">
+    <li>PEGレシオ＝<strong>PER ÷ EPS成長率（%）</strong>。1倍以下が割安の目安で成長株の評価に最適</li>
+    <li>DCF法は将来のキャッシュフローを現在価値に割り引いて<strong>理論株価</strong>を算出する手法</li>
+    <li>どちらも「PERだけでは割高に見える成長株」の本質的価値を測るのに有効</li>
+    <li>前提次第で大きく変わるため、<strong>複数の指標を組み合わせて</strong>判断することが重要</li>
+  </ul>
+</div>
+
+<h2>なぜPERだけでは不十分なのか</h2>
+<p>PER（株価収益率）は最も基本的な指標ですが、<strong>成長率を考慮していない</strong>という欠点があります。PER50倍の企業が割高か割安かは、その企業の成長速度によります。PEGレシオとDCF法はこの問題を解決するための中級評価ツールです。</p>
+
+<h2>PEGレシオの使い方</h2>
+<div style="background:var(--primary-light);border-radius:var(--radius);padding:1rem 1.5rem;margin:1rem 0;text-align:center">
+  <strong>PEGレシオ ＝ PER ÷ EPS成長率（%）</strong>
+</div>
+
+<div style="overflow-x:auto">
+<table class="broker-table">
+<thead><tr><th>PEGレシオ</th><th>評価</th><th>具体例</th></tr></thead>
+<tbody>
+<tr><td style="font-weight:700;color:var(--up)">0.5以下</td><td>かなり割安</td><td>PER20倍・成長率40% → PEG=0.5</td></tr>
+<tr><td style="font-weight:700;color:var(--up)">0.5〜1.0</td><td>割安〜適正</td><td>PER20倍・成長率25% → PEG=0.8</td></tr>
+<tr><td style="font-weight:700">1.0</td><td>適正水準</td><td>PER20倍・成長率20% → PEG=1.0</td></tr>
+<tr><td style="font-weight:700;color:var(--down)">1.5以上</td><td>やや割高</td><td>PER50倍・成長率20% → PEG=2.5</td></tr>
+</tbody>
+</table>
+</div>
+<p><strong>注意点：</strong>成長率は将来予測であるため、アナリスト予想の精度次第で大きく変わります。また成長が鈍化した瞬間にPEGが急悪化し、株価が大幅下落するリスクがあります。</p>
+
+<h2>DCF法（割引現在価値）の基本</h2>
+<p>DCF（Discounted Cash Flow）法は、企業が将来生み出すキャッシュフローを<strong>割引率で現在価値に換算して合計</strong>し、理論株価を算出する手法です。</p>
+<h3>計算の流れ</h3>
+<ol>
+<li><strong>将来のフリーキャッシュフロー（FCF）を予測</strong>（5〜10年分）</li>
+<li>各年のFCFを割引率（WACC＝加重平均資本コスト）で割り引いて現在価値を算出</li>
+<li><strong>ターミナルバリュー</strong>（5〜10年後以降の価値）を加算</li>
+<li>合計を発行済み株式数で割り、1株あたりの理論価値を算出</li>
+</ol>
+
+<h3>DCF法の感度分析（重要）</h3>
+<div style="overflow-x:auto">
+<table class="broker-table">
+<thead><tr><th>前提</th><th>理論株価への影響</th></tr></thead>
+<tbody>
+<tr><td>成長率を1%上げると</td><td>理論株価が10〜30%上昇することがある</td></tr>
+<tr><td>割引率を1%上げると</td><td>理論株価が15〜25%下落することがある</td></tr>
+</tbody>
+</table>
+</div>
+<p>前提次第で結果が大きく変わるため、<strong>「DCFで算出した理論株価は絶対値ではなく幅で考える」</strong>ことが重要です。</p>
+
+<h2>実践的な使い方</h2>
+<p>DCFの正確な計算は専門的ですが、簡易版として「<strong>逆DCF法</strong>」が便利です。「この株価は何%の成長率を織り込んでいるか」を逆算し、その成長率が現実的かどうかを判断します。</p>
+<p>例：テクノロジー企業のPERが80倍の場合、逆DCFを使うと「年率30%成長を10年間継続するという前提を織り込んでいる」と計算できます。それが実現可能かを自分で評価することが投資判断の核心です。</p>
+
+<h2>よくある質問</h2>
+<details class="accordion-section">
+<summary>PEGレシオはどんな銘柄に使いにくいですか？</summary>
+<div class="accordion-body"><p>①赤字企業（EPS がマイナス）②成長率が安定しない周期性の高い銘柄③銀行・保険など規制業種（PER自体が業種特性で低い）には不向きです。またEPS成長率の予想精度が低い場合、PEGの信頼性も低下します。</p></div>
+</details>
+<details class="accordion-section">
+<summary>DCFの割引率（WACC）はどう決めますか？</summary>
+<div class="accordion-body"><p>WACCは資本コストと負債コストの加重平均ですが、個人投資家はシンプルに「期待リターン率」として8〜12%程度を使うことが多いです。ハイリスクな成長株には12〜15%、安定企業には7〜9%を使うのが一般的な感覚値です。</p></div>
+</details>
+
+
+<div class="ad-unit">
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5716635999318915"
+     data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+
+<div class="af-box">
+  <div class="af-box-header">
+    <div class="af-box-title">&#9654; 証券口座を開くなら — 広告・PR</div>
+    <div class="af-notice">&#9888; 広告・PR（アフィリエイトリンクを含みます）</div>
+  </div>
+<div class="af-item">
+  <div class="af-item-info">
+    <div class="af-item-name">SBI証券</div>
+    <div class="af-item-desc">国内最大手ネット証券。手数料無料・豊富な銘柄数</div>
+  </div>
+  <a href="https://ck.jp.ap.valuecommerce.com/servlet/referral?sid=YOUR_SID&pid=YOUR_PID" class="af-btn" rel="nofollow sponsored" target="_blank"
+     onclick="gtag&&gtag('event','affiliate_click',{broker:'sbi',campaign:'learn_advanced-valuation-peg-dcf'})">
+    【無料口座開設】SBI証券で今すぐ始める
+  </a>
+</div><div class="af-item">
+  <div class="af-item-info">
+    <div class="af-item-name">楽天証券</div>
+    <div class="af-item-desc">楽天ポイントが貯まる。使いやすいUI・充実のツール</div>
+  </div>
+  <a href="https://ck.jp.ap.valuecommerce.com/servlet/referral?sid=YOUR_SID&pid=YOUR_PID2" class="af-btn" rel="nofollow sponsored" target="_blank"
+     onclick="gtag&&gtag('event','affiliate_click',{broker:'rakuten',campaign:'learn_advanced-valuation-peg-dcf'})">
+    【楽天ポイント活用】楽天証券で口座開設
+  </a>
+</div><div class="af-item">
+  <div class="af-item-info">
+    <div class="af-item-name">松井証券</div>
+    <div class="af-item-desc">1日50万円以下なら手数料無料。初心者向け</div>
+  </div>
+  <a href="https://px.a8.net/svt/ejp?a8mat=YOUR_A8_CODE" class="af-btn" rel="nofollow sponsored" target="_blank"
+     onclick="gtag&&gtag('event','affiliate_click',{broker:'matsui',campaign:'learn_advanced-valuation-peg-dcf'})">
+    【手数料無料】松井証券で投資デビュー
+  </a>
+</div>
+</div>
+
+<div class="share-buttons">
+  <p class="share-label">この記事をシェアする</p>
+  <div class="share-row">
+    <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fhori0827.github.io%2Flearn%2Fadvanced-valuation-peg-dcf%2F&text=PEG%E3%83%AC%E3%82%B7%E3%82%AA%E3%81%A8DCF%EF%BC%88%E5%89%B2%E5%BC%95%E7%8F%BE%E5%9C%A8%E4%BE%A1%E5%80%A4%EF%BC%89%EF%BD%9C%E6%88%90%E9%95%B7%E6%A0%AA%E3%81%AE%E6%9C%AC%E8%B3%AA%E7%9A%84%E4%BE%A1%E5%80%A4%E3%82%92%E8%A6%8B%E6%A5%B5%E3%82%81%E3%82%8B%E4%B8%AD%E7%B4%9A%E8%A9%95%E4%BE%A1%E6%B3%95%20%23%E6%A0%AA%E5%BC%8F%E6%8A%95%E8%B3%87%20%23AI%E5%88%86%E6%9E%90" target="_blank" rel="noopener noreferrer" class="share-btn share-x">X (Twitter)</a>
+    <a href="https://line.me/R/msg/text/?PEG%E3%83%AC%E3%82%B7%E3%82%AA%E3%81%A8DCF%EF%BC%88%E5%89%B2%E5%BC%95%E7%8F%BE%E5%9C%A8%E4%BE%A1%E5%80%A4%EF%BC%89%EF%BD%9C%E6%88%90%E9%95%B7%E6%A0%AA%E3%81%AE%E6%9C%AC%E8%B3%AA%E7%9A%84%E4%BE%A1%E5%80%A4%E3%82%92%E8%A6%8B%E6%A5%B5%E3%82%81%E3%82%8B%E4%B8%AD%E7%B4%9A%E8%A9%95%E4%BE%A1%E6%B3%95%20%23%E6%A0%AA%E5%BC%8F%E6%8A%95%E8%B3%87%20%23AI%E5%88%86%E6%9E%90%0Ahttps%3A%2F%2Fhori0827.github.io%2Flearn%2Fadvanced-valuation-peg-dcf%2F" target="_blank" rel="noopener noreferrer" class="share-btn share-line">LINE</a>
+  </div>
+</div>
+
+<div class="sh" style="margin-top:2rem"><div class="sh-title">関連記事</div></div><div class="learn-grid"><a class="learn-card" href="/learn/what-is-per/">
+  <div class="learn-card-category">ファンダメンタル分析</div>
+  <div class="learn-card-title">PERとは？株価が割安か割高かを判断する基本指標をわかりやすく解説</div>
+  <div class="learn-card-more">読む &rarr;</div>
+</a><a class="learn-card" href="/learn/what-is-pbr/">
+  <div class="learn-card-category">ファンダメンタル分析</div>
+  <div class="learn-card-title">PBRとは？1倍割れの意味と割安株の見つけ方を初心者向けに解説</div>
+  <div class="learn-card-more">読む &rarr;</div>
+</a><a class="learn-card" href="/learn/what-is-rsi/">
+  <div class="learn-card-category">テクニカル分析</div>
+  <div class="learn-card-title">RSIとは？株の売られすぎ・買われすぎを見極める指標をわかりやすく解説</div>
+  <div class="learn-card-more">読む &rarr;</div>
+</a></div>
+
+<div style="text-align:center;margin:2rem 0">
+  <a href="/learn/" class="hero-cta" style="display:inline-block;font-size:.9rem">&#8592; 学習コンテンツ一覧へ戻る</a>
+</div>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <p class="footer-logo">HG Analytics</p>
+        <p class="footer-desc">AIが毎日分析する株価情報サイト</p>
+      </div>
+      <div>
+        <p class="footer-heading">コンテンツ</p>
+        <a href="/">トップ</a>
+        <a href="/articles/">記事一覧</a>
+        <a href="/attention/">注目銘柄分析</a>
+        <a href="/portfolio/">仮想ポートフォリオ</a>
+        <a href="/hot/">急騰・急落</a>
+        <a href="/learn/">学習コンテンツ</a>
+        <a href="/brokers/">証券会社比較</a>
+        <a href="/performance/">予測実績</a>
+        <a href="/about/">運営者情報</a>
+        <a href="/privacy/">プライバシーポリシー</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="disclaimer">本サイトの情報は投資助言ではありません。投資判断はご自身の責任で行ってください（金融商品取引法第2条準拠）。</p>
+      <p>&copy; 2026 HG Analytics</p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
