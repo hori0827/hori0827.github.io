@@ -1,881 +1,285 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>グロース投資部門 | 高成長株BUYリスト | HG Analytics</title>
-  <meta name="description" content="売上成長率・利益率・モメンタムで高成長株を選定。AIグロース投資部門の最新BUYリスト。">
-  <meta property="og:title" content="グロース投資部門 | 高成長株BUYリスト">
-  <meta property="og:description" content="売上成長率・利益率・モメンタムで高成長株を選定。AIグロース投資部門の最新BUYリスト。">
-  <meta property="og:type" content="article">
-  <meta property="og:image" content="https://hori0827.github.io/assets/ogp.png">
-  <meta property="og:url" content="https://hori0827.github.io/growth/">
-  <meta property="og:site_name" content="HG Analytics">
-  <meta property="og:locale" content="ja_JP">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="グロース投資部門 | 高成長株BUYリスト">
-  <meta name="twitter:description" content="売上成長率・利益率・モメンタムで高成長株を選定。AIグロース投資部門の最新BUYリスト。">
-  <meta name="google-site-verification" content="7V_zOAQD8Wj-WW75kGPzPHq8kAcria_PGfj-kt5j11c">
-  <link rel="canonical" href="https://hori0827.github.io/growth/">
-  <link rel="alternate" type="application/rss+xml" title="HG Analytics" href="https://hori0827.github.io/feed.xml">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap">
-  <link rel="stylesheet" href="/assets/style.css">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%232563eb'/><text x='3' y='24' font-family='sans-serif' font-size='18' font-weight='900' fill='white'>HG</text></svg>">
-  
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5716635999318915" crossorigin="anonymous"></script>
-  
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>グロース部門 | HG Analytics</title>
+
+<style>
+:root {
+  --bg: #f8f9fa; --card: #fff; --text: #1a1a2e; --text-sub: #6b7280;
+  --primary: #2563eb; --accent: #10b981; --danger: #ef4444;
+  --border: #e5e7eb; --radius: 10px; --shadow: 0 2px 8px rgba(0,0,0,.08);
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #0f172a; --card: #1e293b; --text: #f1f5f9; --text-sub: #94a3b8;
+          --border: #334155; --shadow: 0 2px 8px rgba(0,0,0,.3); }
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, 'Hiragino Sans', sans-serif; background: var(--bg);
+       color: var(--text); line-height: 1.6; }
+a { color: var(--primary); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+header { background: var(--card); border-bottom: 1px solid var(--border);
+         padding: .75rem 1.5rem; display: flex; align-items: center;
+         gap: 1.5rem; flex-wrap: wrap; position: sticky; top: 0; z-index: 10; }
+.logo { font-size: 1.15rem; font-weight: 800; color: var(--primary); }
+nav { display: flex; gap: 1rem; font-size: .88rem; flex-wrap: wrap; }
+nav a { color: var(--text-sub); }
+nav a:hover { color: var(--primary); }
+
+main { max-width: 960px; margin: 0 auto; padding: 1.5rem 1rem 4rem; }
+h1 { font-size: 1.5rem; font-weight: 800; margin-bottom: .5rem; }
+h2 { font-size: 1.15rem; font-weight: 700; margin: 1.5rem 0 .75rem;
+     padding-bottom: .35rem; border-bottom: 2px solid var(--primary); }
+h3 { font-size: 1rem; font-weight: 700; margin: 1rem 0 .4rem; }
+
+.section-header { display: flex; align-items: baseline; gap: .75rem; margin: 1.5rem 0 .75rem; }
+.section-header h2 { margin: 0; border: none; padding: 0; }
+.section-header .more { font-size: .8rem; color: var(--primary); margin-left: auto; }
+
+/* Index bar */
+.indices { display: flex; gap: .75rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+.idx-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
+            padding: .6rem 1rem; min-width: 130px; }
+.idx-name { font-size: .75rem; color: var(--text-sub); }
+.idx-price { font-size: 1rem; font-weight: 700; }
+.idx-chg { font-size: .78rem; font-weight: 600; }
+.up { color: var(--accent); } .dn { color: var(--danger); }
+
+/* Pick cards */
+.picks-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px,1fr)); gap: 1rem; }
+.pick-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
+             box-shadow: var(--shadow); padding: 1rem; transition: transform .15s; }
+.pick-card:hover { transform: translateY(-2px); }
+.pick-rank { font-size: .7rem; font-weight: 800; color: var(--text-sub); text-transform: uppercase;
+             letter-spacing: .05em; margin-bottom: .25rem; }
+.pick-header { display: flex; align-items: center; gap: .5rem; margin-bottom: .5rem; }
+.pick-flag { font-size: 1.1rem; }
+.pick-ticker { font-size: .85rem; font-weight: 800; }
+.pick-name { font-size: .8rem; color: var(--text-sub); }
+.pick-score { font-size: 1.4rem; font-weight: 800; color: var(--primary); margin-bottom: .4rem; }
+.pick-score span { font-size: .75rem; color: var(--text-sub); font-weight: 400; }
+.pick-meta { display: flex; gap: .75rem; font-size: .78rem; color: var(--text-sub); margin-bottom: .5rem; }
+.pick-reasons { display: flex; flex-wrap: wrap; gap: .3rem; }
+.reason-tag { font-size: .68rem; background: var(--bg); color: var(--text-sub);
+              padding: .15em .55em; border-radius: .3em; }
+
+/* Department cards */
+.dept-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px,1fr)); gap: 1rem; }
+.dept-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
+             box-shadow: var(--shadow); overflow: hidden; }
+.dept-head { padding: .6rem 1rem; font-size: .8rem; font-weight: 800; letter-spacing: .04em; }
+.dept-val  { background: #2563eb22; color: var(--primary); }
+.dept-gro  { background: #10b98122; color: var(--accent); }
+.dept-div  { background: #f59e0b22; color: #d97706; }
+.dept-body { padding: .75rem 1rem; }
+.dept-desc { font-size: .78rem; color: var(--text-sub); margin-bottom: .5rem; }
+.dept-picks-list { list-style: none; font-size: .82rem; }
+.dept-picks-list li { display: flex; justify-content: space-between; align-items: center;
+                      padding: .2rem 0; border-bottom: 1px solid var(--border); }
+.dept-picks-list li:last-child { border: none; }
+.dept-score-badge { font-size: .72rem; font-weight: 700; color: var(--primary);
+                    background: var(--bg); padding: .1em .5em; border-radius: .3em; }
+
+/* Article */
+.article-body { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
+                padding: 1.5rem; line-height: 1.8; }
+.article-body h1 { font-size: 1.3rem; margin-bottom: 1rem; }
+.article-body h2 { font-size: 1.05rem; }
+.article-body h3 { font-size: .95rem; }
+.article-body p  { margin: .6rem 0; }
+.article-body ul, .article-body ol { padding-left: 1.5rem; margin: .5rem 0; }
+.article-body table { border-collapse: collapse; width: 100%; font-size: .85rem; margin: .75rem 0; }
+.article-body th, .article-body td { border: 1px solid var(--border); padding: .4rem .75rem; text-align: left; }
+.article-body th { background: var(--bg); font-weight: 700; }
+.article-body blockquote { border-left: 3px solid var(--border); padding-left: 1rem;
+                            color: var(--text-sub); font-size: .9rem; margin: .75rem 0; }
+.article-body hr { border: none; border-top: 1px solid var(--border); margin: 1.25rem 0; }
+
+footer { text-align: center; font-size: .75rem; color: var(--text-sub); padding: 2rem 1rem;
+         border-top: 1px solid var(--border); margin-top: 3rem; }
+</style>
 </head>
 <body>
-<header class="site-header">
-  <div class="header-inner container">
-    <a href="/" class="logo">
-      <span class="logo-icon">&#9642;</span>HG Analytics
-    </a>
-    <input type="checkbox" id="nav-toggle" class="nav-toggle">
-    <label for="nav-toggle" class="nav-burger">&#9776;</label>
-    <nav class="nav-menu">
-      <a href="/" class="nav-primary">トップ</a>
-      <a href="/value/" class="nav-primary">&#128201; バリュー</a>
-      <a href="/growth/" class="nav-primary">&#128640; グロース</a>
-      <a href="/dividend/" class="nav-primary">&#128176; 高配当</a>
-      <a href="/articles/" class="nav-secondary">記事一覧</a>
-      <a href="/performance/" class="nav-secondary">予測実績</a>
-      <a href="/sector/" class="nav-secondary">セクター分析</a>
-      <a href="/methodology/" class="nav-secondary">分析手法</a>
-      <a href="/learn/" class="nav-secondary">学習</a>
-      <a href="/brokers/" class="nav-secondary">証券会社比較</a>
-    </nav>
-  </div>
+<header>
+  <span class="logo">📊 HG Analytics</span>
+  <nav>
+    <a href="/">トップ</a>
+    <a href="/value/">バリュー</a>
+    <a href="/growth/">グロース</a>
+    <a href="/dividend/">高配当</a>
+    <a href="/articles/">記事</a>
+  </nav>
 </header>
 <main>
-<div class="article-wrap">
-<div class="art-header fade-up" style="border-left:4px solid #14532d;padding-left:1rem">
-  <div style="font-size:.82rem;color:#14532d;font-weight:600;margin-bottom:.25rem">&#128640; 投資スタイル別部門</div>
-  <h1>グロース投資部門</h1>
-  <div class="art-header-meta">
-    <span style="color:var(--text-sub)">高い売上・利益成長率と強いモメンタムを持つ銘柄に集中投資。市場平均を大きく上回るリターンを狙います。</span>
-    <span style="font-size:.74rem;color:var(--muted)">&#128337; データ更新: 2026年05月21日</span>
+<h1>グロース部門</h1>
+<p style="color:var(--text-sub);font-size:.88rem;margin-bottom:1.5rem;">高成長・強モメンタム銘柄 — BUY銘柄: 59銘柄（スコア40.0点以上）</p>
+<div class="picks-grid"><div class="pick-card">
+  <div class="pick-rank">#26</div>
+  <div class="pick-header">
+    <span class="pick-flag">🇺🇸</span>
+    <div>
+      <div class="pick-ticker">LLY</div>
+      <div class="pick-name">Eli Lilly</div>
+    </div>
   </div>
-</div>
-
-<div class="editorial-summary" style="margin:1.5rem 0;border-left:3px solid #14532d;background:#dcfce720">
-  <div class="summary-header" style="color:#14532d">&#127891; 運用哲学</div>
-  <p style="font-size:.88rem;margin:.5rem 0">売上・EPS成長率が最重要指標。成長の勢いをRSI・MACD・トレンドで確認し、モメンタムが確認できた時点でエントリー。</p>
-</div>
-
-<div class="stat-row" style="margin-bottom:1.5rem">
-  <div class="stat-card"><div class="stat-label">現在BUY銘柄数</div>
-    <div class="stat-value" style="color:#14532d">72</div></div>
-  <div class="stat-card"><div class="stat-label">うち STRONG BUY</div>
-    <div class="stat-value" style="color:#14532d">29</div></div>
-</div>
-
-<h2 style="font-size:1.1rem;margin:1.5rem 0 .75rem;border-bottom:2px solid #14532d;padding-bottom:.4rem">
-  &#128640; 現在のBUY銘柄リスト</h2>
-<p style="font-size:.82rem;color:var(--text-sub);margin-bottom:.75rem">
-  ※参考情報です。投資助言ではありません。スコアはAIによる定量評価であり、将来の利益を保証しません。
-</p>
-<table class="perf-table" style="font-size:.85rem">
-<thead><tr>
-  <th>#</th><th>銘柄</th><th>スコア</th><th>現在価格</th><th>選定理由（上位）</th><th>主要指標</th>
-</tr></thead>
-<tbody><tr>
-<td style="text-align:center;font-weight:600">1</td>
-<td>🇺🇸 <strong>NVDA</strong><br>
-  <span style="font-size:.78rem;color:var(--text-sub)">エヌビディア</span></td>
-<td><strong class="perf-up">95.0%</strong><br>
-  <span style="font-size:.72rem;color:var(--muted)">★強BUY</span></td>
-<td style="font-size:.8rem">$223.47</td>
-<td style="font-size:.77rem;color:var(--text-sub)">売上成長 73.2%（高成長◎◎）<br>EPS成長 95.6%（利益急拡大）<br>利益率 55.6%（高収益ビジネス）</td>
-<td style="font-size:.75rem;color:var(--muted);white-space:nowrap">売上成長%: 73.2 ／ EPS成長%: 95.6 ／ 利益率%: 55.6 ／ RSI: 70.0</td>
-</tr><tr>
-<td style="text-align:center;font-weight:600">2</td>
-<td>🇯🇵 <strong>8411.T</strong><br>
-  <span style="font-size:.78rem;color:var(--text-sub)">みずほFG</span></td>
-<td><strong class="perf-up">85.0%</strong><br>
-  <span style="font-size:.72rem;color:var(--muted)">★強BUY</span></td>
-<td style="font-size:.8rem">¥7,301</td>
-<td style="font-size:.77rem;color:var(--text-sub)">売上成長 16.7%（成長中）<br>EPS成長 679.9%（利益急拡大）<br>利益率 28.4%（高収益ビジネス）</td>
-<td style="font-size:.75rem;color:var(--muted);white-space:nowrap">売上成長%: 16.7 ／ EPS成長%: 679.9 ／ 利益率%: 28.4 ／ RSI: 64.0</td>
-</tr><tr>
-<td style="text-align:center;font-weight:600">3</td>
-<td>🇺🇸 <strong>MU</strong><br>
-  <span style="font-size:.78rem;color:var(--text-sub)">マイクロン</span></td>
-<td><strong class="perf-up">85.0%</strong><br>
-  <span style="font-size:.72rem;color:var(--muted)">★強BUY</span></td>
-<td style="font-size:.8rem">$731.99</td>
-<td style="font-size:.77rem;color:var(--text-sub)">売上成長 196.3%（高成長◎◎）<br>EPS成長 756.0%（利益急拡大）<br>利益率 41.5%（高収益ビジネス）</td>
-<td style="font-size:.75rem;color:var(--muted);white-space:nowrap">売上成長%: 196.3 ／ EPS成長%: 756.0 ／ 利益率%: 41.5 ／ RSI: 69.0</td>
-</tr><tr>
-<td style="text-align:center;font-weight:600">4</td>
-<td>🇺🇸 <strong>LLY</strong><br>
-  <span style="font-size:.78rem;color:var(--text-sub)">イーライリリー</span></td>
-<td><strong class="perf-up">85.0%</strong><br>
-  <span style="font-size:.72rem;color:var(--muted)">★強BUY</span></td>
-<td style="font-size:.8rem">$1018.87</td>
-<td style="font-size:.77rem;color:var(--text-sub)">売上成長 55.5%（高成長◎◎）<br>EPS成長 169.9%（利益急拡大）<br>利益率 35.0%（高収益ビジネス）</td>
-<td style="font-size:.75rem;color:var(--muted);white-space:nowrap">売上成長%: 55.5 ／ EPS成長%: 169.9 ／ 利益率%: 35.0 ／ RSI: 69.0</td>
-</tr><tr>
-<td style="text-align:center;font-weight:600">5</td>
-<td>🇺🇸 <strong>EOG</strong><br>
-  <span style="font-size:.78rem;color:var(--text-sub)">EOG Resources, Inc.</span></td>
-<td><strong class="perf-up">85.0%</strong><br>
-  <span style="font-size:.72rem;color:var(--muted)">★強BUY</span></td>
-<td style="font-size:.8rem">$141.63</td>
-<td style="font-size:.77rem;color:var(--text-sub)">売上成長 15.6%（成長中）<br>EPS成長 39.6%（利益急拡大）<br>利益率 23.3%（良好）</td>
-<td style="font-size:.75rem;color:var(--muted);white-space:nowrap">売上成長%: 15.6 ／ EPS成長%: 39.6 ／ 利益率%: 23.3 ／ RSI: 52.0</td>
-</tr><tr>
-<td style="text-align:center;font-weight:600">6</td>
-<td>🇯🇵 <strong>6762.T</strong><br>
-  <span style="font-size:.78rem;color:var(--text-sub)">TDK Corporation</span></td>
-<td><strong class="perf-up">80.0%</strong><br>
-  <span style="font-size:.72rem;color:var(--muted)">★強BUY</span></td>
-<td style="font-size:.8rem">¥3,141</td>
-<td style="font-size:.77rem;color:var(--text-sub)">売上成長 21.0%（高成長◎）<br>EPS成長 129.9%（利益急拡大）<br>RSI 69（上昇モメンタム確認）</td>
-<td style="font-size:.75rem;color:var(--muted);white-space:nowrap">売上成長%: 21.0 ／ EPS成長%: 129.9 ／ 利益率%: 7.8 ／ RSI: 69.0</td>
-</tr><tr>
-<td style="text-align:center;font-weight:600">7</td>
-<td>🇯🇵 <strong>4385.T</strong><br>
-  <span style="font-size:.78rem;color:var(--text-sub)">メルカリ</span></td>
-<td><strong class="perf-up">80.0%</strong><br>
-  <span style="font-size:.72rem;color:var(--muted)">★強BUY</span></td>
-<td style="font-size:.8rem">¥4,078</td>
-<td style="font-size:.77rem;color:var(--text-sub)">売上成長 22.3%（高成長◎）<br>EPS成長 102.6%（利益急拡大）<br>利益率 15.7%（良好）</td>
-<td style="font-size:.75rem;color:var(--muted);white-space:nowrap">売上成長%: 22.3 ／ EPS成長%: 102.6 ／ 利益率%: 15.7 ／ RSI: 59.0</td>
-</tr><tr>
-<td style="text-align:center;font-weight:600">8</td>
-<td>🇺🇸 <strong>GOOGL</strong><br>
-  <span style="font-size:.78rem;color:var(--text-sub)">アルファベット</span></td>
-<td><strong class="perf-up">80.0%</strong><br>
-  <span style="font-size:.72rem;color:var(--muted)">★強BUY</span></td>
-<td style="font-size:.8rem">$388.91</td>
-<td style="font-size:.77rem;color:var(--text-sub)">売上成長 21.8%（高成長◎）<br>EPS成長 82.0%（利益急拡大）<br>利益率 37.9%（高収益ビジネス）</td>
-<td style="font-size:.75rem;color:var(--muted);white-space:nowrap">売上成長%: 21.8 ／ EPS成長%: 82.0 ／ 利益率%: 37.9 ／ RSI: 53.0</td>
-</tr><tr>
-<td style="text-align:center;font-weight:600">9</td>
-<td>🇺🇸 <strong>AVGO</strong><br>
-  <span style="font-size:.78rem;color:var(--text-sub)">ブロードコム</span></td>
-<td><strong class="perf-up">80.0%</strong><br>
-  <span style="font-size:.72rem;color:var(--muted)">★強BUY</span></td>
-<td style="font-size:.8rem">$417.76</td>
-<td style="font-size:.77rem;color:var(--text-sub)">売上成長 29.5%（高成長◎）<br>EPS成長 31.6%（利益急拡大）<br>利益率 36.6%（高収益ビジネス）</td>
-<td style="font-size:.75rem;color:var(--muted);white-space:nowrap">売上成長%: 29.5 ／ EPS成長%: 31.6 ／ 利益率%: 36.6 ／ RSI: 50.0</td>
-</tr><tr>
-<td style="text-align:center;font-weight:600">10</td>
-<td>🇺🇸 <strong>LRCX</strong><br>
-  <span style="font-size:.78rem;color:var(--text-sub)">ラムリサーチ</span></td>
-<td><strong class="perf-up">80.0%</strong><br>
-  <span style="font-size:.72rem;color:var(--muted)">★強BUY</span></td>
-<td style="font-size:.8rem">$292.09</td>
-<td style="font-size:.77rem;color:var(--text-sub)">売上成長 23.8%（高成長◎）<br>EPS成長 40.8%（利益急拡大）<br>利益率 30.9%（高収益ビジネス）</td>
-<td style="font-size:.75rem;color:var(--muted);white-space:nowrap">売上成長%: 23.8 ／ EPS成長%: 40.8 ／ 利益率%: 30.9 ／ RSI: 64.0</td>
-</tr><tr>
-<td style="text-align:center;font-weight:600">11</td>
-<td>🇺🇸 <strong>V</strong><br>
-  <span style="font-size:.78rem;color:var(--text-sub)">ビザ</span></td>
-<td><strong class="perf-up">80.0%</strong><br>
-  <span style="font-size:.72rem;color:var(--muted)">★強BUY</span></td>
-<td style="font-size:.8rem">$330.75</td>
-<td style="font-size:.77rem;color:var(--text-sub)">売上成長 17.1%（成長中）<br>EPS成長 35.5%（利益急拡大）<br>利益率 51.7%（高収益ビジネス）</td>
-<td style="font-size:.75rem;color:var(--muted);white-space:nowrap">売上成長%: 17.1 ／ EPS成長%: 35.5 ／ 利益率%: 51.7 ／ RSI: 52.0</td>
-</tr><tr>
-<td style="text-align:center;font-weight:600">12</td>
-<td>🇯🇵 <strong>4543.T</strong><br>
-  <span style="font-size:.78rem;color:var(--text-sub)">テルモ</span></td>
-<td><strong class="perf-up">75.0%</strong><br>
-  <span style="font-size:.72rem;color:var(--muted)">★強BUY</span></td>
-<td style="font-size:.8rem">¥2,332</td>
-<td style="font-size:.77rem;color:var(--text-sub)">売上成長 13.8%（成長中）<br>EPS成長 43.6%（利益急拡大）<br>RSI 72（強いモメンタム）</td>
-<td style="font-size:.75rem;color:var(--muted);white-space:nowrap">売上成長%: 13.8 ／ EPS成長%: 43.6 ／ 利益率%: 12.0 ／ RSI: 72.0</td>
-</tr><tr>
-<td style="text-align:center;font-weight:600">13</td>
-<td>🇯🇵 <strong>2914.T</strong><br>
-  <span style="font-size:.78rem;color:var(--text-sub)">JT</span></td>
-<td><strong class="perf-up">75.0%</strong><br>
-  <span style="font-size:.72rem;color:var(--muted)">★強BUY</span></td>
-<td style="font-size:.8rem">¥6,233</td>
-<td style="font-size:.77rem;color:var(--text-sub)">売上成長 11.7%（成長中）<br>EPS成長 25.1%（利益成長◎）<br>利益率 15.3%（良好）</td>
-<td style="font-size:.75rem;color:var(--muted);white-space:nowrap">売上成長%: 11.7 ／ EPS成長%: 25.1 ／ 利益率%: 15.3 ／ RSI: 66.0</td>
-</tr><tr>
-<td style="text-align:center;font-weight:600">14</td>
-<td>🇯🇵 <strong>6098.T</strong><br>
-  <span style="font-size:.78rem;color:var(--text-sub)">リクルートHD</span></td>
-<td><strong class="perf-up">75.0%</strong><br>
-  <span style="font-size:.72rem;color:var(--muted)">★強BUY</span></td>
-<td style="font-size:.8rem">¥9,564</td>
-<td style="font-size:.77rem;color:var(--text-sub)">売上成長 11.5%（成長中）<br>EPS成長 60.9%（利益急拡大）<br>RSI 81（強いモメンタム）</td>
-<td style="font-size:.75rem;color:var(--muted);white-space:nowrap">売上成長%: 11.5 ／ EPS成長%: 60.9 ／ 利益率%: 13.4 ／ RSI: 81.0</td>
-</tr><tr>
-<td style="text-align:center;font-weight:600">15</td>
-<td>🇺🇸 <strong>AMD</strong><br>
-  <span style="font-size:.78rem;color:var(--text-sub)">AMD</span></td>
-<td><strong class="perf-up">75.0%</strong><br>
-  <span style="font-size:.72rem;color:var(--muted)">★強BUY</span></td>
-<td style="font-size:.8rem">$447.58</td>
-<td style="font-size:.77rem;color:var(--text-sub)">売上成長 37.8%（高成長◎◎）<br>EPS成長 91.2%（利益急拡大）<br>RSI 68（上昇モメンタム確認）</td>
-<td style="font-size:.75rem;color:var(--muted);white-space:nowrap">売上成長%: 37.8 ／ EPS成長%: 91.2 ／ 利益率%: 13.4 ／ RSI: 68.0</td>
-</tr><tr>
-<td style="text-align:center;font-weight:600">16</td>
-<td>🇺🇸 <strong>AMAT</strong><br>
-  <span style="font-size:.78rem;color:var(--text-sub)">アプライドマテリアルズ</span></td>
-<td><strong class="perf-up">75.0%</strong><br>
-  <span style="font-size:.72rem;color:var(--muted)">★強BUY</span></td>
-<td style="font-size:.8rem">$426.85</td>
-<td style="font-size:.77rem;color:var(--text-sub)">売上成長 11.4%（成長中）<br>EPS成長 33.5%（利益急拡大）<br>利益率 29.3%（高収益ビジネス）</td>
-<td style="font-size:.75rem;color:var(--muted);white-space:nowrap">売上成長%: 11.4 ／ EPS成長%: 33.5 ／ 利益率%: 29.3 ／ RSI: 59.0</td>
-</tr><tr>
-<td style="text-align:center;font-weight:600">17</td>
-<td>🇺🇸 <strong>GS</strong><br>
-  <span style="font-size:.78rem;color:var(--text-sub)">The Goldman Sachs Group, Inc.</span></td>
-<td><strong class="perf-up">75.0%</strong><br>
-  <span style="font-size:.72rem;color:var(--muted)">★強BUY</span></td>
-<td style="font-size:.8rem">$982.12</td>
-<td style="font-size:.77rem;color:var(--text-sub)">売上成長 14.5%（成長中）<br>EPS成長 24.2%（利益成長◎）<br>利益率 29.4%（高収益ビジネス）</td>
-<td style="font-size:.75rem;color:var(--muted);white-space:nowrap">売上成長%: 14.5 ／ EPS成長%: 24.2 ／ 利益率%: 29.4 ／ RSI: 64.0</td>
-</tr><tr>
-<td style="text-align:center;font-weight:600">18</td>
-<td>🇺🇸 <strong>COST</strong><br>
-  <span style="font-size:.78rem;color:var(--text-sub)">コストコ</span></td>
-<td><strong class="perf-up">75.0%</strong><br>
-  <span style="font-size:.72rem;color:var(--muted)">★強BUY</span></td>
-<td style="font-size:.8rem">$1074.01</td>
-<td style="font-size:.77rem;color:var(--text-sub)">売上成長 21.5%（高成長◎）<br>EPS成長 45.5%（利益急拡大）<br>RSI 68（上昇モメンタム確認）</td>
-<td style="font-size:.75rem;color:var(--muted);white-space:nowrap">売上成長%: 21.5 ／ EPS成長%: 45.5 ／ 利益率%: 3.0 ／ RSI: 68.0</td>
-</tr><tr>
-<td style="text-align:center;font-weight:600">19</td>
-<td>🇺🇸 <strong>WELL</strong><br>
-  <span style="font-size:.78rem;color:var(--text-sub)">Welltower Inc.</span></td>
-<td><strong class="perf-up">75.0%</strong><br>
-  <span style="font-size:.72rem;color:var(--muted)">★強BUY</span></td>
-<td style="font-size:.8rem">$218.61</td>
-<td style="font-size:.77rem;color:var(--text-sub)">売上成長 38.3%（高成長◎◎）<br>EPS成長 157.9%（利益急拡大）<br>RSI 53（上昇モメンタム確認）</td>
-<td style="font-size:.75rem;color:var(--muted);white-space:nowrap">売上成長%: 38.3 ／ EPS成長%: 157.9 ／ 利益率%: 12.0 ／ RSI: 53.0</td>
-</tr><tr>
-<td style="text-align:center;font-weight:600">20</td>
-<td>🇯🇵 <strong>6861.T</strong><br>
-  <span style="font-size:.78rem;color:var(--text-sub)">キーエンス</span></td>
-<td><strong class="perf-up">70.0%</strong><br>
-  <span style="font-size:.72rem;color:var(--muted)">★強BUY</span></td>
-<td style="font-size:.8rem">¥76,960</td>
-<td style="font-size:.77rem;color:var(--text-sub)">売上成長 17.9%（成長中）<br>EPS成長 25.4%（利益成長◎）<br>利益率 38.1%（高収益ビジネス）</td>
-<td style="font-size:.75rem;color:var(--muted);white-space:nowrap">売上成長%: 17.9 ／ EPS成長%: 25.4 ／ 利益率%: 38.1 ／ RSI: 56.0</td>
-</tr><tr>
-<td style="text-align:center;font-weight:600">21</td>
-<td>🇺🇸 <strong>AAPL</strong><br>
-  <span style="font-size:.78rem;color:var(--text-sub)">アップル</span></td>
-<td><strong class="perf-up">70.0%</strong><br>
-  <span style="font-size:.72rem;color:var(--muted)">★強BUY</span></td>
-<td style="font-size:.8rem">$302.25</td>
-<td style="font-size:.77rem;color:var(--text-sub)">売上成長 16.6%（成長中）<br>EPS成長 21.8%（利益成長◎）<br>利益率 27.2%（高収益ビジネス）</td>
-<td style="font-size:.75rem;color:var(--muted);white-space:nowrap">売上成長%: 16.6 ／ EPS成長%: 21.8 ／ 利益率%: 27.2 ／ RSI: 85.0</td>
-</tr><tr>
-<td style="text-align:center;font-weight:600">22</td>
-<td>🇺🇸 <strong>META</strong><br>
-  <span style="font-size:.78rem;color:var(--text-sub)">メタ</span></td>
-<td><strong class="perf-up">70.0%</strong><br>
-  <span style="font-size:.72rem;color:var(--muted)">★強BUY</span></td>
-<td style="font-size:.8rem">$605.06</td>
-<td style="font-size:.77rem;color:var(--text-sub)">売上成長 33.1%（高成長◎◎）<br>EPS成長 62.4%（利益急拡大）<br>利益率 32.8%（高収益ビジネス）</td>
-<td style="font-size:.75rem;color:var(--muted);white-space:nowrap">売上成長%: 33.1 ／ EPS成長%: 62.4 ／ 利益率%: 32.8 ／ RSI: 46.0</td>
-</tr><tr>
-<td style="text-align:center;font-weight:600">23</td>
-<td>🇺🇸 <strong>ORCL</strong><br>
-  <span style="font-size:.78rem;color:var(--text-sub)">オラクル</span></td>
-<td><strong class="perf-up">70.0%</strong><br>
-  <span style="font-size:.72rem;color:var(--muted)">★強BUY</span></td>
-<td style="font-size:.8rem">$188.16</td>
-<td style="font-size:.77rem;color:var(--text-sub)">売上成長 21.7%（高成長◎）<br>EPS成長 24.5%（利益成長◎）<br>利益率 25.3%（高収益ビジネス）</td>
-<td style="font-size:.75rem;color:var(--muted);white-space:nowrap">売上成長%: 21.7 ／ EPS成長%: 24.5 ／ 利益率%: 25.3 ／ RSI: 68.0</td>
-</tr><tr>
-<td style="text-align:center;font-weight:600">24</td>
-<td>🇺🇸 <strong>TXN</strong><br>
-  <span style="font-size:.78rem;color:var(--text-sub)">Texas Instruments Incorporated</span></td>
-<td><strong class="perf-up">70.0%</strong><br>
-  <span style="font-size:.72rem;color:var(--muted)">★強BUY</span></td>
-<td style="font-size:.8rem">$304.88</td>
-<td style="font-size:.77rem;color:var(--text-sub)">売上成長 18.6%（成長中）<br>EPS成長 31.3%（利益急拡大）<br>利益率 29.1%（高収益ビジネス）</td>
-<td style="font-size:.75rem;color:var(--muted);white-space:nowrap">売上成長%: 18.6 ／ EPS成長%: 31.3 ／ 利益率%: 29.1 ／ RSI: 73.0</td>
-</tr><tr>
-<td style="text-align:center;font-weight:600">25</td>
-<td>🇺🇸 <strong>MS</strong><br>
-  <span style="font-size:.78rem;color:var(--text-sub)">Morgan Stanley</span></td>
-<td><strong class="perf-up">70.0%</strong><br>
-  <span style="font-size:.72rem;color:var(--muted)">★強BUY</span></td>
-<td style="font-size:.8rem">$197.77</td>
-<td style="font-size:.77rem;color:var(--text-sub)">売上成長 16.3%（成長中）<br>EPS成長 31.9%（利益急拡大）<br>利益率 24.8%（良好）</td>
-<td style="font-size:.75rem;color:var(--muted);white-space:nowrap">売上成長%: 16.3 ／ EPS成長%: 31.9 ／ 利益率%: 24.8 ／ RSI: 61.0</td>
-</tr><tr>
-<td style="text-align:center;font-weight:600">26</td>
-<td>🇺🇸 <strong>BLK</strong><br>
-  <span style="font-size:.78rem;color:var(--text-sub)">ブラックロック</span></td>
-<td><strong class="perf-up">70.0%</strong><br>
-  <span style="font-size:.72rem;color:var(--muted)">★強BUY</span></td>
-<td style="font-size:.8rem">$1051.57</td>
-<td style="font-size:.77rem;color:var(--text-sub)">売上成長 27.0%（高成長◎）<br>EPS成長 45.9%（利益急拡大）<br>利益率 24.4%（良好）</td>
-<td style="font-size:.75rem;color:var(--muted);white-space:nowrap">売上成長%: 27.0 ／ EPS成長%: 45.9 ／ 利益率%: 24.4 ／ RSI: 46.0</td>
-</tr><tr>
-<td style="text-align:center;font-weight:600">27</td>
-<td>🇺🇸 <strong>ISRG</strong><br>
-  <span style="font-size:.78rem;color:var(--text-sub)">Intuitive Surgical, Inc.</span></td>
-<td><strong class="perf-up">70.0%</strong><br>
-  <span style="font-size:.72rem;color:var(--muted)">★強BUY</span></td>
-<td style="font-size:.8rem">$449.03</td>
-<td style="font-size:.77rem;color:var(--text-sub)">売上成長 23.0%（高成長◎）<br>EPS成長 18.8%（利益成長◎）<br>利益率 28.2%（高収益ビジネス）</td>
-<td style="font-size:.75rem;color:var(--muted);white-space:nowrap">売上成長%: 23.0 ／ EPS成長%: 18.8 ／ 利益率%: 28.2 ／ RSI: 45.0</td>
-</tr><tr>
-<td style="text-align:center;font-weight:600">28</td>
-<td>🇺🇸 <strong>KO</strong><br>
-  <span style="font-size:.78rem;color:var(--text-sub)">The Coca-Cola Company</span></td>
-<td><strong class="perf-up">70.0%</strong><br>
-  <span style="font-size:.72rem;color:var(--muted)">★強BUY</span></td>
-<td style="font-size:.8rem">$81.55</td>
-<td style="font-size:.77rem;color:var(--text-sub)">売上成長 12.1%（成長中）<br>EPS成長 18.2%（利益成長◎）<br>利益率 27.8%（高収益ビジネス）</td>
-<td style="font-size:.75rem;color:var(--muted);white-space:nowrap">売上成長%: 12.1 ／ EPS成長%: 18.2 ／ 利益率%: 27.8 ／ RSI: 72.0</td>
-</tr><tr>
-<td style="text-align:center;font-weight:600">29</td>
-<td>🇺🇸 <strong>MO</strong><br>
-  <span style="font-size:.78rem;color:var(--text-sub)">Altria Group, Inc.</span></td>
-<td><strong class="perf-up">70.0%</strong><br>
-  <span style="font-size:.72rem;color:var(--muted)">★強BUY</span></td>
-<td style="font-size:.8rem">$73.33</td>
-<td style="font-size:.77rem;color:var(--text-sub)">売上成長 5.3%（緩やかに成長）<br>EPS成長 106.3%（利益急拡大）<br>利益率 39.5%（高収益ビジネス）</td>
-<td style="font-size:.75rem;color:var(--muted);white-space:nowrap">売上成長%: 5.3 ／ EPS成長%: 106.3 ／ 利益率%: 39.5 ／ RSI: 52.0</td>
-</tr><tr>
-<td style="text-align:center;font-weight:600">30</td>
-<td>🇯🇵 <strong>8035.T</strong><br>
-  <span style="font-size:.78rem;color:var(--text-sub)">東京エレクトロン</span></td>
-<td><strong class="">65.0%</strong><br>
-  <span style="font-size:.72rem;color:var(--muted)">BUY</span></td>
-<td style="font-size:.8rem">¥48,800</td>
-<td style="font-size:.77rem;color:var(--text-sub)">売上成長 8.6%（緩やかに成長）<br>EPS成長 50.5%（利益急拡大）<br>利益率 23.5%（良好）</td>
-<td style="font-size:.75rem;color:var(--muted);white-space:nowrap">売上成長%: 8.6 ／ EPS成長%: 50.5 ／ 利益率%: 23.5 ／ RSI: 54.0</td>
-</tr><tr>
-<td style="text-align:center;font-weight:600">31</td>
-<td>🇯🇵 <strong>6981.T</strong><br>
-  <span style="font-size:.78rem;color:var(--text-sub)">村田製作所</span></td>
-<td><strong class="">65.0%</strong><br>
-  <span style="font-size:.72rem;color:var(--muted)">BUY</span></td>
-<td style="font-size:.8rem">¥6,727</td>
-<td style="font-size:.77rem;color:var(--text-sub)">売上成長 11.8%（成長中）<br>EPS成長 140.8%（利益急拡大）<br>RSI 88（過熱ゾーン）</td>
-<td style="font-size:.75rem;color:var(--muted);white-space:nowrap">売上成長%: 11.8 ／ EPS成長%: 140.8 ／ 利益率%: 12.8 ／ RSI: 88.0</td>
-</tr><tr>
-<td style="text-align:center;font-weight:600">32</td>
-<td>🇯🇵 <strong>4519.T</strong><br>
-  <span style="font-size:.78rem;color:var(--text-sub)">中外製薬</span></td>
-<td><strong class="">65.0%</strong><br>
-  <span style="font-size:.72rem;color:var(--muted)">BUY</span></td>
-<td style="font-size:.8rem">¥7,836</td>
-<td style="font-size:.77rem;color:var(--text-sub)">売上成長 11.5%（成長中）<br>EPS成長 18.7%（利益成長◎）<br>利益率 35.0%（高収益ビジネス）</td>
-<td style="font-size:.75rem;color:var(--muted);white-space:nowrap">売上成長%: 11.5 ／ EPS成長%: 18.7 ／ 利益率%: 35.0 ／ RSI: 60.0</td>
-</tr><tr>
-<td style="text-align:center;font-weight:600">33</td>
-<td>🇯🇵 <strong>4578.T</strong><br>
-  <span style="font-size:.78rem;color:var(--text-sub)">大塚HD</span></td>
-<td><strong class="">65.0%</strong><br>
-  <span style="font-size:.72rem;color:var(--muted)">BUY</span></td>
-<td style="font-size:.8rem">¥11,690</td>
-<td style="font-size:.77rem;color:var(--text-sub)">売上成長 8.2%（緩やかに成長）<br>EPS成長 17.5%（利益成長◎）<br>RSI 71（強いモメンタム）</td>
-<td style="font-size:.75rem;color:var(--muted);white-space:nowrap">売上成長%: 8.2 ／ EPS成長%: 17.5 ／ 利益率%: 15.0 ／ RSI: 71.0</td>
-</tr><tr>
-<td style="text-align:center;font-weight:600">34</td>
-<td>🇯🇵 <strong>9984.T</strong><br>
-  <span style="font-size:.78rem;color:var(--text-sub)">ソフトバンクグループ</span></td>
-<td><strong class="">65.0%</strong><br>
-  <span style="font-size:.72rem;color:var(--muted)">BUY</span></td>
-<td style="font-size:.8rem">¥6,039</td>
-<td style="font-size:.77rem;color:var(--text-sub)">売上成長 7.1%（緩やかに成長）<br>EPS成長 260.7%（利益急拡大）<br>利益率 64.1%（高収益ビジネス）</td>
-<td style="font-size:.75rem;color:var(--muted);white-space:nowrap">売上成長%: 7.1 ／ EPS成長%: 260.7 ／ 利益率%: 64.1 ／ RSI: 52.0</td>
-</tr><tr>
-<td style="text-align:center;font-weight:600">35</td>
-<td>🇯🇵 <strong>7974.T</strong><br>
-  <span style="font-size:.78rem;color:var(--text-sub)">任天堂</span></td>
-<td><strong class="">65.0%</strong><br>
-  <span style="font-size:.72rem;color:var(--muted)">BUY</span></td>
-<td style="font-size:.8rem">¥7,274</td>
-<td style="font-size:.77rem;color:var(--text-sub)">売上成長 95.1%（高成長◎◎）<br>EPS成長 57.1%（利益急拡大）<br>利益率 18.3%（良好）</td>
-<td style="font-size:.75rem;color:var(--muted);white-space:nowrap">売上成長%: 95.1 ／ EPS成長%: 57.1 ／ 利益率%: 18.3 ／ RSI: 39.0</td>
-</tr><tr>
-<td style="text-align:center;font-weight:600">36</td>
-<td>🇯🇵 <strong>7832.T</strong><br>
-  <span style="font-size:.78rem;color:var(--text-sub)">バンダイナムコHD</span></td>
-<td><strong class="">65.0%</strong><br>
-  <span style="font-size:.72rem;color:var(--muted)">BUY</span></td>
-<td style="font-size:.8rem">¥3,748</td>
-<td style="font-size:.77rem;color:var(--text-sub)">売上成長 21.0%（高成長◎）<br>EPS成長 4194.9%（利益急拡大）<br>RSI 53（上昇モメンタム確認）</td>
-<td style="font-size:.75rem;color:var(--muted);white-space:nowrap">売上成長%: 21.0 ／ EPS成長%: 4194.9 ／ 利益率%: 10.4 ／ RSI: 53.0</td>
-</tr><tr>
-<td style="text-align:center;font-weight:600">37</td>
-<td>🇯🇵 <strong>5706.T</strong><br>
-  <span style="font-size:.78rem;color:var(--text-sub)">三井金属鉱業</span></td>
-<td><strong class="">65.0%</strong><br>
-  <span style="font-size:.72rem;color:var(--muted)">BUY</span></td>
-<td style="font-size:.8rem">¥46,670</td>
-<td style="font-size:.77rem;color:var(--text-sub)">売上成長 16.0%（成長中）<br>EPS成長 236.8%（利益急拡大）<br>RSI 61（上昇モメンタム確認）</td>
-<td style="font-size:.75rem;color:var(--muted);white-space:nowrap">売上成長%: 16.0 ／ EPS成長%: 236.8 ／ 利益率%: 12.0 ／ RSI: 61.0</td>
-</tr><tr>
-<td style="text-align:center;font-weight:600">38</td>
-<td>🇺🇸 <strong>MSFT</strong><br>
-  <span style="font-size:.78rem;color:var(--text-sub)">マイクロソフト</span></td>
-<td><strong class="">65.0%</strong><br>
-  <span style="font-size:.72rem;color:var(--muted)">BUY</span></td>
-<td style="font-size:.8rem">$421.06</td>
-<td style="font-size:.77rem;color:var(--text-sub)">売上成長 18.3%（成長中）<br>EPS成長 23.4%（利益成長◎）<br>利益率 39.3%（高収益ビジネス）</td>
-<td style="font-size:.75rem;color:var(--muted);white-space:nowrap">売上成長%: 18.3 ／ EPS成長%: 23.4 ／ 利益率%: 39.3 ／ RSI: 61.0</td>
-</tr><tr>
-<td style="text-align:center;font-weight:600">39</td>
-<td>🇺🇸 <strong>ADBE</strong><br>
-  <span style="font-size:.78rem;color:var(--text-sub)">アドビ</span></td>
-<td><strong class="">65.0%</strong><br>
-  <span style="font-size:.72rem;color:var(--muted)">BUY</span></td>
-<td style="font-size:.8rem">$253.37</td>
-<td style="font-size:.77rem;color:var(--text-sub)">売上成長 12.0%（成長中）<br>EPS成長 11.1%（利益成長中）<br>利益率 29.5%（高収益ビジネス）</td>
-<td style="font-size:.75rem;color:var(--muted);white-space:nowrap">売上成長%: 12.0 ／ EPS成長%: 11.1 ／ 利益率%: 29.5 ／ RSI: 56.0</td>
-</tr><tr>
-<td style="text-align:center;font-weight:600">40</td>
-<td>🇺🇸 <strong>BRK-B</strong><br>
-  <span style="font-size:.78rem;color:var(--text-sub)">Berkshire Hathaway Inc.</span></td>
-<td><strong class="">65.0%</strong><br>
-  <span style="font-size:.72rem;color:var(--muted)">BUY</span></td>
-<td style="font-size:.8rem">$480.90</td>
-<td style="font-size:.77rem;color:var(--text-sub)">EPS成長 119.6%（利益急拡大）<br>利益率 19.3%（良好）<br>RSI 58（上昇モメンタム確認）</td>
-<td style="font-size:.75rem;color:var(--muted);white-space:nowrap">売上成長%: 4.4 ／ EPS成長%: 119.6 ／ 利益率%: 19.3 ／ RSI: 58.0</td>
-</tr><tr>
-<td style="text-align:center;font-weight:600">41</td>
-<td>🇺🇸 <strong>SCHW</strong><br>
-  <span style="font-size:.78rem;color:var(--text-sub)">The Charles Schwab Corporation</span></td>
-<td><strong class="">65.0%</strong><br>
-  <span style="font-size:.72rem;color:var(--muted)">BUY</span></td>
-<td style="font-size:.8rem">$90.11</td>
-<td style="font-size:.77rem;color:var(--text-sub)">売上成長 15.8%（成長中）<br>EPS成長 38.6%（利益急拡大）<br>利益率 38.0%（高収益ビジネス）</td>
-<td style="font-size:.75rem;color:var(--muted);white-space:nowrap">売上成長%: 15.8 ／ EPS成長%: 38.6 ／ 利益率%: 38.0 ／ RSI: 46.0</td>
-</tr><tr>
-<td style="text-align:center;font-weight:600">42</td>
-<td>🇺🇸 <strong>NEM</strong><br>
-  <span style="font-size:.78rem;color:var(--text-sub)">Newmont Corporation</span></td>
-<td><strong class="">65.0%</strong><br>
-  <span style="font-size:.72rem;color:var(--muted)">BUY</span></td>
-<td style="font-size:.8rem">$107.39</td>
-<td style="font-size:.77rem;color:var(--text-sub)">売上成長 45.8%（高成長◎◎）<br>EPS成長 78.6%（利益急拡大）<br>利益率 33.9%（高収益ビジネス）</td>
-<td style="font-size:.75rem;color:var(--muted);white-space:nowrap">売上成長%: 45.8 ／ EPS成長%: 78.6 ／ 利益率%: 33.9 ／ RSI: 45.0</td>
-</tr><tr>
-<td style="text-align:center;font-weight:600">43</td>
-<td>🇯🇵 <strong>6857.T</strong><br>
-  <span style="font-size:.78rem;color:var(--text-sub)">アドバンテスト</span></td>
-<td><strong class="">60.0%</strong><br>
-  <span style="font-size:.72rem;color:var(--muted)">BUY</span></td>
-<td style="font-size:.8rem">¥26,745</td>
-<td style="font-size:.77rem;color:var(--text-sub)">売上成長 41.2%（高成長◎◎）<br>EPS成長 220.4%（利益急拡大）<br>利益率 33.3%（高収益ビジネス）</td>
-<td style="font-size:.75rem;color:var(--muted);white-space:nowrap">売上成長%: 41.2 ／ EPS成長%: 220.4 ／ 利益率%: 33.3 ／ RSI: 31.0</td>
-</tr><tr>
-<td style="text-align:center;font-weight:600">44</td>
-<td>🇯🇵 <strong>6954.T</strong><br>
-  <span style="font-size:.78rem;color:var(--text-sub)">ファナック</span></td>
-<td><strong class="">60.0%</strong><br>
-  <span style="font-size:.72rem;color:var(--muted)">BUY</span></td>
-<td style="font-size:.8rem">¥7,667</td>
-<td style="font-size:.77rem;color:var(--text-sub)">売上成長 10.6%（成長中）<br>EPS成長 11.0%（利益成長中）<br>利益率 19.4%（良好）</td>
-<td style="font-size:.75rem;color:var(--muted);white-space:nowrap">売上成長%: 10.6 ／ EPS成長%: 11.0 ／ 利益率%: 19.4 ／ RSI: 56.0</td>
-</tr><tr>
-<td style="text-align:center;font-weight:600">45</td>
-<td>🇯🇵 <strong>8058.T</strong><br>
-  <span style="font-size:.78rem;color:var(--text-sub)">三菱商事</span></td>
-<td><strong class="">60.0%</strong><br>
-  <span style="font-size:.72rem;color:var(--muted)">BUY</span></td>
-<td style="font-size:.8rem">¥5,411</td>
-<td style="font-size:.77rem;color:var(--text-sub)">売上成長 12.0%（成長中）<br>EPS成長 68.3%（利益急拡大）<br>RSI 66（上昇モメンタム確認）</td>
-<td style="font-size:.75rem;color:var(--muted);white-space:nowrap">売上成長%: 12.0 ／ EPS成長%: 68.3 ／ 利益率%: 4.2 ／ RSI: 66.0</td>
-</tr><tr>
-<td style="text-align:center;font-weight:600">46</td>
-<td>🇯🇵 <strong>5802.T</strong><br>
-  <span style="font-size:.78rem;color:var(--text-sub)">住友電気工業</span></td>
-<td><strong class="">60.0%</strong><br>
-  <span style="font-size:.72rem;color:var(--muted)">BUY</span></td>
-<td style="font-size:.8rem">¥10,730</td>
-<td style="font-size:.77rem;color:var(--text-sub)">売上成長 14.9%（成長中）<br>EPS成長 140.1%（利益急拡大）<br>RSI 55（上昇モメンタム確認）</td>
-<td style="font-size:.75rem;color:var(--muted);white-space:nowrap">売上成長%: 14.9 ／ EPS成長%: 140.1 ／ 利益率%: 7.2 ／ RSI: 55.0</td>
-</tr><tr>
-<td style="text-align:center;font-weight:600">47</td>
-<td>🇺🇸 <strong>CAT</strong><br>
-  <span style="font-size:.78rem;color:var(--text-sub)">キャタピラー</span></td>
-<td><strong class="">60.0%</strong><br>
-  <span style="font-size:.72rem;color:var(--muted)">BUY</span></td>
-<td style="font-size:.8rem">$872.56</td>
-<td style="font-size:.77rem;color:var(--text-sub)">売上成長 22.2%（高成長◎）<br>EPS成長 30.2%（利益急拡大）<br>RSI 46（モメンタム回復中）</td>
-<td style="font-size:.75rem;color:var(--muted);white-space:nowrap">売上成長%: 22.2 ／ EPS成長%: 30.2 ／ 利益率%: 13.3 ／ RSI: 46.0</td>
-</tr><tr>
-<td style="text-align:center;font-weight:600">48</td>
-<td>🇺🇸 <strong>AMT</strong><br>
-  <span style="font-size:.78rem;color:var(--text-sub)">American Tower Corporation</span></td>
-<td><strong class="">60.0%</strong><br>
-  <span style="font-size:.72rem;color:var(--muted)">BUY</span></td>
-<td style="font-size:.8rem">$184.02</td>
-<td style="font-size:.77rem;color:var(--text-sub)">売上成長 6.8%（緩やかに成長）<br>EPS成長 76.9%（利益急拡大）<br>利益率 26.8%（高収益ビジネス）</td>
-<td style="font-size:.75rem;color:var(--muted);white-space:nowrap">売上成長%: 6.8 ／ EPS成長%: 76.9 ／ 利益率%: 26.8 ／ RSI: 52.0</td>
-</tr><tr>
-<td style="text-align:center;font-weight:600">49</td>
-<td>🇺🇸 <strong>PLD</strong><br>
-  <span style="font-size:.78rem;color:var(--text-sub)">Prologis, Inc.</span></td>
-<td><strong class="">60.0%</strong><br>
-  <span style="font-size:.72rem;color:var(--muted)">BUY</span></td>
-<td style="font-size:.8rem">$144.68</td>
-<td style="font-size:.77rem;color:var(--text-sub)">売上成長 8.3%（緩やかに成長）<br>EPS成長 65.2%（利益急拡大）<br>利益率 39.6%（高収益ビジネス）</td>
-<td style="font-size:.75rem;color:var(--muted);white-space:nowrap">売上成長%: 8.3 ／ EPS成長%: 65.2 ／ 利益率%: 39.6 ／ RSI: 57.0</td>
-</tr><tr>
-<td style="text-align:center;font-weight:600">50</td>
-<td>🇯🇵 <strong>6971.T</strong><br>
-  <span style="font-size:.78rem;color:var(--text-sub)">京セラ</span></td>
-<td><strong class="">55.0%</strong><br>
-  <span style="font-size:.72rem;color:var(--muted)">BUY</span></td>
-<td style="font-size:.8rem">¥2,940</td>
-<td style="font-size:.77rem;color:var(--text-sub)">EPS成長 692.1%（利益急拡大）<br>RSI 74（強いモメンタム）<br>MACD+（上昇モメンタム）</td>
-<td style="font-size:.75rem;color:var(--muted);white-space:nowrap">売上成長%: 4.9 ／ EPS成長%: 692.1 ／ 利益率%: 6.8 ／ RSI: 74.0</td>
-</tr><tr>
-<td style="text-align:center;font-weight:600">51</td>
-<td>🇯🇵 <strong>8766.T</strong><br>
-  <span style="font-size:.78rem;color:var(--text-sub)">東京海上HD</span></td>
-<td><strong class="">55.0%</strong><br>
-  <span style="font-size:.72rem;color:var(--muted)">BUY</span></td>
-<td style="font-size:.8rem">¥7,697</td>
-<td style="font-size:.77rem;color:var(--text-sub)">売上成長 21.8%（高成長◎）<br>RSI 66（上昇モメンタム確認）<br>MACD+（上昇モメンタム）</td>
-<td style="font-size:.75rem;color:var(--muted);white-space:nowrap">売上成長%: 21.8 ／ EPS成長%: 4.7 ／ 利益率%: 12.6 ／ RSI: 66.0</td>
-</tr><tr>
-<td style="text-align:center;font-weight:600">52</td>
-<td>🇯🇵 <strong>8591.T</strong><br>
-  <span style="font-size:.78rem;color:var(--text-sub)">オリックス</span></td>
-<td><strong class="">55.0%</strong><br>
-  <span style="font-size:.72rem;color:var(--muted)">BUY</span></td>
-<td style="font-size:.8rem">¥6,241</td>
-<td style="font-size:.77rem;color:var(--text-sub)">売上成長 28.0%（高成長◎）<br>RSI 82（強いモメンタム）<br>MACD+（上昇モメンタム）</td>
-<td style="font-size:.75rem;color:var(--muted);white-space:nowrap">売上成長%: 28.0 ／ EPS成長%: -25.7 ／ 利益率%: 13.4 ／ RSI: 82.0</td>
-</tr><tr>
-<td style="text-align:center;font-weight:600">53</td>
-<td>🇯🇵 <strong>9433.T</strong><br>
-  <span style="font-size:.78rem;color:var(--text-sub)">KDDI</span></td>
-<td><strong class="">55.0%</strong><br>
-  <span style="font-size:.72rem;color:var(--muted)">BUY</span></td>
-<td style="font-size:.8rem">¥2,718</td>
-<td style="font-size:.77rem;color:var(--text-sub)">売上成長 8.8%（緩やかに成長）<br>EPS成長 42.2%（利益急拡大）<br>RSI 69（上昇モメンタム確認）</td>
-<td style="font-size:.75rem;color:var(--muted);white-space:nowrap">売上成長%: 8.8 ／ EPS成長%: 42.2 ／ 利益率%: 11.6 ／ RSI: 69.0</td>
-</tr><tr>
-<td style="text-align:center;font-weight:600">54</td>
-<td>🇯🇵 <strong>6460.T</strong><br>
-  <span style="font-size:.78rem;color:var(--text-sub)">Sega Sammy Holdings Inc.</span></td>
-<td><strong class="">55.0%</strong><br>
-  <span style="font-size:.72rem;color:var(--muted)">BUY</span></td>
-<td style="font-size:.8rem">¥2,302</td>
-<td style="font-size:.77rem;color:var(--text-sub)">売上成長 42.8%（高成長◎◎）<br>EPS成長 248.3%（利益急拡大）<br>利益率 -1.2%（赤字・要注意）</td>
-<td style="font-size:.75rem;color:var(--muted);white-space:nowrap">売上成長%: 42.8 ／ EPS成長%: 248.3 ／ 利益率%: -1.2 ／ RSI: 49.0</td>
-</tr><tr>
-<td style="text-align:center;font-weight:600">55</td>
-<td>🇯🇵 <strong>9020.T</strong><br>
-  <span style="font-size:.78rem;color:var(--text-sub)">東日本旅客鉄道</span></td>
-<td><strong class="">55.0%</strong><br>
-  <span style="font-size:.72rem;color:var(--muted)">BUY</span></td>
-<td style="font-size:.8rem">¥3,692</td>
-<td style="font-size:.77rem;color:var(--text-sub)">売上成長 10.9%（成長中）<br>EPS成長 271.8%（利益急拡大）<br>RSI 62（上昇モメンタム確認）</td>
-<td style="font-size:.75rem;color:var(--muted);white-space:nowrap">売上成長%: 10.9 ／ EPS成長%: 271.8 ／ 利益率%: 8.0 ／ RSI: 62.0</td>
-</tr><tr>
-<td style="text-align:center;font-weight:600">56</td>
-<td>🇺🇸 <strong>AMZN</strong><br>
-  <span style="font-size:.78rem;color:var(--text-sub)">アマゾン</span></td>
-<td><strong class="">55.0%</strong><br>
-  <span style="font-size:.72rem;color:var(--muted)">BUY</span></td>
-<td style="font-size:.8rem">$265.01</td>
-<td style="font-size:.77rem;color:var(--text-sub)">売上成長 16.6%（成長中）<br>EPS成長 74.8%（利益急拡大）<br>RSI 50（モメンタム回復中）</td>
-<td style="font-size:.75rem;color:var(--muted);white-space:nowrap">売上成長%: 16.6 ／ EPS成長%: 74.8 ／ 利益率%: 12.2 ／ RSI: 50.0</td>
-</tr><tr>
-<td style="text-align:center;font-weight:600">57</td>
-<td>🇺🇸 <strong>CRM</strong><br>
-  <span style="font-size:.78rem;color:var(--text-sub)">セールスフォース</span></td>
-<td><strong class="">55.0%</strong><br>
-  <span style="font-size:.72rem;color:var(--muted)">BUY</span></td>
-<td style="font-size:.8rem">$180.10</td>
-<td style="font-size:.77rem;color:var(--text-sub)">売上成長 12.1%（成長中）<br>EPS成長 17.9%（利益成長◎）<br>利益率 18.0%（良好）</td>
-<td style="font-size:.75rem;color:var(--muted);white-space:nowrap">売上成長%: 12.1 ／ EPS成長%: 17.9 ／ 利益率%: 18.0 ／ RSI: 53.0</td>
-</tr><tr>
-<td style="text-align:center;font-weight:600">58</td>
-<td>🇺🇸 <strong>GILD</strong><br>
-  <span style="font-size:.78rem;color:var(--text-sub)">Gilead Sciences, Inc.</span></td>
-<td><strong class="">55.0%</strong><br>
-  <span style="font-size:.72rem;color:var(--muted)">BUY</span></td>
-<td style="font-size:.8rem">$130.69</td>
-<td style="font-size:.77rem;color:var(--text-sub)">EPS成長 54.8%（利益急拡大）<br>利益率 31.0%（高収益ビジネス）<br>RSI 50（モメンタム回復中）</td>
-<td style="font-size:.75rem;color:var(--muted);white-space:nowrap">売上成長%: 4.4 ／ EPS成長%: 54.8 ／ 利益率%: 31.0 ／ RSI: 50.0</td>
-</tr><tr>
-<td style="text-align:center;font-weight:600">59</td>
-<td>🇺🇸 <strong>SYK</strong><br>
-  <span style="font-size:.78rem;color:var(--text-sub)">Stryker Corporation</span></td>
-<td><strong class="">55.0%</strong><br>
-  <span style="font-size:.72rem;color:var(--muted)">BUY</span></td>
-<td style="font-size:.8rem">$321.49</td>
-<td style="font-size:.77rem;color:var(--text-sub)">EPS成長 14.2%（利益成長中）<br>RSI 54（上昇モメンタム確認）<br>MACD+（上昇モメンタム）</td>
-<td style="font-size:.75rem;color:var(--muted);white-space:nowrap">売上成長%: 2.6 ／ EPS成長%: 14.2 ／ 利益率%: 13.2 ／ RSI: 54.0</td>
-</tr><tr>
-<td style="text-align:center;font-weight:600">60</td>
-<td>🇺🇸 <strong>D</strong><br>
-  <span style="font-size:.78rem;color:var(--text-sub)">Dominion Energy, Inc.</span></td>
-<td><strong class="">55.0%</strong><br>
-  <span style="font-size:.72rem;color:var(--muted)">BUY</span></td>
-<td style="font-size:.8rem">$67.73</td>
-<td style="font-size:.77rem;color:var(--text-sub)">売上成長 23.1%（高成長◎）<br>利益率 16.9%（良好）<br>RSI 63（上昇モメンタム確認）</td>
-<td style="font-size:.75rem;color:var(--muted);white-space:nowrap">売上成長%: 23.1 ／ EPS成長%: -10.2 ／ 利益率%: 16.9 ／ RSI: 63.0</td>
-</tr><tr>
-<td style="text-align:center;font-weight:600">61</td>
-<td>🇺🇸 <strong>LIN</strong><br>
-  <span style="font-size:.78rem;color:var(--text-sub)">Linde plc</span></td>
-<td><strong class="">55.0%</strong><br>
-  <span style="font-size:.72rem;color:var(--muted)">BUY</span></td>
-<td style="font-size:.8rem">$506.63</td>
-<td style="font-size:.77rem;color:var(--text-sub)">売上成長 8.2%（緩やかに成長）<br>EPS成長 13.4%（利益成長中）<br>利益率 20.4%（良好）</td>
-<td style="font-size:.75rem;color:var(--muted);white-space:nowrap">売上成長%: 8.2 ／ EPS成長%: 13.4 ／ 利益率%: 20.4 ／ RSI: 54.0</td>
-</tr><tr>
-<td style="text-align:center;font-weight:600">62</td>
-<td>🇯🇵 <strong>6594.T</strong><br>
-  <span style="font-size:.78rem;color:var(--text-sub)">ニデック</span></td>
-<td><strong class="">50.0%</strong><br>
-  <span style="font-size:.72rem;color:var(--muted)">BUY</span></td>
-<td style="font-size:.8rem">¥2,630</td>
-<td style="font-size:.77rem;color:var(--text-sub)">EPS成長 108.7%（利益急拡大）<br>RSI 56（上昇モメンタム確認）<br>トレンド: 強い上昇トレンド</td>
-<td style="font-size:.75rem;color:var(--muted);white-space:nowrap">売上成長%: 2.9 ／ EPS成長%: 108.7 ／ 利益率%: 4.6 ／ RSI: 56.0</td>
-</tr><tr>
-<td style="text-align:center;font-weight:600">63</td>
-<td>🇯🇵 <strong>7269.T</strong><br>
-  <span style="font-size:.78rem;color:var(--text-sub)">スズキ</span></td>
-<td><strong class="">50.0%</strong><br>
-  <span style="font-size:.72rem;color:var(--muted)">BUY</span></td>
-<td style="font-size:.8rem">¥1,780</td>
-<td style="font-size:.77rem;color:var(--text-sub)">売上成長 15.2%（成長中）<br>EPS成長 27.3%（利益成長◎）<br>RSI 50（上昇モメンタム確認）</td>
-<td style="font-size:.75rem;color:var(--muted);white-space:nowrap">売上成長%: 15.2 ／ EPS成長%: 27.3 ／ 利益率%: 7.0 ／ RSI: 50.0</td>
-</tr><tr>
-<td style="text-align:center;font-weight:600">64</td>
-<td>🇯🇵 <strong>8306.T</strong><br>
-  <span style="font-size:.78rem;color:var(--text-sub)">三菱UFJフィナンシャルグループ</span></td>
-<td><strong class="">50.0%</strong><br>
-  <span style="font-size:.72rem;color:var(--muted)">BUY</span></td>
-<td style="font-size:.8rem">¥3,067</td>
-<td style="font-size:.77rem;color:var(--text-sub)">利益率 28.5%（高収益ビジネス）<br>RSI 67（上昇モメンタム確認）<br>MACD+（上昇モメンタム）</td>
-<td style="font-size:.75rem;color:var(--muted);white-space:nowrap">利益率%: 28.5 ／ RSI: 67.0 ／ 1W騰落%: 4.7</td>
-</tr><tr>
-<td style="text-align:center;font-weight:600">65</td>
-<td>🇯🇵 <strong>8316.T</strong><br>
-  <span style="font-size:.78rem;color:var(--text-sub)">三井住友FG</span></td>
-<td><strong class="">50.0%</strong><br>
-  <span style="font-size:.72rem;color:var(--muted)">BUY</span></td>
-<td style="font-size:.8rem">¥6,031</td>
-<td style="font-size:.77rem;color:var(--text-sub)">利益率 26.1%（高収益ビジネス）<br>RSI 69（上昇モメンタム確認）<br>MACD+（上昇モメンタム）</td>
-<td style="font-size:.75rem;color:var(--muted);white-space:nowrap">利益率%: 26.1 ／ RSI: 69.0 ／ 1W騰落%: 5.8</td>
-</tr><tr>
-<td style="text-align:center;font-weight:600">66</td>
-<td>🇯🇵 <strong>9983.T</strong><br>
-  <span style="font-size:.78rem;color:var(--text-sub)">ファーストリテイリング</span></td>
-<td><strong class="">50.0%</strong><br>
-  <span style="font-size:.72rem;color:var(--muted)">BUY</span></td>
-<td style="font-size:.8rem">¥73,300</td>
-<td style="font-size:.77rem;color:var(--text-sub)">売上成長 14.8%（成長中）<br>EPS成長 29.8%（利益成長◎）<br>RSI 54（上昇モメンタム確認）</td>
-<td style="font-size:.75rem;color:var(--muted);white-space:nowrap">売上成長%: 14.8 ／ EPS成長%: 29.8 ／ 利益率%: 13.1 ／ RSI: 54.0</td>
-</tr><tr>
-<td style="text-align:center;font-weight:600">67</td>
-<td>🇯🇵 <strong>4307.T</strong><br>
-  <span style="font-size:.78rem;color:var(--text-sub)">野村総合研究所</span></td>
-<td><strong class="">50.0%</strong><br>
-  <span style="font-size:.72rem;color:var(--muted)">BUY</span></td>
-<td style="font-size:.8rem">¥4,681</td>
-<td style="font-size:.77rem;color:var(--text-sub)">売上成長 8.0%（緩やかに成長）<br>RSI 58（上昇モメンタム確認）<br>MACD+（上昇モメンタム）</td>
-<td style="font-size:.75rem;color:var(--muted);white-space:nowrap">売上成長%: 8.0 ／ 利益率%: 1.9 ／ RSI: 58.0 ／ 1W騰落%: 8.1</td>
-</tr><tr>
-<td style="text-align:center;font-weight:600">68</td>
-<td>🇯🇵 <strong>3659.T</strong><br>
-  <span style="font-size:.78rem;color:var(--text-sub)">NEXON Co., Ltd.</span></td>
-<td><strong class="">50.0%</strong><br>
-  <span style="font-size:.72rem;color:var(--muted)">BUY</span></td>
-<td style="font-size:.8rem">¥2,262</td>
-<td style="font-size:.77rem;color:var(--text-sub)">売上成長 33.6%（高成長◎◎）<br>EPS成長 124.6%（利益急拡大）<br>利益率 24.0%（良好）</td>
-<td style="font-size:.75rem;color:var(--muted);white-space:nowrap">売上成長%: 33.6 ／ EPS成長%: 124.6 ／ 利益率%: 24.0 ／ RSI: 30.0</td>
-</tr><tr>
-<td style="text-align:center;font-weight:600">69</td>
-<td>🇯🇵 <strong>6471.T</strong><br>
-  <span style="font-size:.78rem;color:var(--text-sub)">日本精工</span></td>
-<td><strong class="">50.0%</strong><br>
-  <span style="font-size:.72rem;color:var(--muted)">BUY</span></td>
-<td style="font-size:.8rem">¥1,166</td>
-<td style="font-size:.77rem;color:var(--text-sub)">売上成長 26.8%（高成長◎）<br>EPS成長 38.1%（利益急拡大）<br>RSI 48（モメンタム回復中）</td>
-<td style="font-size:.75rem;color:var(--muted);white-space:nowrap">売上成長%: 26.8 ／ EPS成長%: 38.1 ／ 利益率%: 2.5 ／ RSI: 48.0</td>
-</tr><tr>
-<td style="text-align:center;font-weight:600">70</td>
-<td>🇺🇸 <strong>TSLA</strong><br>
-  <span style="font-size:.78rem;color:var(--text-sub)">テスラ</span></td>
-<td><strong class="">50.0%</strong><br>
-  <span style="font-size:.72rem;color:var(--muted)">BUY</span></td>
-<td style="font-size:.8rem">$417.26</td>
-<td style="font-size:.77rem;color:var(--text-sub)">売上成長 15.8%（成長中）<br>EPS成長 8.3%（利益成長中）<br>RSI 62（上昇モメンタム確認）</td>
-<td style="font-size:.75rem;color:var(--muted);white-space:nowrap">売上成長%: 15.8 ／ EPS成長%: 8.3 ／ 利益率%: 3.9 ／ RSI: 62.0</td>
-</tr><tr>
-<td style="text-align:center;font-weight:600">71</td>
-<td>🇺🇸 <strong>FCX</strong><br>
-  <span style="font-size:.78rem;color:var(--text-sub)">Freeport-McMoRan Inc.</span></td>
-<td><strong class="">50.0%</strong><br>
-  <span style="font-size:.72rem;color:var(--muted)">BUY</span></td>
-<td style="font-size:.8rem">$60.87</td>
-<td style="font-size:.77rem;color:var(--text-sub)">売上成長 8.8%（緩やかに成長）<br>EPS成長 153.1%（利益急拡大）<br>RSI 56（上昇モメンタム確認）</td>
-<td style="font-size:.75rem;color:var(--muted);white-space:nowrap">売上成長%: 8.8 ／ EPS成長%: 153.1 ／ 利益率%: 10.3 ／ RSI: 56.0</td>
-</tr><tr>
-<td style="text-align:center;font-weight:600">72</td>
-<td>🇺🇸 <strong>SPG</strong><br>
-  <span style="font-size:.78rem;color:var(--text-sub)">Simon Property Group, Inc.</span></td>
-<td><strong class="">50.0%</strong><br>
-  <span style="font-size:.72rem;color:var(--muted)">BUY</span></td>
-<td style="font-size:.8rem">$204.10</td>
-<td style="font-size:.77rem;color:var(--text-sub)">売上成長 19.3%（成長中）<br>EPS成長 16.4%（利益成長◎）<br>利益率 70.6%（高収益ビジネス）</td>
-<td style="font-size:.75rem;color:var(--muted);white-space:nowrap">売上成長%: 19.3 ／ EPS成長%: 16.4 ／ 利益率%: 70.6 ／ RSI: 51.0</td>
-</tr></tbody>
-</table>
-
-<h2 style="font-size:1.1rem;margin:2rem 0 .75rem;border-bottom:2px solid #14532d;padding-bottom:.4rem">
-  &#128181; 仮想ポートフォリオ（シミュレーション）</h2>
-<p style="font-size:.82rem;color:var(--text-sub);margin-bottom:.75rem">
-  初期資産 ¥1,000,000 から出発し、BUYシグナル銘柄に均等配分（10%ルール、最大10銘柄）。実際の投資成果とは異なります。
-</p>
-<div class="stat-row" style="margin-bottom:.75rem">
-  <div class="stat-card ">
-    <div class="stat-label">総資産（仮想）</div>
-    <div class="stat-value">¥1,000,000</div>
+  <div class="pick-score">62<span> / 100点</span></div>
+  <div class="pick-meta">
+    <span>RSI 69.2</span>
+    <span>1M +13.0%</span>
+    <span>上昇トレンド</span>
   </div>
-  <div class="stat-card ">
-    <div class="stat-label">累計リターン</div>
-    <div class="stat-value ">+0.00%</div>
+  <div class="pick-reasons"><span class="reason-tag">PER 36.2倍（割高）</span><span class="reason-tag">ROE 107.5%（超高収益）</span><span class="reason-tag">上昇トレンド (MA50上)</span><span class="reason-tag">MACDヒストグラム+ (上昇モメンタム)</span></div>
+</div><div class="pick-card">
+  <div class="pick-rank">#31</div>
+  <div class="pick-header">
+    <span class="pick-flag">🇺🇸</span>
+    <div>
+      <div class="pick-ticker">NVDA</div>
+      <div class="pick-name">NVIDIA</div>
+    </div>
   </div>
-  <div class="stat-card">
-    <div class="stat-label">保有銘柄</div>
-    <div class="stat-value">10銘柄</div>
+  <div class="pick-score">60<span> / 100点</span></div>
+  <div class="pick-meta">
+    <span>RSI 69.8</span>
+    <span>1M +11.8%</span>
+    <span>上昇トレンド</span>
   </div>
-  <div class="stat-card">
-    <div class="stat-label">クローズ / 勝率</div>
-    <div class="stat-value">0件 / 集計中</div>
+  <div class="pick-reasons"><span class="reason-tag">PER 34.2倍（やや割高）</span><span class="reason-tag">ROE 101.5%（超高収益）</span><span class="reason-tag">上昇トレンド (MA50上)</span><span class="reason-tag">MACDヒストグラム+ (上昇モメンタム)</span></div>
+</div><div class="pick-card">
+  <div class="pick-rank">#5</div>
+  <div class="pick-header">
+    <span class="pick-flag">🇺🇸</span>
+    <div>
+      <div class="pick-ticker">V</div>
+      <div class="pick-name">Visa</div>
+    </div>
   </div>
-  <div class="stat-card up">
-    <div class="stat-label">最大含み益</div>
-    <div class="stat-value up">+0.00%</div>
+  <div class="pick-score">74<span> / 100点</span></div>
+  <div class="pick-meta">
+    <span>RSI 51.7</span>
+    <span>1M +6.9%</span>
+    <span>上昇トレンド</span>
   </div>
-  <div class="stat-card dn">
-    <div class="stat-label">最大含み損</div>
-    <div class="stat-value dn">+0.00%</div>
+  <div class="pick-reasons"><span class="reason-tag">PER 28.8倍（やや割高）</span><span class="reason-tag">ROE 60.3%（超高収益）</span><span class="reason-tag">上昇トレンド (MA50上)</span><span class="reason-tag">MACDヒストグラム+ (上昇モメンタム)</span></div>
+</div><div class="pick-card">
+  <div class="pick-rank">#59</div>
+  <div class="pick-header">
+    <span class="pick-flag">🇺🇸</span>
+    <div>
+      <div class="pick-ticker">MU</div>
+      <div class="pick-name">Micron Technology</div>
+    </div>
   </div>
-</div>
-<h3 style="font-size:.95rem;margin:.5rem 0 .25rem">保有ポジション（初期資産 ¥1,000,000 / ポジションサイズ 10%均等）</h3>
-<table class="perf-table" style="margin-top:.75rem;font-size:.84rem">
-<thead><tr><th>銘柄</th><th>購入日</th><th>現在値</th><th>損益</th></tr></thead>
-<tbody><tr>
-<td><strong>NVDA</strong><br>
-  <span style="font-size:.75rem;color:var(--text-sub)">エヌビディア</span></td>
-<td style="font-size:.8rem">2026-05-21</td>
-<td style="font-size:.82rem">$223.47</td>
-<td><strong class="">+0.00%</strong></td>
-</tr><tr>
-<td><strong>8411.T</strong><br>
-  <span style="font-size:.75rem;color:var(--text-sub)">みずほFG</span></td>
-<td style="font-size:.8rem">2026-05-21</td>
-<td style="font-size:.82rem">¥7,301</td>
-<td><strong class="">+0.00%</strong></td>
-</tr><tr>
-<td><strong>MU</strong><br>
-  <span style="font-size:.75rem;color:var(--text-sub)">マイクロン</span></td>
-<td style="font-size:.8rem">2026-05-21</td>
-<td style="font-size:.82rem">$731.99</td>
-<td><strong class="">+0.00%</strong></td>
-</tr><tr>
-<td><strong>LLY</strong><br>
-  <span style="font-size:.75rem;color:var(--text-sub)">イーライリリー</span></td>
-<td style="font-size:.8rem">2026-05-21</td>
-<td style="font-size:.82rem">$1018.87</td>
-<td><strong class="">+0.00%</strong></td>
-</tr><tr>
-<td><strong>EOG</strong><br>
-  <span style="font-size:.75rem;color:var(--text-sub)">EOG Resources, Inc.</span></td>
-<td style="font-size:.8rem">2026-05-21</td>
-<td style="font-size:.82rem">$141.63</td>
-<td><strong class="">+0.00%</strong></td>
-</tr><tr>
-<td><strong>6762.T</strong><br>
-  <span style="font-size:.75rem;color:var(--text-sub)">TDK Corporation</span></td>
-<td style="font-size:.8rem">2026-05-21</td>
-<td style="font-size:.82rem">¥3,141</td>
-<td><strong class="">+0.00%</strong></td>
-</tr><tr>
-<td><strong>4385.T</strong><br>
-  <span style="font-size:.75rem;color:var(--text-sub)">メルカリ</span></td>
-<td style="font-size:.8rem">2026-05-21</td>
-<td style="font-size:.82rem">¥4,078</td>
-<td><strong class="">+0.00%</strong></td>
-</tr><tr>
-<td><strong>GOOGL</strong><br>
-  <span style="font-size:.75rem;color:var(--text-sub)">アルファベット</span></td>
-<td style="font-size:.8rem">2026-05-21</td>
-<td style="font-size:.82rem">$388.91</td>
-<td><strong class="">+0.00%</strong></td>
-</tr><tr>
-<td><strong>AVGO</strong><br>
-  <span style="font-size:.75rem;color:var(--text-sub)">ブロードコム</span></td>
-<td style="font-size:.8rem">2026-05-21</td>
-<td style="font-size:.82rem">$417.76</td>
-<td><strong class="">+0.00%</strong></td>
-</tr><tr>
-<td><strong>LRCX</strong><br>
-  <span style="font-size:.75rem;color:var(--text-sub)">ラムリサーチ</span></td>
-<td style="font-size:.8rem">2026-05-21</td>
-<td style="font-size:.82rem">$292.09</td>
-<td><strong class="">+0.00%</strong></td>
-</tr></tbody></table>
-
-<h2 style="font-size:1.1rem;margin:2rem 0 .75rem;border-bottom:2px solid #14532d;padding-bottom:.4rem">
-  &#128203; 選定基準（定量ルール）</h2>
-<p style="font-size:.83rem;color:var(--text-sub);margin-bottom:.5rem">
-  以下の定量基準を組み合わせてスコアを算出します。市場動向・実績データに基づき随時見直しを行います。
-</p>
-<table class="perf-table" style="font-size:.84rem">
-<thead><tr><th>指標</th><th>配点</th><th>意味</th></tr></thead>
-<tbody><tr><td><strong>売上成長率</strong></td><td style='font-size:.8rem;font-family:monospace'>>30%→5pt / 20-30%→4pt / 10-20%→3pt / 5-10%→2pt / 0-5%→1pt / <0%→-2pt</td><td style='font-size:.78rem;color:var(--text-sub)'>成長の最重要指標</td></tr><tr><td><strong>EPS成長率</strong></td><td style='font-size:.8rem;font-family:monospace'>>30%→4pt / 15-30%→3pt / 5-15%→2pt / >0%→1pt / <0%→-1pt</td><td style='font-size:.78rem;color:var(--text-sub)'>利益拡大の確認</td></tr><tr><td><strong>利益率</strong></td><td style='font-size:.8rem;font-family:monospace'>>25%→3pt / 15-25%→2pt / 8-15%→1pt / <0%→-2pt</td><td style='font-size:.78rem;color:var(--text-sub)'>ビジネスモデルの質</td></tr><tr><td><strong>RSI</strong></td><td style='font-size:.8rem;font-family:monospace'>50-70→2pt / 70-80→1pt / 40-50→1pt / <35→-1pt / >85→-1pt</td><td style='font-size:.78rem;color:var(--text-sub)'>モメンタムの確認</td></tr><tr><td><strong>MACD</strong></td><td style='font-size:.8rem;font-family:monospace'>ヒストグラム+→2pt</td><td style='font-size:.78rem;color:var(--text-sub)'>上昇トレンドの確認</td></tr><tr><td><strong>トレンド</strong></td><td style='font-size:.8rem;font-family:monospace'>強い上昇→2pt / 上昇→1pt / 強い下降→-1pt</td><td style='font-size:.78rem;color:var(--text-sub)'>中期方向性</td></tr><tr><td><strong>1W騰落</strong></td><td style='font-size:.8rem;font-family:monospace'>>3%→1pt</td><td style='font-size:.78rem;color:var(--text-sub)'>短期モメンタム</td></tr><tr><td><strong>流動比率</strong></td><td style='font-size:.8rem;font-family:monospace'>>1.5→1pt / <1.0→-1pt</td><td style='font-size:.78rem;color:var(--text-sub)'>財務的安全性</td></tr></tbody>
-</table>
-<p style="font-size:.78rem;color:var(--muted);margin-top:.3rem">
-BUYシグナル: スコア 50% 以上（最大 20pt）&ensp;
-★ STRONG BUY: 70% 以上
-</p>
-
-<blockquote>
-本ページの情報は金融商品取引法に定める投資助言ではありません。投資判断は自己責任でお願いします。
-データは yfinance 経由で取得しており、遅延・欠損が含まれる場合があります。
-</blockquote>
-</div>
+  <div class="pick-score">47<span> / 100点</span></div>
+  <div class="pick-meta">
+    <span>RSI 69.3</span>
+    <span>1M +62.9%</span>
+    <span>上昇トレンド</span>
+  </div>
+  <div class="pick-reasons"><span class="reason-tag">PER 34.6倍（やや割高）</span><span class="reason-tag">ROE 39.8%（超高収益）</span><span class="reason-tag">上昇トレンド (MA50上)</span><span class="reason-tag">MACDヒストグラム- (下落モメンタム)</span></div>
+</div><div class="pick-card">
+  <div class="pick-rank">#37</div>
+  <div class="pick-header">
+    <span class="pick-flag">🇺🇸</span>
+    <div>
+      <div class="pick-ticker">AAPL</div>
+      <div class="pick-name">Apple</div>
+    </div>
+  </div>
+  <div class="pick-score">56<span> / 100点</span></div>
+  <div class="pick-meta">
+    <span>RSI 84.8</span>
+    <span>1M +13.7%</span>
+    <span>上昇トレンド</span>
+  </div>
+  <div class="pick-reasons"><span class="reason-tag">PER 36.6倍（割高）</span><span class="reason-tag">ROE 141.5%（超高収益）</span><span class="reason-tag">上昇トレンド (MA50上)</span><span class="reason-tag">MACDヒストグラム+ (上昇モメンタム)</span></div>
+</div><div class="pick-card">
+  <div class="pick-rank">#45</div>
+  <div class="pick-header">
+    <span class="pick-flag">🇺🇸</span>
+    <div>
+      <div class="pick-ticker">AVGO</div>
+      <div class="pick-name">Broadcom</div>
+    </div>
+  </div>
+  <div class="pick-score">53<span> / 100点</span></div>
+  <div class="pick-meta">
+    <span>RSI 50.1</span>
+    <span>1M +3.9%</span>
+    <span>上昇トレンド</span>
+  </div>
+  <div class="pick-reasons"><span class="reason-tag">PER 81.3倍（割高）</span><span class="reason-tag">ROE 33.4%（超高収益）</span><span class="reason-tag">上昇トレンド (MA50上)</span><span class="reason-tag">MACDヒストグラム- (下落モメンタム)</span></div>
+</div><div class="pick-card">
+  <div class="pick-rank">#8</div>
+  <div class="pick-header">
+    <span class="pick-flag">🇯🇵</span>
+    <div>
+      <div class="pick-ticker">8591.T</div>
+      <div class="pick-name">オリックス</div>
+    </div>
+  </div>
+  <div class="pick-score">70<span> / 100点</span></div>
+  <div class="pick-meta">
+    <span>RSI 81.9</span>
+    <span>1M +23.1%</span>
+    <span>上昇トレンド</span>
+  </div>
+  <div class="pick-reasons"><span class="reason-tag">PER 15.6倍（割安圏）</span><span class="reason-tag">ROE 10.4%（標準）</span><span class="reason-tag">上昇トレンド (MA50上)</span><span class="reason-tag">MACDヒストグラム+ (上昇モメンタム)</span></div>
+</div><div class="pick-card">
+  <div class="pick-rank">#9</div>
+  <div class="pick-header">
+    <span class="pick-flag">🇯🇵</span>
+    <div>
+      <div class="pick-ticker">8750.T</div>
+      <div class="pick-name">第一生命ホールディングス</div>
+    </div>
+  </div>
+  <div class="pick-score">70<span> / 100点</span></div>
+  <div class="pick-meta">
+    <span>RSI 86.2</span>
+    <span>1M +11.0%</span>
+    <span>上昇トレンド</span>
+  </div>
+  <div class="pick-reasons"><span class="reason-tag">PER 13.9倍（割安圏）</span><span class="reason-tag">ROE 11.1%（標準）</span><span class="reason-tag">上昇トレンド (MA50上)</span><span class="reason-tag">MACDヒストグラム+ (上昇モメンタム)</span></div>
+</div><div class="pick-card">
+  <div class="pick-rank">#2</div>
+  <div class="pick-header">
+    <span class="pick-flag">🇯🇵</span>
+    <div>
+      <div class="pick-ticker">8766.T</div>
+      <div class="pick-name">東京海上ホールディングス</div>
+    </div>
+  </div>
+  <div class="pick-score">77<span> / 100点</span></div>
+  <div class="pick-meta">
+    <span>RSI 65.5</span>
+    <span>1M +10.4%</span>
+    <span>上昇トレンド</span>
+  </div>
+  <div class="pick-reasons"><span class="reason-tag">PER 14.9倍（割安圏）</span><span class="reason-tag">ROE 20.7%（高収益性）</span><span class="reason-tag">上昇トレンド (MA50上)</span><span class="reason-tag">MACDヒストグラム+ (上昇モメンタム)</span></div>
+</div><div class="pick-card">
+  <div class="pick-rank">#44</div>
+  <div class="pick-header">
+    <span class="pick-flag">🇺🇸</span>
+    <div>
+      <div class="pick-ticker">GOOGL</div>
+      <div class="pick-name">Alphabet (Google)</div>
+    </div>
+  </div>
+  <div class="pick-score">53<span> / 100点</span></div>
+  <div class="pick-meta">
+    <span>RSI 53.1</span>
+    <span>1M +17.0%</span>
+    <span>上昇トレンド</span>
+  </div>
+  <div class="pick-reasons"><span class="reason-tag">PER 29.7倍（やや割高）</span><span class="reason-tag">ROE 38.9%（超高収益）</span><span class="reason-tag">上昇トレンド (MA50上)</span><span class="reason-tag">MACDヒストグラム- (下落モメンタム)</span></div>
+</div></div>
 </main>
-<footer class="site-footer">
-  <div class="container">
-    <div class="footer-grid">
-      <div>
-        <p class="footer-logo">HG Analytics</p>
-        <p class="footer-desc">AIが毎日分析する株価情報サイト</p>
-      </div>
-      <div>
-        <p class="footer-heading">コンテンツ</p>
-        <a href="/">トップ</a>
-        <a href="/value/">バリュー投資部門</a>
-        <a href="/growth/">グロース投資部門</a>
-        <a href="/dividend/">高配当投資部門</a>
-        <a href="/articles/">記事一覧</a>
-        <a href="/sector/">セクター分析</a>
-        <a href="/portfolio/">仮想ポートフォリオ</a>
-        <a href="/hot/">急騰・急落</a>
-        <a href="/learn/">学習コンテンツ</a>
-        <a href="/brokers/">証券会社比較</a>
-        <a href="/performance/">予測実績</a>
-        <a href="/methodology/">分析手法・透明性</a>
-        <a href="/privacy/">プライバシーポリシー</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p class="disclaimer">【重要】本サイトの情報は参考情報であり、投資助言・投資推奨ではありません（金融商品取引法第2条準拠）。掲載情報の正確性を保証するものではなく、投資判断はご自身の責任で行ってください。過去の実績は将来の結果を保証しません。証券会社比較ページにはアフィリエイト広告（PR）が含まれます。</p>
-      <p>&copy; 2026 HG Analytics</p>
-    </div>
-  </div>
+<footer>
+  <p>© HG Analytics — AIによる自動分析。投資の最終判断はご自身でお願いします（金融商品取引法準拠）。</p>
 </footer>
 </body>
 </html>
