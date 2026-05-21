@@ -4,330 +4,235 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AI株価スクリーニング | HG Analytics</title>
-<meta name="description" content="AIが85銘柄をスクリーニング。本日の注目銘柄・投資スタイル別おすすめを毎日更新。">
+<meta name="description" content="AIが0銘柄をスクリーニング。本日の注目銘柄・投資スタイル別おすすめを毎日更新。">
 <style>
 :root {
-  --bg: #f8f9fa; --card: #fff; --text: #1a1a2e; --text-sub: #6b7280;
-  --primary: #2563eb; --accent: #10b981; --danger: #ef4444;
-  --border: #e5e7eb; --radius: 10px; --shadow: 0 2px 8px rgba(0,0,0,.08);
+  --bg: #f4f6fb; --card: #fff; --text: #1a1a2e; --text-sub: #6b7280;
+  --primary: #2563eb; --primary-light: #dbeafe;
+  --accent: #10b981; --accent-light: #d1fae5;
+  --warn: #f59e0b; --warn-light: #fef3c7;
+  --danger: #ef4444; --danger-light: #fee2e2;
+  --border: #e5e7eb; --radius: 12px; --shadow: 0 2px 12px rgba(0,0,0,.07);
 }
 @media (prefers-color-scheme: dark) {
-  :root { --bg: #0f172a; --card: #1e293b; --text: #f1f5f9; --text-sub: #94a3b8;
-          --border: #334155; --shadow: 0 2px 8px rgba(0,0,0,.3); }
+  :root {
+    --bg: #0f172a; --card: #1e293b; --text: #f1f5f9; --text-sub: #94a3b8;
+    --primary-light: #1e3a8a; --accent-light: #064e3b;
+    --warn-light: #78350f; --danger-light: #7f1d1d;
+    --border: #334155; --shadow: 0 2px 12px rgba(0,0,0,.4);
+  }
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: -apple-system, 'Hiragino Sans', sans-serif; background: var(--bg);
-       color: var(--text); line-height: 1.6; }
+body { font-family: -apple-system, 'Hiragino Sans', 'Yu Gothic UI', sans-serif;
+       background: var(--bg); color: var(--text); line-height: 1.6; }
 a { color: var(--primary); text-decoration: none; }
 a:hover { text-decoration: underline; }
 
-header { background: var(--card); border-bottom: 1px solid var(--border);
-         padding: .75rem 1.5rem; display: flex; align-items: center;
-         gap: 1.5rem; flex-wrap: wrap; position: sticky; top: 0; z-index: 10; }
-.logo { font-size: 1.15rem; font-weight: 800; color: var(--primary); }
-nav { display: flex; gap: 1rem; font-size: .88rem; flex-wrap: wrap; }
-nav a { color: var(--text-sub); }
-nav a:hover { color: var(--primary); }
+/* ── Header ── */
+header {
+  background: var(--card); border-bottom: 1px solid var(--border);
+  padding: .65rem 1.5rem; display: flex; align-items: center;
+  gap: 1.5rem; flex-wrap: wrap; position: sticky; top: 0; z-index: 10;
+  box-shadow: 0 1px 4px rgba(0,0,0,.06);
+}
+.logo { font-size: 1.1rem; font-weight: 900; color: var(--primary); letter-spacing: -.02em; }
+nav { display: flex; gap: .25rem; font-size: .85rem; flex-wrap: wrap; margin-left: auto; }
+nav a {
+  color: var(--text-sub); padding: .3rem .7rem; border-radius: 6px;
+  transition: background .12s, color .12s;
+}
+nav a:hover { background: var(--primary-light); color: var(--primary); text-decoration: none; }
+nav a.active { background: var(--primary-light); color: var(--primary); font-weight: 700; }
 
-main { max-width: 960px; margin: 0 auto; padding: 1.5rem 1rem 4rem; }
-h1 { font-size: 1.5rem; font-weight: 800; margin-bottom: .5rem; }
-h2 { font-size: 1.15rem; font-weight: 700; margin: 1.5rem 0 .75rem;
-     padding-bottom: .35rem; border-bottom: 2px solid var(--primary); }
+/* ── Layout ── */
+main { max-width: 980px; margin: 0 auto; padding: 1.5rem 1rem 4rem; }
+h1 { font-size: 1.45rem; font-weight: 900; margin-bottom: .35rem; letter-spacing: -.02em; }
+h2 {
+  font-size: 1.05rem; font-weight: 800; margin: 2rem 0 .9rem;
+  display: flex; align-items: center; gap: .5rem;
+}
+h2::before {
+  content: ''; display: inline-block; width: 4px; height: 1.1em;
+  background: var(--primary); border-radius: 2px;
+}
 
-/* Index bar */
-.indices { display: flex; gap: .75rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
-.idx-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
-            padding: .6rem 1rem; min-width: 130px; }
-.idx-name  { font-size: .75rem; color: var(--text-sub); }
-.idx-price { font-size: 1rem; font-weight: 700; }
-.idx-chg   { font-size: .78rem; font-weight: 600; }
+/* ── Hero ── */
+.hero {
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 60%, #1e40af 100%);
+  border-radius: var(--radius); padding: 1.5rem; margin-bottom: 1.5rem;
+  color: #fff;
+}
+.hero-title { font-size: 1.3rem; font-weight: 900; margin-bottom: .35rem; }
+.hero-sub { font-size: .85rem; opacity: .85; margin-bottom: 1rem; }
+.hero-stats { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+.hero-stat { }
+.hero-stat-val { font-size: 1.5rem; font-weight: 900; line-height: 1.1; }
+.hero-stat-lbl { font-size: .72rem; opacity: .75; }
+
+/* ── Market indices ── */
+.indices { display: flex; gap: .65rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+.idx-card {
+  background: var(--card); border: 1px solid var(--border); border-radius: 10px;
+  padding: .6rem 1rem; min-width: 128px; transition: box-shadow .12s;
+}
+.idx-card:hover { box-shadow: var(--shadow); }
+.idx-name  { font-size: .7rem; color: var(--text-sub); font-weight: 600;
+             text-transform: uppercase; letter-spacing: .04em; }
+.idx-price { font-size: 1rem; font-weight: 800; margin: .1rem 0; }
+.idx-chg   { font-size: .78rem; font-weight: 700; }
 .up { color: var(--accent); } .dn { color: var(--danger); }
 
-/* Pick cards */
-.picks-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px,1fr)); gap: 1rem; }
-.pick-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
-             box-shadow: var(--shadow); padding: 1rem; transition: transform .15s; }
-.pick-card:hover { transform: translateY(-2px); }
-.pick-rank   { font-size: .7rem; font-weight: 800; color: var(--text-sub); letter-spacing: .05em; margin-bottom: .25rem; }
-.pick-header { display: flex; align-items: center; gap: .5rem; margin-bottom: .5rem; }
-.pick-flag   { font-size: 1.1rem; }
-.pick-ticker { font-size: .85rem; font-weight: 800; }
-.pick-name   { font-size: .8rem; color: var(--text-sub); }
-.pick-score  { font-size: 1.4rem; font-weight: 800; color: var(--primary); margin-bottom: .4rem; }
-.pick-score span { font-size: .75rem; color: var(--text-sub); font-weight: 400; }
-.pick-meta   { display: flex; gap: .75rem; font-size: .78rem; color: var(--text-sub); margin-bottom: .5rem; }
-.pick-reasons { display: flex; flex-wrap: wrap; gap: .3rem; }
-.reason-tag  { font-size: .68rem; background: var(--bg); color: var(--text-sub);
-               padding: .15em .55em; border-radius: .3em; }
+/* ── Pick cards ── */
+.picks-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(290px,1fr)); gap: 1rem;
+}
+.pick-card {
+  background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
+  box-shadow: var(--shadow); padding: 1.1rem 1.1rem .9rem; transition: transform .15s, box-shadow .15s;
+  display: flex; flex-direction: column; gap: .45rem;
+}
+.pick-card:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,0,0,.1); }
 
-/* Department cards */
-.dept-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px,1fr)); gap: 1rem; }
-.dept-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
-             box-shadow: var(--shadow); overflow: hidden; }
-.dept-head { padding: .6rem 1rem; font-size: .8rem; font-weight: 800; letter-spacing: .04em; }
-.dept-val  { background: #2563eb22; color: var(--primary); }
-.dept-gro  { background: #10b98122; color: var(--accent); }
-.dept-div  { background: #f59e0b22; color: #d97706; }
-.dept-body { padding: .75rem 1rem; }
-.dept-desc { font-size: .78rem; color: var(--text-sub); margin-bottom: .5rem; }
+.pick-top { display: flex; align-items: flex-start; justify-content: space-between; }
+.pick-id { display: flex; align-items: center; gap: .45rem; }
+.pick-flag { font-size: 1.2rem; line-height: 1; }
+.pick-ticker { font-size: .92rem; font-weight: 900; letter-spacing: .01em; }
+.pick-name   { font-size: .75rem; color: var(--text-sub); }
+.pick-rank   { font-size: .65rem; font-weight: 800; color: var(--text-sub);
+               background: var(--bg); border: 1px solid var(--border);
+               padding: .1em .55em; border-radius: 4px; white-space: nowrap; }
+
+.score-row { display: flex; align-items: baseline; gap: .4rem; }
+.score-num { font-size: 2rem; font-weight: 900; line-height: 1; }
+.score-denom { font-size: .75rem; color: var(--text-sub); }
+.score-high { color: var(--accent); }
+.score-mid  { color: var(--primary); }
+.score-low  { color: var(--warn); }
+.score-very-low { color: var(--danger); }
+
+.score-bar-wrap { background: var(--border); border-radius: 4px; height: 5px; }
+.score-bar { border-radius: 4px; height: 5px; transition: width .4s; }
+.bar-high { background: var(--accent); }
+.bar-mid  { background: var(--primary); }
+.bar-low  { background: var(--warn); }
+.bar-very-low { background: var(--danger); }
+
+.badge {
+  display: inline-block; font-size: .65rem; font-weight: 800; letter-spacing: .04em;
+  padding: .2em .65em; border-radius: 4px;
+}
+.badge-buy    { background: var(--accent-light); color: var(--accent); }
+.badge-watch  { background: var(--primary-light); color: var(--primary); }
+.badge-caution{ background: var(--warn-light); color: var(--warn); }
+
+.pick-meta { display: flex; gap: .5rem; flex-wrap: wrap; font-size: .75rem; }
+.meta-chip {
+  background: var(--bg); color: var(--text-sub); border: 1px solid var(--border);
+  padding: .1em .55em; border-radius: 4px; font-weight: 600;
+}
+.meta-chip.up { color: var(--accent); border-color: var(--accent-light); background: var(--accent-light); }
+.meta-chip.dn { color: var(--danger); border-color: var(--danger-light); background: var(--danger-light); }
+
+.pick-reasons { display: flex; flex-wrap: wrap; gap: .3rem; margin-top: .1rem; }
+.reason-tag {
+  font-size: .65rem; background: var(--bg); color: var(--text-sub);
+  border: 1px solid var(--border); padding: .15em .5em; border-radius: .3em;
+}
+
+/* ── Department cards ── */
+.dept-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px,1fr)); gap: 1rem; }
+.dept-card {
+  background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
+  box-shadow: var(--shadow); overflow: hidden;
+}
+.dept-head {
+  padding: .7rem 1rem; font-size: .82rem; font-weight: 900; letter-spacing: .05em;
+  display: flex; align-items: center; gap: .5rem;
+}
+.dept-val { background: var(--primary-light); color: var(--primary); }
+.dept-gro { background: var(--accent-light); color: #059669; }
+.dept-div { background: var(--warn-light); color: #b45309; }
+.dept-body { padding: .85rem 1rem; }
+.dept-desc { font-size: .77rem; color: var(--text-sub); margin-bottom: .6rem; line-height: 1.4; }
 .dept-picks-list { list-style: none; font-size: .82rem; }
-.dept-picks-list li { display: flex; justify-content: space-between; align-items: center;
-                      padding: .2rem 0; border-bottom: 1px solid var(--border); }
+.dept-picks-list li {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: .3rem 0; border-bottom: 1px solid var(--border);
+}
 .dept-picks-list li:last-child { border: none; }
-.dept-score-badge { font-size: .72rem; font-weight: 700; color: var(--primary);
-                    background: var(--bg); padding: .1em .5em; border-radius: .3em; }
+.dept-score-badge {
+  font-size: .7rem; font-weight: 800; color: var(--primary);
+  background: var(--primary-light); padding: .15em .55em; border-radius: .3em;
+  white-space: nowrap;
+}
+.dept-footer { display: flex; justify-content: space-between; align-items: center; margin-top: .6rem; }
+.dept-buy-count { font-size: .72rem; color: var(--text-sub); }
+.dept-link { font-size: .78rem; font-weight: 700; }
 
-footer { text-align: center; font-size: .75rem; color: var(--text-sub); padding: 2rem 1rem;
-         border-top: 1px solid var(--border); margin-top: 3rem; }
+/* ── Footer ── */
+footer {
+  text-align: center; font-size: .73rem; color: var(--text-sub);
+  padding: 2rem 1rem; border-top: 1px solid var(--border); margin-top: 3rem;
+  line-height: 1.8;
+}
 </style>
 </head>
 <body>
 <header>
-  <span class="logo">📊 HG Analytics</span>
-  <nav>
-    <a href="/">トップ</a>
-    <a href="/value/">バリュー</a>
-    <a href="/growth/">グロース</a>
-    <a href="/dividend/">高配当</a>
-  </nav>
+  <span class="logo">HG Analytics</span>
+  <nav><a href="/" class="active">トップ</a><a href="/value/" class="">バリュー</a><a href="/growth/" class="">グロース</a><a href="/dividend/" class="">高配当</a></nav>
 </header>
 <main>
-<h1>本日の株価スクリーニング結果</h1>
-<p style="color:var(--text-sub);font-size:.85rem;margin-bottom:1rem;">20260521 更新 — 85銘柄をAIが自動分析</p>
+<div class="hero">
+  <div class="hero-title">本日のAI株価スクリーニング</div>
+  <div class="hero-sub">2026年5月21日 更新 — 0銘柄をAIが自動分析</div>
+  
+</div>
 
-<h2>総合スコア トップ10銘柄</h2>
-<div class="picks-grid"><div class="pick-card">
-  <div class="pick-rank">#1</div>
-  <div class="pick-header">
-    <span class="pick-flag">🇺🇸</span>
-    <div>
-      <div class="pick-ticker">EOG</div>
-      <div class="pick-name">EOG Resources</div>
-    </div>
-  </div>
-  <div class="pick-score">79<span> / 100点</span></div>
-  <div class="pick-meta">
-    <span>RSI 51.6</span>
-    <span>1M +7.0%</span>
-    <span>上昇トレンド</span>
-  </div>
-  <div class="pick-reasons"><span class="reason-tag">PER 13.9倍（割安圏）</span><span class="reason-tag">ROE 18.2%（高収益性）</span><span class="reason-tag">上昇トレンド (MA50上)</span><span class="reason-tag">MACDヒストグラム+ (上昇モメンタム)</span></div>
-</div><div class="pick-card">
-  <div class="pick-rank">#2</div>
-  <div class="pick-header">
-    <span class="pick-flag">🇯🇵</span>
-    <div>
-      <div class="pick-ticker">8766.T</div>
-      <div class="pick-name">東京海上ホールディングス</div>
-    </div>
-  </div>
-  <div class="pick-score">77<span> / 100点</span></div>
-  <div class="pick-meta">
-    <span>RSI 65.5</span>
-    <span>1M +10.4%</span>
-    <span>上昇トレンド</span>
-  </div>
-  <div class="pick-reasons"><span class="reason-tag">PER 14.9倍（割安圏）</span><span class="reason-tag">ROE 20.7%（高収益性）</span><span class="reason-tag">上昇トレンド (MA50上)</span><span class="reason-tag">MACDヒストグラム+ (上昇モメンタム)</span></div>
-</div><div class="pick-card">
-  <div class="pick-rank">#3</div>
-  <div class="pick-header">
-    <span class="pick-flag">🇺🇸</span>
-    <div>
-      <div class="pick-ticker">CF</div>
-      <div class="pick-name">CF Industries Holdings</div>
-    </div>
-  </div>
-  <div class="pick-score">75<span> / 100点</span></div>
-  <div class="pick-meta">
-    <span>RSI 49.6</span>
-    <span>1M +2.1%</span>
-    <span>横ばい</span>
-  </div>
-  <div class="pick-reasons"><span class="reason-tag">PER 11.1倍（超割安）</span><span class="reason-tag">ROE 27.3%（超高収益）</span><span class="reason-tag">MACDヒストグラム+ (上昇モメンタム)</span><span class="reason-tag">RSI 49.6（中立・安定）</span></div>
-</div><div class="pick-card">
-  <div class="pick-rank">#4</div>
-  <div class="pick-header">
-    <span class="pick-flag">🇺🇸</span>
-    <div>
-      <div class="pick-ticker">ACN</div>
-      <div class="pick-name">Accenture</div>
-    </div>
-  </div>
-  <div class="pick-score">75<span> / 100点</span></div>
-  <div class="pick-meta">
-    <span>RSI 50.5</span>
-    <span>1M -7.8%</span>
-    <span>横ばい</span>
-  </div>
-  <div class="pick-reasons"><span class="reason-tag">PER 14.7倍（割安圏）</span><span class="reason-tag">ROE 24.8%（高収益性）</span><span class="reason-tag">MACDヒストグラム+ (上昇モメンタム)</span><span class="reason-tag">RSI 50.5（中立・安定）</span></div>
-</div><div class="pick-card">
-  <div class="pick-rank">#5</div>
-  <div class="pick-header">
-    <span class="pick-flag">🇺🇸</span>
-    <div>
-      <div class="pick-ticker">V</div>
-      <div class="pick-name">Visa</div>
-    </div>
-  </div>
-  <div class="pick-score">74<span> / 100点</span></div>
-  <div class="pick-meta">
-    <span>RSI 51.7</span>
-    <span>1M +6.9%</span>
-    <span>上昇トレンド</span>
-  </div>
-  <div class="pick-reasons"><span class="reason-tag">PER 28.8倍（やや割高）</span><span class="reason-tag">ROE 60.3%（超高収益）</span><span class="reason-tag">上昇トレンド (MA50上)</span><span class="reason-tag">MACDヒストグラム+ (上昇モメンタム)</span></div>
-</div><div class="pick-card">
-  <div class="pick-rank">#6</div>
-  <div class="pick-header">
-    <span class="pick-flag">🇯🇵</span>
-    <div>
-      <div class="pick-ticker">9984.T</div>
-      <div class="pick-name">ソフトバンクグループ</div>
-    </div>
-  </div>
-  <div class="pick-score">71<span> / 100点</span></div>
-  <div class="pick-meta">
-    <span>RSI 52.1</span>
-    <span>1M +29.3%</span>
-    <span>上昇トレンド</span>
-  </div>
-  <div class="pick-reasons"><span class="reason-tag">PER 6.9倍（超割安）</span><span class="reason-tag">ROE 32.7%（超高収益）</span><span class="reason-tag">上昇トレンド (MA50上)</span><span class="reason-tag">MACDヒストグラム- (下落モメンタム)</span></div>
-</div><div class="pick-card">
-  <div class="pick-rank">#7</div>
-  <div class="pick-header">
-    <span class="pick-flag">🇯🇵</span>
-    <div>
-      <div class="pick-ticker">7267.T</div>
-      <div class="pick-name">本田技研工業</div>
-    </div>
-  </div>
-  <div class="pick-score">70<span> / 100点</span></div>
-  <div class="pick-meta">
-    <span>RSI 62.3</span>
-    <span>1M +6.3%</span>
-    <span>上昇トレンド</span>
-  </div>
-  <div class="pick-reasons"><span class="reason-tag">PER 6.1倍（超割安）</span><span class="reason-tag">売上成長率 8.6%（成長中）</span><span class="reason-tag">上昇トレンド (MA50上)</span><span class="reason-tag">MACDヒストグラム+ (上昇モメンタム)</span></div>
-</div><div class="pick-card">
-  <div class="pick-rank">#8</div>
-  <div class="pick-header">
-    <span class="pick-flag">🇯🇵</span>
-    <div>
-      <div class="pick-ticker">8591.T</div>
-      <div class="pick-name">オリックス</div>
-    </div>
-  </div>
-  <div class="pick-score">70<span> / 100点</span></div>
-  <div class="pick-meta">
-    <span>RSI 81.9</span>
-    <span>1M +23.1%</span>
-    <span>上昇トレンド</span>
-  </div>
-  <div class="pick-reasons"><span class="reason-tag">PER 15.6倍（割安圏）</span><span class="reason-tag">ROE 10.4%（標準）</span><span class="reason-tag">上昇トレンド (MA50上)</span><span class="reason-tag">MACDヒストグラム+ (上昇モメンタム)</span></div>
-</div><div class="pick-card">
-  <div class="pick-rank">#9</div>
-  <div class="pick-header">
-    <span class="pick-flag">🇯🇵</span>
-    <div>
-      <div class="pick-ticker">8750.T</div>
-      <div class="pick-name">第一生命ホールディングス</div>
-    </div>
-  </div>
-  <div class="pick-score">70<span> / 100点</span></div>
-  <div class="pick-meta">
-    <span>RSI 86.2</span>
-    <span>1M +11.0%</span>
-    <span>上昇トレンド</span>
-  </div>
-  <div class="pick-reasons"><span class="reason-tag">PER 13.9倍（割安圏）</span><span class="reason-tag">ROE 11.1%（標準）</span><span class="reason-tag">上昇トレンド (MA50上)</span><span class="reason-tag">MACDヒストグラム+ (上昇モメンタム)</span></div>
-</div><div class="pick-card">
-  <div class="pick-rank">#10</div>
-  <div class="pick-header">
-    <span class="pick-flag">🇯🇵</span>
-    <div>
-      <div class="pick-ticker">8411.T</div>
-      <div class="pick-name">みずほフィナンシャルグループ</div>
-    </div>
-  </div>
-  <div class="pick-score">70<span> / 100点</span></div>
-  <div class="pick-meta">
-    <span>RSI 63.9</span>
-    <span>1M +6.2%</span>
-    <span>上昇トレンド</span>
-  </div>
-  <div class="pick-reasons"><span class="reason-tag">PER 14.5倍（割安圏）</span><span class="reason-tag">ROE 11.4%（標準）</span><span class="reason-tag">上昇トレンド (MA50上)</span><span class="reason-tag">MACDヒストグラム+ (上昇モメンタム)</span></div>
-</div></div>
-<h2 style="margin-top:2rem;">投資スタイル別</h2>
+<h2>総合スコア トップ0銘柄</h2>
+<div class="picks-grid"></div>
+<h2>投資スタイル別</h2>
 <div class="dept-grid"><div class="dept-card">
-  <div class="dept-head dept-val">バリュー部門</div>
+  <div class="dept-head dept-val">
+    💎 バリュー部門
+  </div>
   <div class="dept-body">
-    <div class="dept-desc">割安・高ROE・安定配当銘柄 — BUY: 75銘柄</div>
-    <ul class="dept-picks-list"><li>
-  <span>🇺🇸 CF Industries Holdings</span>
-  <span class="dept-score-badge">94pt</span>
-</li><li>
-  <span>🇯🇵 SOMPOホールディングス</span>
-  <span class="dept-score-badge">94pt</span>
-</li><li>
-  <span>🇯🇵 ソフトバンクグループ</span>
-  <span class="dept-score-badge">93pt</span>
-</li><li>
-  <span>🇯🇵 MS&ADインシュアランスグループ</span>
-  <span class="dept-score-badge">92pt</span>
-</li><li>
-  <span>🇺🇸 EOG Resources</span>
-  <span class="dept-score-badge">86pt</span>
-</li></ul>
-    <a href="/value/" style="font-size:.8rem;display:block;margin-top:.5rem;">全銘柄を見る →</a>
+    <div class="dept-desc">割安・高ROE・安定配当銘柄</div>
+    <ul class="dept-picks-list"><li>データなし</li></ul>
+    <div class="dept-footer">
+      <span class="dept-buy-count">BUY 0銘柄</span>
+      <a class="dept-link" href="/value/">全銘柄を見る →</a>
+    </div>
   </div>
 </div><div class="dept-card">
-  <div class="dept-head dept-gro">グロース部門</div>
+  <div class="dept-head dept-gro">
+    🚀 グロース部門
+  </div>
   <div class="dept-body">
-    <div class="dept-desc">高成長・強モメンタム銘柄 — BUY: 59銘柄</div>
-    <ul class="dept-picks-list"><li>
-  <span>🇺🇸 Eli Lilly</span>
-  <span class="dept-score-badge">91pt</span>
-</li><li>
-  <span>🇺🇸 NVIDIA</span>
-  <span class="dept-score-badge">88pt</span>
-</li><li>
-  <span>🇺🇸 Visa</span>
-  <span class="dept-score-badge">82pt</span>
-</li><li>
-  <span>🇺🇸 Micron Technology</span>
-  <span class="dept-score-badge">81pt</span>
-</li><li>
-  <span>🇺🇸 Apple</span>
-  <span class="dept-score-badge">80pt</span>
-</li></ul>
-    <a href="/growth/" style="font-size:.8rem;display:block;margin-top:.5rem;">全銘柄を見る →</a>
+    <div class="dept-desc">高成長・強モメンタム銘柄</div>
+    <ul class="dept-picks-list"><li>データなし</li></ul>
+    <div class="dept-footer">
+      <span class="dept-buy-count">BUY 0銘柄</span>
+      <a class="dept-link" href="/growth/">全銘柄を見る →</a>
+    </div>
   </div>
 </div><div class="dept-card">
-  <div class="dept-head dept-div">高配当部門</div>
+  <div class="dept-head dept-div">
+    💰 高配当部門
+  </div>
   <div class="dept-body">
-    <div class="dept-desc">高配当利回り・安定収益銘柄 — BUY: 80銘柄</div>
-    <ul class="dept-picks-list"><li>
-  <span>🇺🇸 EOG Resources</span>
-  <span class="dept-score-badge">99pt</span>
-</li><li>
-  <span>🇺🇸 Accenture</span>
-  <span class="dept-score-badge">98pt</span>
-</li><li>
-  <span>🇯🇵 みずほフィナンシャルグループ</span>
-  <span class="dept-score-badge">98pt</span>
-</li><li>
-  <span>🇯🇵 第一三共</span>
-  <span class="dept-score-badge">98pt</span>
-</li><li>
-  <span>🇯🇵 任天堂</span>
-  <span class="dept-score-badge">98pt</span>
-</li></ul>
-    <a href="/dividend/" style="font-size:.8rem;display:block;margin-top:.5rem;">全銘柄を見る →</a>
+    <div class="dept-desc">高配当利回り・安定収益銘柄</div>
+    <ul class="dept-picks-list"><li>データなし</li></ul>
+    <div class="dept-footer">
+      <span class="dept-buy-count">BUY 0銘柄</span>
+      <a class="dept-link" href="/dividend/">全銘柄を見る →</a>
+    </div>
   </div>
 </div></div>
 </main>
 <footer>
-  <p>© HG Analytics — AIによる自動分析。投資の最終判断はご自身でお願いします（金融商品取引法準拠）。</p>
+  <p>© HG Analytics — AIによる自動分析・スクリーニング</p>
+  <p style="margin-top:.3rem;">投資の最終判断はご自身でお願いします（金融商品取引法準拠）。当サイトの情報は投資勧誘を目的としません。</p>
 </footer>
 </body>
 </html>
