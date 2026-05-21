@@ -35,15 +35,15 @@
     <input type="checkbox" id="nav-toggle" class="nav-toggle">
     <label for="nav-toggle" class="nav-burger">&#9776;</label>
     <nav class="nav-menu">
-      <a href="/">トップ</a>
-      <a href="/articles/">記事一覧</a>
-      <a href="/attention/">注目銘柄分析</a>
-      <a href="/portfolio/">仮想ポートフォリオ</a>
-      <a href="/hot/">急騰・急落</a>
-      <a href="/learn/">学習</a>
-      <a href="/brokers/">証券会社比較</a>
-      <a href="/performance/">予測実績</a>
-      <a href="/about/">運営者情報</a>
+      <a href="/" class="nav-primary">トップ</a>
+      <a href="/articles/" class="nav-primary">記事一覧</a>
+      <a href="/attention/" class="nav-primary">注目銘柄</a>
+      <a href="/performance/" class="nav-primary">予測実績</a>
+      <a href="/sector/" class="nav-secondary">セクター分析</a>
+      <a href="/methodology/" class="nav-secondary">分析手法</a>
+      <a href="/learn/" class="nav-secondary">学習</a>
+      <a href="/brokers/" class="nav-secondary">証券会社比較</a>
+      <a href="/about/" class="nav-secondary">運営者情報</a>
     </nav>
   </div>
 </header>
@@ -54,18 +54,41 @@
   <h1>AI予測 実績データ</h1>
   <div class="art-header-meta">
     <span>&#128202; 注目銘柄選定から5営業日後の騰落率を自動集計</span>
+    <span style="font-size:.75rem;color:var(--muted);background:rgba(0,0,0,.04);padding:.2em .7em;border-radius:2em">&#128337; 毎日 07:00 JST 自動更新</span>
   </div>
 </div>
 
+<div class="editorial-summary" style="margin-bottom:1.5rem">
+  <div class="summary-header">&#128203; 数値の見方（重要）</div>
+  <ul class="summary-list">
+    <li><strong>勝率</strong>は「選定翌5営業日後に+0.1%以上で終わったか」を基準とします</li>
+    <li><strong>期待値</strong>は勝率と平均リターンを組み合わせた実質パフォーマンス指標です</li>
+    <li><strong>Sharpe Ratio</strong>はリターンの安定性を示します（0.5以上が良好）</li>
+    <li>短期（5日）の騰落であり、中長期投資の参考指標とは異なります</li>
+    <li>過去の実績は将来を保証しません。本データは参考情報です。<a href="/methodology/">分析手法の詳細はこちら</a></li>
+  </ul>
+</div>
 <div class="stat-row">
-<div class="stat-card"><div class="stat-label">累計分析件数</div><div class="stat-value">20</div></div>
+<div class="stat-card"><div class="stat-label">累計分析件数</div><div class="stat-value">25</div></div>
 <div class="stat-card dn">
-  <div class="stat-label">勝率</div>
-  <div class="stat-value dn">35.0%</div>
+  <div class="stat-label">勝率（5日後）</div>
+  <div class="stat-value dn">32.0%</div>
 </div>
 <div class="stat-card dn">
   <div class="stat-label">平均リターン</div>
-  <div class="stat-value dn">-1.26%</div>
+  <div class="stat-value dn">-1.81%</div>
+</div>
+<div class="stat-card dn">
+  <div class="stat-label">期待値</div>
+  <div class="stat-value dn">-1.81%</div>
+</div>
+<div class="stat-card dn">
+  <div class="stat-label">Sharpe Ratio<span class="stat-hint" title="年率換算。0.5以上が良好水準">&#9432;</span></div>
+  <div class="stat-value dn">-2.10</div>
+</div>
+<div class="stat-card dn">
+  <div class="stat-label">最大ドローダウン<span class="stat-hint" title="累積損失の最大幅">&#9432;</span></div>
+  <div class="stat-value dn">-50.2%</div>
 </div>
 <div class="stat-card up">
   <div class="stat-label">最大利益</div>
@@ -76,10 +99,53 @@
   <div class="stat-value dn">-15.38%</div>
 </div>
 </div>
+
+<div class="method-section" style="margin-top:1.5rem">
+  <h3>&#127941; ランク別勝率（選定順位&#8594;5日後勝率）</h3>
+  <div style="margin-top:.75rem"><div style="display:flex;align-items:center;gap:.6rem;margin-bottom:.45rem"><span style="width:2rem;font-size:.8rem;color:var(--text-sub);text-align:right">#1</span><div style="flex:1;background:#f1f5f9;border-radius:.25rem;height:1.1rem;overflow:hidden"><div style="width:40%;background:#dc2626;height:100%;border-radius:.25rem;transition:width .4s"></div></div><span style="width:4rem;font-size:.82rem;font-weight:700;color:#dc2626">40.0%</span><span style="font-size:.72rem;color:var(--muted)">n=5</span></div><div style="display:flex;align-items:center;gap:.6rem;margin-bottom:.45rem"><span style="width:2rem;font-size:.8rem;color:var(--text-sub);text-align:right">#2</span><div style="flex:1;background:#f1f5f9;border-radius:.25rem;height:1.1rem;overflow:hidden"><div style="width:40%;background:#dc2626;height:100%;border-radius:.25rem;transition:width .4s"></div></div><span style="width:4rem;font-size:.82rem;font-weight:700;color:#dc2626">40.0%</span><span style="font-size:.72rem;color:var(--muted)">n=5</span></div><div style="display:flex;align-items:center;gap:.6rem;margin-bottom:.45rem"><span style="width:2rem;font-size:.8rem;color:var(--text-sub);text-align:right">#3</span><div style="flex:1;background:#f1f5f9;border-radius:.25rem;height:1.1rem;overflow:hidden"><div style="width:4%;background:#dc2626;height:100%;border-radius:.25rem;transition:width .4s"></div></div><span style="width:4rem;font-size:.82rem;font-weight:700;color:#dc2626">0.0%</span><span style="font-size:.72rem;color:var(--muted)">n=5</span></div><div style="display:flex;align-items:center;gap:.6rem;margin-bottom:.45rem"><span style="width:2rem;font-size:.8rem;color:var(--text-sub);text-align:right">#4</span><div style="flex:1;background:#f1f5f9;border-radius:.25rem;height:1.1rem;overflow:hidden"><div style="width:20%;background:#dc2626;height:100%;border-radius:.25rem;transition:width .4s"></div></div><span style="width:4rem;font-size:.82rem;font-weight:700;color:#dc2626">20.0%</span><span style="font-size:.72rem;color:var(--muted)">n=5</span></div><div style="display:flex;align-items:center;gap:.6rem;margin-bottom:.45rem"><span style="width:2rem;font-size:.8rem;color:var(--text-sub);text-align:right">#5</span><div style="flex:1;background:#f1f5f9;border-radius:.25rem;height:1.1rem;overflow:hidden"><div style="width:60%;background:#059669;height:100%;border-radius:.25rem;transition:width .4s"></div></div><span style="width:4rem;font-size:.82rem;font-weight:700;color:#059669">60.0%</span><span style="font-size:.72rem;color:var(--muted)">n=5</span></div></div>
+  <p style="font-size:.78rem;color:var(--muted);margin-top:.4rem">※件数が少ない順位は参考値です。データ蓄積とともに精度が向上します。</p>
+</div>
+
+<div class="editorial-summary" style="margin-bottom:1rem;border-left:3px solid #ccc">
+  <div class="summary-header">&#129302; AIスコア重み自動最適化</div>
+  <p style="font-size:.83rem;color:var(--text-sub);margin:.3rem 0">
+    実績データ蓄積中です（最低10件必要）。データが揃い次第、指標別の勝率を分析してスコア重みを自動調整します。
+  </p>
+</div>
 <h2>直近30件の実績</h2>
 <table class="perf-table">
 <thead><tr><th>選定日</th><th>銘柄</th><th>スコア</th><th>5日後騰落</th><th>結果</th></tr></thead>
 <tbody><tr>
+<td>2026-05-14</td>
+<td>ズーム<br><span style="font-size:.75rem;color:var(--muted)">ZM</span></td>
+<td>68.2%</td>
+<td style="color:#991b1b">-2.94%</td>
+<td><span class="badge badge-down">負</span></td>
+</tr><tr>
+<td>2026-05-14</td>
+<td>ジーニー<br><span style="font-size:.75rem;color:var(--muted)">6562.T</span></td>
+<td>63.6%</td>
+<td style="color:#991b1b">-6.67%</td>
+<td><span class="badge badge-down">負</span></td>
+</tr><tr>
+<td>2026-05-14</td>
+<td>メルカリ<br><span style="font-size:.75rem;color:var(--muted)">4385.T</span></td>
+<td>63.6%</td>
+<td style="color:#991b1b">-2.79%</td>
+<td><span class="badge badge-down">負</span></td>
+</tr><tr>
+<td>2026-05-14</td>
+<td>ソフトバンクグループ<br><span style="font-size:.75rem;color:var(--muted)">9984.T</span></td>
+<td>63.6%</td>
+<td style="color:#065f46">+0.45%</td>
+<td><span class="badge badge-up">勝</span></td>
+</tr><tr>
+<td>2026-05-14</td>
+<td>コムシスHD<br><span style="font-size:.75rem;color:var(--muted)">1721.T</span></td>
+<td>63.6%</td>
+<td style="color:#991b1b">-8.05%</td>
+<td><span class="badge badge-down">負</span></td>
+</tr><tr>
 <td>2026-05-13</td>
 <td>デュオリンゴ<br><span style="font-size:.75rem;color:var(--muted)">DUOL</span></td>
 <td>77.3%</td>
@@ -206,36 +272,6 @@
 <table class="perf-table">
 <thead><tr><th>選定日</th><th>銘柄</th><th>スコア</th><th>選定価格</th><th>判定予定</th></tr></thead>
 <tbody><tr>
-<td>2026-05-14</td>
-<td>ズーム<br><span style="font-size:.75rem;color:var(--muted)">ZM</span></td>
-<td>68.2%</td>
-<td style="font-size:.8rem;color:var(--muted)">102.43 円</td>
-<td style="color:var(--text-sub)">05/21 判定予定</td>
-</tr><tr>
-<td>2026-05-14</td>
-<td>ジーニー<br><span style="font-size:.75rem;color:var(--muted)">6562.T</span></td>
-<td>63.6%</td>
-<td style="font-size:.8rem;color:var(--muted)">1,020.0 円</td>
-<td style="color:var(--text-sub)">05/21 判定予定</td>
-</tr><tr>
-<td>2026-05-14</td>
-<td>メルカリ<br><span style="font-size:.75rem;color:var(--muted)">4385.T</span></td>
-<td>63.6%</td>
-<td style="font-size:.8rem;color:var(--muted)">4,195.0 円</td>
-<td style="color:var(--text-sub)">05/21 判定予定</td>
-</tr><tr>
-<td>2026-05-14</td>
-<td>ソフトバンクグループ<br><span style="font-size:.75rem;color:var(--muted)">9984.T</span></td>
-<td>63.6%</td>
-<td style="font-size:.8rem;color:var(--muted)">6,012.0 円</td>
-<td style="color:var(--text-sub)">05/21 判定予定</td>
-</tr><tr>
-<td>2026-05-14</td>
-<td>コムシスHD<br><span style="font-size:.75rem;color:var(--muted)">1721.T</span></td>
-<td>63.6%</td>
-<td style="font-size:.8rem;color:var(--muted)">5,675.0 円</td>
-<td style="color:var(--text-sub)">05/21 判定予定</td>
-</tr><tr>
 <td>2026-05-15</td>
 <td>アドバンテスト<br><span style="font-size:.75rem;color:var(--muted)">6857.T</span></td>
 <td>64.3%</td>
@@ -295,6 +331,36 @@
 <td>53.6%</td>
 <td style="font-size:.8rem;color:var(--muted)">482.7 円</td>
 <td style="color:var(--text-sub)">05/22 判定予定</td>
+</tr><tr>
+<td>2026-05-17</td>
+<td>CF Industries Holdings, Inc.<br><span style="font-size:.75rem;color:var(--muted)">CF</span></td>
+<td>67.9%</td>
+<td style="font-size:.8rem;color:var(--muted)">125.24 円</td>
+<td style="color:var(--text-sub)">05/22 判定予定</td>
+</tr><tr>
+<td>2026-05-17</td>
+<td>ブラックロック<br><span style="font-size:.75rem;color:var(--muted)">BLK</span></td>
+<td>64.3%</td>
+<td style="font-size:.8rem;color:var(--muted)">1,081.9 円</td>
+<td style="color:var(--text-sub)">05/22 判定予定</td>
+</tr><tr>
+<td>2026-05-17</td>
+<td>リクルートHD<br><span style="font-size:.75rem;color:var(--muted)">6098.T</span></td>
+<td>53.6%</td>
+<td style="font-size:.8rem;color:var(--muted)">7,825.0 円</td>
+<td style="color:var(--text-sub)">05/22 判定予定</td>
+</tr><tr>
+<td>2026-05-17</td>
+<td>三井金属鉱業<br><span style="font-size:.75rem;color:var(--muted)">5706.T</span></td>
+<td>53.6%</td>
+<td style="font-size:.8rem;color:var(--muted)">46,640.0 円</td>
+<td style="color:var(--text-sub)">05/22 判定予定</td>
+</tr><tr>
+<td>2026-05-17</td>
+<td>Berkshire Hathaway Inc.<br><span style="font-size:.75rem;color:var(--muted)">BRK-B</span></td>
+<td>53.6%</td>
+<td style="font-size:.8rem;color:var(--muted)">482.7 円</td>
+<td style="color:var(--text-sub)">05/22 判定予定</td>
 </tr></tbody>
 </table>
 <blockquote>過去の実績は将来の結果を保証しません。本データは情報提供目的であり投資助言ではありません。</blockquote>
@@ -312,17 +378,19 @@
         <a href="/">トップ</a>
         <a href="/articles/">記事一覧</a>
         <a href="/attention/">注目銘柄分析</a>
+        <a href="/sector/">セクター分析</a>
         <a href="/portfolio/">仮想ポートフォリオ</a>
         <a href="/hot/">急騰・急落</a>
         <a href="/learn/">学習コンテンツ</a>
         <a href="/brokers/">証券会社比較</a>
         <a href="/performance/">予測実績</a>
+        <a href="/methodology/">分析手法・透明性</a>
         <a href="/about/">運営者情報</a>
         <a href="/privacy/">プライバシーポリシー</a>
       </div>
     </div>
     <div class="footer-bottom">
-      <p class="disclaimer">本サイトの情報は投資助言ではありません。投資判断はご自身の責任で行ってください（金融商品取引法第2条準拠）。</p>
+      <p class="disclaimer">【重要】本サイトの情報は参考情報であり、投資助言・投資推奨ではありません（金融商品取引法第2条準拠）。掲載情報の正確性を保証するものではなく、投資判断はご自身の責任で行ってください。過去の実績は将来の結果を保証しません。証券会社比較ページにはアフィリエイト広告（PR）が含まれます。</p>
       <p>&copy; 2026 HG Analytics</p>
     </div>
   </div>

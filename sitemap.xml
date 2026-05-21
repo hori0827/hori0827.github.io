@@ -2,10 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://hori0827.github.io/</loc><changefreq>daily</changefreq></url>
   <url><loc>https://hori0827.github.io/articles/</loc><changefreq>daily</changefreq></url>
+  <url><loc>https://hori0827.github.io/attention/</loc><changefreq>daily</changefreq></url>
+  <url><loc>https://hori0827.github.io/sector/</loc><changefreq>daily</changefreq></url>
+  <url><loc>https://hori0827.github.io/methodology/</loc><changefreq>daily</changefreq></url>
   <url><loc>https://hori0827.github.io/hot/</loc><changefreq>daily</changefreq></url>
   <url><loc>https://hori0827.github.io/learn/</loc><changefreq>daily</changefreq></url>
   <url><loc>https://hori0827.github.io/brokers/</loc><changefreq>daily</changefreq></url>
   <url><loc>https://hori0827.github.io/performance/</loc><changefreq>daily</changefreq></url>
+  <url><loc>https://hori0827.github.io/portfolio/</loc><changefreq>daily</changefreq></url>
   <url><loc>https://hori0827.github.io/privacy/</loc><changefreq>daily</changefreq></url>
   <url><loc>https://hori0827.github.io/about/</loc><changefreq>daily</changefreq></url>
   <url><loc>https://hori0827.github.io/learn/what-is-rsi/</loc><changefreq>daily</changefreq></url>
@@ -32,6 +36,7 @@
   <url><loc>https://hori0827.github.io/learn/life-stage-asset-building/</loc><changefreq>daily</changefreq></url>
   <url><loc>https://hori0827.github.io/learn/etf-vs-individual-stocks/</loc><changefreq>daily</changefreq></url>
   <url><loc>https://hori0827.github.io/learn/advanced-valuation-peg-dcf/</loc><changefreq>daily</changefreq></url>
+  <url><loc>https://hori0827.github.io/hot/20260521/</loc><changefreq>daily</changefreq></url>
   <url><loc>https://hori0827.github.io/hot/20260520/</loc><changefreq>daily</changefreq></url>
   <url><loc>https://hori0827.github.io/hot/20260519/</loc><changefreq>daily</changefreq></url>
   <url><loc>https://hori0827.github.io/hot/20260518/</loc><changefreq>daily</changefreq></url>
@@ -43,6 +48,7 @@
   <url><loc>https://hori0827.github.io/hot/20260512/</loc><changefreq>daily</changefreq></url>
   <url><loc>https://hori0827.github.io/hot/20260510/</loc><changefreq>daily</changefreq></url>
   <url><loc>https://hori0827.github.io/hot/20260509/</loc><changefreq>daily</changefreq></url>
+  <url><loc>https://hori0827.github.io/articles/20260521/</loc><changefreq>daily</changefreq></url>
   <url><loc>https://hori0827.github.io/articles/20260520/</loc><changefreq>daily</changefreq></url>
   <url><loc>https://hori0827.github.io/articles/20260519/</loc><changefreq>daily</changefreq></url>
   <url><loc>https://hori0827.github.io/articles/20260518/</loc><changefreq>daily</changefreq></url>

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>分析手法・透明性レポート | スコア算出の完全公開 | HG Analytics</title>
+  <meta name="description" content="HG AnalyticsのAIスコアリング手法を完全公開。ファンダメンタル・テクニカル・マクロの重み付けと評価基準を解説。">
+  <meta property="og:title" content="分析手法・透明性レポート | スコア算出の完全公開">
+  <meta property="og:description" content="HG AnalyticsのAIスコアリング手法を完全公開。ファンダメンタル・テクニカル・マクロの重み付けと評価基準を解説。">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://hori0827.github.io/assets/ogp.png">
+  <meta property="og:url" content="https://hori0827.github.io/methodology/">
+  <meta property="og:site_name" content="HG Analytics">
+  <meta property="og:locale" content="ja_JP">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="分析手法・透明性レポート | スコア算出の完全公開">
+  <meta name="twitter:description" content="HG AnalyticsのAIスコアリング手法を完全公開。ファンダメンタル・テクニカル・マクロの重み付けと評価基準を解説。">
+  <meta name="google-site-verification" content="7V_zOAQD8Wj-WW75kGPzPHq8kAcria_PGfj-kt5j11c">
+  <link rel="canonical" href="https://hori0827.github.io/methodology/">
+  <link rel="alternate" type="application/rss+xml" title="HG Analytics" href="https://hori0827.github.io/feed.xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap">
+  <link rel="stylesheet" href="/assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%232563eb'/><text x='3' y='24' font-family='sans-serif' font-size='18' font-weight='900' fill='white'>HG</text></svg>">
+  
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5716635999318915" crossorigin="anonymous"></script>
+  
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner container">
+    <a href="/" class="logo">
+      <span class="logo-icon">&#9642;</span>HG Analytics
+    </a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle">
+    <label for="nav-toggle" class="nav-burger">&#9776;</label>
+    <nav class="nav-menu">
+      <a href="/" class="nav-primary">トップ</a>
+      <a href="/articles/" class="nav-primary">記事一覧</a>
+      <a href="/attention/" class="nav-primary">注目銘柄</a>
+      <a href="/performance/" class="nav-primary">予測実績</a>
+      <a href="/sector/" class="nav-secondary">セクター分析</a>
+      <a href="/methodology/" class="nav-secondary">分析手法</a>
+      <a href="/learn/" class="nav-secondary">学習</a>
+      <a href="/brokers/" class="nav-secondary">証券会社比較</a>
+      <a href="/about/" class="nav-secondary">運営者情報</a>
+    </nav>
+  </div>
+</header>
+<main>
+
+<div class="article-wrap">
+<div class="art-header fade-up">
+  <h1>分析手法・透明性レポート</h1>
+  <div class="art-header-meta">
+    <span>&#128269; AIスコアリングの仕組みを完全公開</span>
+    <span>&#128203; バックテスト期間・前提条件を明示</span>
+  </div>
+</div>
+
+<div class="editorial-summary">
+  <div class="summary-header">&#8505;&#65038; このページの目的</div>
+  <ul class="summary-list">
+    <li>HG Analyticsの<strong>スコア算出方法・重み付けを完全公開</strong>します</li>
+    <li>分析モデルの<strong>前提・限界・バックテスト条件</strong>を透明化します</li>
+    <li>本サイトの情報は参考情報であり、<strong>投資助言・投資推奨ではありません</strong></li>
+    <li>金融商品取引法第2条に基づき、断定的判断の提供は行っていません</li>
+  </ul>
+</div>
+
+<div class="method-section">
+  <h3>&#127919; 総合スコアの構成</h3>
+  <p style="font-size:.85rem;color:var(--text-sub);margin-bottom:1rem">
+    各銘柄の総合スコアは「ファンダメンタル」「テクニカル」「マクロ環境」の3要素で構成されます。<br>
+    <strong>中長期バリュー選定を重視</strong>した設計で、企業の本質的価値（ROE・FCF・利益率）を優先評価します。
+  </p>
+  <div class="weight-bar-wrap">
+    <div class="weight-bar-label"><span>&#128200; ファンダメンタル分析（最大22点）</span><span style="font-weight:700;color:#059669">65%</span></div>
+    <div class="weight-bar-track"><div class="weight-bar-fill fund" style="width:65%"></div></div>
+  </div>
+  <div class="weight-bar-wrap" style="margin-top:.75rem">
+    <div class="weight-bar-label"><span>&#128202; テクニカル分析 — エントリー補助（最大12点）</span><span>35%</span></div>
+    <div class="weight-bar-track"><div class="weight-bar-fill" style="width:35%"></div></div>
+  </div>
+  <div class="weight-bar-wrap" style="margin-top:.75rem">
+    <div class="weight-bar-label"><span>&#127758; マクロ環境調整（±5点）</span><span style="color:var(--muted)">加算</span></div>
+    <div class="weight-bar-track"><div class="weight-bar-fill macro" style="width:15%"></div></div>
+  </div>
+  <p style="font-size:.78rem;color:var(--muted);margin-top:.75rem">
+    ファンダ65% / テクニカル35%。テクニカルは主に「いつ買うか」のエントリータイミング補助として機能します。
+  </p>
+</div>
+
+<div class="method-section">
+  <h3>&#128200; ファンダメンタル分析の採点基準（最大22点）</h3>
+  <table class="factor-table">
+    <thead><tr><th>指標</th><th>最大配点</th><th>評価基準</th><th>重視理由</th></tr></thead>
+    <tbody>
+      <tr><td>ROE（自己資本利益率）</td><td><strong>+3pt</strong></td><td>ROE≥20%:+3 / ≥15%:+2 / ≥8%:+1</td><td>企業の稼ぐ力。バフェットが最重視する指標</td></tr>
+      <tr><td>FCFマージン（フリーCF）</td><td><strong>+3pt</strong></td><td>FCF率≥20%:+3 / ≥12%:+2 / ≥5%:+1 / 赤字:-2</td><td>キャッシュ創出力。会計操作不可能な実力値</td></tr>
+      <tr><td>売上成長率</td><td><strong>+3pt</strong></td><td>+20%以上:+3 / +10%:+2 / +3%:+1</td><td>成長の持続性。長期リターンの源泉</td></tr>
+      <tr><td>利益率（営業利益率）</td><td><strong>+3pt</strong></td><td>≥20%:+3 / ≥12%:+2 / ≥5%:+1</td><td>競争優位性（ワイドモート）の証拠</td></tr>
+      <tr><td>PER（株価収益率）</td><td>+2pt</td><td>PER 5-40倍圏で割安ほど高得点</td><td>バリュエーション確認</td></tr>
+      <tr><td>PBR（株価純資産倍率）</td><td>+2pt</td><td>PBR&lt;1.0で+2（簿価割れ）、&lt;1.5で+2</td><td>資産価値対比の割安度</td></tr>
+      <tr><td>配当利回り</td><td>+2pt</td><td>≥4%:+2 / ≥2%:+1</td><td>株主還元・財務健全性のシグナル</td></tr>
+      <tr><td>PEG比率</td><td>+2pt</td><td>PEG&lt;0.8:+2 / &lt;1.5:+1 / &gt;4.0:-1</td><td>成長を加味したバリュエーション</td></tr>
+      <tr><td>財務健全性（負債比率）</td><td>+2pt</td><td>負債比率&lt;30%:+2 / &lt;80%:+1 / &gt;300%:-1</td><td>不況耐性・借入コスト負担</td></tr>
+      <tr><td>流動比率</td><td>+1pt</td><td>&gt;2.0:+1 / &lt;1.0:-1</td><td>短期支払い能力</td></tr>
+    </tbody>
+  </table>
+  <p style="font-size:.8rem;color:var(--muted)">※ データはyfinance経由で取得。日本株ではFCF・PEG等が取得できない場合があります（その場合は0点として扱います）。</p>
+</div>
+
+<div class="method-section">
+  <h3>&#128202; テクニカル分析の採点基準（最大12点・エントリー補助）</h3>
+  <p style="font-size:.85rem;color:var(--text-sub);margin-bottom:.75rem">
+    テクニカルは「何を買うか」ではなく「いつ買うか」の補助指標として位置づけています。
+    売られすぎサイン（RSI低水準・VWAP割れ）を特に重視します。
+  </p>
+  <table class="factor-table">
+    <thead><tr><th>指標</th><th>最大配点</th><th>評価基準</th></tr></thead>
+    <tbody>
+      <tr><td>RSI（相対力指数）</td><td>+2pt</td><td>RSI&lt;30:+2（売られすぎ） / 30-45:+2 / 45-60:+1 / 75-85:-1 / ≥85:-3（旧-5から緩和）</td></tr>
+      <tr><td>MACD</td><td>+2pt</td><td>ヒストグラムプラス:+2 / マイナスはペナルティなし（押し目の可能性）</td></tr>
+      <tr><td>VWAP乖離</td><td>+2pt</td><td>VWAP割れが深いほど高得点（割安エントリーのサイン）</td></tr>
+      <tr><td>出来高×VWAP複合</td><td>+2pt</td><td>出来高急増×VWAP割れで機関仕込みシグナル</td></tr>
+      <tr><td>トレンド</td><td>+1pt</td><td>上昇トレンド:+1 / 強い下降:-1（旧-2から緩和）</td></tr>
+      <tr><td>ボリンジャーバンド</td><td>+1pt</td><td>下限付近:+1（上限超えはペナルティなし）</td></tr>
+      <tr><td>1週間騰落</td><td>+1pt</td><td>+2%超:+1 / マイナスはペナルティなし（押し目の可能性）</td></tr>
+      <tr><td>1ヶ月騰落</td><td>+1pt</td><td>+10%超:+1（中期モメンタム確認）</td></tr>
+    </tbody>
+  </table>
+  <p style="font-size:.8rem;color:var(--muted)">※ テクニカル指標は直近3ヶ月の日足データで算出（yfinance）。リアルタイム値ではありません。</p>
+</div>
+
+<div class="method-section">
+  <h3>&#127758; マクロ環境調整（±5点）</h3>
+  <p style="font-size:.85rem;color:var(--text-sub);margin-bottom:.75rem">
+    米10年債利回り・VIX・USD/JPY を総合判断し、リスクオン/オフを判定します。
+  </p>
+  <table class="factor-table">
+    <thead><tr><th>環境</th><th>調整値</th><th>判定条件</th></tr></thead>
+    <tbody>
+      <tr><td>リスクオン</td><td>最大+3点</td><td>VIX&lt;15、低金利環境</td></tr>
+      <tr><td>中立</td><td>0点</td><td>VIX 15-25、金利安定</td></tr>
+      <tr><td>リスクオフ</td><td>最大-4点</td><td>VIX&gt;25、急激な金利上昇</td></tr>
+    </tbody>
+  </table>
+  <p style="font-size:.8rem;color:var(--muted)">加えて、円安局面の日本輸出株への加点、高金利×高PER銘柄への追加減点も行います。</p>
+</div>
+
+<div class="method-section">
+  <h3>&#128203; バックテスト・実績評価の条件</h3>
+  <table class="factor-table">
+    <thead><tr><th>項目</th><th>条件</th></tr></thead>
+    <tbody>
+      <tr><td>評価期間</td><td>選定日から5営業日後の終値で判定</td></tr>
+      <tr><td>勝利条件</td><td>5日後騰落率 ≥ +0.1%</td></tr>
+      <tr><td>対象銘柄</td><td>日本株20銘柄 + 米国株10銘柄のウォッチリスト</td></tr>
+      <tr><td>データソース</td><td>Yahoo Finance API（yfinance）</td></tr>
+      <tr><td>スプレッド・手数料</td><td>未考慮（実際の取引コストが発生します）</td></tr>
+      <tr><td>ベンチマーク比較</td><td>日本株：日経225 / 米国株：S&amp;P500 との比較を実施</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="method-section">
+  <h3>&#9888;&#65039; モデルの限界・注意事項</h3>
+  <ul class="summary-list">
+    <li>本モデルは<strong>中長期バリュー選定</strong>に重みを置いた設計です。短期トレードには別途テクニカル分析をお勧めします</li>
+    <li>流動性・市場影響コスト・スリッページは考慮していません</li>
+    <li>ファンダメンタルデータはyfinance経由で取得するため、<strong>最大1日の遅延</strong>が発生します</li>
+    <li>セクター相対評価・ベンチマーク（TOPIX/S&P500）比較は現時点で未実装です</li>
+    <li>機関投資家向けの流動性・時価総額フィルターは未実装です</li>
+    <li>本スコアはあくまで参考情報であり、<strong>特定銘柄の投資を推奨するものではありません</strong></li>
+  </ul>
+</div>
+
+<div class="method-section">
+  <h3>&#128196; 今後の改善予定</h3>
+  <ul class="summary-list">
+    <li>時価総額・流動性フィルター（機関投資家向け閾値）</li>
+    <li>バックテスト期間の延長（現在：直近6ヶ月 → 目標：3年）</li>
+    <li>ESG/ガバナンスフラグの統合</li>
+  </ul>
+</div>
+
+<div class="method-section">
+  <h3>&#128229; データダウンロード（機関投資家・アナリスト向け）</h3>
+  <p style="font-size:.85rem;color:var(--text-sub);margin-bottom:.75rem">
+    毎日のAIスクリーニング結果をCSV形式でダウンロードできます。ランク・スコア・RSI・PER・セクター・選定理由を含みます。
+  </p>
+  <p style="font-size:.8rem;color:var(--muted)">
+    ※ データは参考情報です。投資助言ではありません。商用利用は禁止します。
+  </p>
+  {csv_link}
+</div>
+
+<blockquote>
+本サイトの情報は参考情報であり、投資助言・投資推奨ではありません。
+投資判断はご自身の責任で行ってください（金融商品取引法第2条準拠）。
+掲載情報の正確性・完全性を保証するものではありません。
+</blockquote>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <p class="footer-logo">HG Analytics</p>
+        <p class="footer-desc">AIが毎日分析する株価情報サイト</p>
+      </div>
+      <div>
+        <p class="footer-heading">コンテンツ</p>
+        <a href="/">トップ</a>
+        <a href="/articles/">記事一覧</a>
+        <a href="/attention/">注目銘柄分析</a>
+        <a href="/sector/">セクター分析</a>
+        <a href="/portfolio/">仮想ポートフォリオ</a>
+        <a href="/hot/">急騰・急落</a>
+        <a href="/learn/">学習コンテンツ</a>
+        <a href="/brokers/">証券会社比較</a>
+        <a href="/performance/">予測実績</a>
+        <a href="/methodology/">分析手法・透明性</a>
+        <a href="/about/">運営者情報</a>
+        <a href="/privacy/">プライバシーポリシー</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="disclaimer">【重要】本サイトの情報は参考情報であり、投資助言・投資推奨ではありません（金融商品取引法第2条準拠）。掲載情報の正確性を保証するものではなく、投資判断はご自身の責任で行ってください。過去の実績は将来の結果を保証しません。証券会社比較ページにはアフィリエイト広告（PR）が含まれます。</p>
+      <p>&copy; 2026 HG Analytics</p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
