@@ -981,3 +981,19 @@ a:hover { text-decoration: underline; }
   box-shadow:0 4px 12px rgba(0,0,0,.25);
 }
 .glossary:hover::after { opacity:1; }
+
+/* ── Department Signal Cards (top page new signals) ── */
+.dept-signals-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1rem; margin: .75rem 0 1rem; }
+.dept-signal-card { background: var(--card); border-radius: var(--radius-lg); box-shadow: var(--shadow); overflow: hidden; transition: transform .2s, box-shadow .2s; }
+.dept-signal-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+.dept-badge { font-size: .7rem; font-weight: 800; padding: .35rem 1rem; letter-spacing: .04em; display: block; }
+.dept-card-body { padding: .85rem 1rem .9rem; }
+.dept-card-header { display: flex; align-items: center; gap: .4rem; margin-bottom: .5rem; flex-wrap: wrap; }
+.dept-flag { font-size: .9rem; flex-shrink: 0; }
+.dept-ticker { font-size: .88rem; font-weight: 800; color: var(--text); }
+.dept-name { font-size: .77rem; color: var(--text-sub); flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.dept-metrics { display: flex; align-items: center; gap: .6rem; margin-bottom: .45rem; }
+.dept-score { font-size: 1.05rem; font-weight: 800; color: var(--primary); }
+.dept-price { font-size: .8rem; color: var(--text-sub); }
+.dept-reasons { display: flex; flex-wrap: wrap; gap: .3rem; }
+.dept-reason { font-size: .68rem; background: var(--bg); color: var(--text-sub); padding: .18em .5em; border-radius: .3em; line-height: 1.4; }
