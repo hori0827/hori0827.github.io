@@ -169,6 +169,51 @@ h2::before {
 .dept-buy-count { font-size: .72rem; color: var(--text-sub); }
 .dept-link { font-size: .78rem; font-weight: 700; }
 
+/* ── Article cards (index) ── */
+.articles-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px,1fr)); gap: 1rem; }
+.article-card {
+  background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
+  box-shadow: var(--shadow); padding: 1.1rem; display: flex; flex-direction: column; gap: .5rem;
+  transition: transform .15s, box-shadow .15s;
+}
+.article-card:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,0,0,.1); text-decoration: none; }
+.article-card-tag { font-size: .65rem; font-weight: 800; letter-spacing: .04em; color: var(--primary);
+  background: var(--primary-light); padding: .2em .6em; border-radius: 4px; display: inline-block; }
+.article-card-title { font-size: .95rem; font-weight: 800; line-height: 1.4; color: var(--text); }
+.article-card-desc { font-size: .78rem; color: var(--text-sub); line-height: 1.5; flex: 1; }
+.article-card-meta { font-size: .7rem; color: var(--text-sub); }
+
+/* ── Article page ── */
+.article-hero { background: linear-gradient(135deg,#1e3a8a,#1d4ed8); border-radius: var(--radius);
+  padding: 1.8rem; margin-bottom: 2rem; color: #fff; }
+.article-hero-tag { font-size: .7rem; font-weight: 800; letter-spacing: .06em;
+  background: rgba(255,255,255,.2); padding: .25em .75em; border-radius: 4px; display: inline-block; margin-bottom: .7rem; }
+.article-hero-title { font-size: 1.55rem; font-weight: 900; line-height: 1.3; margin-bottom: .5rem; }
+.article-hero-meta { font-size: .78rem; opacity: .8; }
+.article-toc { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 1rem 1.2rem; margin-bottom: 2rem; }
+.article-toc-title { font-size: .8rem; font-weight: 800; color: var(--text-sub); margin-bottom: .5rem; letter-spacing: .04em; }
+.article-toc ol { padding-left: 1.3rem; font-size: .85rem; line-height: 2; }
+.article-toc ol a { color: var(--primary); }
+.article-body { font-size: .92rem; line-height: 1.85; }
+.article-body h2 { font-size: 1.15rem; font-weight: 900; margin: 2.2rem 0 .8rem; padding-bottom: .4rem;
+  border-bottom: 2px solid var(--primary); color: var(--text); }
+.article-body h2::before { display: none; }
+.article-body h3 { font-size: 1rem; font-weight: 800; margin: 1.5rem 0 .5rem; color: var(--primary); }
+.article-body p { margin-bottom: 1rem; }
+.article-body ul, .article-body ol { padding-left: 1.4rem; margin-bottom: 1rem; }
+.article-body li { margin-bottom: .3rem; }
+.article-body table { width: 100%; border-collapse: collapse; margin: 1.2rem 0; font-size: .85rem; }
+.article-body th { background: var(--primary-light); color: var(--primary); font-weight: 800;
+  padding: .6rem .8rem; text-align: left; border: 1px solid var(--border); }
+.article-body td { padding: .55rem .8rem; border: 1px solid var(--border); }
+.article-body tr:nth-child(even) td { background: var(--bg); }
+.article-body .highlight-box { background: var(--primary-light); border-left: 4px solid var(--primary);
+  border-radius: 0 var(--radius) var(--radius) 0; padding: .9rem 1.1rem; margin: 1.2rem 0; }
+.article-body .warn-box { background: var(--warn-light); border-left: 4px solid var(--warn);
+  border-radius: 0 var(--radius) var(--radius) 0; padding: .9rem 1.1rem; margin: 1.2rem 0; }
+.article-related { margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border); }
+
 /* ── Footer ── */
 footer {
   text-align: center; font-size: .73rem; color: var(--text-sub);
@@ -180,15 +225,225 @@ footer {
 <body>
 <header>
   <span class="logo">HG Analytics</span>
-  <nav><a href="/" class="">トップ</a><a href="/value/" class="">バリュー</a><a href="/growth/" class="active">グロース</a><a href="/dividend/" class="">高配当</a></nav>
+  <nav><a href="/" class="">トップ</a><a href="/value/" class="">バリュー</a><a href="/growth/" class="active">グロース</a><a href="/dividend/" class="">高配当</a><a href="/articles/" class="">記事</a></nav>
 </header>
 <main>
 <h1>🚀 グロース部門</h1>
 <p style="color:var(--text-sub);font-size:.88rem;margin-bottom:1.5rem;">
   高成長・強モメンタム銘柄<br>
-  スコア55.0点以上をBUY判定 — 本日 <strong>0銘柄</strong>が対象
+  スコア55.0点以上をBUY判定 — 本日 <strong>99銘柄</strong>が対象
 </p>
-<div class="picks-grid"><p style="color:var(--text-sub);">本日の対象銘柄なし</p></div>
+<div class="picks-grid"><div class="pick-card">
+  <div class="pick-top">
+    <div class="pick-id">
+      <span class="pick-flag">🇯🇵</span>
+      <div>
+        <div class="pick-ticker">7936.T</div>
+        <div class="pick-name">アシックス</div>
+      </div>
+    </div>
+    <span class="pick-rank">#121</span>
+  </div>
+  <div class="score-row">
+    <span class="score-num score-mid">63</span>
+    <span class="score-denom">/ 100</span>
+    <span class="badge badge-watch">WATCH</span>
+  </div>
+  <div class="score-bar-wrap">
+    <div class="score-bar bar-mid" style="width:63%"></div>
+  </div>
+  <div class="pick-meta"><span class="meta-chip">RSI 52.6</span><span class="meta-chip up">1M +9.7%</span><span class="meta-chip">上昇トレンド</span><span class="meta-chip">PER 35.1</span><span class="meta-chip">PBR 12.63</span></div>
+  <div class="pick-reasons"><span class="reason-tag">PER 35.1倍（割高）</span><span class="reason-tag">ROE 40.9%（超高収益）</span><span class="reason-tag">上昇トレンド (MA50上)</span><span class="reason-tag">MACDヒストグラム+ (上昇モメンタム)</span></div>
+</div><div class="pick-card">
+  <div class="pick-top">
+    <div class="pick-id">
+      <span class="pick-flag">🇯🇵</span>
+      <div>
+        <div class="pick-ticker">4413.T</div>
+        <div class="pick-name">ボードルア</div>
+      </div>
+    </div>
+    <span class="pick-rank">#254</span>
+  </div>
+  <div class="score-row">
+    <span class="score-num score-low">55</span>
+    <span class="score-denom">/ 100</span>
+    <span class="badge badge-watch">WATCH</span>
+  </div>
+  <div class="score-bar-wrap">
+    <div class="score-bar bar-low" style="width:55%"></div>
+  </div>
+  <div class="pick-meta"><span class="meta-chip">RSI 67.1</span><span class="meta-chip up">1M +16.6%</span><span class="meta-chip">上昇トレンド</span><span class="meta-chip">PER 30.9</span><span class="meta-chip">PBR 9.81</span></div>
+  <div class="pick-reasons"><span class="reason-tag">PER 30.9倍（やや割高）</span><span class="reason-tag">ROE 40.0%（超高収益）</span><span class="reason-tag">上昇トレンド (MA50上)</span><span class="reason-tag">MACDヒストグラム+ (上昇モメンタム)</span></div>
+</div><div class="pick-card">
+  <div class="pick-top">
+    <div class="pick-id">
+      <span class="pick-flag">🇯🇵</span>
+      <div>
+        <div class="pick-ticker">9552.T</div>
+        <div class="pick-name">クオンツ総研ホールディングス</div>
+      </div>
+    </div>
+    <span class="pick-rank">#195</span>
+  </div>
+  <div class="score-row">
+    <span class="score-num score-low">59</span>
+    <span class="score-denom">/ 100</span>
+    <span class="badge badge-watch">WATCH</span>
+  </div>
+  <div class="score-bar-wrap">
+    <div class="score-bar bar-low" style="width:59%"></div>
+  </div>
+  <div class="pick-meta"><span class="meta-chip">RSI 68.2</span><span class="meta-chip up">1M +38.0%</span><span class="meta-chip">上昇トレンド</span><span class="meta-chip">PER 15.6</span><span class="meta-chip">PBR 7.06</span></div>
+  <div class="pick-reasons"><span class="reason-tag">PER 15.6倍（割安圏）</span><span class="reason-tag">ROE 35.5%（超高収益）</span><span class="reason-tag">上昇トレンド (MA50上)</span><span class="reason-tag">MACDヒストグラム+ (上昇モメンタム)</span></div>
+</div><div class="pick-card">
+  <div class="pick-top">
+    <div class="pick-id">
+      <span class="pick-flag">🇯🇵</span>
+      <div>
+        <div class="pick-ticker">4194.T</div>
+        <div class="pick-name">ビジョナル</div>
+      </div>
+    </div>
+    <span class="pick-rank">#132</span>
+  </div>
+  <div class="score-row">
+    <span class="score-num score-mid">62</span>
+    <span class="score-denom">/ 100</span>
+    <span class="badge badge-watch">WATCH</span>
+  </div>
+  <div class="score-bar-wrap">
+    <div class="score-bar bar-mid" style="width:62%"></div>
+  </div>
+  <div class="pick-meta"><span class="meta-chip">RSI 59.5</span><span class="meta-chip up">1M +5.3%</span><span class="meta-chip">上昇トレンド</span><span class="meta-chip">PER 18.2</span><span class="meta-chip">PBR 4.10</span></div>
+  <div class="pick-reasons"><span class="reason-tag">PER 18.2倍（適正圏）</span><span class="reason-tag">ROE 26.3%（超高収益）</span><span class="reason-tag">上昇トレンド (MA50上)</span><span class="reason-tag">MACDヒストグラム+ (上昇モメンタム)</span></div>
+</div><div class="pick-card">
+  <div class="pick-top">
+    <div class="pick-id">
+      <span class="pick-flag">🇯🇵</span>
+      <div>
+        <div class="pick-ticker">4390.T</div>
+        <div class="pick-name">ＩＰＳ</div>
+      </div>
+    </div>
+    <span class="pick-rank">#39</span>
+  </div>
+  <div class="score-row">
+    <span class="score-num score-mid">69</span>
+    <span class="score-denom">/ 100</span>
+    <span class="badge badge-watch">WATCH</span>
+  </div>
+  <div class="score-bar-wrap">
+    <div class="score-bar bar-mid" style="width:69%"></div>
+  </div>
+  <div class="pick-meta"><span class="meta-chip">RSI 58.6</span><span class="meta-chip up">1M +32.9%</span><span class="meta-chip">上昇トレンド</span><span class="meta-chip">PER 13.3</span><span class="meta-chip">PBR 2.87</span></div>
+  <div class="pick-reasons"><span class="reason-tag">PER 13.3倍（割安圏）</span><span class="reason-tag">PBR 2.87倍（適正）</span><span class="reason-tag">上昇トレンド (MA50上)</span><span class="reason-tag">MACDヒストグラム+ (上昇モメンタム)</span></div>
+</div><div class="pick-card">
+  <div class="pick-top">
+    <div class="pick-id">
+      <span class="pick-flag">🇯🇵</span>
+      <div>
+        <div class="pick-ticker">3663.T</div>
+        <div class="pick-name">セルシス</div>
+      </div>
+    </div>
+    <span class="pick-rank">#167</span>
+  </div>
+  <div class="score-row">
+    <span class="score-num score-mid">60</span>
+    <span class="score-denom">/ 100</span>
+    <span class="badge badge-watch">WATCH</span>
+  </div>
+  <div class="score-bar-wrap">
+    <div class="score-bar bar-mid" style="width:60%"></div>
+  </div>
+  <div class="pick-meta"><span class="meta-chip">RSI 70.0</span><span class="meta-chip up">1M +17.7%</span><span class="meta-chip">上昇トレンド</span><span class="meta-chip">PER 29.2</span><span class="meta-chip">PBR 10.23</span></div>
+  <div class="pick-reasons"><span class="reason-tag">PER 29.2倍（やや割高）</span><span class="reason-tag">ROE 28.0%（超高収益）</span><span class="reason-tag">上昇トレンド (MA50上)</span><span class="reason-tag">MACDヒストグラム+ (上昇モメンタム)</span></div>
+</div><div class="pick-card">
+  <div class="pick-top">
+    <div class="pick-id">
+      <span class="pick-flag">🇯🇵</span>
+      <div>
+        <div class="pick-ticker">3923.T</div>
+        <div class="pick-name">ラクス</div>
+      </div>
+    </div>
+    <span class="pick-rank">#221</span>
+  </div>
+  <div class="score-row">
+    <span class="score-num score-low">57</span>
+    <span class="score-denom">/ 100</span>
+    <span class="badge badge-watch">WATCH</span>
+  </div>
+  <div class="score-bar-wrap">
+    <div class="score-bar bar-low" style="width:57%"></div>
+  </div>
+  <div class="pick-meta"><span class="meta-chip">RSI 65.4</span><span class="meta-chip up">1M +19.9%</span><span class="meta-chip">上昇トレンド</span><span class="meta-chip">PER 27.3</span><span class="meta-chip">PBR 13.83</span></div>
+  <div class="pick-reasons"><span class="reason-tag">PER 27.3倍（やや割高）</span><span class="reason-tag">ROE 55.4%（超高収益）</span><span class="reason-tag">上昇トレンド (MA50上)</span><span class="reason-tag">MACDヒストグラム+ (上昇モメンタム)</span></div>
+</div><div class="pick-card">
+  <div class="pick-top">
+    <div class="pick-id">
+      <span class="pick-flag">🇯🇵</span>
+      <div>
+        <div class="pick-ticker">4443.T</div>
+        <div class="pick-name">Ｓａｎｓａｎ</div>
+      </div>
+    </div>
+    <span class="pick-rank">#317</span>
+  </div>
+  <div class="score-row">
+    <span class="score-num score-low">51</span>
+    <span class="score-denom">/ 100</span>
+    <span class="badge badge-watch">WATCH</span>
+  </div>
+  <div class="score-bar-wrap">
+    <div class="score-bar bar-low" style="width:51%"></div>
+  </div>
+  <div class="pick-meta"><span class="meta-chip">RSI 84.2</span><span class="meta-chip up">1M +32.7%</span><span class="meta-chip">上昇トレンド</span><span class="meta-chip">PER 103.9</span><span class="meta-chip">PBR 11.20</span></div>
+  <div class="pick-reasons"><span class="reason-tag">PER 103.9倍（割高）</span><span class="reason-tag">ROE 15.7%（高収益性）</span><span class="reason-tag">上昇トレンド (MA50上)</span><span class="reason-tag">MACDヒストグラム+ (上昇モメンタム)</span></div>
+</div><div class="pick-card">
+  <div class="pick-top">
+    <div class="pick-id">
+      <span class="pick-flag">🇯🇵</span>
+      <div>
+        <div class="pick-ticker">6071.T</div>
+        <div class="pick-name">ＩＢＪ</div>
+      </div>
+    </div>
+    <span class="pick-rank">#87</span>
+  </div>
+  <div class="score-row">
+    <span class="score-num score-mid">65</span>
+    <span class="score-denom">/ 100</span>
+    <span class="badge badge-watch">WATCH</span>
+  </div>
+  <div class="score-bar-wrap">
+    <div class="score-bar bar-mid" style="width:65%"></div>
+  </div>
+  <div class="pick-meta"><span class="meta-chip">RSI 66.4</span><span class="meta-chip up">1M +12.7%</span><span class="meta-chip">上昇トレンド</span><span class="meta-chip">PER 15.0</span><span class="meta-chip">PBR 2.87</span></div>
+  <div class="pick-reasons"><span class="reason-tag">PER 15.0倍（割安圏）</span><span class="reason-tag">PBR 2.87倍（適正）</span><span class="reason-tag">上昇トレンド (MA50上)</span><span class="reason-tag">MACDヒストグラム+ (上昇モメンタム)</span></div>
+</div><div class="pick-card">
+  <div class="pick-top">
+    <div class="pick-id">
+      <span class="pick-flag">🇯🇵</span>
+      <div>
+        <div class="pick-ticker">4776.T</div>
+        <div class="pick-name">サイボウズ</div>
+      </div>
+    </div>
+    <span class="pick-rank">#133</span>
+  </div>
+  <div class="score-row">
+    <span class="score-num score-mid">62</span>
+    <span class="score-denom">/ 100</span>
+    <span class="badge badge-watch">WATCH</span>
+  </div>
+  <div class="score-bar-wrap">
+    <div class="score-bar bar-mid" style="width:62%"></div>
+  </div>
+  <div class="pick-meta"><span class="meta-chip">RSI 72.9</span><span class="meta-chip up">1M +20.0%</span><span class="meta-chip">上昇トレンド</span><span class="meta-chip">PER 16.6</span><span class="meta-chip">PBR 6.70</span></div>
+  <div class="pick-reasons"><span class="reason-tag">PER 16.6倍（割安圏）</span><span class="reason-tag">ROE 50.2%（超高収益）</span><span class="reason-tag">上昇トレンド (MA50上)</span><span class="reason-tag">MACDヒストグラム+ (上昇モメンタム)</span></div>
+</div></div>
 </main>
 <footer>
   <p>© HG Analytics — AIによる自動分析・スクリーニング</p>

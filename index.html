@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AI株価スクリーニング | HG Analytics</title>
-<meta name="description" content="AIが1738銘柄をスクリーニング。本日の注目銘柄・投資スタイル別おすすめを毎日更新。">
+<meta name="description" content="AIが2047銘柄をスクリーニング。本日の注目銘柄・投資スタイル別おすすめを毎日更新。">
 <style>
 :root {
   --bg: #f4f6fb; --card: #fff; --text: #1a1a2e; --text-sub: #6b7280;
@@ -169,6 +169,51 @@ h2::before {
 .dept-buy-count { font-size: .72rem; color: var(--text-sub); }
 .dept-link { font-size: .78rem; font-weight: 700; }
 
+/* ── Article cards (index) ── */
+.articles-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px,1fr)); gap: 1rem; }
+.article-card {
+  background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
+  box-shadow: var(--shadow); padding: 1.1rem; display: flex; flex-direction: column; gap: .5rem;
+  transition: transform .15s, box-shadow .15s;
+}
+.article-card:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,0,0,.1); text-decoration: none; }
+.article-card-tag { font-size: .65rem; font-weight: 800; letter-spacing: .04em; color: var(--primary);
+  background: var(--primary-light); padding: .2em .6em; border-radius: 4px; display: inline-block; }
+.article-card-title { font-size: .95rem; font-weight: 800; line-height: 1.4; color: var(--text); }
+.article-card-desc { font-size: .78rem; color: var(--text-sub); line-height: 1.5; flex: 1; }
+.article-card-meta { font-size: .7rem; color: var(--text-sub); }
+
+/* ── Article page ── */
+.article-hero { background: linear-gradient(135deg,#1e3a8a,#1d4ed8); border-radius: var(--radius);
+  padding: 1.8rem; margin-bottom: 2rem; color: #fff; }
+.article-hero-tag { font-size: .7rem; font-weight: 800; letter-spacing: .06em;
+  background: rgba(255,255,255,.2); padding: .25em .75em; border-radius: 4px; display: inline-block; margin-bottom: .7rem; }
+.article-hero-title { font-size: 1.55rem; font-weight: 900; line-height: 1.3; margin-bottom: .5rem; }
+.article-hero-meta { font-size: .78rem; opacity: .8; }
+.article-toc { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 1rem 1.2rem; margin-bottom: 2rem; }
+.article-toc-title { font-size: .8rem; font-weight: 800; color: var(--text-sub); margin-bottom: .5rem; letter-spacing: .04em; }
+.article-toc ol { padding-left: 1.3rem; font-size: .85rem; line-height: 2; }
+.article-toc ol a { color: var(--primary); }
+.article-body { font-size: .92rem; line-height: 1.85; }
+.article-body h2 { font-size: 1.15rem; font-weight: 900; margin: 2.2rem 0 .8rem; padding-bottom: .4rem;
+  border-bottom: 2px solid var(--primary); color: var(--text); }
+.article-body h2::before { display: none; }
+.article-body h3 { font-size: 1rem; font-weight: 800; margin: 1.5rem 0 .5rem; color: var(--primary); }
+.article-body p { margin-bottom: 1rem; }
+.article-body ul, .article-body ol { padding-left: 1.4rem; margin-bottom: 1rem; }
+.article-body li { margin-bottom: .3rem; }
+.article-body table { width: 100%; border-collapse: collapse; margin: 1.2rem 0; font-size: .85rem; }
+.article-body th { background: var(--primary-light); color: var(--primary); font-weight: 800;
+  padding: .6rem .8rem; text-align: left; border: 1px solid var(--border); }
+.article-body td { padding: .55rem .8rem; border: 1px solid var(--border); }
+.article-body tr:nth-child(even) td { background: var(--bg); }
+.article-body .highlight-box { background: var(--primary-light); border-left: 4px solid var(--primary);
+  border-radius: 0 var(--radius) var(--radius) 0; padding: .9rem 1.1rem; margin: 1.2rem 0; }
+.article-body .warn-box { background: var(--warn-light); border-left: 4px solid var(--warn);
+  border-radius: 0 var(--radius) var(--radius) 0; padding: .9rem 1.1rem; margin: 1.2rem 0; }
+.article-related { margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border); }
+
 /* ── Footer ── */
 footer {
   text-align: center; font-size: .73rem; color: var(--text-sub);
@@ -180,31 +225,31 @@ footer {
 <body>
 <header>
   <span class="logo">HG Analytics</span>
-  <nav><a href="/" class="active">トップ</a><a href="/value/" class="">バリュー</a><a href="/growth/" class="">グロース</a><a href="/dividend/" class="">高配当</a></nav>
+  <nav><a href="/" class="active">トップ</a><a href="/value/" class="">バリュー</a><a href="/growth/" class="">グロース</a><a href="/dividend/" class="">高配当</a><a href="/articles/" class="">記事</a></nav>
 </header>
 <main>
 <div class="hero">
   <div class="hero-title">本日のAI株価スクリーニング</div>
-  <div class="hero-sub">2026年5月29日 更新 — 1738銘柄をAIが自動分析</div>
+  <div class="hero-sub">2026年5月29日 更新 — 2047銘柄をAIが自動分析</div>
   <div class="hero-stats">
   <div class="hero-stat">
-    <div class="hero-stat-val">1738</div>
+    <div class="hero-stat-val">2047</div>
     <div class="hero-stat-lbl">分析銘柄数</div>
   </div>
   <div class="hero-stat">
-    <div class="hero-stat-val">0</div>
+    <div class="hero-stat-val">35</div>
     <div class="hero-stat-lbl">BUY銘柄数</div>
   </div>
   <div class="hero-stat">
-    <div class="hero-stat-val">48pt</div>
+    <div class="hero-stat-val">82pt</div>
     <div class="hero-stat-lbl">本日の最高スコア</div>
   </div>
 </div>
 </div>
 <div class="indices"><div class="idx-card">
   <div class="idx-name">日経225</div>
-  <div class="idx-price">64,999.41</div>
-  <div class="idx-chg up">▲ +0.01%</div>
+  <div class="idx-price">66,329.50</div>
+  <div class="idx-chg up">▲ +2.53%</div>
 </div><div class="idx-card">
   <div class="idx-name">S&P500</div>
   <div class="idx-price">7,563.63</div>
@@ -215,12 +260,12 @@ footer {
   <div class="idx-chg up">▲ +0.91%</div>
 </div><div class="idx-card">
   <div class="idx-name">ドル円</div>
-  <div class="idx-price">159.25</div>
-  <div class="idx-chg dn">▼ -0.20%</div>
+  <div class="idx-price">159.30</div>
+  <div class="idx-chg dn">▼ -0.17%</div>
 </div><div class="idx-card">
   <div class="idx-name">VIX</div>
-  <div class="idx-price">15.74</div>
-  <div class="idx-chg dn">▼ -3.38%</div>
+  <div class="idx-price">15.82</div>
+  <div class="idx-chg up">▲ +0.51%</div>
 </div></div>
 <h2>総合スコア トップ10銘柄</h2>
 <div class="picks-grid"><div class="pick-card">
@@ -228,64 +273,169 @@ footer {
     <div class="pick-id">
       <span class="pick-flag">🇯🇵</span>
       <div>
-        <div class="pick-ticker">1969.T</div>
-        <div class="pick-name">高砂熱学工業</div>
+        <div class="pick-ticker">5351.T</div>
+        <div class="pick-name">品川リフラ</div>
       </div>
     </div>
     <span class="pick-rank">#1</span>
   </div>
   <div class="score-row">
-    <span class="score-num score-low">48</span>
+    <span class="score-num score-high">82</span>
     <span class="score-denom">/ 100</span>
-    <span class="badge badge-caution">CAUTION</span>
+    <span class="badge badge-buy">BUY</span>
   </div>
   <div class="score-bar-wrap">
-    <div class="score-bar bar-low" style="width:48%"></div>
+    <div class="score-bar bar-high" style="width:82%"></div>
   </div>
-  <div class="pick-meta"><span class="meta-chip">RSI 52.1</span><span class="meta-chip up">1M +10.2%</span><span class="meta-chip">上昇トレンド</span></div>
-  <div class="pick-reasons"><span class="reason-tag">上昇トレンド (MA50上)</span><span class="reason-tag">MACDヒストグラム+ (上昇モメンタム)</span></div>
+  <div class="pick-meta"><span class="meta-chip">RSI 53.6</span><span class="meta-chip up">1M +0.3%</span><span class="meta-chip">横ばい</span><span class="meta-chip">PER 3.4</span><span class="meta-chip">PBR 0.82</span></div>
+  <div class="pick-reasons"><span class="reason-tag">PER 3.4倍（超割安）</span><span class="reason-tag">PBR 0.82倍（割安）</span><span class="reason-tag">MACDヒストグラム+ (上昇モメンタム)</span><span class="reason-tag">RSI 53.6（中立・安定）</span></div>
 </div><div class="pick-card">
   <div class="pick-top">
     <div class="pick-id">
       <span class="pick-flag">🇯🇵</span>
       <div>
-        <div class="pick-ticker">5938.T</div>
-        <div class="pick-name">ＬＩＸＩＬ</div>
+        <div class="pick-ticker">9247.T</div>
+        <div class="pick-name">ＴＲＥホールディングス</div>
       </div>
     </div>
     <span class="pick-rank">#2</span>
   </div>
   <div class="score-row">
-    <span class="score-num score-low">48</span>
+    <span class="score-num score-high">79</span>
     <span class="score-denom">/ 100</span>
-    <span class="badge badge-caution">CAUTION</span>
+    <span class="badge badge-buy">BUY</span>
   </div>
   <div class="score-bar-wrap">
-    <div class="score-bar bar-low" style="width:48%"></div>
+    <div class="score-bar bar-high" style="width:79%"></div>
   </div>
-  <div class="pick-meta"><span class="meta-chip">RSI 48.5</span><span class="meta-chip up">1M +5.1%</span><span class="meta-chip">上昇トレンド</span></div>
-  <div class="pick-reasons"><span class="reason-tag">上昇トレンド (MA50上)</span><span class="reason-tag">MACDヒストグラム+ (上昇モメンタム)</span></div>
+  <div class="pick-meta"><span class="meta-chip">RSI 51.0</span><span class="meta-chip up">1M +0.1%</span><span class="meta-chip">上昇トレンド</span><span class="meta-chip">PER 5.4</span><span class="meta-chip">PBR 0.97</span></div>
+  <div class="pick-reasons"><span class="reason-tag">PER 5.4倍（超割安）</span><span class="reason-tag">PBR 0.97倍（割安）</span><span class="reason-tag">上昇トレンド (MA50上)</span><span class="reason-tag">MACDヒストグラム+ (上昇モメンタム)</span></div>
 </div><div class="pick-card">
   <div class="pick-top">
     <div class="pick-id">
       <span class="pick-flag">🇯🇵</span>
       <div>
-        <div class="pick-ticker">2170.T</div>
-        <div class="pick-name">リンクアンドモチベーション</div>
+        <div class="pick-ticker">1975.T</div>
+        <div class="pick-name">朝日工業社</div>
       </div>
     </div>
     <span class="pick-rank">#3</span>
   </div>
   <div class="score-row">
-    <span class="score-num score-low">48</span>
+    <span class="score-num score-high">77</span>
     <span class="score-denom">/ 100</span>
-    <span class="badge badge-caution">CAUTION</span>
+    <span class="badge badge-buy">BUY</span>
   </div>
   <div class="score-bar-wrap">
-    <div class="score-bar bar-low" style="width:48%"></div>
+    <div class="score-bar bar-high" style="width:77%"></div>
   </div>
-  <div class="pick-meta"><span class="meta-chip">RSI 45.8</span><span class="meta-chip up">1M +4.3%</span><span class="meta-chip">上昇トレンド</span></div>
-  <div class="pick-reasons"><span class="reason-tag">上昇トレンド (MA50上)</span><span class="reason-tag">MACDヒストグラム+ (上昇モメンタム)</span></div>
+  <div class="pick-meta"><span class="meta-chip">RSI 55.9</span><span class="meta-chip up">1M +13.1%</span><span class="meta-chip">上昇トレンド</span><span class="meta-chip">PER 11.1</span><span class="meta-chip">PBR 2.03</span></div>
+  <div class="pick-reasons"><span class="reason-tag">PER 11.1倍（超割安）</span><span class="reason-tag">PBR 2.03倍（適正）</span><span class="reason-tag">上昇トレンド (MA50上)</span><span class="reason-tag">MACDヒストグラム+ (上昇モメンタム)</span></div>
+</div><div class="pick-card">
+  <div class="pick-top">
+    <div class="pick-id">
+      <span class="pick-flag">🇯🇵</span>
+      <div>
+        <div class="pick-ticker">7599.T</div>
+        <div class="pick-name">ＩＤＯＭ</div>
+      </div>
+    </div>
+    <span class="pick-rank">#4</span>
+  </div>
+  <div class="score-row">
+    <span class="score-num score-high">77</span>
+    <span class="score-denom">/ 100</span>
+    <span class="badge badge-buy">BUY</span>
+  </div>
+  <div class="score-bar-wrap">
+    <div class="score-bar bar-high" style="width:77%"></div>
+  </div>
+  <div class="pick-meta"><span class="meta-chip">RSI 52.2</span><span class="meta-chip up">1M +1.7%</span><span class="meta-chip">上昇トレンド</span><span class="meta-chip">PER 11.4</span><span class="meta-chip">PBR 1.55</span></div>
+  <div class="pick-reasons"><span class="reason-tag">PER 11.4倍（超割安）</span><span class="reason-tag">PBR 1.55倍（適正）</span><span class="reason-tag">上昇トレンド (MA50上)</span><span class="reason-tag">MACDヒストグラム+ (上昇モメンタム)</span></div>
+</div><div class="pick-card">
+  <div class="pick-top">
+    <div class="pick-id">
+      <span class="pick-flag">🇯🇵</span>
+      <div>
+        <div class="pick-ticker">5076.T</div>
+        <div class="pick-name">インフロニア・ホールディングス</div>
+      </div>
+    </div>
+    <span class="pick-rank">#5</span>
+  </div>
+  <div class="score-row">
+    <span class="score-num score-high">76</span>
+    <span class="score-denom">/ 100</span>
+    <span class="badge badge-buy">BUY</span>
+  </div>
+  <div class="score-bar-wrap">
+    <div class="score-bar bar-high" style="width:76%"></div>
+  </div>
+  <div class="pick-meta"><span class="meta-chip">RSI 58.3</span><span class="meta-chip up">1M +18.2%</span><span class="meta-chip">上昇トレンド</span><span class="meta-chip">PER 9.5</span><span class="meta-chip">PBR 1.01</span></div>
+  <div class="pick-reasons"><span class="reason-tag">PER 9.5倍（超割安）</span><span class="reason-tag">PBR 1.01倍（適正下限）</span><span class="reason-tag">上昇トレンド (MA50上)</span><span class="reason-tag">MACDヒストグラム+ (上昇モメンタム)</span></div>
+</div><div class="pick-card">
+  <div class="pick-top">
+    <div class="pick-id">
+      <span class="pick-flag">🇯🇵</span>
+      <div>
+        <div class="pick-ticker">1814.T</div>
+        <div class="pick-name">大末建設</div>
+      </div>
+    </div>
+    <span class="pick-rank">#6</span>
+  </div>
+  <div class="score-row">
+    <span class="score-num score-high">75</span>
+    <span class="score-denom">/ 100</span>
+    <span class="badge badge-buy">BUY</span>
+  </div>
+  <div class="score-bar-wrap">
+    <div class="score-bar bar-high" style="width:75%"></div>
+  </div>
+  <div class="pick-meta"><span class="meta-chip">RSI 43.0</span><span class="meta-chip dn">1M -7.4%</span><span class="meta-chip">横ばい</span><span class="meta-chip">PER 8.9</span><span class="meta-chip">PBR 1.32</span></div>
+  <div class="pick-reasons"><span class="reason-tag">PER 8.9倍（超割安）</span><span class="reason-tag">PBR 1.32倍（適正下限）</span><span class="reason-tag">MACDヒストグラム+ (上昇モメンタム)</span><span class="reason-tag">RSI 43.0（中立・安定）</span></div>
+</div><div class="pick-card">
+  <div class="pick-top">
+    <div class="pick-id">
+      <span class="pick-flag">🇯🇵</span>
+      <div>
+        <div class="pick-ticker">1930.T</div>
+        <div class="pick-name">北陸電気工事</div>
+      </div>
+    </div>
+    <span class="pick-rank">#7</span>
+  </div>
+  <div class="score-row">
+    <span class="score-num score-high">75</span>
+    <span class="score-denom">/ 100</span>
+    <span class="badge badge-buy">BUY</span>
+  </div>
+  <div class="score-bar-wrap">
+    <div class="score-bar bar-high" style="width:75%"></div>
+  </div>
+  <div class="pick-meta"><span class="meta-chip">RSI 48.2</span><span class="meta-chip up">1M +16.9%</span><span class="meta-chip">上昇トレンド</span><span class="meta-chip">PER 12.2</span><span class="meta-chip">PBR 1.02</span></div>
+  <div class="pick-reasons"><span class="reason-tag">PER 12.2倍（割安圏）</span><span class="reason-tag">PBR 1.02倍（適正下限）</span><span class="reason-tag">上昇トレンド (MA50上)</span><span class="reason-tag">MACDヒストグラム+ (上昇モメンタム)</span></div>
+</div><div class="pick-card">
+  <div class="pick-top">
+    <div class="pick-id">
+      <span class="pick-flag">🇯🇵</span>
+      <div>
+        <div class="pick-ticker">5981.T</div>
+        <div class="pick-name">東京製綱</div>
+      </div>
+    </div>
+    <span class="pick-rank">#8</span>
+  </div>
+  <div class="score-row">
+    <span class="score-num score-high">75</span>
+    <span class="score-denom">/ 100</span>
+    <span class="badge badge-buy">BUY</span>
+  </div>
+  <div class="score-bar-wrap">
+    <div class="score-bar bar-high" style="width:75%"></div>
+  </div>
+  <div class="pick-meta"><span class="meta-chip">RSI 58.0</span><span class="meta-chip up">1M +9.6%</span><span class="meta-chip">上昇トレンド</span><span class="meta-chip">PER 8.2</span><span class="meta-chip">PBR 0.69</span></div>
+  <div class="pick-reasons"><span class="reason-tag">PER 8.2倍（超割安）</span><span class="reason-tag">PBR 0.69倍（超割安・解散価値以下）</span><span class="reason-tag">上昇トレンド (MA50上)</span><span class="reason-tag">MACDヒストグラム+ (上昇モメンタム)</span></div>
 </div><div class="pick-card">
   <div class="pick-top">
     <div class="pick-id">
@@ -295,144 +445,39 @@ footer {
         <div class="pick-name">キャリアデザインセンター</div>
       </div>
     </div>
-    <span class="pick-rank">#4</span>
-  </div>
-  <div class="score-row">
-    <span class="score-num score-low">48</span>
-    <span class="score-denom">/ 100</span>
-    <span class="badge badge-caution">CAUTION</span>
-  </div>
-  <div class="score-bar-wrap">
-    <div class="score-bar bar-low" style="width:48%"></div>
-  </div>
-  <div class="pick-meta"><span class="meta-chip">RSI 52.7</span><span class="meta-chip up">1M +3.6%</span><span class="meta-chip">上昇トレンド</span></div>
-  <div class="pick-reasons"><span class="reason-tag">上昇トレンド (MA50上)</span><span class="reason-tag">MACDヒストグラム+ (上昇モメンタム)</span></div>
-</div><div class="pick-card">
-  <div class="pick-top">
-    <div class="pick-id">
-      <span class="pick-flag">🇯🇵</span>
-      <div>
-        <div class="pick-ticker">3694.T</div>
-        <div class="pick-name">オプティム</div>
-      </div>
-    </div>
-    <span class="pick-rank">#5</span>
-  </div>
-  <div class="score-row">
-    <span class="score-num score-low">48</span>
-    <span class="score-denom">/ 100</span>
-    <span class="badge badge-caution">CAUTION</span>
-  </div>
-  <div class="score-bar-wrap">
-    <div class="score-bar bar-low" style="width:48%"></div>
-  </div>
-  <div class="pick-meta"><span class="meta-chip">RSI 46.2</span><span class="meta-chip dn">1M -0.2%</span><span class="meta-chip">上昇トレンド</span></div>
-  <div class="pick-reasons"><span class="reason-tag">上昇トレンド (MA50上)</span><span class="reason-tag">MACDヒストグラム+ (上昇モメンタム)</span></div>
-</div><div class="pick-card">
-  <div class="pick-top">
-    <div class="pick-id">
-      <span class="pick-flag">🇯🇵</span>
-      <div>
-        <div class="pick-ticker">7936.T</div>
-        <div class="pick-name">アシックス</div>
-      </div>
-    </div>
-    <span class="pick-rank">#6</span>
-  </div>
-  <div class="score-row">
-    <span class="score-num score-low">48</span>
-    <span class="score-denom">/ 100</span>
-    <span class="badge badge-caution">CAUTION</span>
-  </div>
-  <div class="score-bar-wrap">
-    <div class="score-bar bar-low" style="width:48%"></div>
-  </div>
-  <div class="pick-meta"><span class="meta-chip">RSI 50.6</span><span class="meta-chip up">1M +4.0%</span><span class="meta-chip">上昇トレンド</span></div>
-  <div class="pick-reasons"><span class="reason-tag">上昇トレンド (MA50上)</span><span class="reason-tag">MACDヒストグラム+ (上昇モメンタム)</span></div>
-</div><div class="pick-card">
-  <div class="pick-top">
-    <div class="pick-id">
-      <span class="pick-flag">🇯🇵</span>
-      <div>
-        <div class="pick-ticker">9201.T</div>
-        <div class="pick-name">日本航空</div>
-      </div>
-    </div>
-    <span class="pick-rank">#7</span>
-  </div>
-  <div class="score-row">
-    <span class="score-num score-low">48</span>
-    <span class="score-denom">/ 100</span>
-    <span class="badge badge-caution">CAUTION</span>
-  </div>
-  <div class="score-bar-wrap">
-    <div class="score-bar bar-low" style="width:48%"></div>
-  </div>
-  <div class="pick-meta"><span class="meta-chip">RSI 53.7</span><span class="meta-chip up">1M +8.0%</span><span class="meta-chip">上昇トレンド</span></div>
-  <div class="pick-reasons"><span class="reason-tag">上昇トレンド (MA50上)</span><span class="reason-tag">MACDヒストグラム+ (上昇モメンタム)</span></div>
-</div><div class="pick-card">
-  <div class="pick-top">
-    <div class="pick-id">
-      <span class="pick-flag">🇯🇵</span>
-      <div>
-        <div class="pick-ticker">7453.T</div>
-        <div class="pick-name">良品計画</div>
-      </div>
-    </div>
-    <span class="pick-rank">#8</span>
-  </div>
-  <div class="score-row">
-    <span class="score-num score-low">48</span>
-    <span class="score-denom">/ 100</span>
-    <span class="badge badge-caution">CAUTION</span>
-  </div>
-  <div class="score-bar-wrap">
-    <div class="score-bar bar-low" style="width:48%"></div>
-  </div>
-  <div class="pick-meta"><span class="meta-chip">RSI 54.1</span><span class="meta-chip dn">1M -1.1%</span><span class="meta-chip">上昇トレンド</span></div>
-  <div class="pick-reasons"><span class="reason-tag">上昇トレンド (MA50上)</span><span class="reason-tag">MACDヒストグラム+ (上昇モメンタム)</span></div>
-</div><div class="pick-card">
-  <div class="pick-top">
-    <div class="pick-id">
-      <span class="pick-flag">🇯🇵</span>
-      <div>
-        <div class="pick-ticker">6503.T</div>
-        <div class="pick-name">三菱電機</div>
-      </div>
-    </div>
     <span class="pick-rank">#9</span>
   </div>
   <div class="score-row">
-    <span class="score-num score-low">48</span>
+    <span class="score-num score-mid">74</span>
     <span class="score-denom">/ 100</span>
-    <span class="badge badge-caution">CAUTION</span>
+    <span class="badge badge-buy">BUY</span>
   </div>
   <div class="score-bar-wrap">
-    <div class="score-bar bar-low" style="width:48%"></div>
+    <div class="score-bar bar-mid" style="width:74%"></div>
   </div>
-  <div class="pick-meta"><span class="meta-chip">RSI 52.6</span><span class="meta-chip up">1M +11.5%</span><span class="meta-chip">上昇トレンド</span></div>
-  <div class="pick-reasons"><span class="reason-tag">上昇トレンド (MA50上)</span><span class="reason-tag">MACDヒストグラム+ (上昇モメンタム)</span></div>
+  <div class="pick-meta"><span class="meta-chip">RSI 49.6</span><span class="meta-chip up">1M +3.8%</span><span class="meta-chip">上昇トレンド</span><span class="meta-chip">PER 11.6</span><span class="meta-chip">PBR 2.88</span></div>
+  <div class="pick-reasons"><span class="reason-tag">PER 11.6倍（超割安）</span><span class="reason-tag">PBR 2.88倍（適正）</span><span class="reason-tag">上昇トレンド (MA50上)</span><span class="reason-tag">MACDヒストグラム+ (上昇モメンタム)</span></div>
 </div><div class="pick-card">
   <div class="pick-top">
     <div class="pick-id">
       <span class="pick-flag">🇯🇵</span>
       <div>
-        <div class="pick-ticker">6590.T</div>
-        <div class="pick-name">芝浦メカトロニクス</div>
+        <div class="pick-ticker">3843.T</div>
+        <div class="pick-name">フリービット</div>
       </div>
     </div>
     <span class="pick-rank">#10</span>
   </div>
   <div class="score-row">
-    <span class="score-num score-low">48</span>
+    <span class="score-num score-mid">74</span>
     <span class="score-denom">/ 100</span>
-    <span class="badge badge-caution">CAUTION</span>
+    <span class="badge badge-buy">BUY</span>
   </div>
   <div class="score-bar-wrap">
-    <div class="score-bar bar-low" style="width:48%"></div>
+    <div class="score-bar bar-mid" style="width:74%"></div>
   </div>
-  <div class="pick-meta"><span class="meta-chip">RSI 52.0</span><span class="meta-chip up">1M +5.7%</span><span class="meta-chip">上昇トレンド</span></div>
-  <div class="pick-reasons"><span class="reason-tag">上昇トレンド (MA50上)</span><span class="reason-tag">MACDヒストグラム+ (上昇モメンタム)</span></div>
+  <div class="pick-meta"><span class="meta-chip">RSI 52.2</span><span class="meta-chip dn">1M -1.1%</span><span class="meta-chip">横ばい</span><span class="meta-chip">PER 9.5</span><span class="meta-chip">PBR 3.51</span></div>
+  <div class="pick-reasons"><span class="reason-tag">PER 9.5倍（超割安）</span><span class="reason-tag">ROE 27.9%（超高収益）</span><span class="reason-tag">MACDヒストグラム+ (上昇モメンタム)</span><span class="reason-tag">RSI 52.2（中立・安定）</span></div>
 </div></div>
 <h2>投資スタイル別</h2>
 <div class="dept-grid"><div class="dept-card">
@@ -441,9 +486,24 @@ footer {
   </div>
   <div class="dept-body">
     <div class="dept-desc">割安・高ROE・安定配当銘柄</div>
-    <ul class="dept-picks-list"><li>データなし</li></ul>
+    <ul class="dept-picks-list"><li>
+  <span>🇯🇵 エイチワン</span>
+  <span class="dept-score-badge">96pt</span>
+</li><li>
+  <span>🇯🇵 ＴＲＥホールディングス</span>
+  <span class="dept-score-badge">92pt</span>
+</li><li>
+  <span>🇯🇵 東京製綱</span>
+  <span class="dept-score-badge">91pt</span>
+</li><li>
+  <span>🇯🇵 東プレ</span>
+  <span class="dept-score-badge">90pt</span>
+</li><li>
+  <span>🇯🇵 品川リフラ</span>
+  <span class="dept-score-badge">90pt</span>
+</li></ul>
     <div class="dept-footer">
-      <span class="dept-buy-count">BUY 0銘柄</span>
+      <span class="dept-buy-count">BUY 350銘柄</span>
       <a class="dept-link" href="/value/">全銘柄を見る →</a>
     </div>
   </div>
@@ -453,9 +513,24 @@ footer {
   </div>
   <div class="dept-body">
     <div class="dept-desc">高成長・強モメンタム銘柄</div>
-    <ul class="dept-picks-list"><li>データなし</li></ul>
+    <ul class="dept-picks-list"><li>
+  <span>🇯🇵 アシックス</span>
+  <span class="dept-score-badge">92pt</span>
+</li><li>
+  <span>🇯🇵 ボードルア</span>
+  <span class="dept-score-badge">91pt</span>
+</li><li>
+  <span>🇯🇵 クオンツ総研ホールディングス</span>
+  <span class="dept-score-badge">88pt</span>
+</li><li>
+  <span>🇯🇵 ビジョナル</span>
+  <span class="dept-score-badge">87pt</span>
+</li><li>
+  <span>🇯🇵 ＩＰＳ</span>
+  <span class="dept-score-badge">86pt</span>
+</li></ul>
     <div class="dept-footer">
-      <span class="dept-buy-count">BUY 0銘柄</span>
+      <span class="dept-buy-count">BUY 99銘柄</span>
       <a class="dept-link" href="/growth/">全銘柄を見る →</a>
     </div>
   </div>
@@ -465,13 +540,46 @@ footer {
   </div>
   <div class="dept-body">
     <div class="dept-desc">高配当利回り・安定収益銘柄</div>
-    <ul class="dept-picks-list"><li>データなし</li></ul>
+    <ul class="dept-picks-list"><li>
+  <span>🇯🇵 トランス・コスモス</span>
+  <span class="dept-score-badge">99pt</span>
+</li><li>
+  <span>🇯🇵 ビジョン</span>
+  <span class="dept-score-badge">98pt</span>
+</li><li>
+  <span>🇯🇵 三井松島ホールディングス</span>
+  <span class="dept-score-badge">98pt</span>
+</li><li>
+  <span>🇯🇵 キャリアデザインセンター</span>
+  <span class="dept-score-badge">98pt</span>
+</li><li>
+  <span>🇯🇵 ドリームインキュベータ</span>
+  <span class="dept-score-badge">97pt</span>
+</li></ul>
     <div class="dept-footer">
-      <span class="dept-buy-count">BUY 0銘柄</span>
+      <span class="dept-buy-count">BUY 386銘柄</span>
       <a class="dept-link" href="/dividend/">全銘柄を見る →</a>
     </div>
   </div>
 </div></div>
+<h2>投資を学ぶ</h2>
+<div class="articles-grid"><a class="article-card" href="/articles/per-basics/">
+  <span class="article-card-tag">指標解説</span>
+  <div class="article-card-title">PER（株価収益率）入門：割安株を見つける最初の一歩</div>
+  <div class="article-card-desc">PERとは何か、どう読むか、日米の水準目安まで初心者にもわかりやすく解説します。</div>
+  <div class="article-card-meta">2026年5月</div>
+</a><a class="article-card" href="/articles/pbr-basics/">
+  <span class="article-card-tag">指標解説</span>
+  <div class="article-card-title">PBR（株価純資産倍率）入門：解散価値と割安判定の考え方</div>
+  <div class="article-card-desc">PBR1倍割れの意味、日本株特有の低PBR問題、東証の改革要求まで詳しく解説します。</div>
+  <div class="article-card-meta">2026年5月</div>
+</a><a class="article-card" href="/articles/roe-basics/">
+  <span class="article-card-tag">指標解説</span>
+  <div class="article-card-title">ROE（自己資本利益率）とは：企業の「稼ぐ力」を測る指標</div>
+  <div class="article-card-desc">ROEの計算方法、8%が重要な理由、ROEが高すぎる場合の注意点まで詳しく解説します。</div>
+  <div class="article-card-meta">2026年5月</div>
+</a></div>
+<p style="text-align:right;margin-top:.6rem;"><a href="/articles/">記事一覧を見る →</a></p>
 </main>
 <footer>
   <p>© HG Analytics — AIによる自動分析・スクリーニング</p>

@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>投資を学ぶ — 記事一覧 | HG Analytics</title>
-<meta name="description" content="株式投資の基礎から応用まで。PER・PBR・ROE・テクニカル分析・高配当投資など投資家に役立つ記事を掲載。">
+<title>RSI・MACDの読み方：テクニカル分析入門 | HG Analytics</title>
+<meta name="description" content="株価の「勢い」と「方向性」を測るRSIとMACDの基本的な使い方を初心者向けに解説します。">
 <style>
 :root {
   --bg: #f4f6fb; --card: #fff; --text: #1a1a2e; --text-sub: #6b7280;
@@ -228,41 +228,88 @@ footer {
   <nav><a href="/" class="">トップ</a><a href="/value/" class="">バリュー</a><a href="/growth/" class="">グロース</a><a href="/dividend/" class="">高配当</a><a href="/articles/" class="active">記事</a></nav>
 </header>
 <main>
-<h1>投資を学ぶ</h1>
-<p style="color:var(--text-sub);font-size:.88rem;margin-bottom:1.5rem;">
-  ファンダメンタル・テクニカル指標の解説、投資戦略の基礎知識を提供します。
-</p>
-<div class="articles-grid"><a class="article-card" href="/articles/per-basics/">
+<div class="article-hero">
+  <span class="article-hero-tag">テクニカル分析</span>
+  <div class="article-hero-title">RSI・MACDの読み方：テクニカル分析入門</div>
+  <div class="article-hero-meta">2026年5月 更新</div>
+</div>
+<div class="article-toc">
+  <div class="article-toc-title">目次</div>
+  <ol><li><a href="#s1">テクニカル分析とは</a></li><li><a href="#s2">RSI（相対力指数）の読み方</a></li><li><a href="#s3">MACD（移動平均収束拡散法）の読み方</a></li><li><a href="#s4">移動平均線とトレンド判定</a></li><li><a href="#s5">HG Analyticsでの使われ方</a></li></ol>
+</div>
+<div class="article-body">
+
+<h2 id="s1">テクニカル分析とは</h2>
+<p>テクニカル分析は、過去の株価や出来高のデータをもとに、将来の株価動向を予測しようとする分析手法です。企業の財務内容（ファンダメンタル分析）ではなく、「市場参加者の心理や需給バランスが株価に反映される」という考え方に基づいています。</p>
+<p>テクニカル分析単体で使うよりも、ファンダメンタル分析と組み合わせることで、「良い会社を良いタイミングで買う」という精度が上がります。HG Analyticsもこの考え方でテクニカルとファンダメンタルを組み合わせてスコアリングしています。</p>
+
+<h2 id="s2">RSI（相対力指数）の読み方</h2>
+<p>RSI（Relative Strength Index）は、一定期間の株価上昇と下落の比率から「買われすぎ・売られすぎ」を0〜100の数値で表す指標です。一般的に14日間のデータを使います。</p>
+<table>
+<tr><th>RSI水準</th><th>解釈</th></tr>
+<tr><td>70超</td><td>買われすぎゾーン。反落リスクに注意</td></tr>
+<tr><td>55〜70</td><td>やや強め。上昇トレンドの継続を示すことも</td></tr>
+<tr><td>30〜55</td><td>中立〜安定ゾーン。理想的な買いエリア</td></tr>
+<tr><td>30未満</td><td>売られすぎゾーン。反発の期待あり（底値圏）</td></tr>
+</table>
+<div class="highlight-box">
+<strong>ポイント：</strong> RSIが30以下まで売られた後に反転上昇する動きは、底値買いのシグナルとして注目されます。ただし、業績悪化による継続的な下落では機能しにくいため、ファンダメンタルとの組み合わせが重要です。
+</div>
+
+<h2 id="s3">MACD（移動平均収束拡散法）の読み方</h2>
+<p>MACD（Moving Average Convergence Divergence）は、異なる期間の指数移動平均線（EMA）の差を使って、株価の「勢い（モメンタム）」と「方向転換」を捉えます。</p>
+<ul>
+<li><strong>MACDライン</strong>：12日EMA − 26日EMA</li>
+<li><strong>シグナルライン</strong>：MACDの9日EMA</li>
+<li><strong>ヒストグラム</strong>：MACDライン − シグナルライン</li>
+</ul>
+<p>HG Analyticsでは主に<strong>ヒストグラムの正負</strong>に注目します。</p>
+<table>
+<tr><th>ヒストグラム</th><th>解釈</th></tr>
+<tr><td>プラス（上昇中）</td><td>上昇モメンタムが継続。買いシグナル</td></tr>
+<tr><td>マイナス（下降中）</td><td>下落モメンタムが継続。様子見・売りシグナル</td></tr>
+<tr><td>マイナスから転換</td><td>底打ちの可能性。注目エントリーポイント</td></tr>
+</table>
+
+<h2 id="s4">移動平均線とトレンド判定</h2>
+<p>移動平均線（MA）は一定期間の株価の平均を結んだ線です。HG Analyticsでは50日・200日移動平均線を使ってトレンドを判定します。</p>
+<table>
+<tr><th>条件</th><th>トレンド判定</th><th>加点</th></tr>
+<tr><td>現値 &gt; MA50 &gt; MA200</td><td>強い上昇トレンド</td><td>+15点</td></tr>
+<tr><td>現値 &gt; MA50</td><td>上昇トレンド</td><td>+8点</td></tr>
+<tr><td>現値 &lt; MA50 &lt; MA200</td><td>下降トレンド</td><td>+0点</td></tr>
+<tr><td>その他</td><td>横ばい</td><td>+4点</td></tr>
+</table>
+<p>「強い上昇トレンド」とは、いわゆる<strong>パーフェクトオーダー</strong>（短期MA &gt; 長期MA）の状態で、上昇力が強いと判断されます。</p>
+
+<h2 id="s5">HG Analyticsでの使われ方</h2>
+<p>HG Analyticsのテクニカルスコア（50点満点）は以下で構成されます。</p>
+<table>
+<tr><th>指標</th><th>最大加点</th></tr>
+<tr><td>トレンド（MA50/200）</td><td>15点</td></tr>
+<tr><td>MACDヒストグラム</td><td>15点</td></tr>
+<tr><td>RSI水準</td><td>10点</td></tr>
+<tr><td>直近1週間モメンタム</td><td>10点</td></tr>
+</table>
+<p>テクニカルスコアとファンダメンタルスコア（50点）の合計が総合スコアとなり、70点以上をBUY判定としています。テクニカルだけが高くても、ファンダが弱い銘柄はBUYになりにくい設計です。</p>
+
+</div>
+<div class="article-related">
+  <h2>関連記事</h2>
+  <div class="articles-grid"><a class="article-card" href="/articles/per-basics/">
   <span class="article-card-tag">指標解説</span>
   <div class="article-card-title">PER（株価収益率）入門：割安株を見つける最初の一歩</div>
   <div class="article-card-desc">PERとは何か、どう読むか、日米の水準目安まで初心者にもわかりやすく解説します。</div>
-  <div class="article-card-meta">2026年5月</div>
 </a><a class="article-card" href="/articles/pbr-basics/">
   <span class="article-card-tag">指標解説</span>
   <div class="article-card-title">PBR（株価純資産倍率）入門：解散価値と割安判定の考え方</div>
   <div class="article-card-desc">PBR1倍割れの意味、日本株特有の低PBR問題、東証の改革要求まで詳しく解説します。</div>
-  <div class="article-card-meta">2026年5月</div>
 </a><a class="article-card" href="/articles/roe-basics/">
   <span class="article-card-tag">指標解説</span>
   <div class="article-card-title">ROE（自己資本利益率）とは：企業の「稼ぐ力」を測る指標</div>
   <div class="article-card-desc">ROEの計算方法、8%が重要な理由、ROEが高すぎる場合の注意点まで詳しく解説します。</div>
-  <div class="article-card-meta">2026年5月</div>
-</a><a class="article-card" href="/articles/technical-rsi-macd/">
-  <span class="article-card-tag">テクニカル分析</span>
-  <div class="article-card-title">RSI・MACDの読み方：テクニカル分析入門</div>
-  <div class="article-card-desc">株価の「勢い」と「方向性」を測るRSIとMACDの基本的な使い方を初心者向けに解説します。</div>
-  <div class="article-card-meta">2026年5月</div>
-</a><a class="article-card" href="/articles/dividend-investing/">
-  <span class="article-card-tag">投資戦略</span>
-  <div class="article-card-title">高配当株投資の基本：安定収入を得るための銘柄選び</div>
-  <div class="article-card-desc">配当利回りの見方、配当の安定性の確認方法、高配当株選びの落とし穴まで解説します。</div>
-  <div class="article-card-meta">2026年5月</div>
-</a><a class="article-card" href="/articles/value-vs-growth/">
-  <span class="article-card-tag">投資戦略</span>
-  <div class="article-card-title">バリュー投資 vs グロース投資：あなたに合うスタイルは？</div>
-  <div class="article-card-desc">二大投資スタイルの違い、それぞれが有利な相場環境、HG Analyticsの部門設計を解説します。</div>
-  <div class="article-card-meta">2026年5月</div>
 </a></div>
+</div>
 </main>
 <footer>
   <p>© HG Analytics — AIによる自動分析・スクリーニング</p>

@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>投資を学ぶ — 記事一覧 | HG Analytics</title>
-<meta name="description" content="株式投資の基礎から応用まで。PER・PBR・ROE・テクニカル分析・高配当投資など投資家に役立つ記事を掲載。">
+<title>PER（株価収益率）入門：割安株を見つける最初の一歩 | HG Analytics</title>
+<meta name="description" content="PERとは何か、どう読むか、日米の水準目安まで初心者にもわかりやすく解説します。">
 <style>
 :root {
   --bg: #f4f6fb; --card: #fff; --text: #1a1a2e; --text-sub: #6b7280;
@@ -228,41 +228,84 @@ footer {
   <nav><a href="/" class="">トップ</a><a href="/value/" class="">バリュー</a><a href="/growth/" class="">グロース</a><a href="/dividend/" class="">高配当</a><a href="/articles/" class="active">記事</a></nav>
 </header>
 <main>
-<h1>投資を学ぶ</h1>
-<p style="color:var(--text-sub);font-size:.88rem;margin-bottom:1.5rem;">
-  ファンダメンタル・テクニカル指標の解説、投資戦略の基礎知識を提供します。
-</p>
-<div class="articles-grid"><a class="article-card" href="/articles/per-basics/">
-  <span class="article-card-tag">指標解説</span>
-  <div class="article-card-title">PER（株価収益率）入門：割安株を見つける最初の一歩</div>
-  <div class="article-card-desc">PERとは何か、どう読むか、日米の水準目安まで初心者にもわかりやすく解説します。</div>
-  <div class="article-card-meta">2026年5月</div>
-</a><a class="article-card" href="/articles/pbr-basics/">
+<div class="article-hero">
+  <span class="article-hero-tag">指標解説</span>
+  <div class="article-hero-title">PER（株価収益率）入門：割安株を見つける最初の一歩</div>
+  <div class="article-hero-meta">2026年5月 更新</div>
+</div>
+<div class="article-toc">
+  <div class="article-toc-title">目次</div>
+  <ol><li><a href="#s1">PERとは何か</a></li><li><a href="#s2">PERの計算式</a></li><li><a href="#s3">PERの水準目安（日本株・米国株）</a></li><li><a href="#s4">PERが低いほど良いのか？</a></li><li><a href="#s5">HG Analyticsでの使われ方</a></li></ol>
+</div>
+<div class="article-body">
+
+<h2 id="s1">PERとは何か</h2>
+<p>PER（株価収益率、Price Earnings Ratio）は、株価が1株あたり利益（EPS）の何倍で取引されているかを示す指標です。投資家が「その企業の利益に対して何倍のお金を払っているか」を測るもので、株式投資において最も広く使われる割安・割高の判断基準のひとつです。</p>
+<div class="highlight-box">
+<strong>PERが低い ＝ 利益に対して株価が安い（割安候補）<br>PERが高い ＝ 利益に対して株価が高い（成長期待が織り込まれている）</strong>
+</div>
+
+<h2 id="s2">PERの計算式</h2>
+<p>PERは以下の式で計算されます。</p>
+<table>
+<tr><th>項目</th><th>内容</th></tr>
+<tr><td>PER（倍）</td><td>株価 ÷ 1株あたり利益（EPS）</td></tr>
+<tr><td>EPS</td><td>当期純利益 ÷ 発行済株式数</td></tr>
+</table>
+<p>例えば、株価1,000円、EPS100円の銘柄のPERは <strong>10倍</strong> です。これは「投資家がこの会社の1年分の利益の10年分を支払っている」とも解釈できます。</p>
+<p>なお、過去の実績利益を使う「実績PER（Trailing PER）」と、来期予想利益を使う「予想PER（Forward PER）」の2種類があります。HG AnalyticsではyfinanceのTrailing PER / Forward PERを優先して使用しています。</p>
+
+<h2 id="s3">PERの水準目安（日本株・米国株）</h2>
+<table>
+<tr><th>PER水準</th><th>一般的な解釈</th></tr>
+<tr><td>12倍未満</td><td>超割安圏。業績悪化リスクや市場の見落としの可能性も</td></tr>
+<tr><td>12〜18倍</td><td>割安〜適正圏。日本株の歴史的平均に近い</td></tr>
+<tr><td>18〜25倍</td><td>適正〜やや高め。安定成長企業に多い</td></tr>
+<tr><td>25〜35倍</td><td>やや割高。一定の成長期待が前提</td></tr>
+<tr><td>35倍超</td><td>割高圏。高成長グロース株や特殊事情の銘柄</td></tr>
+</table>
+<p>日本株の長期平均PERはおよそ15倍前後ですが、米国株（S&P500）は過去10年で平均20〜25倍程度で推移しており、市場・業種・時代によって大きく異なります。単純に「低いから買い」と判断するのは危険です。</p>
+
+<h2 id="s4">PERが低いほど良いのか？</h2>
+<p>PERが低い銘柄を一律に「割安で良い銘柄」とするのは間違いです。PERが低くなる主な理由には以下のようなものがあります。</p>
+<ul>
+<li><strong>業績悪化リスク</strong>：今後利益が急減すると予想されている場合、現在の利益ベースのPERは見かけ上低くても実質的には割安ではない</li>
+<li><strong>成長性の欠如</strong>：低成長・無成長のビジネスはPERが低くなりやすい（バリュートラップ）</li>
+<li><strong>構造的な問題</strong>：経営悪化・業界衰退・不祥事などを市場が織り込んでいる場合</li>
+</ul>
+<div class="warn-box">
+<strong>注意：</strong> PER単体で判断せず、ROEや売上成長率、PBRなどほかの指標と組み合わせることが重要です。
+</div>
+
+<h2 id="s5">HG Analyticsでの使われ方</h2>
+<p>HG Analyticsのスコアリングでは、PERをファンダメンタルスコア（50点満点中最大15点）の最重要指標のひとつとして採用しています。</p>
+<table>
+<tr><th>PER水準</th><th>加点</th></tr>
+<tr><td>12倍未満</td><td>+15点</td></tr>
+<tr><td>12〜18倍</td><td>+12点</td></tr>
+<tr><td>18〜25倍</td><td>+8点</td></tr>
+<tr><td>25〜35倍</td><td>+3点</td></tr>
+<tr><td>35倍超 / データなし</td><td>+0〜4点</td></tr>
+</table>
+<p>さらにバリュー部門では、低PERに加えPBR・配当利回り・ROEを複合的に評価し、真に割安で稼ぐ力のある銘柄を選別しています。</p>
+
+</div>
+<div class="article-related">
+  <h2>関連記事</h2>
+  <div class="articles-grid"><a class="article-card" href="/articles/pbr-basics/">
   <span class="article-card-tag">指標解説</span>
   <div class="article-card-title">PBR（株価純資産倍率）入門：解散価値と割安判定の考え方</div>
   <div class="article-card-desc">PBR1倍割れの意味、日本株特有の低PBR問題、東証の改革要求まで詳しく解説します。</div>
-  <div class="article-card-meta">2026年5月</div>
 </a><a class="article-card" href="/articles/roe-basics/">
   <span class="article-card-tag">指標解説</span>
   <div class="article-card-title">ROE（自己資本利益率）とは：企業の「稼ぐ力」を測る指標</div>
   <div class="article-card-desc">ROEの計算方法、8%が重要な理由、ROEが高すぎる場合の注意点まで詳しく解説します。</div>
-  <div class="article-card-meta">2026年5月</div>
 </a><a class="article-card" href="/articles/technical-rsi-macd/">
   <span class="article-card-tag">テクニカル分析</span>
   <div class="article-card-title">RSI・MACDの読み方：テクニカル分析入門</div>
   <div class="article-card-desc">株価の「勢い」と「方向性」を測るRSIとMACDの基本的な使い方を初心者向けに解説します。</div>
-  <div class="article-card-meta">2026年5月</div>
-</a><a class="article-card" href="/articles/dividend-investing/">
-  <span class="article-card-tag">投資戦略</span>
-  <div class="article-card-title">高配当株投資の基本：安定収入を得るための銘柄選び</div>
-  <div class="article-card-desc">配当利回りの見方、配当の安定性の確認方法、高配当株選びの落とし穴まで解説します。</div>
-  <div class="article-card-meta">2026年5月</div>
-</a><a class="article-card" href="/articles/value-vs-growth/">
-  <span class="article-card-tag">投資戦略</span>
-  <div class="article-card-title">バリュー投資 vs グロース投資：あなたに合うスタイルは？</div>
-  <div class="article-card-desc">二大投資スタイルの違い、それぞれが有利な相場環境、HG Analyticsの部門設計を解説します。</div>
-  <div class="article-card-meta">2026年5月</div>
 </a></div>
+</div>
 </main>
 <footer>
   <p>© HG Analytics — AIによる自動分析・スクリーニング</p>
