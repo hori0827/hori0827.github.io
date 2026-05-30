@@ -133,6 +133,36 @@ h2::before {
 .meta-chip.up { color: var(--accent); border-color: var(--accent-light); background: var(--accent-light); }
 .meta-chip.dn { color: var(--danger); border-color: var(--danger-light); background: var(--danger-light); }
 
+/* ── Price section ── */
+.price-section {
+  display: flex; gap: .5rem; flex-wrap: wrap; align-items: stretch;
+  background: var(--bg); border-radius: 8px; padding: .55rem .7rem;
+}
+.price-block { display: flex; flex-direction: column; gap: .1rem; min-width: 70px; flex: 1; }
+.price-block + .price-block { border-left: 1px solid var(--border); padding-left: .5rem; }
+.price-label { font-size: .62rem; font-weight: 700; color: var(--text-sub); letter-spacing: .03em; text-transform: uppercase; }
+.price-value { font-size: .95rem; font-weight: 900; }
+.price-upside { font-size: .72rem; font-weight: 700; }
+.rec-chip {
+  display: inline-block; font-size: .62rem; font-weight: 800; letter-spacing: .04em;
+  padding: .15em .55em; border-radius: 4px; margin-top: .1rem;
+}
+.rec-strong-buy { background: var(--accent-light); color: var(--accent); }
+.rec-buy        { background: #d1fae5; color: #065f46; }
+.rec-hold       { background: var(--warn-light); color: var(--warn); }
+.rec-sell       { background: var(--danger-light); color: var(--danger); }
+
+.pick-sector { font-size: .67rem; color: var(--text-sub); margin-top: .05rem; }
+.sector-chip {
+  display: inline-block; font-size: .63rem; font-weight: 700; letter-spacing: .02em;
+  background: var(--bg); color: var(--text-sub); border: 1px solid var(--border);
+  padding: .1em .5em; border-radius: 4px;
+}
+.pick-description {
+  font-size: .75rem; color: var(--text-sub); line-height: 1.5;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+  overflow: hidden;
+}
 .pick-reasons { display: flex; flex-wrap: wrap; gap: .3rem; margin-top: .1rem; }
 .reason-tag {
   font-size: .65rem; background: var(--bg); color: var(--text-sub);
@@ -240,18 +270,23 @@ footer {
       <div>
         <div class="pick-ticker">7936.T</div>
         <div class="pick-name">アシックス</div>
+        
       </div>
     </div>
     <span class="pick-rank">#116</span>
   </div>
+  
+  <div class="price-section"><div class="price-block">
+  <span class="price-label">現在値</span>
+  <span class="price-value">¥4,843</span>
+  
+</div></div>
   <div class="score-row">
     <span class="score-num score-mid">63</span>
     <span class="score-denom">/ 100</span>
     <span class="badge badge-watch">WATCH</span>
   </div>
-  <div class="score-bar-wrap">
-    <div class="score-bar bar-mid" style="width:63%"></div>
-  </div>
+  <svg viewBox="0 0 200 180" width="160" height="144" overflow="visible" style="display:block;margin:.3rem auto 0;"><polygon points="100.0,81.0 112.1,88.0 112.1,102.0 100.0,109.0 87.9,102.0 87.9,88.0" fill="none" stroke="var(--border)" stroke-width="1" opacity="0.4"/><polygon points="100.0,67.0 124.2,81.0 124.2,109.0 100.0,123.0 75.8,109.0 75.8,81.0" fill="none" stroke="var(--border)" stroke-width="1" opacity="0.4"/><polygon points="100.0,53.0 136.4,74.0 136.4,116.0 100.0,137.0 63.6,116.0 63.6,74.0" fill="none" stroke="var(--border)" stroke-width="1" opacity="0.4"/><polygon points="100.0,39.0 148.5,67.0 148.5,123.0 100.0,151.0 51.5,123.0 51.5,67.0" fill="none" stroke="var(--border)" stroke-width="1" opacity="0.7"/><line x1="100" y1="95" x2="100.0" y2="39.0" stroke="var(--border)" stroke-width="1"/><line x1="100" y1="95" x2="148.5" y2="67.0" stroke="var(--border)" stroke-width="1"/><line x1="100" y1="95" x2="148.5" y2="123.0" stroke="var(--border)" stroke-width="1"/><line x1="100" y1="95" x2="100.0" y2="151.0" stroke="var(--border)" stroke-width="1"/><line x1="100" y1="95" x2="51.5" y2="123.0" stroke="var(--border)" stroke-width="1"/><line x1="100" y1="95" x2="51.5" y2="67.0" stroke="var(--border)" stroke-width="1"/><polygon points="100.0,46.8 148.5,67.0 148.5,123.0 100.0,103.7 85.5,103.4 75.8,81.0" fill="var(--primary)" fill-opacity="0.18" stroke="var(--primary)" stroke-width="2"/><text x="100.0" y="21.0" text-anchor="middle" dominant-baseline="middle" font-size="11" fill="var(--text-sub)" font-family="-apple-system,'Hiragino Sans',sans-serif">テクニカル</text><text x="164.1" y="58.0" text-anchor="start" dominant-baseline="middle" font-size="11" fill="var(--text-sub)" font-family="-apple-system,'Hiragino Sans',sans-serif">収益性</text><text x="164.1" y="132.0" text-anchor="start" dominant-baseline="middle" font-size="11" fill="var(--text-sub)" font-family="-apple-system,'Hiragino Sans',sans-serif">成長性</text><text x="100.0" y="169.0" text-anchor="middle" dominant-baseline="middle" font-size="11" fill="var(--text-sub)" font-family="-apple-system,'Hiragino Sans',sans-serif">配当</text><text x="35.9" y="132.0" text-anchor="end" dominant-baseline="middle" font-size="11" fill="var(--text-sub)" font-family="-apple-system,'Hiragino Sans',sans-serif">割安度</text><text x="35.9" y="58.0" text-anchor="end" dominant-baseline="middle" font-size="11" fill="var(--text-sub)" font-family="-apple-system,'Hiragino Sans',sans-serif">財務健全性</text></svg>
   <div class="pick-meta"><span class="meta-chip">RSI 52.6</span><span class="meta-chip up">1M +9.7%</span><span class="meta-chip">上昇トレンド</span><span class="meta-chip">PER 35.1</span><span class="meta-chip">PBR 12.63</span></div>
   <div class="pick-reasons"><span class="reason-tag">PER 35.1倍（割高）</span><span class="reason-tag">ROE 40.9%（超高収益）</span><span class="reason-tag">上昇トレンド (MA50上)</span><span class="reason-tag">MACDヒストグラム+ (上昇モメンタム)</span></div>
 </div><div class="pick-card">
@@ -261,18 +296,23 @@ footer {
       <div>
         <div class="pick-ticker">4413.T</div>
         <div class="pick-name">ボードルア</div>
+        
       </div>
     </div>
     <span class="pick-rank">#249</span>
   </div>
+  
+  <div class="price-section"><div class="price-block">
+  <span class="price-label">現在値</span>
+  <span class="price-value">¥2,427</span>
+  
+</div></div>
   <div class="score-row">
     <span class="score-num score-low">55</span>
     <span class="score-denom">/ 100</span>
     <span class="badge badge-watch">WATCH</span>
   </div>
-  <div class="score-bar-wrap">
-    <div class="score-bar bar-low" style="width:55%"></div>
-  </div>
+  <svg viewBox="0 0 200 180" width="160" height="144" overflow="visible" style="display:block;margin:.3rem auto 0;"><polygon points="100.0,81.0 112.1,88.0 112.1,102.0 100.0,109.0 87.9,102.0 87.9,88.0" fill="none" stroke="var(--border)" stroke-width="1" opacity="0.4"/><polygon points="100.0,67.0 124.2,81.0 124.2,109.0 100.0,123.0 75.8,109.0 75.8,81.0" fill="none" stroke="var(--border)" stroke-width="1" opacity="0.4"/><polygon points="100.0,53.0 136.4,74.0 136.4,116.0 100.0,137.0 63.6,116.0 63.6,74.0" fill="none" stroke="var(--border)" stroke-width="1" opacity="0.4"/><polygon points="100.0,39.0 148.5,67.0 148.5,123.0 100.0,151.0 51.5,123.0 51.5,67.0" fill="none" stroke="var(--border)" stroke-width="1" opacity="0.7"/><line x1="100" y1="95" x2="100.0" y2="39.0" stroke="var(--border)" stroke-width="1"/><line x1="100" y1="95" x2="148.5" y2="67.0" stroke="var(--border)" stroke-width="1"/><line x1="100" y1="95" x2="148.5" y2="123.0" stroke="var(--border)" stroke-width="1"/><line x1="100" y1="95" x2="100.0" y2="151.0" stroke="var(--border)" stroke-width="1"/><line x1="100" y1="95" x2="51.5" y2="123.0" stroke="var(--border)" stroke-width="1"/><line x1="100" y1="95" x2="51.5" y2="67.0" stroke="var(--border)" stroke-width="1"/><polygon points="100.0,59.2 148.5,67.0 148.5,123.0 100.0,99.7 87.9,102.0 75.8,81.0" fill="var(--primary)" fill-opacity="0.18" stroke="var(--primary)" stroke-width="2"/><text x="100.0" y="21.0" text-anchor="middle" dominant-baseline="middle" font-size="11" fill="var(--text-sub)" font-family="-apple-system,'Hiragino Sans',sans-serif">テクニカル</text><text x="164.1" y="58.0" text-anchor="start" dominant-baseline="middle" font-size="11" fill="var(--text-sub)" font-family="-apple-system,'Hiragino Sans',sans-serif">収益性</text><text x="164.1" y="132.0" text-anchor="start" dominant-baseline="middle" font-size="11" fill="var(--text-sub)" font-family="-apple-system,'Hiragino Sans',sans-serif">成長性</text><text x="100.0" y="169.0" text-anchor="middle" dominant-baseline="middle" font-size="11" fill="var(--text-sub)" font-family="-apple-system,'Hiragino Sans',sans-serif">配当</text><text x="35.9" y="132.0" text-anchor="end" dominant-baseline="middle" font-size="11" fill="var(--text-sub)" font-family="-apple-system,'Hiragino Sans',sans-serif">割安度</text><text x="35.9" y="58.0" text-anchor="end" dominant-baseline="middle" font-size="11" fill="var(--text-sub)" font-family="-apple-system,'Hiragino Sans',sans-serif">財務健全性</text></svg>
   <div class="pick-meta"><span class="meta-chip">RSI 67.1</span><span class="meta-chip up">1M +16.6%</span><span class="meta-chip">上昇トレンド</span><span class="meta-chip">PER 30.9</span><span class="meta-chip">PBR 9.81</span></div>
   <div class="pick-reasons"><span class="reason-tag">PER 30.9倍（やや割高）</span><span class="reason-tag">ROE 40.0%（超高収益）</span><span class="reason-tag">上昇トレンド (MA50上)</span><span class="reason-tag">MACDヒストグラム+ (上昇モメンタム)</span></div>
 </div><div class="pick-card">
@@ -282,18 +322,23 @@ footer {
       <div>
         <div class="pick-ticker">9552.T</div>
         <div class="pick-name">クオンツ総研ホールディングス</div>
+        
       </div>
     </div>
     <span class="pick-rank">#192</span>
   </div>
+  
+  <div class="price-section"><div class="price-block">
+  <span class="price-label">現在値</span>
+  <span class="price-value">¥883</span>
+  
+</div></div>
   <div class="score-row">
     <span class="score-num score-low">59</span>
     <span class="score-denom">/ 100</span>
     <span class="badge badge-watch">WATCH</span>
   </div>
-  <div class="score-bar-wrap">
-    <div class="score-bar bar-low" style="width:59%"></div>
-  </div>
+  <svg viewBox="0 0 200 180" width="160" height="144" overflow="visible" style="display:block;margin:.3rem auto 0;"><polygon points="100.0,81.0 112.1,88.0 112.1,102.0 100.0,109.0 87.9,102.0 87.9,88.0" fill="none" stroke="var(--border)" stroke-width="1" opacity="0.4"/><polygon points="100.0,67.0 124.2,81.0 124.2,109.0 100.0,123.0 75.8,109.0 75.8,81.0" fill="none" stroke="var(--border)" stroke-width="1" opacity="0.4"/><polygon points="100.0,53.0 136.4,74.0 136.4,116.0 100.0,137.0 63.6,116.0 63.6,74.0" fill="none" stroke="var(--border)" stroke-width="1" opacity="0.4"/><polygon points="100.0,39.0 148.5,67.0 148.5,123.0 100.0,151.0 51.5,123.0 51.5,67.0" fill="none" stroke="var(--border)" stroke-width="1" opacity="0.7"/><line x1="100" y1="95" x2="100.0" y2="39.0" stroke="var(--border)" stroke-width="1"/><line x1="100" y1="95" x2="148.5" y2="67.0" stroke="var(--border)" stroke-width="1"/><line x1="100" y1="95" x2="148.5" y2="123.0" stroke="var(--border)" stroke-width="1"/><line x1="100" y1="95" x2="100.0" y2="151.0" stroke="var(--border)" stroke-width="1"/><line x1="100" y1="95" x2="51.5" y2="123.0" stroke="var(--border)" stroke-width="1"/><line x1="100" y1="95" x2="51.5" y2="67.0" stroke="var(--border)" stroke-width="1"/><polygon points="100.0,64.8 148.5,67.0 148.5,123.0 100.0,101.4 73.3,110.4 75.8,81.0" fill="var(--primary)" fill-opacity="0.18" stroke="var(--primary)" stroke-width="2"/><text x="100.0" y="21.0" text-anchor="middle" dominant-baseline="middle" font-size="11" fill="var(--text-sub)" font-family="-apple-system,'Hiragino Sans',sans-serif">テクニカル</text><text x="164.1" y="58.0" text-anchor="start" dominant-baseline="middle" font-size="11" fill="var(--text-sub)" font-family="-apple-system,'Hiragino Sans',sans-serif">収益性</text><text x="164.1" y="132.0" text-anchor="start" dominant-baseline="middle" font-size="11" fill="var(--text-sub)" font-family="-apple-system,'Hiragino Sans',sans-serif">成長性</text><text x="100.0" y="169.0" text-anchor="middle" dominant-baseline="middle" font-size="11" fill="var(--text-sub)" font-family="-apple-system,'Hiragino Sans',sans-serif">配当</text><text x="35.9" y="132.0" text-anchor="end" dominant-baseline="middle" font-size="11" fill="var(--text-sub)" font-family="-apple-system,'Hiragino Sans',sans-serif">割安度</text><text x="35.9" y="58.0" text-anchor="end" dominant-baseline="middle" font-size="11" fill="var(--text-sub)" font-family="-apple-system,'Hiragino Sans',sans-serif">財務健全性</text></svg>
   <div class="pick-meta"><span class="meta-chip">RSI 68.2</span><span class="meta-chip up">1M +38.0%</span><span class="meta-chip">上昇トレンド</span><span class="meta-chip">PER 15.6</span><span class="meta-chip">PBR 7.06</span></div>
   <div class="pick-reasons"><span class="reason-tag">PER 15.6倍（割安圏）</span><span class="reason-tag">ROE 35.5%（超高収益）</span><span class="reason-tag">上昇トレンド (MA50上)</span><span class="reason-tag">MACDヒストグラム+ (上昇モメンタム)</span></div>
 </div><div class="pick-card">
@@ -303,18 +348,27 @@ footer {
       <div>
         <div class="pick-ticker">4194.T</div>
         <div class="pick-name">ビジョナル</div>
+        
       </div>
     </div>
     <span class="pick-rank">#127</span>
   </div>
+  
+  <div class="price-section"><div class="price-block">
+  <span class="price-label">現在値</span>
+  <span class="price-value">¥7,850</span>
+  
+</div><div class="price-block">
+  <span class="price-label">理論株価</span>
+  <span class="price-value">¥4,311</span>
+  <span class="price-upside dn">-45.1%</span>
+</div></div>
   <div class="score-row">
     <span class="score-num score-mid">62</span>
     <span class="score-denom">/ 100</span>
     <span class="badge badge-watch">WATCH</span>
   </div>
-  <div class="score-bar-wrap">
-    <div class="score-bar bar-mid" style="width:62%"></div>
-  </div>
+  <svg viewBox="0 0 200 180" width="160" height="144" overflow="visible" style="display:block;margin:.3rem auto 0;"><polygon points="100.0,81.0 112.1,88.0 112.1,102.0 100.0,109.0 87.9,102.0 87.9,88.0" fill="none" stroke="var(--border)" stroke-width="1" opacity="0.4"/><polygon points="100.0,67.0 124.2,81.0 124.2,109.0 100.0,123.0 75.8,109.0 75.8,81.0" fill="none" stroke="var(--border)" stroke-width="1" opacity="0.4"/><polygon points="100.0,53.0 136.4,74.0 136.4,116.0 100.0,137.0 63.6,116.0 63.6,74.0" fill="none" stroke="var(--border)" stroke-width="1" opacity="0.4"/><polygon points="100.0,39.0 148.5,67.0 148.5,123.0 100.0,151.0 51.5,123.0 51.5,67.0" fill="none" stroke="var(--border)" stroke-width="1" opacity="0.7"/><line x1="100" y1="95" x2="100.0" y2="39.0" stroke="var(--border)" stroke-width="1"/><line x1="100" y1="95" x2="148.5" y2="67.0" stroke="var(--border)" stroke-width="1"/><line x1="100" y1="95" x2="148.5" y2="123.0" stroke="var(--border)" stroke-width="1"/><line x1="100" y1="95" x2="100.0" y2="151.0" stroke="var(--border)" stroke-width="1"/><line x1="100" y1="95" x2="51.5" y2="123.0" stroke="var(--border)" stroke-width="1"/><line x1="100" y1="95" x2="51.5" y2="67.0" stroke="var(--border)" stroke-width="1"/><polygon points="100.0,56.9 148.5,67.0 148.5,123.0 100.0,95.0 79.4,106.9 75.8,81.0" fill="var(--primary)" fill-opacity="0.18" stroke="var(--primary)" stroke-width="2"/><text x="100.0" y="21.0" text-anchor="middle" dominant-baseline="middle" font-size="11" fill="var(--text-sub)" font-family="-apple-system,'Hiragino Sans',sans-serif">テクニカル</text><text x="164.1" y="58.0" text-anchor="start" dominant-baseline="middle" font-size="11" fill="var(--text-sub)" font-family="-apple-system,'Hiragino Sans',sans-serif">収益性</text><text x="164.1" y="132.0" text-anchor="start" dominant-baseline="middle" font-size="11" fill="var(--text-sub)" font-family="-apple-system,'Hiragino Sans',sans-serif">成長性</text><text x="100.0" y="169.0" text-anchor="middle" dominant-baseline="middle" font-size="11" fill="var(--text-sub)" font-family="-apple-system,'Hiragino Sans',sans-serif">配当</text><text x="35.9" y="132.0" text-anchor="end" dominant-baseline="middle" font-size="11" fill="var(--text-sub)" font-family="-apple-system,'Hiragino Sans',sans-serif">割安度</text><text x="35.9" y="58.0" text-anchor="end" dominant-baseline="middle" font-size="11" fill="var(--text-sub)" font-family="-apple-system,'Hiragino Sans',sans-serif">財務健全性</text></svg>
   <div class="pick-meta"><span class="meta-chip">RSI 59.5</span><span class="meta-chip up">1M +5.3%</span><span class="meta-chip">上昇トレンド</span><span class="meta-chip">PER 18.2</span><span class="meta-chip">PBR 4.10</span></div>
   <div class="pick-reasons"><span class="reason-tag">PER 18.2倍（適正圏）</span><span class="reason-tag">ROE 26.3%（超高収益）</span><span class="reason-tag">上昇トレンド (MA50上)</span><span class="reason-tag">MACDヒストグラム+ (上昇モメンタム)</span></div>
 </div><div class="pick-card">
@@ -324,18 +378,27 @@ footer {
       <div>
         <div class="pick-ticker">4390.T</div>
         <div class="pick-name">ＩＰＳ</div>
+        
       </div>
     </div>
     <span class="pick-rank">#39</span>
   </div>
+  
+  <div class="price-section"><div class="price-block">
+  <span class="price-label">現在値</span>
+  <span class="price-value">¥4,200</span>
+  
+</div><div class="price-block">
+  <span class="price-label">理論株価</span>
+  <span class="price-value">¥3,225</span>
+  <span class="price-upside dn">-23.2%</span>
+</div></div>
   <div class="score-row">
     <span class="score-num score-mid">69</span>
     <span class="score-denom">/ 100</span>
     <span class="badge badge-watch">WATCH</span>
   </div>
-  <div class="score-bar-wrap">
-    <div class="score-bar bar-mid" style="width:69%"></div>
-  </div>
+  <svg viewBox="0 0 200 180" width="160" height="144" overflow="visible" style="display:block;margin:.3rem auto 0;"><polygon points="100.0,81.0 112.1,88.0 112.1,102.0 100.0,109.0 87.9,102.0 87.9,88.0" fill="none" stroke="var(--border)" stroke-width="1" opacity="0.4"/><polygon points="100.0,67.0 124.2,81.0 124.2,109.0 100.0,123.0 75.8,109.0 75.8,81.0" fill="none" stroke="var(--border)" stroke-width="1" opacity="0.4"/><polygon points="100.0,53.0 136.4,74.0 136.4,116.0 100.0,137.0 63.6,116.0 63.6,74.0" fill="none" stroke="var(--border)" stroke-width="1" opacity="0.4"/><polygon points="100.0,39.0 148.5,67.0 148.5,123.0 100.0,151.0 51.5,123.0 51.5,67.0" fill="none" stroke="var(--border)" stroke-width="1" opacity="0.7"/><line x1="100" y1="95" x2="100.0" y2="39.0" stroke="var(--border)" stroke-width="1"/><line x1="100" y1="95" x2="148.5" y2="67.0" stroke="var(--border)" stroke-width="1"/><line x1="100" y1="95" x2="148.5" y2="123.0" stroke="var(--border)" stroke-width="1"/><line x1="100" y1="95" x2="100.0" y2="151.0" stroke="var(--border)" stroke-width="1"/><line x1="100" y1="95" x2="51.5" y2="123.0" stroke="var(--border)" stroke-width="1"/><line x1="100" y1="95" x2="51.5" y2="67.0" stroke="var(--border)" stroke-width="1"/><polygon points="100.0,51.3 131.5,76.8 148.5,123.0 100.0,105.6 75.8,109.0 75.8,81.0" fill="var(--primary)" fill-opacity="0.18" stroke="var(--primary)" stroke-width="2"/><text x="100.0" y="21.0" text-anchor="middle" dominant-baseline="middle" font-size="11" fill="var(--text-sub)" font-family="-apple-system,'Hiragino Sans',sans-serif">テクニカル</text><text x="164.1" y="58.0" text-anchor="start" dominant-baseline="middle" font-size="11" fill="var(--text-sub)" font-family="-apple-system,'Hiragino Sans',sans-serif">収益性</text><text x="164.1" y="132.0" text-anchor="start" dominant-baseline="middle" font-size="11" fill="var(--text-sub)" font-family="-apple-system,'Hiragino Sans',sans-serif">成長性</text><text x="100.0" y="169.0" text-anchor="middle" dominant-baseline="middle" font-size="11" fill="var(--text-sub)" font-family="-apple-system,'Hiragino Sans',sans-serif">配当</text><text x="35.9" y="132.0" text-anchor="end" dominant-baseline="middle" font-size="11" fill="var(--text-sub)" font-family="-apple-system,'Hiragino Sans',sans-serif">割安度</text><text x="35.9" y="58.0" text-anchor="end" dominant-baseline="middle" font-size="11" fill="var(--text-sub)" font-family="-apple-system,'Hiragino Sans',sans-serif">財務健全性</text></svg>
   <div class="pick-meta"><span class="meta-chip">RSI 58.6</span><span class="meta-chip up">1M +32.9%</span><span class="meta-chip">上昇トレンド</span><span class="meta-chip">PER 13.3</span><span class="meta-chip">PBR 2.87</span></div>
   <div class="pick-reasons"><span class="reason-tag">PER 13.3倍（割安圏）</span><span class="reason-tag">PBR 2.87倍（適正）</span><span class="reason-tag">上昇トレンド (MA50上)</span><span class="reason-tag">MACDヒストグラム+ (上昇モメンタム)</span></div>
 </div><div class="pick-card">
@@ -345,18 +408,23 @@ footer {
       <div>
         <div class="pick-ticker">3663.T</div>
         <div class="pick-name">セルシス</div>
+        
       </div>
     </div>
     <span class="pick-rank">#164</span>
   </div>
+  
+  <div class="price-section"><div class="price-block">
+  <span class="price-label">現在値</span>
+  <span class="price-value">¥1,611</span>
+  
+</div></div>
   <div class="score-row">
     <span class="score-num score-mid">60</span>
     <span class="score-denom">/ 100</span>
     <span class="badge badge-watch">WATCH</span>
   </div>
-  <div class="score-bar-wrap">
-    <div class="score-bar bar-mid" style="width:60%"></div>
-  </div>
+  <svg viewBox="0 0 200 180" width="160" height="144" overflow="visible" style="display:block;margin:.3rem auto 0;"><polygon points="100.0,81.0 112.1,88.0 112.1,102.0 100.0,109.0 87.9,102.0 87.9,88.0" fill="none" stroke="var(--border)" stroke-width="1" opacity="0.4"/><polygon points="100.0,67.0 124.2,81.0 124.2,109.0 100.0,123.0 75.8,109.0 75.8,81.0" fill="none" stroke="var(--border)" stroke-width="1" opacity="0.4"/><polygon points="100.0,53.0 136.4,74.0 136.4,116.0 100.0,137.0 63.6,116.0 63.6,74.0" fill="none" stroke="var(--border)" stroke-width="1" opacity="0.4"/><polygon points="100.0,39.0 148.5,67.0 148.5,123.0 100.0,151.0 51.5,123.0 51.5,67.0" fill="none" stroke="var(--border)" stroke-width="1" opacity="0.7"/><line x1="100" y1="95" x2="100.0" y2="39.0" stroke="var(--border)" stroke-width="1"/><line x1="100" y1="95" x2="148.5" y2="67.0" stroke="var(--border)" stroke-width="1"/><line x1="100" y1="95" x2="148.5" y2="123.0" stroke="var(--border)" stroke-width="1"/><line x1="100" y1="95" x2="100.0" y2="151.0" stroke="var(--border)" stroke-width="1"/><line x1="100" y1="95" x2="51.5" y2="123.0" stroke="var(--border)" stroke-width="1"/><line x1="100" y1="95" x2="51.5" y2="67.0" stroke="var(--border)" stroke-width="1"/><polygon points="100.0,53.6 148.5,67.0 131.5,113.2 100.0,121.4 87.9,102.0 75.8,81.0" fill="var(--primary)" fill-opacity="0.18" stroke="var(--primary)" stroke-width="2"/><text x="100.0" y="21.0" text-anchor="middle" dominant-baseline="middle" font-size="11" fill="var(--text-sub)" font-family="-apple-system,'Hiragino Sans',sans-serif">テクニカル</text><text x="164.1" y="58.0" text-anchor="start" dominant-baseline="middle" font-size="11" fill="var(--text-sub)" font-family="-apple-system,'Hiragino Sans',sans-serif">収益性</text><text x="164.1" y="132.0" text-anchor="start" dominant-baseline="middle" font-size="11" fill="var(--text-sub)" font-family="-apple-system,'Hiragino Sans',sans-serif">成長性</text><text x="100.0" y="169.0" text-anchor="middle" dominant-baseline="middle" font-size="11" fill="var(--text-sub)" font-family="-apple-system,'Hiragino Sans',sans-serif">配当</text><text x="35.9" y="132.0" text-anchor="end" dominant-baseline="middle" font-size="11" fill="var(--text-sub)" font-family="-apple-system,'Hiragino Sans',sans-serif">割安度</text><text x="35.9" y="58.0" text-anchor="end" dominant-baseline="middle" font-size="11" fill="var(--text-sub)" font-family="-apple-system,'Hiragino Sans',sans-serif">財務健全性</text></svg>
   <div class="pick-meta"><span class="meta-chip">RSI 70.0</span><span class="meta-chip up">1M +17.7%</span><span class="meta-chip">上昇トレンド</span><span class="meta-chip">PER 29.2</span><span class="meta-chip">PBR 10.23</span></div>
   <div class="pick-reasons"><span class="reason-tag">PER 29.2倍（やや割高）</span><span class="reason-tag">ROE 28.0%（超高収益）</span><span class="reason-tag">上昇トレンド (MA50上)</span><span class="reason-tag">MACDヒストグラム+ (上昇モメンタム)</span></div>
 </div><div class="pick-card">
@@ -366,18 +434,23 @@ footer {
       <div>
         <div class="pick-ticker">3923.T</div>
         <div class="pick-name">ラクス</div>
+        
       </div>
     </div>
     <span class="pick-rank">#217</span>
   </div>
+  
+  <div class="price-section"><div class="price-block">
+  <span class="price-label">現在値</span>
+  <span class="price-value">¥1,006</span>
+  
+</div></div>
   <div class="score-row">
     <span class="score-num score-low">57</span>
     <span class="score-denom">/ 100</span>
     <span class="badge badge-watch">WATCH</span>
   </div>
-  <div class="score-bar-wrap">
-    <div class="score-bar bar-low" style="width:57%"></div>
-  </div>
+  <svg viewBox="0 0 200 180" width="160" height="144" overflow="visible" style="display:block;margin:.3rem auto 0;"><polygon points="100.0,81.0 112.1,88.0 112.1,102.0 100.0,109.0 87.9,102.0 87.9,88.0" fill="none" stroke="var(--border)" stroke-width="1" opacity="0.4"/><polygon points="100.0,67.0 124.2,81.0 124.2,109.0 100.0,123.0 75.8,109.0 75.8,81.0" fill="none" stroke="var(--border)" stroke-width="1" opacity="0.4"/><polygon points="100.0,53.0 136.4,74.0 136.4,116.0 100.0,137.0 63.6,116.0 63.6,74.0" fill="none" stroke="var(--border)" stroke-width="1" opacity="0.4"/><polygon points="100.0,39.0 148.5,67.0 148.5,123.0 100.0,151.0 51.5,123.0 51.5,67.0" fill="none" stroke="var(--border)" stroke-width="1" opacity="0.7"/><line x1="100" y1="95" x2="100.0" y2="39.0" stroke="var(--border)" stroke-width="1"/><line x1="100" y1="95" x2="148.5" y2="67.0" stroke="var(--border)" stroke-width="1"/><line x1="100" y1="95" x2="148.5" y2="123.0" stroke="var(--border)" stroke-width="1"/><line x1="100" y1="95" x2="100.0" y2="151.0" stroke="var(--border)" stroke-width="1"/><line x1="100" y1="95" x2="51.5" y2="123.0" stroke="var(--border)" stroke-width="1"/><line x1="100" y1="95" x2="51.5" y2="67.0" stroke="var(--border)" stroke-width="1"/><polygon points="100.0,53.6 148.5,67.0 131.5,113.2 100.0,103.8 87.9,102.0 75.8,81.0" fill="var(--primary)" fill-opacity="0.18" stroke="var(--primary)" stroke-width="2"/><text x="100.0" y="21.0" text-anchor="middle" dominant-baseline="middle" font-size="11" fill="var(--text-sub)" font-family="-apple-system,'Hiragino Sans',sans-serif">テクニカル</text><text x="164.1" y="58.0" text-anchor="start" dominant-baseline="middle" font-size="11" fill="var(--text-sub)" font-family="-apple-system,'Hiragino Sans',sans-serif">収益性</text><text x="164.1" y="132.0" text-anchor="start" dominant-baseline="middle" font-size="11" fill="var(--text-sub)" font-family="-apple-system,'Hiragino Sans',sans-serif">成長性</text><text x="100.0" y="169.0" text-anchor="middle" dominant-baseline="middle" font-size="11" fill="var(--text-sub)" font-family="-apple-system,'Hiragino Sans',sans-serif">配当</text><text x="35.9" y="132.0" text-anchor="end" dominant-baseline="middle" font-size="11" fill="var(--text-sub)" font-family="-apple-system,'Hiragino Sans',sans-serif">割安度</text><text x="35.9" y="58.0" text-anchor="end" dominant-baseline="middle" font-size="11" fill="var(--text-sub)" font-family="-apple-system,'Hiragino Sans',sans-serif">財務健全性</text></svg>
   <div class="pick-meta"><span class="meta-chip">RSI 65.4</span><span class="meta-chip up">1M +19.9%</span><span class="meta-chip">上昇トレンド</span><span class="meta-chip">PER 27.3</span><span class="meta-chip">PBR 13.83</span></div>
   <div class="pick-reasons"><span class="reason-tag">PER 27.3倍（やや割高）</span><span class="reason-tag">ROE 55.4%（超高収益）</span><span class="reason-tag">上昇トレンド (MA50上)</span><span class="reason-tag">MACDヒストグラム+ (上昇モメンタム)</span></div>
 </div><div class="pick-card">
@@ -387,18 +460,23 @@ footer {
       <div>
         <div class="pick-ticker">4443.T</div>
         <div class="pick-name">Ｓａｎｓａｎ</div>
+        
       </div>
     </div>
     <span class="pick-rank">#312</span>
   </div>
+  
+  <div class="price-section"><div class="price-block">
+  <span class="price-label">現在値</span>
+  <span class="price-value">¥1,679</span>
+  
+</div></div>
   <div class="score-row">
     <span class="score-num score-low">51</span>
     <span class="score-denom">/ 100</span>
     <span class="badge badge-watch">WATCH</span>
   </div>
-  <div class="score-bar-wrap">
-    <div class="score-bar bar-low" style="width:51%"></div>
-  </div>
+  <svg viewBox="0 0 200 180" width="160" height="144" overflow="visible" style="display:block;margin:.3rem auto 0;"><polygon points="100.0,81.0 112.1,88.0 112.1,102.0 100.0,109.0 87.9,102.0 87.9,88.0" fill="none" stroke="var(--border)" stroke-width="1" opacity="0.4"/><polygon points="100.0,67.0 124.2,81.0 124.2,109.0 100.0,123.0 75.8,109.0 75.8,81.0" fill="none" stroke="var(--border)" stroke-width="1" opacity="0.4"/><polygon points="100.0,53.0 136.4,74.0 136.4,116.0 100.0,137.0 63.6,116.0 63.6,74.0" fill="none" stroke="var(--border)" stroke-width="1" opacity="0.4"/><polygon points="100.0,39.0 148.5,67.0 148.5,123.0 100.0,151.0 51.5,123.0 51.5,67.0" fill="none" stroke="var(--border)" stroke-width="1" opacity="0.7"/><line x1="100" y1="95" x2="100.0" y2="39.0" stroke="var(--border)" stroke-width="1"/><line x1="100" y1="95" x2="148.5" y2="67.0" stroke="var(--border)" stroke-width="1"/><line x1="100" y1="95" x2="148.5" y2="123.0" stroke="var(--border)" stroke-width="1"/><line x1="100" y1="95" x2="100.0" y2="151.0" stroke="var(--border)" stroke-width="1"/><line x1="100" y1="95" x2="51.5" y2="123.0" stroke="var(--border)" stroke-width="1"/><line x1="100" y1="95" x2="51.5" y2="67.0" stroke="var(--border)" stroke-width="1"/><polygon points="100.0,55.8 131.5,76.8 148.5,123.0 100.0,98.4 85.5,103.4 75.8,81.0" fill="var(--primary)" fill-opacity="0.18" stroke="var(--primary)" stroke-width="2"/><text x="100.0" y="21.0" text-anchor="middle" dominant-baseline="middle" font-size="11" fill="var(--text-sub)" font-family="-apple-system,'Hiragino Sans',sans-serif">テクニカル</text><text x="164.1" y="58.0" text-anchor="start" dominant-baseline="middle" font-size="11" fill="var(--text-sub)" font-family="-apple-system,'Hiragino Sans',sans-serif">収益性</text><text x="164.1" y="132.0" text-anchor="start" dominant-baseline="middle" font-size="11" fill="var(--text-sub)" font-family="-apple-system,'Hiragino Sans',sans-serif">成長性</text><text x="100.0" y="169.0" text-anchor="middle" dominant-baseline="middle" font-size="11" fill="var(--text-sub)" font-family="-apple-system,'Hiragino Sans',sans-serif">配当</text><text x="35.9" y="132.0" text-anchor="end" dominant-baseline="middle" font-size="11" fill="var(--text-sub)" font-family="-apple-system,'Hiragino Sans',sans-serif">割安度</text><text x="35.9" y="58.0" text-anchor="end" dominant-baseline="middle" font-size="11" fill="var(--text-sub)" font-family="-apple-system,'Hiragino Sans',sans-serif">財務健全性</text></svg>
   <div class="pick-meta"><span class="meta-chip">RSI 84.2</span><span class="meta-chip up">1M +32.7%</span><span class="meta-chip">上昇トレンド</span><span class="meta-chip">PER 104.2</span><span class="meta-chip">PBR 11.20</span></div>
   <div class="pick-reasons"><span class="reason-tag">PER 104.2倍（割高）</span><span class="reason-tag">ROE 15.7%（高収益性）</span><span class="reason-tag">上昇トレンド (MA50上)</span><span class="reason-tag">MACDヒストグラム+ (上昇モメンタム)</span></div>
 </div><div class="pick-card">
@@ -408,18 +486,27 @@ footer {
       <div>
         <div class="pick-ticker">6071.T</div>
         <div class="pick-name">ＩＢＪ</div>
+        
       </div>
     </div>
     <span class="pick-rank">#86</span>
   </div>
+  
+  <div class="price-section"><div class="price-block">
+  <span class="price-label">現在値</span>
+  <span class="price-value">¥825</span>
+  
+</div><div class="price-block">
+  <span class="price-label">理論株価</span>
+  <span class="price-value">¥596</span>
+  <span class="price-upside dn">-27.7%</span>
+</div></div>
   <div class="score-row">
     <span class="score-num score-mid">65</span>
     <span class="score-denom">/ 100</span>
     <span class="badge badge-watch">WATCH</span>
   </div>
-  <div class="score-bar-wrap">
-    <div class="score-bar bar-mid" style="width:65%"></div>
-  </div>
+  <svg viewBox="0 0 200 180" width="160" height="144" overflow="visible" style="display:block;margin:.3rem auto 0;"><polygon points="100.0,81.0 112.1,88.0 112.1,102.0 100.0,109.0 87.9,102.0 87.9,88.0" fill="none" stroke="var(--border)" stroke-width="1" opacity="0.4"/><polygon points="100.0,67.0 124.2,81.0 124.2,109.0 100.0,123.0 75.8,109.0 75.8,81.0" fill="none" stroke="var(--border)" stroke-width="1" opacity="0.4"/><polygon points="100.0,53.0 136.4,74.0 136.4,116.0 100.0,137.0 63.6,116.0 63.6,74.0" fill="none" stroke="var(--border)" stroke-width="1" opacity="0.4"/><polygon points="100.0,39.0 148.5,67.0 148.5,123.0 100.0,151.0 51.5,123.0 51.5,67.0" fill="none" stroke="var(--border)" stroke-width="1" opacity="0.7"/><line x1="100" y1="95" x2="100.0" y2="39.0" stroke="var(--border)" stroke-width="1"/><line x1="100" y1="95" x2="148.5" y2="67.0" stroke="var(--border)" stroke-width="1"/><line x1="100" y1="95" x2="148.5" y2="123.0" stroke="var(--border)" stroke-width="1"/><line x1="100" y1="95" x2="100.0" y2="151.0" stroke="var(--border)" stroke-width="1"/><line x1="100" y1="95" x2="51.5" y2="123.0" stroke="var(--border)" stroke-width="1"/><line x1="100" y1="95" x2="51.5" y2="67.0" stroke="var(--border)" stroke-width="1"/><polygon points="100.0,59.2 131.5,76.8 148.5,123.0 100.0,112.7 75.8,109.0 75.8,81.0" fill="var(--primary)" fill-opacity="0.18" stroke="var(--primary)" stroke-width="2"/><text x="100.0" y="21.0" text-anchor="middle" dominant-baseline="middle" font-size="11" fill="var(--text-sub)" font-family="-apple-system,'Hiragino Sans',sans-serif">テクニカル</text><text x="164.1" y="58.0" text-anchor="start" dominant-baseline="middle" font-size="11" fill="var(--text-sub)" font-family="-apple-system,'Hiragino Sans',sans-serif">収益性</text><text x="164.1" y="132.0" text-anchor="start" dominant-baseline="middle" font-size="11" fill="var(--text-sub)" font-family="-apple-system,'Hiragino Sans',sans-serif">成長性</text><text x="100.0" y="169.0" text-anchor="middle" dominant-baseline="middle" font-size="11" fill="var(--text-sub)" font-family="-apple-system,'Hiragino Sans',sans-serif">配当</text><text x="35.9" y="132.0" text-anchor="end" dominant-baseline="middle" font-size="11" fill="var(--text-sub)" font-family="-apple-system,'Hiragino Sans',sans-serif">割安度</text><text x="35.9" y="58.0" text-anchor="end" dominant-baseline="middle" font-size="11" fill="var(--text-sub)" font-family="-apple-system,'Hiragino Sans',sans-serif">財務健全性</text></svg>
   <div class="pick-meta"><span class="meta-chip">RSI 66.4</span><span class="meta-chip up">1M +12.7%</span><span class="meta-chip">上昇トレンド</span><span class="meta-chip">PER 15.0</span><span class="meta-chip">PBR 2.87</span></div>
   <div class="pick-reasons"><span class="reason-tag">PER 15.0倍（割安圏）</span><span class="reason-tag">PBR 2.87倍（適正）</span><span class="reason-tag">上昇トレンド (MA50上)</span><span class="reason-tag">MACDヒストグラム+ (上昇モメンタム)</span></div>
 </div><div class="pick-card">
@@ -429,18 +516,23 @@ footer {
       <div>
         <div class="pick-ticker">4776.T</div>
         <div class="pick-name">サイボウズ</div>
+        
       </div>
     </div>
     <span class="pick-rank">#128</span>
   </div>
+  
+  <div class="price-section"><div class="price-block">
+  <span class="price-label">現在値</span>
+  <span class="price-value">¥2,539</span>
+  
+</div></div>
   <div class="score-row">
     <span class="score-num score-mid">62</span>
     <span class="score-denom">/ 100</span>
     <span class="badge badge-watch">WATCH</span>
   </div>
-  <div class="score-bar-wrap">
-    <div class="score-bar bar-mid" style="width:62%"></div>
-  </div>
+  <svg viewBox="0 0 200 180" width="160" height="144" overflow="visible" style="display:block;margin:.3rem auto 0;"><polygon points="100.0,81.0 112.1,88.0 112.1,102.0 100.0,109.0 87.9,102.0 87.9,88.0" fill="none" stroke="var(--border)" stroke-width="1" opacity="0.4"/><polygon points="100.0,67.0 124.2,81.0 124.2,109.0 100.0,123.0 75.8,109.0 75.8,81.0" fill="none" stroke="var(--border)" stroke-width="1" opacity="0.4"/><polygon points="100.0,53.0 136.4,74.0 136.4,116.0 100.0,137.0 63.6,116.0 63.6,74.0" fill="none" stroke="var(--border)" stroke-width="1" opacity="0.4"/><polygon points="100.0,39.0 148.5,67.0 148.5,123.0 100.0,151.0 51.5,123.0 51.5,67.0" fill="none" stroke="var(--border)" stroke-width="1" opacity="0.7"/><line x1="100" y1="95" x2="100.0" y2="39.0" stroke="var(--border)" stroke-width="1"/><line x1="100" y1="95" x2="148.5" y2="67.0" stroke="var(--border)" stroke-width="1"/><line x1="100" y1="95" x2="148.5" y2="123.0" stroke="var(--border)" stroke-width="1"/><line x1="100" y1="95" x2="100.0" y2="151.0" stroke="var(--border)" stroke-width="1"/><line x1="100" y1="95" x2="51.5" y2="123.0" stroke="var(--border)" stroke-width="1"/><line x1="100" y1="95" x2="51.5" y2="67.0" stroke="var(--border)" stroke-width="1"/><polygon points="100.0,61.4 148.5,67.0 131.5,113.2 100.0,117.1 73.3,110.4 75.8,81.0" fill="var(--primary)" fill-opacity="0.18" stroke="var(--primary)" stroke-width="2"/><text x="100.0" y="21.0" text-anchor="middle" dominant-baseline="middle" font-size="11" fill="var(--text-sub)" font-family="-apple-system,'Hiragino Sans',sans-serif">テクニカル</text><text x="164.1" y="58.0" text-anchor="start" dominant-baseline="middle" font-size="11" fill="var(--text-sub)" font-family="-apple-system,'Hiragino Sans',sans-serif">収益性</text><text x="164.1" y="132.0" text-anchor="start" dominant-baseline="middle" font-size="11" fill="var(--text-sub)" font-family="-apple-system,'Hiragino Sans',sans-serif">成長性</text><text x="100.0" y="169.0" text-anchor="middle" dominant-baseline="middle" font-size="11" fill="var(--text-sub)" font-family="-apple-system,'Hiragino Sans',sans-serif">配当</text><text x="35.9" y="132.0" text-anchor="end" dominant-baseline="middle" font-size="11" fill="var(--text-sub)" font-family="-apple-system,'Hiragino Sans',sans-serif">割安度</text><text x="35.9" y="58.0" text-anchor="end" dominant-baseline="middle" font-size="11" fill="var(--text-sub)" font-family="-apple-system,'Hiragino Sans',sans-serif">財務健全性</text></svg>
   <div class="pick-meta"><span class="meta-chip">RSI 72.9</span><span class="meta-chip up">1M +20.0%</span><span class="meta-chip">上昇トレンド</span><span class="meta-chip">PER 16.6</span><span class="meta-chip">PBR 6.70</span></div>
   <div class="pick-reasons"><span class="reason-tag">PER 16.6倍（割安圏）</span><span class="reason-tag">ROE 50.2%（超高収益）</span><span class="reason-tag">上昇トレンド (MA50上)</span><span class="reason-tag">MACDヒストグラム+ (上昇モメンタム)</span></div>
 </div></div>
