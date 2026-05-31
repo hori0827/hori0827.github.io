@@ -354,6 +354,88 @@ h2::before {
   border-radius: 0 var(--radius) var(--radius) 0; padding: .9rem 1.1rem; margin: 1.2rem 0; }
 .article-related { margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border); }
 
+/* ── Hero update note ── */
+.hero-update-note {
+  font-size: .73rem; opacity: .75; margin-top: .35rem; letter-spacing: .01em;
+}
+
+/* ── Score guide bar ── */
+.score-guide {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: .7rem 1.1rem; margin-bottom: 1.2rem;
+}
+.score-guide-inner {
+  display: flex; align-items: center; gap: .9rem; flex-wrap: wrap;
+  font-size: .8rem;
+}
+.score-guide-label {
+  font-weight: 800; font-size: .78rem; color: var(--text-sub); margin-right: .1rem;
+}
+.score-guide-detail {
+  font-size: .75rem; color: var(--text-sub);
+  border-left: 1px solid var(--border); padding-left: .9rem;
+}
+.score-guide-link {
+  font-size: .76rem; font-weight: 700; margin-left: auto; white-space: nowrap;
+}
+
+/* ── Dept filter bar ── */
+.dept-filter-bar {
+  display: flex; gap: .4rem; margin-bottom: 1rem; flex-wrap: wrap;
+}
+.dept-filter-btn {
+  font-size: .78rem; font-weight: 700; padding: .3rem .8rem; border-radius: 6px;
+  border: 1px solid var(--border); background: var(--bg); color: var(--text-sub);
+  cursor: pointer; transition: background .12s, color .12s;
+}
+.dept-filter-btn.active { background: var(--primary); color: #fff; border-color: var(--primary); }
+.dept-filter-btn:hover:not(.active) { background: var(--primary-light); color: var(--primary); }
+
+/* ── About page ── */
+.about-card {
+  background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 1.3rem 1.5rem; margin-bottom: 1.5rem; box-shadow: var(--shadow);
+}
+.about-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px,1fr)); gap: 1rem; }
+.about-item { background: var(--bg); border-radius: 8px; padding: .9rem 1rem; }
+.about-item-label { font-size: .78rem; font-weight: 800; color: var(--primary); margin-bottom: .2rem; }
+.about-item-val { font-size: .95rem; font-weight: 700; margin-bottom: .2rem; }
+.about-item-desc { font-size: .78rem; color: var(--text-sub); line-height: 1.5; }
+.about-score-bar {
+  display: flex; border-radius: 8px; overflow: hidden; margin-bottom: 1.3rem; height: 2.6rem;
+}
+.about-score-half {
+  flex: 1; display: flex; align-items: center; justify-content: center;
+  font-size: .85rem; font-weight: 800; gap: .5rem;
+}
+.about-score-half span { font-size: .72rem; font-weight: 600; opacity: .8; }
+.about-tech { background: var(--primary-light); color: var(--primary); }
+.about-fund { background: var(--accent-light); color: #047857; }
+.about-section-title { font-size: .88rem; font-weight: 800; margin-bottom: .6rem; color: var(--text); }
+.about-table { width: 100%; border-collapse: collapse; font-size: .82rem; }
+.about-table th { background: var(--bg); font-weight: 800; padding: .5rem .7rem;
+  text-align: left; border-bottom: 2px solid var(--border); }
+.about-table td { padding: .5rem .7rem; border-bottom: 1px solid var(--border); line-height: 1.5; }
+.about-table tr:last-child td { border: none; }
+.about-formula {
+  font-family: monospace; font-size: 1rem; background: var(--bg);
+  border-radius: 8px; padding: .75rem 1.1rem; margin: .8rem 0;
+  color: var(--primary); font-weight: 700; text-align: center;
+}
+.about-badges-row { display: flex; gap: 1rem; flex-wrap: wrap; }
+.about-badge-item { display: flex; align-items: flex-start; gap: .7rem; flex: 1; min-width: 180px; }
+.about-badge-desc { font-size: .82rem; line-height: 1.6; color: var(--text-sub); }
+.about-badge-desc strong { color: var(--text); }
+.about-dept-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px,1fr)); gap: 1rem; }
+.about-dept-item p { font-size: .82rem; color: var(--text-sub); line-height: 1.6; margin-top: .5rem; }
+.about-dept-head {
+  font-size: .85rem; font-weight: 800; padding: .5rem .75rem; border-radius: 6px;
+}
+.about-disclaimer {
+  background: var(--warn-light); border: 1px solid var(--warn); border-radius: var(--radius);
+  padding: 1rem 1.3rem; font-size: .82rem; line-height: 1.7; margin-top: 2rem; color: var(--text);
+}
+
 /* ── Footer ── */
 footer {
   text-align: center; font-size: .73rem; color: var(--text-sub);

@@ -20,14 +20,19 @@
 <body>
 <header>
   <span class="logo">HG Analytics</span>
-  <nav><a href="/" class="">トップ</a><a href="/value/" class="">バリュー</a><a href="/growth/" class="active">グロース</a><a href="/dividend/" class="">高配当</a><a href="/all/" class="">全銘柄</a><a href="/articles/" class="">記事</a></nav>
+  <nav><a href="/" class="">トップ</a><a href="/value/" class="">バリュー</a><a href="/growth/" class="active">グロース</a><a href="/dividend/" class="">高配当</a><a href="/all/" class="">全銘柄</a><a href="/articles/" class="">記事</a><a href="/about/" class="">AIの仕組み</a></nav>
 </header>
 <main>
 <h1>🚀 グロース部門</h1>
 <p style="color:var(--text-sub);font-size:.88rem;margin-bottom:1.2rem;">
   高成長・強モメンタム銘柄<br>
-  スコア55.0点以上をBUY判定 — 本日 <strong>228銘柄</strong>が対象（上位30銘柄を表示）
+  部門スコア65.0点以上をBUY判定 — 本日 <strong>121銘柄</strong>が対象（上位30銘柄を表示）
 </p>
+<div class="dept-filter-bar">
+  <button class="dept-filter-btn active" id="dft-all" onclick="deptFilter('all')">全て</button>
+  <button class="dept-filter-btn" id="dft-jp"  onclick="deptFilter('jp')">🇯🇵 日本株</button>
+  <button class="dept-filter-btn" id="dft-us"  onclick="deptFilter('us')">🇺🇸 米国株</button>
+</div>
 <div class="dept-table-wrap">
 <table class="dept-table">
   <thead><tr>
@@ -35,7 +40,7 @@
     <th>部門スコア</th><th>総合</th>
     <th>PER</th><th>PBR</th><th>ROE%</th><th>配当%</th><th>1M%</th><th>トレンド</th>
   </tr></thead>
-  <tbody><tr>
+  <tbody><tr data-jp="0">
   <td style="color:var(--text-sub);font-weight:800">#1</td>
   <td>🇺🇸</td>
   <td><a href="https://finance.yahoo.com/quote/TER" target="_blank" rel="noopener"><strong>TER</strong></a></td>
@@ -45,57 +50,57 @@
   <td>69.4</td><td>20.90</td><td>28.7%</td><td>0.14%</td>
   <td><span class="up">+22.2%</span></td>
   <td style="font-size:.73rem;color:var(--text-sub)">上昇トレンド</td>
-</tr><tr>
+</tr><tr data-jp="0">
   <td style="color:var(--text-sub);font-weight:800">#2</td>
   <td>🇺🇸</td>
   <td><a href="https://finance.yahoo.com/quote/CPAY" target="_blank" rel="noopener"><strong>CPAY</strong></a></td>
   <td style="max-width:140px;overflow:hidden;text-overflow:ellipsis">Corpay</td>
-  <td><span class="dept-score-num score-high">94</span> <span class="score-delta up" style="font-size:.65rem">+30</span> <span class="badge badge-buy">BUY</span></td>
+  <td><span class="dept-score-num score-high">94</span> <span class="badge badge-buy">BUY</span></td>
   <td style="color:var(--text-sub)">73</td>
   <td>21.6</td><td>6.82</td><td>32.1%</td><td>—</td>
   <td><span class="up">+17.9%</span></td>
   <td style="font-size:.73rem;color:var(--text-sub)">上昇トレンド</td>
-</tr><tr>
+</tr><tr data-jp="0">
   <td style="color:var(--text-sub);font-weight:800">#3</td>
   <td>🇺🇸</td>
   <td><a href="https://finance.yahoo.com/quote/WDC" target="_blank" rel="noopener"><strong>WDC</strong></a></td>
   <td style="max-width:140px;overflow:hidden;text-overflow:ellipsis">Western Digital</td>
-  <td><span class="dept-score-num score-high">94</span> <span class="score-delta up" style="font-size:.65rem">+23</span> <span class="badge badge-buy">BUY</span></td>
+  <td><span class="dept-score-num score-high">94</span> <span class="badge badge-buy">BUY</span></td>
   <td style="color:var(--text-sub)">66</td>
   <td>31.8</td><td>25.40</td><td>85.9%</td><td>0.11%</td>
   <td><span class="up">+28.7%</span></td>
   <td style="font-size:.73rem;color:var(--text-sub)">上昇トレンド</td>
-</tr><tr>
+</tr><tr data-jp="0">
   <td style="color:var(--text-sub);font-weight:800">#4</td>
   <td>🇺🇸</td>
   <td><a href="https://finance.yahoo.com/quote/GEN" target="_blank" rel="noopener"><strong>GEN</strong></a></td>
   <td style="max-width:140px;overflow:hidden;text-overflow:ellipsis">Gen Digital</td>
-  <td><span class="dept-score-num score-high">92</span> <span class="score-delta up" style="font-size:.65rem">+37</span> <span class="badge badge-buy">BUY</span></td>
+  <td><span class="dept-score-num score-high">92</span> <span class="badge badge-buy">BUY</span></td>
   <td style="color:var(--text-sub)">76</td>
   <td>16.4</td><td>5.91</td><td>39.9%</td><td>1.94%</td>
   <td><span class="up">+35.5%</span></td>
   <td style="font-size:.73rem;color:var(--text-sub)">上昇トレンド</td>
-</tr><tr>
+</tr><tr data-jp="0">
   <td style="color:var(--text-sub);font-weight:800">#5</td>
   <td>🇺🇸</td>
   <td><a href="https://finance.yahoo.com/quote/LLY" target="_blank" rel="noopener"><strong>LLY</strong></a></td>
   <td style="max-width:140px;overflow:hidden;text-overflow:ellipsis">Eli Lilly</td>
-  <td><span class="dept-score-num score-high">92</span> <span class="score-delta up" style="font-size:.65rem">+23</span> <span class="badge badge-buy">BUY</span></td>
+  <td><span class="dept-score-num score-high">92</span> <span class="badge badge-buy">BUY</span></td>
   <td style="color:var(--text-sub)">62</td>
   <td>39.2</td><td>31.65</td><td>107.5%</td><td>0.63%</td>
   <td><span class="up">+30.0%</span></td>
   <td style="font-size:.73rem;color:var(--text-sub)">上昇トレンド</td>
-</tr><tr>
+</tr><tr data-jp="0">
   <td style="color:var(--text-sub);font-weight:800">#6</td>
   <td>🇺🇸</td>
   <td><a href="https://finance.yahoo.com/quote/MU" target="_blank" rel="noopener"><strong>MU</strong></a></td>
   <td style="max-width:140px;overflow:hidden;text-overflow:ellipsis">Micron Technology</td>
-  <td><span class="dept-score-num score-high">92</span> <span class="score-delta up" style="font-size:.65rem">+22</span> <span class="badge badge-buy">BUY</span></td>
+  <td><span class="dept-score-num score-high">92</span> <span class="badge badge-buy">BUY</span></td>
   <td style="color:var(--text-sub)">61</td>
   <td>45.9</td><td>15.12</td><td>39.8%</td><td>0.06%</td>
   <td><span class="up">+87.3%</span></td>
   <td style="font-size:.73rem;color:var(--text-sub)">上昇トレンド</td>
-</tr><tr>
+</tr><tr data-jp="0">
   <td style="color:var(--text-sub);font-weight:800">#7</td>
   <td>🇺🇸</td>
   <td><a href="https://finance.yahoo.com/quote/PLTR" target="_blank" rel="noopener"><strong>PLTR</strong></a></td>
@@ -105,17 +110,17 @@
   <td>175.9</td><td>44.41</td><td>32.6%</td><td>—</td>
   <td><span class="up">+13.5%</span></td>
   <td style="font-size:.73rem;color:var(--text-sub)">上昇トレンド</td>
-</tr><tr>
+</tr><tr data-jp="0">
   <td style="color:var(--text-sub);font-weight:800">#8</td>
   <td>🇺🇸</td>
   <td><a href="https://finance.yahoo.com/quote/MNST" target="_blank" rel="noopener"><strong>MNST</strong></a></td>
   <td style="max-width:140px;overflow:hidden;text-overflow:ellipsis">Monster Beverage</td>
-  <td><span class="dept-score-num score-high">92</span> <span class="score-delta up" style="font-size:.65rem">+21</span> <span class="badge badge-buy">BUY</span></td>
+  <td><span class="dept-score-num score-high">92</span> <span class="badge badge-buy">BUY</span></td>
   <td style="color:var(--text-sub)">59</td>
   <td>42.6</td><td>9.87</td><td>26.7%</td><td>—</td>
   <td><span class="up">+14.6%</span></td>
   <td style="font-size:.73rem;color:var(--text-sub)">上昇トレンド</td>
-</tr><tr>
+</tr><tr data-jp="1">
   <td style="color:var(--text-sub);font-weight:800">#9</td>
   <td>🇯🇵</td>
   <td><a href="https://finance.yahoo.co.jp/quote/7936.T" target="_blank" rel="noopener"><strong>7936</strong></a></td>
@@ -125,7 +130,7 @@
   <td>35.1</td><td>12.63</td><td>40.9%</td><td>0.78%</td>
   <td><span class="up">+9.7%</span></td>
   <td style="font-size:.73rem;color:var(--text-sub)">上昇トレンド</td>
-</tr><tr>
+</tr><tr data-jp="1">
   <td style="color:var(--text-sub);font-weight:800">#10</td>
   <td>🇯🇵</td>
   <td><a href="https://finance.yahoo.co.jp/quote/4413.T" target="_blank" rel="noopener"><strong>4413</strong></a></td>
@@ -135,7 +140,7 @@
   <td>30.9</td><td>9.81</td><td>40.0%</td><td>0.42%</td>
   <td><span class="up">+16.6%</span></td>
   <td style="font-size:.73rem;color:var(--text-sub)">上昇トレンド</td>
-</tr><tr>
+</tr><tr data-jp="1">
   <td style="color:var(--text-sub);font-weight:800">#11</td>
   <td>🇯🇵</td>
   <td><a href="https://finance.yahoo.co.jp/quote/9552.T" target="_blank" rel="noopener"><strong>9552</strong></a></td>
@@ -145,7 +150,7 @@
   <td>15.7</td><td>7.06</td><td>35.5%</td><td>0.57%</td>
   <td><span class="up">+38.0%</span></td>
   <td style="font-size:.73rem;color:var(--text-sub)">上昇トレンド</td>
-</tr><tr>
+</tr><tr data-jp="1">
   <td style="color:var(--text-sub);font-weight:800">#12</td>
   <td>🇯🇵</td>
   <td><a href="https://finance.yahoo.co.jp/quote/4194.T" target="_blank" rel="noopener"><strong>4194</strong></a></td>
@@ -155,17 +160,17 @@
   <td>18.2</td><td>4.10</td><td>26.3%</td><td>—</td>
   <td><span class="up">+5.3%</span></td>
   <td style="font-size:.73rem;color:var(--text-sub)">上昇トレンド</td>
-</tr><tr>
+</tr><tr data-jp="0">
   <td style="color:var(--text-sub);font-weight:800">#13</td>
   <td>🇺🇸</td>
   <td><a href="https://finance.yahoo.com/quote/AVGO" target="_blank" rel="noopener"><strong>AVGO</strong></a></td>
   <td style="max-width:140px;overflow:hidden;text-overflow:ellipsis">Broadcom</td>
-  <td><span class="dept-score-num score-high">87</span> <span class="score-delta up" style="font-size:.65rem">+22</span> <span class="badge badge-buy">BUY</span></td>
+  <td><span class="dept-score-num score-high">87</span> <span class="badge badge-buy">BUY</span></td>
   <td style="color:var(--text-sub)">50</td>
   <td>86.9</td><td>26.49</td><td>33.4%</td><td>0.58%</td>
   <td><span class="up">+10.2%</span></td>
   <td style="font-size:.73rem;color:var(--text-sub)">上昇トレンド</td>
-</tr><tr>
+</tr><tr data-jp="1">
   <td style="color:var(--text-sub);font-weight:800">#14</td>
   <td>🇯🇵</td>
   <td><a href="https://finance.yahoo.co.jp/quote/4390.T" target="_blank" rel="noopener"><strong>4390</strong></a></td>
@@ -175,17 +180,17 @@
   <td>13.3</td><td>2.87</td><td>21.7%</td><td>0.95%</td>
   <td><span class="up">+32.9%</span></td>
   <td style="font-size:.73rem;color:var(--text-sub)">上昇トレンド</td>
-</tr><tr>
+</tr><tr data-jp="0">
   <td style="color:var(--text-sub);font-weight:800">#15</td>
   <td>🇺🇸</td>
   <td><a href="https://finance.yahoo.com/quote/VST" target="_blank" rel="noopener"><strong>VST</strong></a></td>
   <td style="max-width:140px;overflow:hidden;text-overflow:ellipsis">Vistra Corp</td>
-  <td><span class="dept-score-num score-high">84</span> <span class="score-delta up" style="font-size:.65rem">+29</span> <span class="badge badge-buy">BUY</span></td>
+  <td><span class="dept-score-num score-high">84</span> <span class="badge badge-buy">BUY</span></td>
   <td style="color:var(--text-sub)">72</td>
   <td>26.8</td><td>20.67</td><td>42.9%</td><td>0.57%</td>
   <td><span class="up">+4.2%</span></td>
   <td style="font-size:.73rem;color:var(--text-sub)">上昇トレンド</td>
-</tr><tr>
+</tr><tr data-jp="0">
   <td style="color:var(--text-sub);font-weight:800">#16</td>
   <td>🇺🇸</td>
   <td><a href="https://finance.yahoo.com/quote/LRCX" target="_blank" rel="noopener"><strong>LRCX</strong></a></td>
@@ -195,27 +200,27 @@
   <td>60.3</td><td>37.59</td><td>66.8%</td><td>0.33%</td>
   <td><span class="up">+27.9%</span></td>
   <td style="font-size:.73rem;color:var(--text-sub)">上昇トレンド</td>
-</tr><tr>
+</tr><tr data-jp="0">
   <td style="color:var(--text-sub);font-weight:800">#17</td>
   <td>🇺🇸</td>
   <td><a href="https://finance.yahoo.com/quote/GE" target="_blank" rel="noopener"><strong>GE</strong></a></td>
   <td style="max-width:140px;overflow:hidden;text-overflow:ellipsis">GE Aerospace</td>
-  <td><span class="dept-score-num score-high">84</span> <span class="score-delta up" style="font-size:.65rem">+22</span> <span class="badge badge-buy">BUY</span></td>
+  <td><span class="dept-score-num score-high">84</span> <span class="badge badge-buy">BUY</span></td>
   <td style="color:var(--text-sub)">63</td>
   <td>40.2</td><td>18.18</td><td>45.4%</td><td>0.58%</td>
   <td><span class="up">+14.2%</span></td>
   <td style="font-size:.73rem;color:var(--text-sub)">上昇トレンド</td>
-</tr><tr>
+</tr><tr data-jp="0">
   <td style="color:var(--text-sub);font-weight:800">#18</td>
   <td>🇺🇸</td>
   <td><a href="https://finance.yahoo.com/quote/APH" target="_blank" rel="noopener"><strong>APH</strong></a></td>
   <td style="max-width:140px;overflow:hidden;text-overflow:ellipsis">Amphenol</td>
-  <td><span class="dept-score-num score-high">84</span> <span class="score-delta up" style="font-size:.65rem">+21</span> <span class="badge badge-buy">BUY</span></td>
+  <td><span class="dept-score-num score-high">84</span> <span class="badge badge-buy">BUY</span></td>
   <td style="color:var(--text-sub)">62</td>
   <td>42.7</td><td>13.08</td><td>36.8%</td><td>0.67%</td>
   <td><span class="up">+0.3%</span></td>
   <td style="font-size:.73rem;color:var(--text-sub)">上昇トレンド</td>
-</tr><tr>
+</tr><tr data-jp="0">
   <td style="color:var(--text-sub);font-weight:800">#19</td>
   <td>🇺🇸</td>
   <td><a href="https://finance.yahoo.com/quote/ORCL" target="_blank" rel="noopener"><strong>ORCL</strong></a></td>
@@ -225,7 +230,7 @@
   <td>40.5</td><td>19.35</td><td>57.6%</td><td>0.89%</td>
   <td><span class="up">+37.8%</span></td>
   <td style="font-size:.73rem;color:var(--text-sub)">上昇トレンド</td>
-</tr><tr>
+</tr><tr data-jp="1">
   <td style="color:var(--text-sub);font-weight:800">#20</td>
   <td>🇯🇵</td>
   <td><a href="https://finance.yahoo.co.jp/quote/3663.T" target="_blank" rel="noopener"><strong>3663</strong></a></td>
@@ -235,7 +240,7 @@
   <td>29.2</td><td>10.23</td><td>28.0%</td><td>2.36%</td>
   <td><span class="up">+17.7%</span></td>
   <td style="font-size:.73rem;color:var(--text-sub)">上昇トレンド</td>
-</tr><tr>
+</tr><tr data-jp="1">
   <td style="color:var(--text-sub);font-weight:800">#21</td>
   <td>🇯🇵</td>
   <td><a href="https://finance.yahoo.co.jp/quote/3923.T" target="_blank" rel="noopener"><strong>3923</strong></a></td>
@@ -245,7 +250,7 @@
   <td>27.2</td><td>13.83</td><td>55.4%</td><td>0.79%</td>
   <td><span class="up">+19.9%</span></td>
   <td style="font-size:.73rem;color:var(--text-sub)">上昇トレンド</td>
-</tr><tr>
+</tr><tr data-jp="1">
   <td style="color:var(--text-sub);font-weight:800">#22</td>
   <td>🇯🇵</td>
   <td><a href="https://finance.yahoo.co.jp/quote/4443.T" target="_blank" rel="noopener"><strong>4443</strong></a></td>
@@ -255,7 +260,7 @@
   <td>104.2</td><td>11.20</td><td>15.7%</td><td>0.30%</td>
   <td><span class="up">+32.7%</span></td>
   <td style="font-size:.73rem;color:var(--text-sub)">上昇トレンド</td>
-</tr><tr>
+</tr><tr data-jp="0">
   <td style="color:var(--text-sub);font-weight:800">#23</td>
   <td>🇺🇸</td>
   <td><a href="https://finance.yahoo.com/quote/FTNT" target="_blank" rel="noopener"><strong>FTNT</strong></a></td>
@@ -265,7 +270,7 @@
   <td>53.5</td><td>102.35</td><td>132.4%</td><td>—</td>
   <td><span class="up">+60.2%</span></td>
   <td style="font-size:.73rem;color:var(--text-sub)">上昇トレンド</td>
-</tr><tr>
+</tr><tr data-jp="1">
   <td style="color:var(--text-sub);font-weight:800">#24</td>
   <td>🇯🇵</td>
   <td><a href="https://finance.yahoo.co.jp/quote/6071.T" target="_blank" rel="noopener"><strong>6071</strong></a></td>
@@ -275,17 +280,17 @@
   <td>15.0</td><td>2.87</td><td>24.7%</td><td>1.58%</td>
   <td><span class="up">+12.7%</span></td>
   <td style="font-size:.73rem;color:var(--text-sub)">上昇トレンド</td>
-</tr><tr>
+</tr><tr data-jp="0">
   <td style="color:var(--text-sub);font-weight:800">#25</td>
   <td>🇺🇸</td>
   <td><a href="https://finance.yahoo.com/quote/CVNA" target="_blank" rel="noopener"><strong>CVNA</strong></a></td>
   <td style="max-width:140px;overflow:hidden;text-overflow:ellipsis">Carvana</td>
-  <td><span class="dept-score-num score-high">82</span> <span class="score-delta up" style="font-size:.65rem">+21</span> <span class="badge badge-buy">BUY</span></td>
+  <td><span class="dept-score-num score-high">82</span> <span class="badge badge-buy">BUY</span></td>
   <td style="color:var(--text-sub)">68</td>
   <td>42.4</td><td>14.03</td><td>60.2%</td><td>—</td>
   <td><span class="dn">-8.0%</span></td>
   <td style="font-size:.73rem;color:var(--text-sub)">上昇トレンド</td>
-</tr><tr>
+</tr><tr data-jp="1">
   <td style="color:var(--text-sub);font-weight:800">#26</td>
   <td>🇯🇵</td>
   <td><a href="https://finance.yahoo.co.jp/quote/4776.T" target="_blank" rel="noopener"><strong>4776</strong></a></td>
@@ -295,17 +300,17 @@
   <td>16.6</td><td>6.70</td><td>50.2%</td><td>1.97%</td>
   <td><span class="up">+20.0%</span></td>
   <td style="font-size:.73rem;color:var(--text-sub)">上昇トレンド</td>
-</tr><tr>
+</tr><tr data-jp="0">
   <td style="color:var(--text-sub);font-weight:800">#27</td>
   <td>🇺🇸</td>
   <td><a href="https://finance.yahoo.com/quote/DXCM" target="_blank" rel="noopener"><strong>DXCM</strong></a></td>
   <td style="max-width:140px;overflow:hidden;text-overflow:ellipsis">DexCom</td>
-  <td><span class="dept-score-num score-high">80</span> <span class="score-delta up" style="font-size:.65rem">+23</span> <span class="badge badge-buy">BUY</span></td>
+  <td><span class="dept-score-num score-high">80</span> <span class="badge badge-buy">BUY</span></td>
   <td style="color:var(--text-sub)">57</td>
   <td>31.6</td><td>9.62</td><td>35.6%</td><td>—</td>
   <td><span class="up">+28.1%</span></td>
   <td style="font-size:.73rem;color:var(--text-sub)">上昇トレンド</td>
-</tr><tr>
+</tr><tr data-jp="0">
   <td style="color:var(--text-sub);font-weight:800">#28</td>
   <td>🇺🇸</td>
   <td><a href="https://finance.yahoo.com/quote/AAPL" target="_blank" rel="noopener"><strong>AAPL</strong></a></td>
@@ -315,7 +320,7 @@
   <td>37.7</td><td>42.98</td><td>141.5%</td><td>0.35%</td>
   <td><span class="up">+15.6%</span></td>
   <td style="font-size:.73rem;color:var(--text-sub)">上昇トレンド</td>
-</tr><tr>
+</tr><tr data-jp="0">
   <td style="color:var(--text-sub);font-weight:800">#29</td>
   <td>🇺🇸</td>
   <td><a href="https://finance.yahoo.com/quote/ALNY" target="_blank" rel="noopener"><strong>ALNY</strong></a></td>
@@ -325,12 +330,12 @@
   <td>75.7</td><td>37.47</td><td>90.4%</td><td>—</td>
   <td><span class="up">+0.3%</span></td>
   <td style="font-size:.73rem;color:var(--text-sub)">横ばい</td>
-</tr><tr>
+</tr><tr data-jp="0">
   <td style="color:var(--text-sub);font-weight:800">#30</td>
   <td>🇺🇸</td>
   <td><a href="https://finance.yahoo.com/quote/META" target="_blank" rel="noopener"><strong>META</strong></a></td>
   <td style="max-width:140px;overflow:hidden;text-overflow:ellipsis">Meta</td>
-  <td><span class="dept-score-num score-high">80</span> <span class="score-delta up" style="font-size:.65rem">+32</span> <span class="badge badge-buy">BUY</span></td>
+  <td><span class="dept-score-num score-high">80</span> <span class="badge badge-buy">BUY</span></td>
   <td style="color:var(--text-sub)">75</td>
   <td>23.0</td><td>6.59</td><td>32.9%</td><td>0.33%</td>
   <td><span class="dn">-5.5%</span></td>
@@ -338,10 +343,20 @@
 </tr></tbody>
 </table>
 </div>
+<script>
+function deptFilter(m){
+  document.querySelectorAll('.dept-filter-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('dft-'+m).classList.add('active');
+  document.querySelectorAll('.dept-table tbody tr').forEach(r=>{
+    const jp=r.dataset.jp==='1';
+    r.style.display=(m==='all'||(m==='jp'&&jp)||(m==='us'&&!jp))?'':'none';
+  });
+}
+</script>
 </main>
 <footer>
   <p>© HG Analytics — AIによる自動分析・スクリーニング</p>
-  <p style="margin-top:.2rem;font-size:.7rem;">最終更新: 2026年6月1日 08:10 JST</p>
+  <p style="margin-top:.2rem;font-size:.7rem;">最終更新: 2026年6月1日 08:33 JST</p>
   <p style="margin-top:.3rem;">投資の最終判断はご自身でお願いします（金融商品取引法準拠）。当サイトの情報は投資勧誘を目的としません。</p>
 </footer>
 </body>

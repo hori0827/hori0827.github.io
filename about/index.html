@@ -1,121 +1,144 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>運営者情報・サイトについて | HG Analytics</title>
-  <meta name="description" content="HG Analyticsの運営者情報、AI分析手法、免責事項をご説明します。">
-  <meta property="og:title" content="運営者情報・サイトについて">
-  <meta property="og:description" content="HG Analyticsの運営者情報、AI分析手法、免責事項をご説明します。">
-  <meta property="og:type" content="article">
-  <meta property="og:image" content="https://hori0827.github.io/assets/ogp.png">
-  <meta property="og:url" content="https://hori0827.github.io/about/">
-  <meta property="og:site_name" content="HG Analytics">
-  <meta property="og:locale" content="ja_JP">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="運営者情報・サイトについて">
-  <meta name="twitter:description" content="HG Analyticsの運営者情報、AI分析手法、免責事項をご説明します。">
-  <meta name="google-site-verification" content="7V_zOAQD8Wj-WW75kGPzPHq8kAcria_PGfj-kt5j11c">
-  <link rel="canonical" href="https://hori0827.github.io/about/">
-  <link rel="alternate" type="application/rss+xml" title="HG Analytics" href="https://hori0827.github.io/feed.xml">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap">
-  <link rel="stylesheet" href="/assets/style.css">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%232563eb'/><text x='3' y='24' font-family='sans-serif' font-size='18' font-weight='900' fill='white'>HG</text></svg>">
-  
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5716635999318915" crossorigin="anonymous"></script>
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://hori0827.github.io/"}, {"@type": "ListItem", "position": 2, "name": "運営者情報", "item": "https://hori0827.github.io/about/"}]}</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AIの仕組みとスコアの見方 | HG Analytics</title>
+<meta name="description" content="HG AnalyticsがAIで株をスクリーニングする仕組み・スコアの計算方法を公開。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://hori0827.github.io/about/">
+<meta property="og:title" content="AIの仕組みとスコアの見方 | HG Analytics">
+<meta property="og:description" content="HG AnalyticsがAIで株をスクリーニングする仕組み・スコアの計算方法を公開。">
+<meta property="og:site_name" content="HG Analytics">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AIの仕組みとスコアの見方 | HG Analytics">
+<meta name="twitter:description" content="HG AnalyticsがAIで株をスクリーニングする仕組み・スコアの計算方法を公開。">
+<link rel="canonical" href="https://hori0827.github.io/about/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/style.css">
 </head>
 <body>
-<header class="site-header">
-  <div class="header-inner container">
-    <a href="/" class="logo">
-      <span class="logo-icon">&#9642;</span>HG Analytics
-    </a>
-    <input type="checkbox" id="nav-toggle" class="nav-toggle">
-    <label for="nav-toggle" class="nav-burger">&#9776;</label>
-    <nav class="nav-menu">
-      <a href="/" class="nav-primary">トップ</a>
-      <a href="/value/" class="nav-primary">&#128201; バリュー</a>
-      <a href="/growth/" class="nav-primary">&#128640; グロース</a>
-      <a href="/dividend/" class="nav-primary">&#128176; 高配当</a>
-      <a href="/articles/" class="nav-secondary">記事一覧</a>
-      <a href="/performance/" class="nav-secondary">予測実績</a>
-      <a href="/sector/" class="nav-secondary">セクター分析</a>
-      <a href="/methodology/" class="nav-secondary">分析手法</a>
-      <a href="/learn/" class="nav-secondary">学習</a>
-      <a href="/brokers/" class="nav-secondary">証券会社比較</a>
-    </nav>
-  </div>
+<header>
+  <span class="logo">HG Analytics</span>
+  <nav><a href="/" class="">トップ</a><a href="/value/" class="">バリュー</a><a href="/growth/" class="">グロース</a><a href="/dividend/" class="">高配当</a><a href="/all/" class="">全銘柄</a><a href="/articles/" class="">記事</a><a href="/about/" class="active">AIの仕組み</a></nav>
 </header>
 <main>
-<div class="container section" style="max-width:780px">
-<h1>運営者情報・サイトについて</h1>
+<h1>AIの仕組みとスコアの見方</h1>
+<p style="color:var(--text-sub);font-size:.88rem;margin-bottom:2rem;">
+  HG Analytics がどのようにして「今買うべき銘柄」を選ぶのか、スコアリングの仕組みを公開しています。
+</p>
 
-<h2>サイト概要</h2>
-<p><strong>HG Analytics</strong>は、AI（人工知能）を活用して日本株・米国株の注目銘柄を毎日自動スクリーニングし、投資情報を無料で提供する情報サービスです。</p>
-<p>独自開発のAIエージェントがファンダメンタル分析（PER・PBR・ROE・売上成長率など）とテクニカル分析（RSI・MACD・ボリンジャーバンドなど）を組み合わせ、毎営業日17時ごろに最新レポートを更新しています。</p>
-
-<h2>分析手法</h2>
-<ul>
-  <li><strong>スクリーニング対象</strong>：日本株（東証プライム中心）+ 米国株（S&amp;P500・NASDAQ100）計400〜600銘柄</li>
-  <li><strong>ファンダメンタル評価</strong>：PER・PBR・ROE・売上高成長率・営業利益率・負債比率・配当利回り・流動比率の8指標</li>
-  <li><strong>テクニカル評価</strong>：RSI・MACD・トレンド方向・出来高比率・ボリンジャーバンド・モメンタムの6指標</li>
-  <li><strong>更新頻度</strong>：毎営業日（土日祝除く）17:00 JST 自動更新</li>
-</ul>
-
-<h2>免責事項</h2>
-<blockquote>
-本サイトのコンテンツは情報提供を目的としており、特定の金融商品の購入・売却を推奨するものではありません。
-掲載情報の正確性・完全性・最新性について保証するものではなく、本情報を利用したことによる損害について一切の責任を負いません。
-投資判断はご自身の責任において行ってください。株式投資には価格変動リスクがあり、元本保証はありません。
-本サービスは金融商品取引法に基づく投資助言業の登録を受けておりません。
-</blockquote>
-
-<h2>広告・アフィリエイトについて</h2>
-<p>本サイトはGoogle AdSenseおよびアフィリエイトプログラムを利用しています。
-証券会社へのリンクはアフィリエイトリンクを含む場合があります。
-詳細は<a href="/privacy/">プライバシーポリシー</a>をご覧ください。</p>
-
-<h2>お問い合わせ</h2>
-<p>サイトに関するご意見・ご要望はX（旧Twitter）のDMまたは下記メールアドレスにお送りください。</p>
-<p><strong>メールアドレス</strong>: <a href="mailto:hori.kobe.1022@gmail.com">hori.kobe.1022@gmail.com</a></p>
-<p>誤情報・不適切なコンテンツのご指摘も歓迎します。</p>
-
-<div style="margin-top:2rem">
-  <a href="/" class="af-btn" style="text-decoration:none">&#8592; トップに戻る</a>
-</div>
-</div>
-</main>
-<footer class="site-footer">
-  <div class="container">
-    <div class="footer-grid">
-      <div>
-        <p class="footer-logo">HG Analytics</p>
-        <p class="footer-desc">AIが毎日分析する株価情報サイト</p>
-      </div>
-      <div>
-        <p class="footer-heading">コンテンツ</p>
-        <a href="/">トップ</a>
-        <a href="/value/">バリュー投資部門</a>
-        <a href="/growth/">グロース投資部門</a>
-        <a href="/dividend/">高配当投資部門</a>
-        <a href="/articles/">記事一覧</a>
-        <a href="/sector/">セクター分析</a>
-        <a href="/portfolio/">仮想ポートフォリオ</a>
-        <a href="/hot/">急騰・急落</a>
-        <a href="/learn/">学習コンテンツ</a>
-        <a href="/brokers/">証券会社比較</a>
-        <a href="/performance/">予測実績</a>
-        <a href="/methodology/">分析手法・透明性</a>
-        <a href="/privacy/">プライバシーポリシー</a>
-      </div>
+<h2>対象銘柄とデータソース</h2>
+<div class="about-card">
+  <div class="about-grid">
+    <div class="about-item">
+      <div class="about-item-label">🇯🇵 日本株</div>
+      <div class="about-item-val">TOPIX Prime 全銘柄 約1,574銘柄</div>
+      <div class="about-item-desc">東証プライム市場の全上場銘柄を毎日16:00（JST）にスクリーニング</div>
     </div>
-    <div class="footer-bottom">
-      <p class="disclaimer">【重要】本サイトの情報は参考情報であり、投資助言・投資推奨ではありません（金融商品取引法第2条準拠）。掲載情報の正確性を保証するものではなく、投資判断はご自身の責任で行ってください。過去の実績は将来の結果を保証しません。証券会社比較ページにはアフィリエイト広告（PR）が含まれます。</p>
-      <p>&copy; 2026 HG Analytics</p>
+    <div class="about-item">
+      <div class="about-item-label">🇺🇸 米国株</div>
+      <div class="about-item-val">S&amp;P500 構成銘柄 約477銘柄</div>
+      <div class="about-item-desc">S&amp;P500の主要銘柄を毎朝7:00（JST）にスクリーニング</div>
+    </div>
+    <div class="about-item">
+      <div class="about-item-label">📡 データソース</div>
+      <div class="about-item-val">Yahoo Finance（yfinance）</div>
+      <div class="about-item-desc">株価・財務データはYahoo Financeから自動取得。6ヶ月分の価格履歴を使用</div>
     </div>
   </div>
+</div>
+
+<h2>スコアリングの仕組み（合計100点満点）</h2>
+<div class="about-card">
+  <div class="about-score-bar">
+    <div class="about-score-half about-tech">テクニカル分析<span>最大50点</span></div>
+    <div class="about-score-half about-fund">ファンダメンタル<span>最大50点</span></div>
+  </div>
+
+  <div class="about-section-title">📈 テクニカル分析（0〜50点）</div>
+  <table class="about-table">
+    <thead><tr><th>指標</th><th>配点</th><th>評価基準</th></tr></thead>
+    <tbody>
+      <tr><td>トレンド（MA50/MA200）</td><td>0〜15点</td><td>強い上昇トレンド（MA50↑MA200↑）で15点、上昇トレンドで8点</td></tr>
+      <tr><td>MACDヒストグラム</td><td>0〜15点</td><td>プラス（上昇モメンタム）で15点</td></tr>
+      <tr><td>RSI水準</td><td>0〜10点</td><td>30〜55が理想（中立・安定）で10点。70超の買われすぎは2点</td></tr>
+      <tr><td>直近1週間パフォーマンス</td><td>0〜10点</td><td>+3%超で10点、+0〜3%で5点</td></tr>
+    </tbody>
+  </table>
+
+  <div class="about-section-title" style="margin-top:1.2rem;">💰 ファンダメンタル分析（0〜50点）</div>
+  <table class="about-table">
+    <thead><tr><th>指標</th><th>配点</th><th>評価基準</th></tr></thead>
+    <tbody>
+      <tr><td>PER（株価収益率）</td><td>0〜15点</td>
+        <td>JP: 12倍未満で15点 / US: 15倍未満で15点（市場平均を考慮した別基準）</td></tr>
+      <tr><td>PBR（株価純資産倍率）</td><td>0〜10点</td>
+        <td>JP: 0.7倍未満で10点 / US: 2倍未満で10点（米国の高PBR構造を考慮）</td></tr>
+      <tr><td>ROE（自己資本利益率）</td><td>0〜12点</td><td>25%以上で12点、15%以上で8点、8%以上で4点</td></tr>
+      <tr><td>売上成長率</td><td>0〜8点</td><td>20%以上で8点、8%以上で5点</td></tr>
+      <tr><td>配当利回り</td><td>0〜5点</td><td>3%超で5点、1.5%超で3点</td></tr>
+      <tr><td>アナリスト推奨</td><td>0〜5点</td><td>強い買い推奨で+5点、買い推奨で+3点</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h2>BUY判定の基準</h2>
+<div class="about-card">
+  <div class="about-badges-row">
+    <div class="about-badge-item">
+      <span class="badge badge-buy" style="font-size:1rem;padding:.4rem .9rem">BUY</span>
+      <div class="about-badge-desc"><strong>70点以上</strong><br>今すぐ注目すべき銘柄。テクニカル・ファンダ両面で優秀な評価</div>
+    </div>
+    <div class="about-badge-item">
+      <span class="badge badge-watch" style="font-size:1rem;padding:.4rem .9rem">WATCH</span>
+      <div class="about-badge-desc"><strong>50〜69点</strong><br>経過観察に値する銘柄。一部指標に改善の余地あり</div>
+    </div>
+    <div class="about-badge-item">
+      <span class="badge badge-caution" style="font-size:1rem;padding:.4rem .9rem">CAUTION</span>
+      <div class="about-badge-desc"><strong>50点未満</strong><br>現時点では積極的な投資には適さないと判断</div>
+    </div>
+  </div>
+</div>
+
+<h2>3つの投資スタイル部門</h2>
+<div class="about-card">
+  <div class="about-dept-grid">
+    <div class="about-dept-item">
+      <div class="about-dept-head dept-val">💎 バリュー部門</div>
+      <p>低PER・低PBR・安定配当・高ROEを重視。割安に放置されている優良企業を発掘します。部門スコア65点以上をBUY判定。</p>
+    </div>
+    <div class="about-dept-item">
+      <div class="about-dept-head dept-gro">🚀 グロース部門</div>
+      <p>売上成長率・高ROE・価格モメンタムを重視。高成長を続ける企業を強いトレンドで買います。部門スコア65点以上をBUY判定。</p>
+    </div>
+    <div class="about-dept-item">
+      <div class="about-dept-head dept-div">💰 高配当部門</div>
+      <p>配当利回り最重視。安定した収益と財務基盤を持つ高配当銘柄を厳選します。部門スコア65点以上をBUY判定。</p>
+    </div>
+  </div>
+</div>
+
+<h2>理論株価（グラハム数）について</h2>
+<div class="about-card">
+  <p>一部の銘柄カードに表示される「理論株価」は、バリュー投資の父ベンジャミン・グラハムが提唱した計算式（グラハム数）に基づきます。</p>
+  <div class="about-formula">√( 22.5 × EPS × BPS ) = グラハム数</div>
+  <p style="margin-top:.8rem;font-size:.88rem;color:var(--text-sub);">
+    EPS（1株当たり利益）とBPS（1株当たり純資産）から算出。PERが低く・PBRが低いバリュー株に有効な指標です。<br>
+    現在値との乖離が大きい場合（±80%超）は表示していません。あくまで参考値としてご覧ください。
+  </p>
+</div>
+
+<div class="about-disclaimer">
+  <strong>免責事項</strong><br>
+  当サイトのスクリーニング結果・スコアは、公開情報をもとにしたアルゴリズムによる自動判定です。投資の最終判断はご自身でお願いします。
+  当サイトの情報は投資勧誘を目的としません（金融商品取引法準拠）。
+</div>
+</main>
+<footer>
+  <p>© HG Analytics — AIによる自動分析・スクリーニング</p>
+  <p style="margin-top:.2rem;font-size:.7rem;">最終更新: 2026年6月1日 08:33 JST</p>
+  <p style="margin-top:.3rem;">投資の最終判断はご自身でお願いします（金融商品取引法準拠）。当サイトの情報は投資勧誘を目的としません。</p>
 </footer>
 </body>
 </html>
