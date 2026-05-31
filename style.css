@@ -354,6 +354,34 @@ h2::before {
   border-radius: 0 var(--radius) var(--radius) 0; padding: .9rem 1.1rem; margin: 1.2rem 0; }
 .article-related { margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border); }
 
+/* ── Performance tracking ── */
+.pt-wrap {
+  background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 1.2rem 1.4rem; margin-bottom: 1.5rem; box-shadow: var(--shadow);
+}
+.pt-header { margin-bottom: .9rem; }
+.pt-title { font-size: .95rem; font-weight: 900; }
+.pt-period { font-size: .75rem; color: var(--text-sub); margin-left: .7rem; }
+.pt-stats {
+  display: flex; gap: 1.2rem; flex-wrap: wrap;
+  background: var(--bg); border-radius: 8px; padding: .8rem 1rem;
+  margin-bottom: 1rem;
+}
+.pt-stat { text-align: center; }
+.pt-stat-val { font-size: 1.3rem; font-weight: 900; }
+.pt-stat-lbl { font-size: .72rem; color: var(--text-sub); margin-top: .1rem; }
+.pt-lists { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+@media (max-width: 500px) { .pt-lists { grid-template-columns: 1fr; } }
+.pt-list-title { font-size: .75rem; font-weight: 800; margin-bottom: .4rem; letter-spacing: .03em; }
+.pt-row {
+  display: flex; align-items: center; gap: .5rem; font-size: .82rem;
+  padding: .3rem 0; border-bottom: 1px solid var(--border);
+}
+.pt-row:last-child { border: none; }
+.pt-name { flex: 1; color: var(--text-sub); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.pt-perf { font-weight: 800; font-size: .88rem; white-space: nowrap; }
+.pt-note { font-size: .68rem; color: var(--text-sub); margin-top: .8rem; }
+
 /* ── Hero update note ── */
 .hero-update-note {
   font-size: .73rem; opacity: .75; margin-top: .35rem; letter-spacing: .01em;
