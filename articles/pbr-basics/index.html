@@ -5,6 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PBR（株価純資産倍率）入門：解散価値と割安判定の考え方 | HG Analytics</title>
 <meta name="description" content="PBR1倍割れの意味、日本株特有の低PBR問題、東証の改革要求まで詳しく解説します。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://hori0827.github.io">
+<meta property="og:title" content="PBR（株価純資産倍率）入門：解散価値と割安判定の考え方 | HG Analytics">
+<meta property="og:description" content="PBR1倍割れの意味、日本株特有の低PBR問題、東証の改革要求まで詳しく解説します。">
+<meta property="og:site_name" content="HG Analytics">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="PBR（株価純資産倍率）入門：解散価値と割安判定の考え方 | HG Analytics">
+<meta name="twitter:description" content="PBR1倍割れの意味、日本株特有の低PBR問題、東証の改革要求まで詳しく解説します。">
+<link rel="canonical" href="https://hori0827.github.io">
 <style>
 :root {
   --bg: #f4f6fb; --card: #fff; --text: #1a1a2e; --text-sub: #6b7280;
@@ -163,6 +172,79 @@ h2::before {
   border: 1px solid var(--border); padding: .15em .5em; border-radius: .3em;
 }
 
+/* ── 52週高値・安値バー ── */
+.week52-wrap { font-size: .65rem; color: var(--text-sub); }
+.week52-label { display: flex; justify-content: space-between; margin-bottom: .2rem; }
+.week52-track { background: var(--border); border-radius: 4px; height: 5px; position: relative; }
+.week52-fill  { height: 5px; border-radius: 4px; background: linear-gradient(90deg, var(--danger), var(--warn), var(--accent)); position: absolute; }
+.week52-pin   { position: absolute; top: -3px; width: 10px; height: 10px; border-radius: 50%;
+                background: var(--primary); border: 2px solid var(--card); transform: translateX(-50%); }
+
+/* ── スコア前日比 ── */
+.score-delta { font-size: .72rem; font-weight: 800; }
+.score-delta.up { color: var(--accent); }
+.score-delta.dn { color: var(--danger); }
+
+/* ── アフィリエイトCTA ── */
+.affiliate-cta {
+  background: linear-gradient(135deg, #1e3a8a 0%, #1d4ed8 100%);
+  border-radius: var(--radius); padding: 1.4rem 1.5rem; margin-top: 2rem; color: #fff;
+}
+.affiliate-cta-title { font-size: 1rem; font-weight: 900; margin-bottom: .3rem; }
+.affiliate-cta-sub   { font-size: .82rem; opacity: .85; margin-bottom: 1rem; }
+.affiliate-btns { display: flex; gap: .75rem; flex-wrap: wrap; }
+.affiliate-btn {
+  display: inline-block; font-size: .85rem; font-weight: 800;
+  padding: .55rem 1.2rem; border-radius: 8px; cursor: pointer;
+  transition: opacity .15s; text-decoration: none;
+}
+.affiliate-btn:hover { opacity: .88; text-decoration: none; }
+.affiliate-btn-sbi     { background: #ff6600; color: #fff; }
+.affiliate-btn-rakuten { background: #bf0000; color: #fff; }
+.affiliate-note { font-size: .65rem; opacity: .65; margin-top: .65rem; }
+
+/* ── 全銘柄ページ ── */
+.all-search-bar {
+  display: flex; gap: .6rem; flex-wrap: wrap; align-items: center;
+  background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: .8rem 1rem; margin-bottom: 1rem;
+}
+.all-search-bar input {
+  flex: 1; min-width: 160px; border: 1px solid var(--border); border-radius: 6px;
+  padding: .4rem .7rem; font-size: .88rem; background: var(--bg); color: var(--text);
+}
+.all-filter-btn {
+  font-size: .78rem; font-weight: 700; padding: .35rem .8rem; border-radius: 6px;
+  border: 1px solid var(--border); background: var(--bg); color: var(--text-sub);
+  cursor: pointer; transition: background .12s, color .12s;
+}
+.all-filter-btn.active { background: var(--primary-light); color: var(--primary); border-color: var(--primary); }
+.all-stats { display: flex; gap: 1rem; font-size: .78rem; color: var(--text-sub); flex-wrap: wrap; }
+.all-count { font-weight: 800; color: var(--text); }
+.all-table-wrap { overflow-x: auto; }
+.all-table {
+  width: 100%; border-collapse: collapse; font-size: .80rem;
+  background: var(--card); border-radius: var(--radius); overflow: hidden;
+}
+.all-table th {
+  background: var(--primary-light); color: var(--primary); font-weight: 800;
+  padding: .55rem .7rem; text-align: left; white-space: nowrap; cursor: pointer;
+  user-select: none; border-bottom: 2px solid var(--border);
+}
+.all-table th:hover { background: #bfdbfe; }
+.all-table th.sort-asc::after  { content: " ▲"; font-size: .65rem; }
+.all-table th.sort-desc::after { content: " ▼"; font-size: .65rem; }
+.all-table td { padding: .45rem .7rem; border-bottom: 1px solid var(--border); vertical-align: middle; white-space: nowrap; }
+.all-table tr:last-child td { border: none; }
+.all-table tr:hover td { background: var(--bg); }
+.all-pagination { display: flex; gap: .4rem; justify-content: center; margin-top: 1rem; flex-wrap: wrap; }
+.all-page-btn {
+  font-size: .78rem; font-weight: 700; padding: .3rem .75rem; border-radius: 6px;
+  border: 1px solid var(--border); background: var(--bg); color: var(--text-sub);
+  cursor: pointer;
+}
+.all-page-btn.active { background: var(--primary); color: #fff; border-color: var(--primary); }
+
 /* ── Department cards ── */
 .dept-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px,1fr)); gap: 1rem; }
 .dept-card {
@@ -249,7 +331,7 @@ footer {
 <body>
 <header>
   <span class="logo">HG Analytics</span>
-  <nav><a href="/" class="">トップ</a><a href="/value/" class="">バリュー</a><a href="/growth/" class="">グロース</a><a href="/dividend/" class="">高配当</a><a href="/articles/" class="active">記事</a></nav>
+  <nav><a href="/" class="">トップ</a><a href="/value/" class="">バリュー</a><a href="/growth/" class="">グロース</a><a href="/dividend/" class="">高配当</a><a href="/all/" class="">全銘柄</a><a href="/articles/" class="active">記事</a></nav>
 </header>
 <main>
 <div class="article-hero">
