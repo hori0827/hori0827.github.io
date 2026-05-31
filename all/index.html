@@ -141,12 +141,15 @@ function render() {
     </tr>`;
   }).join('');
   document.getElementById('tbody').innerHTML = rows || '<tr><td colspan="11" style="text-align:center;color:var(--text-sub);">該当銘柄なし</td></tr>';
-  // ページネーション
+  // ページネーション（前へ / ページ情報 / 次へ）
   const total = Math.ceil(filtered.length / PAGE);
   let pager = '';
-  for (let i = 0; i < total && i < 20; i++) {
-    pager += `<button class="all-page-btn${i===page?' active':''}" onclick="goPage(${i})">${i*PAGE+1}–${Math.min((i+1)*PAGE, filtered.length)}</button>`;
-  }
+  if (page > 0)
+    pager += `<button class="all-page-btn" onclick="goPage(${page-1})">← 前へ</button>`;
+  if (total > 0)
+    pager += `<span style="font-size:.82rem;color:var(--text-sub);padding:.3rem .6rem;">${filtered.length}件 — ${page+1} / ${total}ページ</span>`;
+  if (page < total - 1)
+    pager += `<button class="all-page-btn" onclick="goPage(${page+1})">次へ →</button>`;
   document.getElementById('pager').innerHTML = pager;
 }
 function goPage(n) { page = n; render(); window.scrollTo(0,0); }
@@ -155,6 +158,7 @@ render();
 </main>
 <footer>
   <p>© HG Analytics — AIによる自動分析・スクリーニング</p>
+  <p style="margin-top:.2rem;font-size:.7rem;">最終更新: 2026年6月1日 07:47 JST</p>
   <p style="margin-top:.3rem;">投資の最終判断はご自身でお願いします（金融商品取引法準拠）。当サイトの情報は投資勧誘を目的としません。</p>
 </footer>
 </body>
