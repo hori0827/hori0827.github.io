@@ -33,13 +33,15 @@
   <button class="dept-filter-btn" id="dft-jp"  onclick="deptFilter('jp')">🇯🇵 日本株</button>
   <button class="dept-filter-btn" id="dft-us"  onclick="deptFilter('us')">🇺🇸 米国株</button>
   <select class="sector-select" id="dept-sector-sel" onchange="deptSectorFilter()"><option value="">セクター: 全て</option><option value="Communication Services">Communication Services</option><option value="Consumer Cyclical">Consumer Cyclical</option><option value="Financial Services">Financial Services</option><option value="Industrials">Industrials</option><option value="Technology">Technology</option></select>
+  <button class="detail-toggle-btn" id="dft-detail" onclick="deptToggleDetail()">詳細列 ＋</button>
 </div>
-<div class="dept-table-wrap">
+<div class="dept-table-wrap" id="dept-tbl-wrap">
 <table class="dept-table">
   <thead><tr>
     <th>#</th><th>国</th><th>コード</th><th>銘柄名</th>
     <th>部門スコア</th><th>総合</th>
-    <th>PER</th><th>PBR</th><th>ROE%</th><th>配当%</th><th>1M%</th><th>上値余地</th><th>出来高比</th><th>β</th><th>FCF%</th>
+    <th>PER</th><th>PBR</th><th>ROE%</th><th>配当%</th><th>1M%</th><th>上値余地</th>
+    <th class="col-detail">出来高比</th><th class="col-detail">β</th><th class="col-detail">FCF%</th>
   </tr></thead>
   <tbody><tr data-jp="1" data-sector="Financial Services">
   <td style="color:var(--text-sub);font-weight:800">#1</td>
@@ -51,9 +53,9 @@
   <td>17.0</td><td>—</td><td>35.5%</td><td>0.52%</td>
   <td><span class="up">+46.4%</span></td>
   <td><span class="dn">-20.2%</span></td>
-  <td><span class="up">1.6x</span></td>
-  <td>0.78</td>
-  <td><span class="dn">-3.1%</span></td>
+  <td class="col-detail"><span class="up">1.6x</span></td>
+  <td class="col-detail">0.78</td>
+  <td class="col-detail"><span class="dn">-3.1%</span></td>
 </tr><tr data-jp="1" data-sector="Technology">
   <td style="color:var(--text-sub);font-weight:800">#2</td>
   <td>🇯🇵</td>
@@ -64,9 +66,9 @@
   <td>31.9</td><td>—</td><td>40.0%</td><td>0.40%</td>
   <td><span class="up">+21.6%</span></td>
   <td><span class="up">+11.7%</span></td>
-  <td><span class="">0.9x</span></td>
-  <td>1.02</td>
-  <td><span class="up">3.4%</span></td>
+  <td class="col-detail"><span class="">0.9x</span></td>
+  <td class="col-detail">1.02</td>
+  <td class="col-detail"><span class="up">3.4%</span></td>
 </tr><tr data-jp="1" data-sector="Consumer Cyclical">
   <td style="color:var(--text-sub);font-weight:800">#3</td>
   <td>🇯🇵</td>
@@ -77,9 +79,9 @@
   <td>34.4</td><td>—</td><td>40.9%</td><td>0.80%</td>
   <td><span class="up">+6.1%</span></td>
   <td><span class="up">+14.1%</span></td>
-  <td><span class="">0.6x</span></td>
-  <td>1.06</td>
-  <td><span class="">1.1%</span></td>
+  <td class="col-detail"><span class="">0.6x</span></td>
+  <td class="col-detail">1.06</td>
+  <td class="col-detail"><span class="">1.1%</span></td>
 </tr><tr data-jp="1" data-sector="Technology">
   <td style="color:var(--text-sub);font-weight:800">#4</td>
   <td>🇯🇵</td>
@@ -90,9 +92,9 @@
   <td>109.5</td><td>—</td><td>15.7%</td><td>0.28%</td>
   <td><span class="up">+40.2%</span></td>
   <td><span class="up">+12.3%</span></td>
-  <td><span class="up">1.7x</span></td>
-  <td>1.35</td>
-  <td><span class="">—</span></td>
+  <td class="col-detail"><span class="up">1.7x</span></td>
+  <td class="col-detail">1.35</td>
+  <td class="col-detail"><span class="">—</span></td>
 </tr><tr data-jp="1" data-sector="Communication Services">
   <td style="color:var(--text-sub);font-weight:800">#5</td>
   <td>🇯🇵</td>
@@ -103,9 +105,9 @@
   <td>19.2</td><td>—</td><td>26.3%</td><td>—</td>
   <td><span class="up">+13.4%</span></td>
   <td><span class="up">+38.0%</span></td>
-  <td><span class="up">1.8x</span></td>
-  <td>0.48</td>
-  <td><span class="up">5.7%</span></td>
+  <td class="col-detail"><span class="up">1.8x</span></td>
+  <td class="col-detail">0.48</td>
+  <td class="col-detail"><span class="up">5.7%</span></td>
 </tr><tr data-jp="1" data-sector="Consumer Cyclical">
   <td style="color:var(--text-sub);font-weight:800">#6</td>
   <td>🇯🇵</td>
@@ -116,9 +118,9 @@
   <td>14.7</td><td>2.81</td><td>24.7%</td><td>1.61%</td>
   <td><span class="up">+10.4%</span></td>
   <td>—</td>
-  <td><span class="">1.0x</span></td>
-  <td>0.51</td>
-  <td><span class="">—</span></td>
+  <td class="col-detail"><span class="">1.0x</span></td>
+  <td class="col-detail">0.51</td>
+  <td class="col-detail"><span class="">—</span></td>
 </tr><tr data-jp="1" data-sector="Technology">
   <td style="color:var(--text-sub);font-weight:800">#7</td>
   <td>🇯🇵</td>
@@ -129,9 +131,9 @@
   <td>14.2</td><td>1.26</td><td>17.8%</td><td>3.03%</td>
   <td><span class="up">+8.9%</span></td>
   <td><span class="dn">-2.7%</span></td>
-  <td><span class="up">2.4x</span></td>
-  <td>0.50</td>
-  <td><span class="dn">-13.2%</span></td>
+  <td class="col-detail"><span class="up">2.4x</span></td>
+  <td class="col-detail">0.50</td>
+  <td class="col-detail"><span class="dn">-13.2%</span></td>
 </tr><tr data-jp="1" data-sector="Consumer Cyclical">
   <td style="color:var(--text-sub);font-weight:800">#8</td>
   <td>🇯🇵</td>
@@ -142,9 +144,9 @@
   <td>6.9</td><td>1.11</td><td>17.4%</td><td>1.20%</td>
   <td><span class="up">+21.8%</span></td>
   <td><span class="dn">-4.1%</span></td>
-  <td><span class="">0.4x</span></td>
-  <td>0.34</td>
-  <td><span class="up">13.1%</span></td>
+  <td class="col-detail"><span class="">0.4x</span></td>
+  <td class="col-detail">0.34</td>
+  <td class="col-detail"><span class="up">13.1%</span></td>
 </tr><tr data-jp="1" data-sector="Technology">
   <td style="color:var(--text-sub);font-weight:800">#9</td>
   <td>🇯🇵</td>
@@ -155,9 +157,9 @@
   <td>28.1</td><td>—</td><td>55.4%</td><td>0.77%</td>
   <td><span class="up">+24.7%</span></td>
   <td><span class="up">+5.1%</span></td>
-  <td><span class="">1.0x</span></td>
-  <td>1.34</td>
-  <td><span class="">2.9%</span></td>
+  <td class="col-detail"><span class="">1.0x</span></td>
+  <td class="col-detail">1.34</td>
+  <td class="col-detail"><span class="">2.9%</span></td>
 </tr><tr data-jp="1" data-sector="Technology">
   <td style="color:var(--text-sub);font-weight:800">#10</td>
   <td>🇯🇵</td>
@@ -168,9 +170,9 @@
   <td>15.2</td><td>2.68</td><td>36.1%</td><td>3.18%</td>
   <td><span class="up">+8.2%</span></td>
   <td>—</td>
-  <td><span class="">0.6x</span></td>
-  <td>0.25</td>
-  <td><span class="">—</span></td>
+  <td class="col-detail"><span class="">0.6x</span></td>
+  <td class="col-detail">0.25</td>
+  <td class="col-detail"><span class="">—</span></td>
 </tr><tr data-jp="1" data-sector="Technology">
   <td style="color:var(--text-sub);font-weight:800">#11</td>
   <td>🇯🇵</td>
@@ -181,9 +183,9 @@
   <td>15.3</td><td>2.06</td><td>16.7%</td><td>3.09%</td>
   <td><span class="up">+23.4%</span></td>
   <td>—</td>
-  <td><span class="">0.4x</span></td>
-  <td>0.87</td>
-  <td><span class="">—</span></td>
+  <td class="col-detail"><span class="">0.4x</span></td>
+  <td class="col-detail">0.87</td>
+  <td class="col-detail"><span class="">—</span></td>
 </tr><tr data-jp="1" data-sector="Communication Services">
   <td style="color:var(--text-sub);font-weight:800">#12</td>
   <td>🇯🇵</td>
@@ -194,9 +196,9 @@
   <td>13.0</td><td>—</td><td>29.6%</td><td>0.74%</td>
   <td><span class="up">+7.0%</span></td>
   <td>—</td>
-  <td><span class="">0.8x</span></td>
-  <td>0.57</td>
-  <td><span class="up">10.2%</span></td>
+  <td class="col-detail"><span class="">0.8x</span></td>
+  <td class="col-detail">0.57</td>
+  <td class="col-detail"><span class="up">10.2%</span></td>
 </tr><tr data-jp="1" data-sector="Communication Services">
   <td style="color:var(--text-sub);font-weight:800">#13</td>
   <td>🇯🇵</td>
@@ -207,9 +209,9 @@
   <td>12.2</td><td>—</td><td>67.2%</td><td>2.75%</td>
   <td><span class="up">+4.2%</span></td>
   <td><span class="up">+96.3%</span></td>
-  <td><span class="">1.1x</span></td>
-  <td>-0.78</td>
-  <td><span class="">—</span></td>
+  <td class="col-detail"><span class="">1.1x</span></td>
+  <td class="col-detail">-0.78</td>
+  <td class="col-detail"><span class="">—</span></td>
 </tr><tr data-jp="1" data-sector="Industrials">
   <td style="color:var(--text-sub);font-weight:800">#14</td>
   <td>🇯🇵</td>
@@ -220,9 +222,9 @@
   <td>25.8</td><td>1.00</td><td>13.2%</td><td>4.13%</td>
   <td><span class="up">+17.0%</span></td>
   <td><span class="up">+5.9%</span></td>
-  <td><span class="">0.5x</span></td>
-  <td>0.24</td>
-  <td><span class="up">3.1%</span></td>
+  <td class="col-detail"><span class="">0.5x</span></td>
+  <td class="col-detail">0.24</td>
+  <td class="col-detail"><span class="up">3.1%</span></td>
 </tr><tr data-jp="1" data-sector="Technology">
   <td style="color:var(--text-sub);font-weight:800">#15</td>
   <td>🇯🇵</td>
@@ -233,9 +235,9 @@
   <td>15.8</td><td>1.30</td><td>8.5%</td><td>3.25%</td>
   <td><span class="up">+52.4%</span></td>
   <td>—</td>
-  <td><span class="up">1.8x</span></td>
-  <td>0.49</td>
-  <td><span class="dn">-11.2%</span></td>
+  <td class="col-detail"><span class="up">1.8x</span></td>
+  <td class="col-detail">0.49</td>
+  <td class="col-detail"><span class="dn">-11.2%</span></td>
 </tr><tr data-jp="1" data-sector="Industrials">
   <td style="color:var(--text-sub);font-weight:800">#16</td>
   <td>🇯🇵</td>
@@ -246,9 +248,9 @@
   <td>9.8</td><td>1.94</td><td>26.4%</td><td>2.78%</td>
   <td><span class="dn">-7.5%</span></td>
   <td><span class="up">+104.6%</span></td>
-  <td><span class="">1.0x</span></td>
-  <td>0.60</td>
-  <td><span class="dn">-8.5%</span></td>
+  <td class="col-detail"><span class="">1.0x</span></td>
+  <td class="col-detail">0.60</td>
+  <td class="col-detail"><span class="dn">-8.5%</span></td>
 </tr><tr data-jp="1" data-sector="Technology">
   <td style="color:var(--text-sub);font-weight:800">#17</td>
   <td>🇯🇵</td>
@@ -259,9 +261,9 @@
   <td>17.9</td><td>1.51</td><td>8.7%</td><td>3.36%</td>
   <td><span class="up">+16.9%</span></td>
   <td>—</td>
-  <td><span class="">1.2x</span></td>
-  <td>0.53</td>
-  <td><span class="">1.0%</span></td>
+  <td class="col-detail"><span class="">1.2x</span></td>
+  <td class="col-detail">0.53</td>
+  <td class="col-detail"><span class="">1.0%</span></td>
 </tr><tr data-jp="1" data-sector="Technology">
   <td style="color:var(--text-sub);font-weight:800">#18</td>
   <td>🇯🇵</td>
@@ -272,9 +274,9 @@
   <td>31.2</td><td>—</td><td>28.0%</td><td>2.21%</td>
   <td><span class="up">+25.0%</span></td>
   <td>—</td>
-  <td><span class="">1.4x</span></td>
-  <td>0.27</td>
-  <td><span class="">—</span></td>
+  <td class="col-detail"><span class="">1.4x</span></td>
+  <td class="col-detail">0.27</td>
+  <td class="col-detail"><span class="">—</span></td>
 </tr><tr data-jp="1" data-sector="Industrials">
   <td style="color:var(--text-sub);font-weight:800">#19</td>
   <td>🇯🇵</td>
@@ -285,9 +287,9 @@
   <td>42.4</td><td>—</td><td>32.5%</td><td>1.21%</td>
   <td><span class="up">+11.2%</span></td>
   <td><span class="up">+44.4%</span></td>
-  <td><span class="">0.9x</span></td>
-  <td>0.39</td>
-  <td><span class="">1.9%</span></td>
+  <td class="col-detail"><span class="">0.9x</span></td>
+  <td class="col-detail">0.39</td>
+  <td class="col-detail"><span class="">1.9%</span></td>
 </tr><tr data-jp="1" data-sector="Consumer Cyclical">
   <td style="color:var(--text-sub);font-weight:800">#20</td>
   <td>🇯🇵</td>
@@ -298,9 +300,9 @@
   <td>17.8</td><td>2.59</td><td>16.1%</td><td>2.07%</td>
   <td><span class="up">+23.0%</span></td>
   <td><span class="dn">-21.6%</span></td>
-  <td><span class="">1.0x</span></td>
-  <td>0.25</td>
-  <td><span class="">1.3%</span></td>
+  <td class="col-detail"><span class="">1.0x</span></td>
+  <td class="col-detail">0.25</td>
+  <td class="col-detail"><span class="">1.3%</span></td>
 </tr><tr data-jp="1" data-sector="Technology">
   <td style="color:var(--text-sub);font-weight:800">#21</td>
   <td>🇯🇵</td>
@@ -311,9 +313,9 @@
   <td>29.0</td><td>—</td><td>21.8%</td><td>1.87%</td>
   <td><span class="up">+16.4%</span></td>
   <td><span class="up">+9.5%</span></td>
-  <td><span class="">0.9x</span></td>
-  <td>1.05</td>
-  <td><span class="up">7.1%</span></td>
+  <td class="col-detail"><span class="">0.9x</span></td>
+  <td class="col-detail">1.05</td>
+  <td class="col-detail"><span class="up">7.1%</span></td>
 </tr><tr data-jp="1" data-sector="Technology">
   <td style="color:var(--text-sub);font-weight:800">#22</td>
   <td>🇯🇵</td>
@@ -324,9 +326,9 @@
   <td>41.6</td><td>—</td><td>50.2%</td><td>1.93%</td>
   <td><span class="up">+22.9%</span></td>
   <td><span class="up">+54.0%</span></td>
-  <td><span class="">0.8x</span></td>
-  <td>0.49</td>
-  <td><span class="">—</span></td>
+  <td class="col-detail"><span class="">0.8x</span></td>
+  <td class="col-detail">0.49</td>
+  <td class="col-detail"><span class="">—</span></td>
 </tr><tr data-jp="1" data-sector="Communication Services">
   <td style="color:var(--text-sub);font-weight:800">#23</td>
   <td>🇯🇵</td>
@@ -337,9 +339,9 @@
   <td>31.3</td><td>—</td><td>30.8%</td><td>0.24%</td>
   <td><span class="up">+49.3%</span></td>
   <td><span class="dn">-3.9%</span></td>
-  <td><span class="">1.0x</span></td>
-  <td>0.86</td>
-  <td><span class="">2.6%</span></td>
+  <td class="col-detail"><span class="">1.0x</span></td>
+  <td class="col-detail">0.86</td>
+  <td class="col-detail"><span class="">2.6%</span></td>
 </tr><tr data-jp="1" data-sector="Technology">
   <td style="color:var(--text-sub);font-weight:800">#24</td>
   <td>🇯🇵</td>
@@ -350,9 +352,9 @@
   <td>20.7</td><td>2.06</td><td>10.4%</td><td>2.48%</td>
   <td><span class="up">+24.4%</span></td>
   <td>—</td>
-  <td><span class="">0.8x</span></td>
-  <td>0.70</td>
-  <td><span class="">0.8%</span></td>
+  <td class="col-detail"><span class="">0.8x</span></td>
+  <td class="col-detail">0.70</td>
+  <td class="col-detail"><span class="">0.8%</span></td>
 </tr><tr data-jp="1" data-sector="Industrials">
   <td style="color:var(--text-sub);font-weight:800">#25</td>
   <td>🇯🇵</td>
@@ -363,9 +365,9 @@
   <td>15.4</td><td>2.11</td><td>14.8%</td><td>2.92%</td>
   <td><span class="up">+10.3%</span></td>
   <td>—</td>
-  <td><span class="">0.7x</span></td>
-  <td>0.66</td>
-  <td><span class="">0.1%</span></td>
+  <td class="col-detail"><span class="">0.7x</span></td>
+  <td class="col-detail">0.66</td>
+  <td class="col-detail"><span class="">0.1%</span></td>
 </tr><tr data-jp="1" data-sector="Communication Services">
   <td style="color:var(--text-sub);font-weight:800">#26</td>
   <td>🇯🇵</td>
@@ -376,9 +378,9 @@
   <td>26.9</td><td>—</td><td>19.1%</td><td>1.13%</td>
   <td><span class="up">+0.1%</span></td>
   <td><span class="up">+28.4%</span></td>
-  <td><span class="">0.9x</span></td>
-  <td>0.41</td>
-  <td><span class="">2.5%</span></td>
+  <td class="col-detail"><span class="">0.9x</span></td>
+  <td class="col-detail">0.41</td>
+  <td class="col-detail"><span class="">2.5%</span></td>
 </tr><tr data-jp="1" data-sector="Industrials">
   <td style="color:var(--text-sub);font-weight:800">#27</td>
   <td>🇯🇵</td>
@@ -389,9 +391,9 @@
   <td>11.5</td><td>1.33</td><td>12.4%</td><td>4.91%</td>
   <td><span class="up">+6.5%</span></td>
   <td>—</td>
-  <td><span class="up">1.7x</span></td>
-  <td>0.27</td>
-  <td><span class="">—</span></td>
+  <td class="col-detail"><span class="up">1.7x</span></td>
+  <td class="col-detail">0.27</td>
+  <td class="col-detail"><span class="">—</span></td>
 </tr><tr data-jp="1" data-sector="Technology">
   <td style="color:var(--text-sub);font-weight:800">#28</td>
   <td>🇯🇵</td>
@@ -402,9 +404,9 @@
   <td>17.6</td><td>—</td><td>19.8%</td><td>1.55%</td>
   <td><span class="up">+16.6%</span></td>
   <td>—</td>
-  <td><span class="">1.3x</span></td>
-  <td>0.58</td>
-  <td><span class="">—</span></td>
+  <td class="col-detail"><span class="">1.3x</span></td>
+  <td class="col-detail">0.58</td>
+  <td class="col-detail"><span class="">—</span></td>
 </tr><tr data-jp="1" data-sector="Technology">
   <td style="color:var(--text-sub);font-weight:800">#29</td>
   <td>🇯🇵</td>
@@ -415,9 +417,9 @@
   <td>24.4</td><td>—</td><td>33.8%</td><td>2.91%</td>
   <td><span class="up">+16.0%</span></td>
   <td><span class="dn">-1.4%</span></td>
-  <td><span class="">1.2x</span></td>
-  <td>0.44</td>
-  <td><span class="">—</span></td>
+  <td class="col-detail"><span class="">1.2x</span></td>
+  <td class="col-detail">0.44</td>
+  <td class="col-detail"><span class="">—</span></td>
 </tr><tr data-jp="1" data-sector="Communication Services">
   <td style="color:var(--text-sub);font-weight:800">#30</td>
   <td>🇯🇵</td>
@@ -428,9 +430,9 @@
   <td>12.9</td><td>2.78</td><td>21.7%</td><td>0.98%</td>
   <td><span class="up">+23.9%</span></td>
   <td>—</td>
-  <td><span class="">0.7x</span></td>
-  <td>0.15</td>
-  <td><span class="dn">-7.4%</span></td>
+  <td class="col-detail"><span class="">0.7x</span></td>
+  <td class="col-detail">0.15</td>
+  <td class="col-detail"><span class="dn">-7.4%</span></td>
 </tr></tbody>
 </table>
 </div>
@@ -453,11 +455,18 @@ function _applyDeptFilter(){
     r.style.display=ok?'':'none';
   });
 }
+function deptToggleDetail(){
+  var wrap=document.getElementById('dept-tbl-wrap');
+  var btn=document.getElementById('dft-detail');
+  var on=wrap.classList.toggle('show-detail');
+  btn.classList.toggle('active',on);
+  btn.textContent=on?'詳細列 ✕':'詳細列 ＋';
+}
 </script>
 </main>
 <footer>
   <p>© HG Analytics — AIによる自動分析・スクリーニング</p>
-  <p style="margin-top:.2rem;font-size:.7rem;">最終更新: 2026年6月1日 23:00 JST</p>
+  <p style="margin-top:.2rem;font-size:.7rem;">最終更新: 2026年6月1日 23:12 JST</p>
   <p style="margin-top:.3rem;">投資の最終判断はご自身でお願いします（金融商品取引法準拠）。当サイトの情報は投資勧誘を目的としません。</p>
   <p style="margin-top:.5rem;font-size:.7rem;">
     <a href="/privacy/" style="color:var(--text-sub);">プライバシーポリシー・運営者情報</a>

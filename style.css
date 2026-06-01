@@ -6,6 +6,9 @@
   --warn: #f59e0b; --warn-light: #fef3c7;
   --danger: #ef4444; --danger-light: #fee2e2;
   --border: #e5e7eb; --radius: 12px; --shadow: 0 2px 12px rgba(0,0,0,.07);
+  --hero-grad: linear-gradient(135deg, #2563eb 0%, #1d4ed8 60%, #1e40af 100%);
+  --article-hero-grad: linear-gradient(135deg, #1e3a8a, #1d4ed8);
+  --cta-grad: linear-gradient(135deg, #1e3a8a 0%, #1d4ed8 100%);
 }
 @media (prefers-color-scheme: dark) {
   :root {
@@ -13,6 +16,9 @@
     --primary-light: #1e3a8a; --accent-light: #064e3b;
     --warn-light: #78350f; --danger-light: #7f1d1d;
     --border: #334155; --shadow: 0 2px 12px rgba(0,0,0,.4);
+    --hero-grad: linear-gradient(135deg, #1d4ed8 0%, #1e40af 60%, #172554 100%);
+    --article-hero-grad: linear-gradient(135deg, #1e3a8a, #1e40af);
+    --cta-grad: linear-gradient(135deg, #172554 0%, #1e3a8a 100%);
   }
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -41,7 +47,7 @@ nav a.active { background: var(--primary-light); color: var(--primary); font-wei
 main { max-width: 980px; margin: 0 auto; padding: 1.5rem 1rem 4rem; }
 h1 { font-size: 1.45rem; font-weight: 900; margin-bottom: .35rem; letter-spacing: -.02em; }
 h2 {
-  font-size: 1.05rem; font-weight: 800; margin: 2rem 0 .9rem;
+  font-size: 1.2rem; font-weight: 800; margin: 2.2rem 0 1rem;
   display: flex; align-items: center; gap: .5rem;
 }
 h2::before {
@@ -51,7 +57,7 @@ h2::before {
 
 /* ── Hero ── */
 .hero {
-  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 60%, #1e40af 100%);
+  background: var(--hero-grad);
   border-radius: var(--radius); padding: 1.5rem; margin-bottom: 1.5rem;
   color: #fff;
 }
@@ -69,10 +75,11 @@ h2::before {
   padding: .6rem 1rem; min-width: 128px; transition: box-shadow .12s;
 }
 .idx-card:hover { box-shadow: var(--shadow); }
-.idx-name  { font-size: .7rem; color: var(--text-sub); font-weight: 600;
+.idx-name  { font-size: .72rem; color: var(--text-sub); font-weight: 600;
              text-transform: uppercase; letter-spacing: .04em; }
-.idx-price { font-size: 1rem; font-weight: 800; margin: .1rem 0; }
-.idx-chg   { font-size: .78rem; font-weight: 700; }
+.idx-price { font-size: 1rem; font-weight: 800; margin: .1rem 0;
+             font-variant-numeric: tabular-nums; }
+.idx-chg   { font-size: .78rem; font-weight: 700; font-variant-numeric: tabular-nums; }
 .up { color: var(--accent); } .dn { color: var(--danger); }
 
 /* ── Pick cards ── */
@@ -91,12 +98,13 @@ h2::before {
 .pick-flag { font-size: 1.2rem; line-height: 1; }
 .pick-ticker { font-size: .92rem; font-weight: 900; letter-spacing: .01em; }
 .pick-name   { font-size: .75rem; color: var(--text-sub); }
-.pick-rank   { font-size: .65rem; font-weight: 800; color: var(--text-sub);
+.pick-rank   { font-size: .72rem; font-weight: 800; color: var(--text-sub);
                background: var(--bg); border: 1px solid var(--border);
                padding: .1em .55em; border-radius: 4px; white-space: nowrap; }
 
 .score-row { display: flex; align-items: baseline; gap: .4rem; }
-.score-num { font-size: 2rem; font-weight: 900; line-height: 1; }
+.score-num { font-size: 2rem; font-weight: 900; line-height: 1;
+             font-variant-numeric: tabular-nums; }
 .score-denom { font-size: .75rem; color: var(--text-sub); }
 .score-high { color: var(--accent); }
 .score-mid  { color: var(--primary); }
@@ -105,14 +113,15 @@ h2::before {
 
 
 .badge {
-  display: inline-block; font-size: .65rem; font-weight: 800; letter-spacing: .04em;
-  padding: .2em .65em; border-radius: 4px;
+  display: inline-block; font-size: .78rem; font-weight: 800; letter-spacing: .04em;
+  padding: .25em .75em; border-radius: 4px;
 }
 .badge-buy    { background: var(--accent-light); color: var(--accent); }
 .badge-watch  { background: var(--primary-light); color: var(--primary); }
 .badge-caution{ background: var(--warn-light); color: var(--warn); }
 
-.pick-meta { display: flex; gap: .5rem; flex-wrap: wrap; font-size: .75rem; }
+.pick-meta { display: flex; gap: .5rem; flex-wrap: wrap; font-size: .75rem;
+             border-top: 1px solid var(--border); padding-top: .5rem; margin-top: .1rem; }
 .meta-chip {
   background: var(--bg); color: var(--text-sub); border: 1px solid var(--border);
   padding: .1em .55em; border-radius: 4px; font-weight: 600;
@@ -127,11 +136,11 @@ h2::before {
 }
 .price-block { display: flex; flex-direction: column; gap: .1rem; min-width: 70px; flex: 1; }
 .price-block + .price-block { border-left: 1px solid var(--border); padding-left: .5rem; }
-.price-label { font-size: .62rem; font-weight: 700; color: var(--text-sub); letter-spacing: .03em; text-transform: uppercase; }
-.price-value { font-size: .95rem; font-weight: 900; }
-.price-upside { font-size: .72rem; font-weight: 700; }
+.price-label { font-size: .72rem; font-weight: 700; color: var(--text-sub); letter-spacing: .03em; text-transform: uppercase; }
+.price-value { font-size: .95rem; font-weight: 900; font-variant-numeric: tabular-nums; }
+.price-upside { font-size: .72rem; font-weight: 700; font-variant-numeric: tabular-nums; }
 .rec-chip {
-  display: inline-block; font-size: .62rem; font-weight: 800; letter-spacing: .04em;
+  display: inline-block; font-size: .72rem; font-weight: 800; letter-spacing: .04em;
   padding: .15em .55em; border-radius: 4px; margin-top: .1rem;
 }
 .rec-strong-buy { background: var(--accent-light); color: var(--accent); }
@@ -139,11 +148,11 @@ h2::before {
 .rec-hold       { background: var(--warn-light); color: var(--warn); }
 .rec-sell       { background: var(--danger-light); color: var(--danger); }
 
-.pick-sector { font-size: .67rem; color: var(--text-sub); margin-top: .05rem; }
+.pick-sector { font-size: .72rem; color: var(--text-sub); margin-top: .05rem; }
 .sector-chip {
-  display: inline-block; font-size: .63rem; font-weight: 700; letter-spacing: .02em;
+  display: inline-block; font-size: .72rem; font-weight: 700; letter-spacing: .02em;
   background: var(--bg); color: var(--text-sub); border: 1px solid var(--border);
-  padding: .1em .5em; border-radius: 4px;
+  padding: .15em .55em; border-radius: 4px;
 }
 .pick-description {
   font-size: .75rem; color: var(--text-sub); line-height: 1.5;
@@ -152,12 +161,13 @@ h2::before {
 }
 .pick-reasons { display: flex; flex-wrap: wrap; gap: .3rem; margin-top: .1rem; }
 .reason-tag {
-  font-size: .65rem; background: var(--bg); color: var(--text-sub);
+  font-size: .72rem; background: var(--bg); color: var(--text-sub);
   border: 1px solid var(--border); padding: .15em .5em; border-radius: .3em;
 }
 
 /* ── 52週高値・安値バー ── */
-.week52-wrap { font-size: .65rem; color: var(--text-sub); }
+.week52-wrap { font-size: .72rem; color: var(--text-sub);
+               font-variant-numeric: tabular-nums; }
 .week52-label { display: flex; justify-content: space-between; margin-bottom: .2rem; }
 .week52-track { background: var(--border); border-radius: 4px; height: 5px; position: relative; }
 .week52-fill  { height: 5px; border-radius: 4px; background: linear-gradient(90deg, var(--danger), var(--warn), var(--accent)); position: absolute; }
@@ -171,7 +181,7 @@ h2::before {
 
 /* ── アフィリエイトCTA ── */
 .affiliate-cta {
-  background: linear-gradient(135deg, #1e3a8a 0%, #1d4ed8 100%);
+  background: var(--cta-grad);
   border-radius: var(--radius); padding: 1.4rem 1.5rem; margin-top: 2rem; color: #fff;
 }
 .affiliate-cta-title { font-size: 1rem; font-weight: 900; margin-bottom: .3rem; }
@@ -185,7 +195,7 @@ h2::before {
 .affiliate-btn:hover { opacity: .88; text-decoration: none; }
 .affiliate-btn-sbi     { background: #ff6600; color: #fff; }
 .affiliate-btn-rakuten { background: #bf0000; color: #fff; }
-.affiliate-note { font-size: .65rem; opacity: .65; margin-top: .65rem; }
+.affiliate-note { font-size: .72rem; opacity: .65; margin-top: .65rem; }
 
 /* ── 全銘柄ページ ── */
 .all-search-bar {
@@ -230,19 +240,19 @@ h2::before {
 .all-page-btn.active { background: var(--primary); color: #fff; border-color: var(--primary); }
 
 /* ── コンパクトピックリスト（トップページ 4位以下）── */
-.compact-picks { display: flex; flex-direction: column; gap: .3rem; margin-top: .7rem; }
+.compact-picks { display: flex; flex-direction: column; gap: .5rem; margin-top: .7rem; }
 .compact-pick {
   display: flex; align-items: center; gap: .5rem; flex-wrap: wrap;
   background: var(--card); border: 1px solid var(--border); border-radius: 8px;
-  padding: .5rem .85rem; transition: box-shadow .12s;
+  padding: .55rem .9rem; transition: box-shadow .12s;
 }
 .compact-pick:hover { box-shadow: var(--shadow); }
-.compact-rank  { font-size: .68rem; font-weight: 800; color: var(--text-sub); min-width: 2rem; }
+.compact-rank  { font-size: .72rem; font-weight: 800; color: var(--text-sub); min-width: 2rem; }
 .compact-flag  { font-size: .95rem; }
 .compact-ticker { font-size: .88rem; font-weight: 900; }
 .compact-name  { font-size: .82rem; color: var(--text-sub); flex: 1; min-width: 80px;
                  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.compact-score { font-size: 1.05rem; font-weight: 900; }
+.compact-score { font-size: 1.05rem; font-weight: 900; font-variant-numeric: tabular-nums; }
 .compact-chips { display: flex; gap: .3rem; flex-wrap: wrap; margin-left: auto; }
 
 /* ── 部門ページ テーブル ── */
@@ -257,9 +267,11 @@ h2::before {
   border-bottom: 2px solid var(--border); position: sticky; top: 0;
 }
 .dept-table td { padding: .5rem .8rem; border-bottom: 1px solid var(--border);
-  vertical-align: middle; white-space: nowrap; }
+  vertical-align: middle; white-space: nowrap; font-variant-numeric: tabular-nums; }
 .dept-table tr:last-child td { border: none; }
-.dept-table tr:hover td { background: var(--bg); }
+.dept-table tr:nth-child(odd)  td { background: var(--card); }
+.dept-table tr:nth-child(even) td { background: var(--bg); }
+.dept-table tr:hover td { background: var(--primary-light) !important; transition: background .1s; }
 .dept-score-num { font-size: 1rem; font-weight: 900; }
 
 /* ── 記事内スクリーニングCTA ── */
@@ -301,9 +313,9 @@ h2::before {
 }
 .dept-picks-list li:last-child { border: none; }
 .dept-score-badge {
-  font-size: .7rem; font-weight: 800; color: var(--primary);
+  font-size: .72rem; font-weight: 800; color: var(--primary);
   background: var(--primary-light); padding: .15em .55em; border-radius: .3em;
-  white-space: nowrap;
+  white-space: nowrap; font-variant-numeric: tabular-nums;
 }
 .dept-footer { display: flex; justify-content: space-between; align-items: center; margin-top: .6rem; }
 .dept-buy-count { font-size: .72rem; color: var(--text-sub); }
@@ -317,16 +329,16 @@ h2::before {
   transition: transform .15s, box-shadow .15s;
 }
 .article-card:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,0,0,.1); text-decoration: none; }
-.article-card-tag { font-size: .65rem; font-weight: 800; letter-spacing: .04em; color: var(--primary);
+.article-card-tag { font-size: .72rem; font-weight: 800; letter-spacing: .04em; color: var(--primary);
   background: var(--primary-light); padding: .2em .6em; border-radius: 4px; display: inline-block; }
 .article-card-title { font-size: .95rem; font-weight: 800; line-height: 1.4; color: var(--text); }
 .article-card-desc { font-size: .78rem; color: var(--text-sub); line-height: 1.5; flex: 1; }
-.article-card-meta { font-size: .7rem; color: var(--text-sub); }
+.article-card-meta { font-size: .72rem; color: var(--text-sub); }
 
 /* ── Article page ── */
-.article-hero { background: linear-gradient(135deg,#1e3a8a,#1d4ed8); border-radius: var(--radius);
+.article-hero { background: var(--article-hero-grad); border-radius: var(--radius);
   padding: 1.8rem; margin-bottom: 2rem; color: #fff; }
-.article-hero-tag { font-size: .7rem; font-weight: 800; letter-spacing: .06em;
+.article-hero-tag { font-size: .72rem; font-weight: 800; letter-spacing: .06em;
   background: rgba(255,255,255,.2); padding: .25em .75em; border-radius: 4px; display: inline-block; margin-bottom: .7rem; }
 .article-hero-title { font-size: 1.55rem; font-weight: 900; line-height: 1.3; margin-bottom: .5rem; }
 .article-hero-meta { font-size: .78rem; opacity: .8; }
@@ -379,8 +391,9 @@ h2::before {
 }
 .pt-row:last-child { border: none; }
 .pt-name { flex: 1; color: var(--text-sub); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.pt-perf { font-weight: 800; font-size: .88rem; white-space: nowrap; }
-.pt-note { font-size: .68rem; color: var(--text-sub); margin-top: .8rem; }
+.pt-perf { font-weight: 800; font-size: .88rem; white-space: nowrap;
+           font-variant-numeric: tabular-nums; }
+.pt-note { font-size: .72rem; color: var(--text-sub); margin-top: .8rem; }
 
 /* ── Hero update note ── */
 .hero-update-note {
@@ -481,22 +494,22 @@ h2::before {
 
 /* ── NEW BUY 点滅バッジ ── */
 .badge-new {
-  display: inline-block; font-size: .58rem; font-weight: 900; letter-spacing: .04em;
+  display: inline-block; font-size: .72rem; font-weight: 900; letter-spacing: .04em;
   background: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%);
-  color: #fff; padding: .15em .5em; border-radius: 4px;
+  color: #fff; padding: .2em .6em; border-radius: 4px;
   animation: newbuy 1s ease-in-out infinite alternate;
 }
 @keyframes newbuy { from { opacity: .5; } to { opacity: 1; } }
 
 /* ── 最低投資額 ── */
-.price-min-lot { font-size: .63rem; color: var(--text-sub); margin-top: .1rem; }
+.price-min-lot { font-size: .72rem; color: var(--text-sub); margin-top: .1rem; }
 
 /* ── データ欠損ツールチップ ── */
 [data-tip] { position: relative; cursor: help; }
 [data-tip]::after {
   content: attr(data-tip); position: absolute; bottom: 130%; left: 50%;
   transform: translateX(-50%); background: var(--text); color: var(--bg);
-  font-size: .67rem; padding: .2rem .5rem; border-radius: 4px; white-space: nowrap;
+  font-size: .72rem; padding: .2rem .5rem; border-radius: 4px; white-space: nowrap;
   opacity: 0; pointer-events: none; transition: opacity .12s; z-index: 200;
 }
 [data-tip]:hover::after { opacity: 1; }
@@ -514,9 +527,9 @@ h2::before {
   display: flex; gap: .45rem; align-items: center; flex-wrap: wrap;
   border-top: 1px solid var(--border); padding-top: .45rem; margin-top: .1rem;
 }
-.pick-broker-lbl { font-size: .63rem; color: var(--text-sub); }
+.pick-broker-lbl { font-size: .72rem; color: var(--text-sub); }
 .pick-broker-link {
-  font-size: .68rem; font-weight: 800; padding: .15em .6em;
+  font-size: .72rem; font-weight: 800; padding: .2em .65em;
   border-radius: 4px; text-decoration: none; transition: opacity .12s;
 }
 .pick-broker-link:hover { opacity: .8; text-decoration: none; }
@@ -525,9 +538,9 @@ h2::before {
 
 /* ── チャートリンクボタン ── */
 .chart-link {
-  font-size: .68rem; font-weight: 700; color: var(--primary);
+  font-size: .72rem; font-weight: 700; color: var(--primary);
   background: var(--primary-light); border: 1px solid var(--primary);
-  padding: .1em .5em; border-radius: 4px; text-decoration: none; transition: opacity .12s;
+  padding: .15em .55em; border-radius: 4px; text-decoration: none; transition: opacity .12s;
 }
 .chart-link:hover { opacity: .8; text-decoration: none; }
 
@@ -540,10 +553,33 @@ h2::before {
 .pt-bench-label { color: var(--text-sub); font-size: .75rem; }
 
 /* ── 52週位置テキスト ── */
-.week52-pos { font-size: .65rem; color: var(--text-sub); margin-top: .3rem; text-align: right; }
+.week52-pos { font-size: .72rem; color: var(--text-sub); margin-top: .3rem; text-align: right; }
 
 /* ── 警告チップ ── */
 .meta-chip.warn { color: var(--warn); border-color: var(--warn-light); background: var(--warn-light); }
+
+/* ── 部門テーブル 詳細列トグル ── */
+.col-detail { display: none; }
+.dept-table-wrap.show-detail .col-detail { display: table-cell; }
+.detail-toggle-btn {
+  font-size: .78rem; font-weight: 700; padding: .3rem .8rem; border-radius: 6px;
+  border: 1px solid var(--border); background: var(--bg); color: var(--text-sub);
+  cursor: pointer; transition: background .12s, color .12s;
+}
+.detail-toggle-btn.active { background: var(--warn-light); color: var(--warn); border-color: var(--warn); }
+
+/* ── ヒーロー スクロール誘導ボタン ── */
+.hero-scroll-hint {
+  display: inline-block; margin-top: 1.1rem; font-size: .82rem; font-weight: 700;
+  color: rgba(255,255,255,.88); border: 1px solid rgba(255,255,255,.4);
+  padding: .3rem 1rem; border-radius: 20px; text-decoration: none;
+  transition: background .15s; animation: herobounce 2.2s ease-in-out infinite;
+}
+.hero-scroll-hint:hover { background: rgba(255,255,255,.15); text-decoration: none; color: #fff; }
+@keyframes herobounce {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(5px); }
+}
 
 /* ── Footer ── */
 footer {
