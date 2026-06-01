@@ -24,9 +24,16 @@
 </header>
 <main>
 <h1>AIの仕組みとスコアの見方</h1>
-<p style="color:var(--text-sub);font-size:.88rem;margin-bottom:2rem;">
-  HG Analytics がどのようにして「今買うべき銘柄」を選ぶのか、スコアリングの仕組みを公開しています。
+<p style="color:var(--text-sub);font-size:.88rem;margin-bottom:1.5rem;">
+  HG Analytics は<strong>中長期投資（推奨ホールド期間: 6ヶ月〜数年）</strong>のためのスクリーニングサービスです。
+  ファンダメンタルズを重視したスコアリングで、ROE・FCF・財務健全性（D/E比）を軸に選定しています。
 </p>
+<div style="background:var(--primary-light);border-radius:8px;padding:.8rem 1.1rem;margin-bottom:1.5rem;font-size:.85rem;line-height:1.8;">
+  <strong>投資時間軸ガイド</strong><br>
+  バリュー部門: <strong>6ヶ月〜3年</strong> — 割安解消・PBR改善まで保有<br>
+  グロース部門: <strong>1〜2年</strong> — 成長ストーリーが続く間は継続保有<br>
+  高配当部門: <strong>1年以上</strong> — 配当再投資で複利効果を享受
+</div>
 
 <h2>対象銘柄とデータソース</h2>
 <div class="about-card">
@@ -56,37 +63,38 @@
     <div class="about-score-half about-fund">ファンダメンタル<span>最大50点</span></div>
   </div>
 
-  <div class="about-section-title">📈 テクニカル分析（最大50点）</div>
+  <div class="about-section-title">📈 テクニカル分析（〜38点相当、中長期トレンド重視）</div>
   <table class="about-table">
     <thead><tr><th>指標</th><th>配点</th><th>評価基準</th></tr></thead>
     <tbody>
-      <tr><td>トレンド（MA50/MA200）</td><td>0〜15点</td><td>強い上昇トレンド（MA50↑MA200↑）で15点、上昇トレンドで8点</td></tr>
-      <tr><td>MACDヒストグラム</td><td>0〜15点</td><td>プラス（上昇モメンタム）で15点</td></tr>
-      <tr><td>RSI水準</td><td>0〜10点</td><td>30〜55が理想（中立・安定）で10点。70超の買われすぎは2点</td></tr>
-      <tr><td>直近1週間パフォーマンス</td><td>0〜10点</td><td>+3%超で10点、+0〜3%で5点</td></tr>
+      <tr><td>トレンド（MA50/MA200）</td><td>0〜15点</td><td>強い上昇トレンド（MA50↑MA200↑）で15点 — 中長期保有の入口として重視</td></tr>
+      <tr><td>MACDヒストグラム</td><td>0〜10点</td><td>プラス（上昇モメンタム）で10点 ※短期シグナルのため重みを抑制</td></tr>
+      <tr><td>RSI水準</td><td>0〜7点</td><td>30〜55（中立・安定）で7点。70超の買われすぎは1点 ※短期指標のため軽量化</td></tr>
+      <tr><td>直近1週間パフォーマンス</td><td>0〜5点</td><td>+3%超で5点 ※週次モメンタムは中長期では補助指標として位置づけ</td></tr>
       <tr><td>出来高比率（当日/20日平均）</td><td>0〜3点</td><td>2倍以上で3点、1.5倍以上で2点（価格上昇を出来高が伴っているか）</td></tr>
     </tbody>
   </table>
 
-  <div class="about-section-title" style="margin-top:1.2rem;">💰 ファンダメンタル分析（最大50点）</div>
+  <div class="about-section-title" style="margin-top:1.2rem;">💰 ファンダメンタル分析（〜62点相当、収益性・財務健全性重視）</div>
   <table class="about-table">
     <thead><tr><th>指標</th><th>配点</th><th>評価基準</th></tr></thead>
     <tbody>
       <tr><td>PER（株価収益率）</td><td>0〜15点</td>
-        <td>JP: 12倍未満で15点 / US: 15倍未満で15点（市場平均を考慮した別基準）。データなし→加点なし</td></tr>
+        <td>JP: 12倍未満で15点 / US: 15倍未満で15点。中長期での割安エントリーを重視。データなし→加点なし</td></tr>
       <tr><td>PBR（株価純資産倍率）</td><td>0〜10点</td>
         <td>JP: 0.7倍未満で10点 / US: 2倍未満で10点（米国の高PBR構造を考慮）</td></tr>
-      <tr><td>ROE（自己資本利益率）</td><td>0〜12点</td><td>25%以上で12点、15%以上で8点、8%以上で4点</td></tr>
+      <tr><td>ROE（自己資本利益率）</td><td>0〜15点</td><td>25%以上で15点、15%以上で10点、8%以上で5点 — 持続的な高ROEが中長期リターンの源泉</td></tr>
       <tr><td>売上成長率</td><td>0〜8点</td><td>20%以上で8点、8%以上で5点</td></tr>
       <tr><td>利益成長率（EPS成長）</td><td>±3点</td><td>+20%以上で+3点。▲10%以上の利益減少は-2点</td></tr>
-      <tr><td>FCF利回り（フリーキャッシュフロー）</td><td>±4点</td><td>+8%以上で+4点。FCFマイナスは-2点。利益の質を評価</td></tr>
+      <tr><td>FCF利回り（フリーキャッシュフロー）</td><td>±4点</td><td>+8%以上で+4点。FCFマイナスは-2点。利益の質と配当原資を確認</td></tr>
+      <tr><td>D/E比（負債資本比率）</td><td>±6点</td><td>0.3倍未満で+4点（無借金に近い）、1.5〜3倍で-3点、3倍超で-6点（高金利リスク）</td></tr>
       <tr><td>配当利回り</td><td>0〜5点</td><td>3%超で5点、1.5%超で3点</td></tr>
-      <tr><td>配当性向</td><td>±3点</td><td>90%超は-3点（配当維持リスク）。FCF裏付けで判断</td></tr>
+      <tr><td>配当性向</td><td>±3点</td><td>90%超は-3点（配当維持リスク）</td></tr>
       <tr><td>アナリスト推奨</td><td>0〜5点</td><td>強い買い推奨で+5点、買い推奨で+3点</td></tr>
-      <tr><td>バリュートラップペナルティ</td><td>-5点</td><td>PER15倍未満かつ売上▲5%超の場合。低PERでも業績悪化中は評価しない</td></tr>
+      <tr><td>バリュートラップペナルティ</td><td>-5点</td><td>PER15倍未満かつ売上▲5%超の場合。低PERでも業績悪化中は対象外</td></tr>
     </tbody>
   </table>
-  <p style="font-size:.82rem;color:var(--text-sub);margin-top:.7rem;">※合計点は100点を上限とします。</p>
+  <p style="font-size:.82rem;color:var(--text-sub);margin-top:.7rem;">※合計点は100点を上限とします。ファンダメンタル重視の配点で中長期投資に適した銘柄を選定します。</p>
 </div>
 
 <h2>BUY判定の基準</h2>
@@ -143,7 +151,7 @@
 </main>
 <footer>
   <p>© HG Analytics — AIによる自動分析・スクリーニング</p>
-  <p style="margin-top:.2rem;font-size:.7rem;">最終更新: 2026年6月1日 23:13 JST</p>
+  <p style="margin-top:.2rem;font-size:.7rem;">最終更新: 2026年6月1日 23:25 JST</p>
   <p style="margin-top:.3rem;">投資の最終判断はご自身でお願いします（金融商品取引法準拠）。当サイトの情報は投資勧誘を目的としません。</p>
   <p style="margin-top:.5rem;font-size:.7rem;">
     <a href="/privacy/" style="color:var(--text-sub);">プライバシーポリシー・運営者情報</a>
