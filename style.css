@@ -226,8 +226,8 @@ h2::before {
   user-select: none; border-bottom: 2px solid var(--border);
 }
 .all-table th:hover { background: #bfdbfe; }
-.all-table th.sort-asc::after  { content: " ▲"; font-size: .65rem; }
-.all-table th.sort-desc::after { content: " ▼"; font-size: .65rem; }
+.all-table th.sort-asc::after  { content: " ▲"; font-size: .72rem; }
+.all-table th.sort-desc::after { content: " ▼"; font-size: .72rem; }
 .all-table td { padding: .45rem .7rem; border-bottom: 1px solid var(--border); vertical-align: middle; white-space: nowrap; }
 .all-table tr:last-child td { border: none; }
 .all-table tr:hover td { background: var(--bg); }
