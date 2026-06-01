@@ -79,17 +79,24 @@
     <div class="pick-id">
       <span class="pick-flag">🇯🇵</span>
       <div>
-        <div class="pick-ticker"><a href="https://finance.yahoo.co.jp/quote/8154.T" target="_blank" rel="noopener">8154</a></div>
+        <div class="pick-ticker">
+          <a href="https://finance.yahoo.co.jp/quote/8154.T" target="_blank" rel="noopener">8154</a>
+          <a class="chart-link" href="https://finance.yahoo.co.jp/quote/8154.T/chart" target="_blank" rel="noopener" style="margin-left:.4rem">📈</a>
+        </div>
         <div class="pick-name">加賀電子</div>
         <div class="pick-sector"><span class="sector-chip">電子部品</span></div>
       </div>
     </div>
-    <span class="pick-rank">#1</span>
+    <div style="display:flex;align-items:center;gap:.3rem">
+      <button class="wl-btn" data-wl="8154.T" onclick="toggleWL('8154.T')" title="ウォッチリストに追加">☆</button>
+      <span class="pick-rank">#1</span>
+    </div>
   </div>
   <div class="score-row">
     <span class="score-num score-high">86</span>
     <span class="score-denom">/ 100</span>
     <span class="badge badge-buy">BUY</span>
+    
     <span class="score-delta up">+5</span>
   </div>
   <svg viewBox="0 0 200 180" width="160" height="144" overflow="visible" style="display:block;margin:.3rem auto 0;"><polygon points="100.0,81.0 112.1,88.0 112.1,102.0 100.0,109.0 87.9,102.0 87.9,88.0" fill="none" stroke="var(--border)" stroke-width="1" opacity="0.4"/><polygon points="100.0,67.0 124.2,81.0 124.2,109.0 100.0,123.0 75.8,109.0 75.8,81.0" fill="none" stroke="var(--border)" stroke-width="1" opacity="0.4"/><polygon points="100.0,53.0 136.4,74.0 136.4,116.0 100.0,137.0 63.6,116.0 63.6,74.0" fill="none" stroke="var(--border)" stroke-width="1" opacity="0.4"/><polygon points="100.0,39.0 148.5,67.0 148.5,123.0 100.0,151.0 51.5,123.0 51.5,67.0" fill="none" stroke="var(--border)" stroke-width="1" opacity="0.7"/><line x1="100" y1="95" x2="100.0" y2="39.0" stroke="var(--border)" stroke-width="1"/><line x1="100" y1="95" x2="148.5" y2="67.0" stroke="var(--border)" stroke-width="1"/><line x1="100" y1="95" x2="148.5" y2="123.0" stroke="var(--border)" stroke-width="1"/><line x1="100" y1="95" x2="100.0" y2="151.0" stroke="var(--border)" stroke-width="1"/><line x1="100" y1="95" x2="51.5" y2="123.0" stroke="var(--border)" stroke-width="1"/><line x1="100" y1="95" x2="51.5" y2="67.0" stroke="var(--border)" stroke-width="1"/><polygon points="100.0,48.0 131.5,76.8 148.5,123.0 100.0,128.9 68.5,113.2 57.6,70.5" fill="var(--primary)" fill-opacity="0.18" stroke="var(--primary)" stroke-width="2"/><text x="100.0" y="21.0" text-anchor="middle" dominant-baseline="middle" font-size="11" fill="var(--text-sub)" font-family="-apple-system,'Hiragino Sans',sans-serif">テクニカル</text><text x="164.1" y="58.0" text-anchor="start" dominant-baseline="middle" font-size="11" fill="var(--text-sub)" font-family="-apple-system,'Hiragino Sans',sans-serif">収益性</text><text x="164.1" y="132.0" text-anchor="start" dominant-baseline="middle" font-size="11" fill="var(--text-sub)" font-family="-apple-system,'Hiragino Sans',sans-serif">成長性</text><text x="100.0" y="169.0" text-anchor="middle" dominant-baseline="middle" font-size="11" fill="var(--text-sub)" font-family="-apple-system,'Hiragino Sans',sans-serif">配当</text><text x="35.9" y="132.0" text-anchor="end" dominant-baseline="middle" font-size="11" fill="var(--text-sub)" font-family="-apple-system,'Hiragino Sans',sans-serif">割安度</text><text x="35.9" y="58.0" text-anchor="end" dominant-baseline="middle" font-size="11" fill="var(--text-sub)" font-family="-apple-system,'Hiragino Sans',sans-serif">財務健全性</text></svg>
@@ -115,25 +122,41 @@
   <span class="price-value">¥4,500</span>
   <span class="price-upside dn">-2.7%</span>
   <span class="price-label">1人</span>
+</div><div class="price-block">
+  <span class="price-label">単元(100株)</span>
+  <span class="price-value" style="font-size:.82rem">¥462,500〜</span>
+  <span class="price-min-lot">最低投資額</span>
 </div></div>
   <div class="pick-meta"><span class="meta-chip">2204億円</span><span class="meta-chip">β 0.50</span><span class="meta-chip up">出来高 2.4x</span><span class="meta-chip">RSI 58.8</span><span class="meta-chip up">1M +8.9%</span><span class="meta-chip">上昇トレンド</span><span class="meta-chip">PER 14.2</span><span class="meta-chip">PBR 1.26</span><span class="meta-chip warn">FCF -13.2%</span><span class="meta-chip up">利益成長 +70.7%</span></div>
   <div class="pick-reasons"><span class="reason-tag">PER 14.2倍（割安圏）</span><span class="reason-tag">PBR 1.26倍（適正下限）</span><span class="reason-tag">上昇トレンド (MA50上)</span><span class="reason-tag">MACDヒストグラム+ (上昇モメンタム)</span></div>
+  <div class="pick-brokers">
+  <span class="pick-broker-lbl">口座で購入：</span>
+  <a class="pick-broker-link pick-broker-sbi" href="https://www.sbisec.co.jp/ETGate" target="_blank" rel="noopener sponsored">SBI証券</a>
+  <a class="pick-broker-link pick-broker-rakuten" href="https://www.rakuten-sec.co.jp/" target="_blank" rel="noopener sponsored">楽天証券</a>
+</div>
 </div><div class="pick-card">
   <div class="pick-top">
     <div class="pick-id">
       <span class="pick-flag">🇯🇵</span>
       <div>
-        <div class="pick-ticker"><a href="https://finance.yahoo.co.jp/quote/8159.T" target="_blank" rel="noopener">8159</a></div>
+        <div class="pick-ticker">
+          <a href="https://finance.yahoo.co.jp/quote/8159.T" target="_blank" rel="noopener">8159</a>
+          <a class="chart-link" href="https://finance.yahoo.co.jp/quote/8159.T/chart" target="_blank" rel="noopener" style="margin-left:.4rem">📈</a>
+        </div>
         <div class="pick-name">立花エレテック</div>
         <div class="pick-sector"><span class="sector-chip">電子部品</span></div>
       </div>
     </div>
-    <span class="pick-rank">#2</span>
+    <div style="display:flex;align-items:center;gap:.3rem">
+      <button class="wl-btn" data-wl="8159.T" onclick="toggleWL('8159.T')" title="ウォッチリストに追加">☆</button>
+      <span class="pick-rank">#2</span>
+    </div>
   </div>
   <div class="score-row">
     <span class="score-num score-high">84</span>
     <span class="score-denom">/ 100</span>
     <span class="badge badge-buy">BUY</span>
+    
     <span class="score-delta up">+6</span>
   </div>
   <svg viewBox="0 0 200 180" width="160" height="144" overflow="visible" style="display:block;margin:.3rem auto 0;"><polygon points="100.0,81.0 112.1,88.0 112.1,102.0 100.0,109.0 87.9,102.0 87.9,88.0" fill="none" stroke="var(--border)" stroke-width="1" opacity="0.4"/><polygon points="100.0,67.0 124.2,81.0 124.2,109.0 100.0,123.0 75.8,109.0 75.8,81.0" fill="none" stroke="var(--border)" stroke-width="1" opacity="0.4"/><polygon points="100.0,53.0 136.4,74.0 136.4,116.0 100.0,137.0 63.6,116.0 63.6,74.0" fill="none" stroke="var(--border)" stroke-width="1" opacity="0.4"/><polygon points="100.0,39.0 148.5,67.0 148.5,123.0 100.0,151.0 51.5,123.0 51.5,67.0" fill="none" stroke="var(--border)" stroke-width="1" opacity="0.7"/><line x1="100" y1="95" x2="100.0" y2="39.0" stroke="var(--border)" stroke-width="1"/><line x1="100" y1="95" x2="148.5" y2="67.0" stroke="var(--border)" stroke-width="1"/><line x1="100" y1="95" x2="148.5" y2="123.0" stroke="var(--border)" stroke-width="1"/><line x1="100" y1="95" x2="100.0" y2="151.0" stroke="var(--border)" stroke-width="1"/><line x1="100" y1="95" x2="51.5" y2="123.0" stroke="var(--border)" stroke-width="1"/><line x1="100" y1="95" x2="51.5" y2="67.0" stroke="var(--border)" stroke-width="1"/><polygon points="100.0,46.8 104.8,92.2 131.5,113.2 100.0,137.6 51.5,123.0 51.5,67.0" fill="var(--primary)" fill-opacity="0.18" stroke="var(--primary)" stroke-width="2"/><text x="100.0" y="21.0" text-anchor="middle" dominant-baseline="middle" font-size="11" fill="var(--text-sub)" font-family="-apple-system,'Hiragino Sans',sans-serif">テクニカル</text><text x="164.1" y="58.0" text-anchor="start" dominant-baseline="middle" font-size="11" fill="var(--text-sub)" font-family="-apple-system,'Hiragino Sans',sans-serif">収益性</text><text x="164.1" y="132.0" text-anchor="start" dominant-baseline="middle" font-size="11" fill="var(--text-sub)" font-family="-apple-system,'Hiragino Sans',sans-serif">成長性</text><text x="100.0" y="169.0" text-anchor="middle" dominant-baseline="middle" font-size="11" fill="var(--text-sub)" font-family="-apple-system,'Hiragino Sans',sans-serif">配当</text><text x="35.9" y="132.0" text-anchor="end" dominant-baseline="middle" font-size="11" fill="var(--text-sub)" font-family="-apple-system,'Hiragino Sans',sans-serif">割安度</text><text x="35.9" y="58.0" text-anchor="end" dominant-baseline="middle" font-size="11" fill="var(--text-sub)" font-family="-apple-system,'Hiragino Sans',sans-serif">財務健全性</text></svg>
@@ -150,25 +173,41 @@
   <span class="price-label">現在値</span>
   <span class="price-value">¥3,160</span>
   
+</div><div class="price-block">
+  <span class="price-label">単元(100株)</span>
+  <span class="price-value" style="font-size:.82rem">¥316,000〜</span>
+  <span class="price-min-lot">最低投資額</span>
 </div></div>
   <div class="pick-meta"><span class="meta-chip">694億円</span><span class="meta-chip">β 0.50</span><span class="meta-chip" style="opacity:.6">出来高 0.7x</span><span class="meta-chip">RSI 51.4</span><span class="meta-chip up">1M +12.0%</span><span class="meta-chip">上昇トレンド</span><span class="meta-chip">PER 9.6</span><span class="meta-chip">PBR 0.66</span><span class="meta-chip up">FCF 7.8%</span><span class="meta-chip up">利益成長 +79.2%</span></div>
   <div class="pick-reasons"><span class="reason-tag">PER 9.6倍（超割安）</span><span class="reason-tag">PBR 0.66倍（超割安・解散価値以下）</span><span class="reason-tag">上昇トレンド (MA50上)</span><span class="reason-tag">MACDヒストグラム+ (上昇モメンタム)</span></div>
+  <div class="pick-brokers">
+  <span class="pick-broker-lbl">口座で購入：</span>
+  <a class="pick-broker-link pick-broker-sbi" href="https://www.sbisec.co.jp/ETGate" target="_blank" rel="noopener sponsored">SBI証券</a>
+  <a class="pick-broker-link pick-broker-rakuten" href="https://www.rakuten-sec.co.jp/" target="_blank" rel="noopener sponsored">楽天証券</a>
+</div>
 </div><div class="pick-card">
   <div class="pick-top">
     <div class="pick-id">
       <span class="pick-flag">🇯🇵</span>
       <div>
-        <div class="pick-ticker"><a href="https://finance.yahoo.co.jp/quote/5351.T" target="_blank" rel="noopener">5351</a></div>
+        <div class="pick-ticker">
+          <a href="https://finance.yahoo.co.jp/quote/5351.T" target="_blank" rel="noopener">5351</a>
+          <a class="chart-link" href="https://finance.yahoo.co.jp/quote/5351.T/chart" target="_blank" rel="noopener" style="margin-left:.4rem">📈</a>
+        </div>
         <div class="pick-name">品川リフラ</div>
         <div class="pick-sector"><span class="sector-chip">建材・設備</span></div>
       </div>
     </div>
-    <span class="pick-rank">#3</span>
+    <div style="display:flex;align-items:center;gap:.3rem">
+      <button class="wl-btn" data-wl="5351.T" onclick="toggleWL('5351.T')" title="ウォッチリストに追加">☆</button>
+      <span class="pick-rank">#3</span>
+    </div>
   </div>
   <div class="score-row">
     <span class="score-num score-high">83</span>
     <span class="score-denom">/ 100</span>
     <span class="badge badge-buy">BUY</span>
+    
     <span class="score-delta up">+1</span>
   </div>
   <svg viewBox="0 0 200 180" width="160" height="144" overflow="visible" style="display:block;margin:.3rem auto 0;"><polygon points="100.0,81.0 112.1,88.0 112.1,102.0 100.0,109.0 87.9,102.0 87.9,88.0" fill="none" stroke="var(--border)" stroke-width="1" opacity="0.4"/><polygon points="100.0,67.0 124.2,81.0 124.2,109.0 100.0,123.0 75.8,109.0 75.8,81.0" fill="none" stroke="var(--border)" stroke-width="1" opacity="0.4"/><polygon points="100.0,53.0 136.4,74.0 136.4,116.0 100.0,137.0 63.6,116.0 63.6,74.0" fill="none" stroke="var(--border)" stroke-width="1" opacity="0.4"/><polygon points="100.0,39.0 148.5,67.0 148.5,123.0 100.0,151.0 51.5,123.0 51.5,67.0" fill="none" stroke="var(--border)" stroke-width="1" opacity="0.7"/><line x1="100" y1="95" x2="100.0" y2="39.0" stroke="var(--border)" stroke-width="1"/><line x1="100" y1="95" x2="148.5" y2="67.0" stroke="var(--border)" stroke-width="1"/><line x1="100" y1="95" x2="148.5" y2="123.0" stroke="var(--border)" stroke-width="1"/><line x1="100" y1="95" x2="100.0" y2="151.0" stroke="var(--border)" stroke-width="1"/><line x1="100" y1="95" x2="51.5" y2="123.0" stroke="var(--border)" stroke-width="1"/><line x1="100" y1="95" x2="51.5" y2="67.0" stroke="var(--border)" stroke-width="1"/><polygon points="100.0,60.3 148.5,67.0 148.5,123.0 100.0,148.6 56.4,120.2 57.6,70.5" fill="var(--primary)" fill-opacity="0.18" stroke="var(--primary)" stroke-width="2"/><text x="100.0" y="21.0" text-anchor="middle" dominant-baseline="middle" font-size="11" fill="var(--text-sub)" font-family="-apple-system,'Hiragino Sans',sans-serif">テクニカル</text><text x="164.1" y="58.0" text-anchor="start" dominant-baseline="middle" font-size="11" fill="var(--text-sub)" font-family="-apple-system,'Hiragino Sans',sans-serif">収益性</text><text x="164.1" y="132.0" text-anchor="start" dominant-baseline="middle" font-size="11" fill="var(--text-sub)" font-family="-apple-system,'Hiragino Sans',sans-serif">成長性</text><text x="100.0" y="169.0" text-anchor="middle" dominant-baseline="middle" font-size="11" fill="var(--text-sub)" font-family="-apple-system,'Hiragino Sans',sans-serif">配当</text><text x="35.9" y="132.0" text-anchor="end" dominant-baseline="middle" font-size="11" fill="var(--text-sub)" font-family="-apple-system,'Hiragino Sans',sans-serif">割安度</text><text x="35.9" y="58.0" text-anchor="end" dominant-baseline="middle" font-size="11" fill="var(--text-sub)" font-family="-apple-system,'Hiragino Sans',sans-serif">財務健全性</text></svg>
@@ -185,66 +224,96 @@
   <span class="price-label">現在値</span>
   <span class="price-value">¥1,877</span>
   
+</div><div class="price-block">
+  <span class="price-label">単元(100株)</span>
+  <span class="price-value" style="font-size:.82rem">¥187,700〜</span>
+  <span class="price-min-lot">最低投資額</span>
 </div></div>
   <div class="pick-meta"><span class="meta-chip">857億円</span><span class="meta-chip">β 0.57</span><span class="meta-chip up">出来高 1.8x</span><span class="meta-chip">RSI 42.2</span><span class="meta-chip dn">1M -1.7%</span><span class="meta-chip">横ばい</span><span class="meta-chip">PER 8.0</span><span class="meta-chip">PBR 0.80</span><span class="meta-chip up">FCF 14.4%</span></div>
   <div class="pick-reasons"><span class="reason-tag">PER 8.0倍（超割安）</span><span class="reason-tag">PBR 0.80倍（割安）</span><span class="reason-tag">MACDヒストグラム+ (上昇モメンタム)</span><span class="reason-tag">RSI 42.2（中立・安定）</span></div>
+  <div class="pick-brokers">
+  <span class="pick-broker-lbl">口座で購入：</span>
+  <a class="pick-broker-link pick-broker-sbi" href="https://www.sbisec.co.jp/ETGate" target="_blank" rel="noopener sponsored">SBI証券</a>
+  <a class="pick-broker-link pick-broker-rakuten" href="https://www.rakuten-sec.co.jp/" target="_blank" rel="noopener sponsored">楽天証券</a>
+</div>
 </div></div>
 <div class="compact-picks"><div class="compact-pick">
   <span class="compact-rank">#4</span>
   <span class="compact-flag">🇯🇵</span>
   <a class="compact-ticker" href="https://finance.yahoo.co.jp/quote/2121.T" target="_blank" rel="noopener">2121</a>
+  <a class="chart-link" href="https://finance.yahoo.co.jp/quote/2121.T/chart" target="_blank" rel="noopener" title="チャートを見る">📈</a>
   <span class="compact-name">ＭＩＸＩ</span>
   <span class="compact-score score-high">83</span>
   <span class="badge badge-buy">BUY</span>
+  <span class="badge-new">NEW</span>
   <div class="compact-chips"><span class="meta-chip">PER 10.5</span><span class="meta-chip up">1M +3.9%</span><span class="meta-chip up">目標 +32.6%</span><span class="meta-chip ">RSI 62.0</span><span class="meta-chip">↑ 上昇トレンド</span><span class="meta-chip">配当 4.8%</span></div>
+  <button class="wl-btn" data-wl="2121.T" onclick="toggleWL('2121.T')" title="ウォッチリスト">☆</button>
 </div><div class="compact-pick">
   <span class="compact-rank">#5</span>
   <span class="compact-flag">🇯🇵</span>
   <a class="compact-ticker" href="https://finance.yahoo.co.jp/quote/2410.T" target="_blank" rel="noopener">2410</a>
+  <a class="chart-link" href="https://finance.yahoo.co.jp/quote/2410.T/chart" target="_blank" rel="noopener" title="チャートを見る">📈</a>
   <span class="compact-name">キャリアデザインセンター</span>
   <span class="compact-score score-high">82</span>
   <span class="badge badge-buy">BUY</span>
+  
   <div class="compact-chips"><span class="meta-chip">PER 11.8</span><span class="meta-chip up">1M +7.4%</span><span class="meta-chip ">RSI 59.1</span><span class="meta-chip">↑ 上昇トレンド</span><span class="meta-chip">配当 10.1%</span></div>
+  <button class="wl-btn" data-wl="2410.T" onclick="toggleWL('2410.T')" title="ウォッチリスト">☆</button>
 </div><div class="compact-pick">
   <span class="compact-rank">#6</span>
   <span class="compact-flag">🇯🇵</span>
   <a class="compact-ticker" href="https://finance.yahoo.co.jp/quote/2181.T" target="_blank" rel="noopener">2181</a>
+  <a class="chart-link" href="https://finance.yahoo.co.jp/quote/2181.T/chart" target="_blank" rel="noopener" title="チャートを見る">📈</a>
   <span class="compact-name">パーソルホールディングス</span>
   <span class="compact-score score-high">81</span>
   <span class="badge badge-buy">BUY</span>
+  <span class="badge-new">NEW</span>
   <div class="compact-chips"><span class="meta-chip">PER 12.8</span><span class="meta-chip up">1M +4.8%</span><span class="meta-chip up">目標 +24.4%</span><span class="meta-chip ">RSI 62.7</span><span class="meta-chip">↑ 上昇トレンド</span><span class="meta-chip">配当 5.3%</span></div>
+  <button class="wl-btn" data-wl="2181.T" onclick="toggleWL('2181.T')" title="ウォッチリスト">☆</button>
 </div><div class="compact-pick">
   <span class="compact-rank">#7</span>
   <span class="compact-flag">🇯🇵</span>
   <a class="compact-ticker" href="https://finance.yahoo.co.jp/quote/3636.T" target="_blank" rel="noopener">3636</a>
+  <a class="chart-link" href="https://finance.yahoo.co.jp/quote/3636.T/chart" target="_blank" rel="noopener" title="チャートを見る">📈</a>
   <span class="compact-name">三菱総合研究所</span>
   <span class="compact-score score-high">81</span>
   <span class="badge badge-buy">BUY</span>
+  <span class="badge-new">NEW</span>
   <div class="compact-chips"><span class="meta-chip">PER 7.5</span><span class="meta-chip dn">1M -1.2%</span><span class="meta-chip up">出来高 1.7x</span><span class="meta-chip ">RSI 62.9</span><span class="meta-chip">↑ 上昇トレンド</span><span class="meta-chip">配当 3.6%</span></div>
+  <button class="wl-btn" data-wl="3636.T" onclick="toggleWL('3636.T')" title="ウォッチリスト">☆</button>
 </div><div class="compact-pick">
   <span class="compact-rank">#8</span>
   <span class="compact-flag">🇯🇵</span>
   <a class="compact-ticker" href="https://finance.yahoo.co.jp/quote/7839.T" target="_blank" rel="noopener">7839</a>
+  <a class="chart-link" href="https://finance.yahoo.co.jp/quote/7839.T/chart" target="_blank" rel="noopener" title="チャートを見る">📈</a>
   <span class="compact-name">ＳＨＯＥＩ</span>
   <span class="compact-score score-high">80</span>
   <span class="badge badge-buy">BUY</span>
+  <span class="badge-new">NEW</span>
   <div class="compact-chips"><span class="meta-chip">PER 15.1</span><span class="meta-chip up">1M +13.1%</span><span class="meta-chip up">目標 +13.1%</span><span class="meta-chip ">RSI 56.5</span><span class="meta-chip">↑ 上昇トレンド</span><span class="meta-chip">配当 3.2%</span></div>
+  <button class="wl-btn" data-wl="7839.T" onclick="toggleWL('7839.T')" title="ウォッチリスト">☆</button>
 </div><div class="compact-pick">
   <span class="compact-rank">#9</span>
   <span class="compact-flag">🇯🇵</span>
   <a class="compact-ticker" href="https://finance.yahoo.co.jp/quote/9629.T" target="_blank" rel="noopener">9629</a>
+  <a class="chart-link" href="https://finance.yahoo.co.jp/quote/9629.T/chart" target="_blank" rel="noopener" title="チャートを見る">📈</a>
   <span class="compact-name">ピー・シー・エー</span>
   <span class="compact-score score-high">80</span>
   <span class="badge badge-buy">BUY</span>
+  <span class="badge-new">NEW</span>
   <div class="compact-chips"><span class="meta-chip">PER 10.8</span><span class="meta-chip dn">1M -19.9%</span><span class="meta-chip ">RSI 50.1</span><span class="meta-chip">→ 横ばい</span><span class="meta-chip">配当 3.1%</span></div>
+  <button class="wl-btn" data-wl="9629.T" onclick="toggleWL('9629.T')" title="ウォッチリスト">☆</button>
 </div><div class="compact-pick">
   <span class="compact-rank">#10</span>
   <span class="compact-flag">🇯🇵</span>
   <a class="compact-ticker" href="https://finance.yahoo.co.jp/quote/9889.T" target="_blank" rel="noopener">9889</a>
+  <a class="chart-link" href="https://finance.yahoo.co.jp/quote/9889.T/chart" target="_blank" rel="noopener" title="チャートを見る">📈</a>
   <span class="compact-name">ＪＢＣＣホールディングス</span>
   <span class="compact-score score-high">80</span>
   <span class="badge badge-buy">BUY</span>
+  <span class="badge-new">NEW</span>
   <div class="compact-chips"><span class="meta-chip">PER 14.3</span><span class="meta-chip up">1M +1.9%</span><span class="meta-chip ">RSI 54.4</span><span class="meta-chip">↑ 上昇トレンド</span><span class="meta-chip">配当 4.0%</span></div>
+  <button class="wl-btn" data-wl="9889.T" onclick="toggleWL('9889.T')" title="ウォッチリスト">☆</button>
 </div></div>
 <h2>投資スタイル別</h2>
 <div class="dept-grid"><div class="dept-card">
@@ -391,7 +460,7 @@
 </main>
 <footer>
   <p>© HG Analytics — AIによる自動分析・スクリーニング</p>
-  <p style="margin-top:.2rem;font-size:.7rem;">最終更新: 2026年6月1日 22:49 JST</p>
+  <p style="margin-top:.2rem;font-size:.7rem;">最終更新: 2026年6月1日 23:00 JST</p>
   <p style="margin-top:.3rem;">投資の最終判断はご自身でお願いします（金融商品取引法準拠）。当サイトの情報は投資勧誘を目的としません。</p>
   <p style="margin-top:.5rem;font-size:.7rem;">
     <a href="/privacy/" style="color:var(--text-sub);">プライバシーポリシー・運営者情報</a>
@@ -401,5 +470,29 @@
     <a href="mailto:hori.kobe.1022@gmail.com" style="color:var(--text-sub);">お問い合わせ</a>
   </p>
 </footer>
+<script>
+(function(){
+  var K='hg_wl';
+  function get(){ return JSON.parse(localStorage.getItem(K)||'[]'); }
+  function save(w){ localStorage.setItem(K,JSON.stringify(w)); }
+  window.toggleWL=function(t){
+    var w=get(),i=w.indexOf(t);
+    if(i<0) w.push(t); else w.splice(i,1);
+    save(w);
+    document.querySelectorAll('[data-wl="'+t+'"]').forEach(function(b){
+      b.classList.toggle('wl-active',w.indexOf(t)>=0);
+    });
+    if(typeof window.renderWLCount==='function') window.renderWLCount();
+  };
+  document.addEventListener('DOMContentLoaded',function(){
+    var w=get();
+    w.forEach(function(t){
+      document.querySelectorAll('[data-wl="'+t+'"]').forEach(function(b){
+        b.classList.add('wl-active');
+      });
+    });
+  });
+})();
+</script>
 </body>
 </html>

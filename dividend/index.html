@@ -32,6 +32,7 @@
   <button class="dept-filter-btn active" id="dft-all" onclick="deptFilter('all')">全て</button>
   <button class="dept-filter-btn" id="dft-jp"  onclick="deptFilter('jp')">🇯🇵 日本株</button>
   <button class="dept-filter-btn" id="dft-us"  onclick="deptFilter('us')">🇺🇸 米国株</button>
+  <select class="sector-select" id="dept-sector-sel" onchange="deptSectorFilter()"><option value="">セクター: 全て</option><option value="Communication Services">Communication Services</option><option value="Consumer Cyclical">Consumer Cyclical</option><option value="Consumer Defensive">Consumer Defensive</option><option value="Energy">Energy</option><option value="Financial Services">Financial Services</option><option value="Industrials">Industrials</option><option value="Real Estate">Real Estate</option><option value="Technology">Technology</option></select>
 </div>
 <div class="dept-table-wrap">
 <table class="dept-table">
@@ -40,7 +41,7 @@
     <th>部門スコア</th><th>総合</th>
     <th>PER</th><th>PBR</th><th>ROE%</th><th>配当%</th><th>1M%</th><th>上値余地</th><th>出来高比</th><th>β</th><th>FCF%</th>
   </tr></thead>
-  <tbody><tr data-jp="1">
+  <tbody><tr data-jp="1" data-sector="Industrials">
   <td style="color:var(--text-sub);font-weight:800">#1</td>
   <td>🇯🇵</td>
   <td><a href="https://finance.yahoo.co.jp/quote/2410.T" target="_blank" rel="noopener"><strong>2410</strong></a></td>
@@ -53,7 +54,7 @@
   <td><span class="">1.1x</span></td>
   <td>0.34</td>
   <td><span class="up">8.6%</span></td>
-</tr><tr data-jp="1">
+</tr><tr data-jp="1" data-sector="Industrials">
   <td style="color:var(--text-sub);font-weight:800">#2</td>
   <td>🇯🇵</td>
   <td><a href="https://finance.yahoo.co.jp/quote/2181.T" target="_blank" rel="noopener"><strong>2181</strong></a></td>
@@ -66,7 +67,7 @@
   <td><span class="">0.9x</span></td>
   <td>0.56</td>
   <td><span class="up">10.5%</span></td>
-</tr><tr data-jp="1">
+</tr><tr data-jp="1" data-sector="Real Estate">
   <td style="color:var(--text-sub);font-weight:800">#3</td>
   <td>🇯🇵</td>
   <td><a href="https://finance.yahoo.co.jp/quote/1814.T" target="_blank" rel="noopener"><strong>1814</strong></a></td>
@@ -79,7 +80,7 @@
   <td><span class="">0.7x</span></td>
   <td>0.45</td>
   <td><span class="up">25.1%</span></td>
-</tr><tr data-jp="1">
+</tr><tr data-jp="1" data-sector="Technology">
   <td style="color:var(--text-sub);font-weight:800">#4</td>
   <td>🇯🇵</td>
   <td><a href="https://finance.yahoo.co.jp/quote/3393.T" target="_blank" rel="noopener"><strong>3393</strong></a></td>
@@ -92,7 +93,7 @@
   <td><span class="">0.9x</span></td>
   <td>0.88</td>
   <td><span class="up">8.8%</span></td>
-</tr><tr data-jp="1">
+</tr><tr data-jp="1" data-sector="Technology">
   <td style="color:var(--text-sub);font-weight:800">#5</td>
   <td>🇯🇵</td>
   <td><a href="https://finance.yahoo.co.jp/quote/9715.T" target="_blank" rel="noopener"><strong>9715</strong></a></td>
@@ -105,7 +106,7 @@
   <td><span class="">0.9x</span></td>
   <td>0.17</td>
   <td><span class="up">8.9%</span></td>
-</tr><tr data-jp="1">
+</tr><tr data-jp="1" data-sector="Industrials">
   <td style="color:var(--text-sub);font-weight:800">#6</td>
   <td>🇯🇵</td>
   <td><a href="https://finance.yahoo.co.jp/quote/1898.T" target="_blank" rel="noopener"><strong>1898</strong></a></td>
@@ -118,7 +119,7 @@
   <td><span class="up">1.6x</span></td>
   <td>0.03</td>
   <td><span class="up">17.7%</span></td>
-</tr><tr data-jp="1">
+</tr><tr data-jp="1" data-sector="Financial Services">
   <td style="color:var(--text-sub);font-weight:800">#7</td>
   <td>🇯🇵</td>
   <td><a href="https://finance.yahoo.co.jp/quote/4310.T" target="_blank" rel="noopener"><strong>4310</strong></a></td>
@@ -131,7 +132,7 @@
   <td><span class="">1.0x</span></td>
   <td>1.10</td>
   <td><span class="up">7.4%</span></td>
-</tr><tr data-jp="1">
+</tr><tr data-jp="1" data-sector="Technology">
   <td style="color:var(--text-sub);font-weight:800">#8</td>
   <td>🇯🇵</td>
   <td><a href="https://finance.yahoo.co.jp/quote/9739.T" target="_blank" rel="noopener"><strong>9739</strong></a></td>
@@ -144,7 +145,7 @@
   <td><span class="">0.8x</span></td>
   <td>0.17</td>
   <td><span class="up">4.6%</span></td>
-</tr><tr data-jp="1">
+</tr><tr data-jp="1" data-sector="Energy">
   <td style="color:var(--text-sub);font-weight:800">#9</td>
   <td>🇯🇵</td>
   <td><a href="https://finance.yahoo.co.jp/quote/1518.T" target="_blank" rel="noopener"><strong>1518</strong></a></td>
@@ -157,7 +158,7 @@
   <td><span class="">1.1x</span></td>
   <td>0.88</td>
   <td><span class="up">3.9%</span></td>
-</tr><tr data-jp="1">
+</tr><tr data-jp="1" data-sector="Industrials">
   <td style="color:var(--text-sub);font-weight:800">#10</td>
   <td>🇯🇵</td>
   <td><a href="https://finance.yahoo.co.jp/quote/4318.T" target="_blank" rel="noopener"><strong>4318</strong></a></td>
@@ -170,7 +171,7 @@
   <td><span class="">0.9x</span></td>
   <td>0.45</td>
   <td><span class="up">4.5%</span></td>
-</tr><tr data-jp="1">
+</tr><tr data-jp="1" data-sector="Industrials">
   <td style="color:var(--text-sub);font-weight:800">#11</td>
   <td>🇯🇵</td>
   <td><a href="https://finance.yahoo.co.jp/quote/1926.T" target="_blank" rel="noopener"><strong>1926</strong></a></td>
@@ -183,7 +184,7 @@
   <td><span class="">1.1x</span></td>
   <td>0.31</td>
   <td><span class="up">5.7%</span></td>
-</tr><tr data-jp="1">
+</tr><tr data-jp="1" data-sector="Industrials">
   <td style="color:var(--text-sub);font-weight:800">#12</td>
   <td>🇯🇵</td>
   <td><a href="https://finance.yahoo.co.jp/quote/1870.T" target="_blank" rel="noopener"><strong>1870</strong></a></td>
@@ -196,7 +197,7 @@
   <td><span class="">1.1x</span></td>
   <td>0.39</td>
   <td><span class="up">10.8%</span></td>
-</tr><tr data-jp="1">
+</tr><tr data-jp="1" data-sector="Consumer Defensive">
   <td style="color:var(--text-sub);font-weight:800">#13</td>
   <td>🇯🇵</td>
   <td><a href="https://finance.yahoo.co.jp/quote/9769.T" target="_blank" rel="noopener"><strong>9769</strong></a></td>
@@ -209,7 +210,7 @@
   <td><span class="">0.8x</span></td>
   <td>0.13</td>
   <td><span class="up">8.8%</span></td>
-</tr><tr data-jp="1">
+</tr><tr data-jp="1" data-sector="Industrials">
   <td style="color:var(--text-sub);font-weight:800">#14</td>
   <td>🇯🇵</td>
   <td><a href="https://finance.yahoo.co.jp/quote/7059.T" target="_blank" rel="noopener"><strong>7059</strong></a></td>
@@ -222,7 +223,7 @@
   <td><span class="">1.1x</span></td>
   <td>0.79</td>
   <td><span class="up">7.1%</span></td>
-</tr><tr data-jp="1">
+</tr><tr data-jp="1" data-sector="Industrials">
   <td style="color:var(--text-sub);font-weight:800">#15</td>
   <td>🇯🇵</td>
   <td><a href="https://finance.yahoo.co.jp/quote/1429.T" target="_blank" rel="noopener"><strong>1429</strong></a></td>
@@ -235,7 +236,7 @@
   <td><span class="">0.6x</span></td>
   <td>0.37</td>
   <td><span class="up">3.4%</span></td>
-</tr><tr data-jp="1">
+</tr><tr data-jp="1" data-sector="Industrials">
   <td style="color:var(--text-sub);font-weight:800">#16</td>
   <td>🇯🇵</td>
   <td><a href="https://finance.yahoo.co.jp/quote/9743.T" target="_blank" rel="noopener"><strong>9743</strong></a></td>
@@ -248,7 +249,7 @@
   <td><span class="up">1.6x</span></td>
   <td>0.14</td>
   <td><span class="up">4.2%</span></td>
-</tr><tr data-jp="1">
+</tr><tr data-jp="1" data-sector="Financial Services">
   <td style="color:var(--text-sub);font-weight:800">#17</td>
   <td>🇯🇵</td>
   <td><a href="https://finance.yahoo.co.jp/quote/6196.T" target="_blank" rel="noopener"><strong>6196</strong></a></td>
@@ -261,7 +262,7 @@
   <td><span class="">0.7x</span></td>
   <td>0.40</td>
   <td><span class="up">6.0%</span></td>
-</tr><tr data-jp="1">
+</tr><tr data-jp="1" data-sector="Communication Services">
   <td style="color:var(--text-sub);font-weight:800">#18</td>
   <td>🇯🇵</td>
   <td><a href="https://finance.yahoo.co.jp/quote/6535.T" target="_blank" rel="noopener"><strong>6535</strong></a></td>
@@ -274,7 +275,7 @@
   <td><span class="up">2.5x</span></td>
   <td>0.38</td>
   <td><span class="up">13.4%</span></td>
-</tr><tr data-jp="1">
+</tr><tr data-jp="1" data-sector="Consumer Cyclical">
   <td style="color:var(--text-sub);font-weight:800">#19</td>
   <td>🇯🇵</td>
   <td><a href="https://finance.yahoo.co.jp/quote/8130.T" target="_blank" rel="noopener"><strong>8130</strong></a></td>
@@ -287,7 +288,7 @@
   <td><span class="">1.2x</span></td>
   <td>0.36</td>
   <td><span class="up">5.1%</span></td>
-</tr><tr data-jp="1">
+</tr><tr data-jp="1" data-sector="Industrials">
   <td style="color:var(--text-sub);font-weight:800">#20</td>
   <td>🇯🇵</td>
   <td><a href="https://finance.yahoo.co.jp/quote/6379.T" target="_blank" rel="noopener"><strong>6379</strong></a></td>
@@ -300,7 +301,7 @@
   <td><span class="">1.2x</span></td>
   <td>0.47</td>
   <td><span class="up">6.8%</span></td>
-</tr><tr data-jp="1">
+</tr><tr data-jp="1" data-sector="Industrials">
   <td style="color:var(--text-sub);font-weight:800">#21</td>
   <td>🇯🇵</td>
   <td><a href="https://finance.yahoo.co.jp/quote/6070.T" target="_blank" rel="noopener"><strong>6070</strong></a></td>
@@ -313,7 +314,7 @@
   <td><span class="">1.3x</span></td>
   <td>0.49</td>
   <td><span class="up">8.6%</span></td>
-</tr><tr data-jp="1">
+</tr><tr data-jp="1" data-sector="Industrials">
   <td style="color:var(--text-sub);font-weight:800">#22</td>
   <td>🇯🇵</td>
   <td><a href="https://finance.yahoo.co.jp/quote/6089.T" target="_blank" rel="noopener"><strong>6089</strong></a></td>
@@ -326,7 +327,7 @@
   <td><span class="">1.1x</span></td>
   <td>0.26</td>
   <td><span class="up">26.6%</span></td>
-</tr><tr data-jp="1">
+</tr><tr data-jp="1" data-sector="Technology">
   <td style="color:var(--text-sub);font-weight:800">#23</td>
   <td>🇯🇵</td>
   <td><a href="https://finance.yahoo.co.jp/quote/3817.T" target="_blank" rel="noopener"><strong>3817</strong></a></td>
@@ -339,7 +340,7 @@
   <td><span class="">1.1x</span></td>
   <td>0.25</td>
   <td><span class="up">10.6%</span></td>
-</tr><tr data-jp="1">
+</tr><tr data-jp="1" data-sector="Technology">
   <td style="color:var(--text-sub);font-weight:800">#24</td>
   <td>🇯🇵</td>
   <td><a href="https://finance.yahoo.co.jp/quote/3835.T" target="_blank" rel="noopener"><strong>3835</strong></a></td>
@@ -352,7 +353,7 @@
   <td><span class="">0.8x</span></td>
   <td>0.41</td>
   <td><span class="up">5.2%</span></td>
-</tr><tr data-jp="1">
+</tr><tr data-jp="1" data-sector="Industrials">
   <td style="color:var(--text-sub);font-weight:800">#25</td>
   <td>🇯🇵</td>
   <td><a href="https://finance.yahoo.co.jp/quote/1852.T" target="_blank" rel="noopener"><strong>1852</strong></a></td>
@@ -365,7 +366,7 @@
   <td><span class="">1.4x</span></td>
   <td>0.23</td>
   <td><span class="up">27.3%</span></td>
-</tr><tr data-jp="1">
+</tr><tr data-jp="1" data-sector="Industrials">
   <td style="color:var(--text-sub);font-weight:800">#26</td>
   <td>🇯🇵</td>
   <td><a href="https://finance.yahoo.co.jp/quote/8059.T" target="_blank" rel="noopener"><strong>8059</strong></a></td>
@@ -378,7 +379,7 @@
   <td><span class="up">1.8x</span></td>
   <td>0.24</td>
   <td><span class="up">14.4%</span></td>
-</tr><tr data-jp="1">
+</tr><tr data-jp="1" data-sector="Industrials">
   <td style="color:var(--text-sub);font-weight:800">#27</td>
   <td>🇯🇵</td>
   <td><a href="https://finance.yahoo.co.jp/quote/2471.T" target="_blank" rel="noopener"><strong>2471</strong></a></td>
@@ -391,7 +392,7 @@
   <td><span class="">1.3x</span></td>
   <td>0.38</td>
   <td><span class="up">24.0%</span></td>
-</tr><tr data-jp="1">
+</tr><tr data-jp="1" data-sector="Technology">
   <td style="color:var(--text-sub);font-weight:800">#28</td>
   <td>🇯🇵</td>
   <td><a href="https://finance.yahoo.co.jp/quote/9889.T" target="_blank" rel="noopener"><strong>9889</strong></a></td>
@@ -404,7 +405,7 @@
   <td><span class="">1.3x</span></td>
   <td>0.36</td>
   <td><span class="up">7.4%</span></td>
-</tr><tr data-jp="1">
+</tr><tr data-jp="1" data-sector="Communication Services">
   <td style="color:var(--text-sub);font-weight:800">#29</td>
   <td>🇯🇵</td>
   <td><a href="https://finance.yahoo.co.jp/quote/2379.T" target="_blank" rel="noopener"><strong>2379</strong></a></td>
@@ -417,7 +418,7 @@
   <td><span class="">0.6x</span></td>
   <td>-0.15</td>
   <td><span class="up">3.7%</span></td>
-</tr><tr data-jp="1">
+</tr><tr data-jp="1" data-sector="Technology">
   <td style="color:var(--text-sub);font-weight:800">#30</td>
   <td>🇯🇵</td>
   <td><a href="https://finance.yahoo.co.jp/quote/9928.T" target="_blank" rel="noopener"><strong>9928</strong></a></td>
@@ -434,19 +435,29 @@
 </table>
 </div>
 <script>
+var _deptMode='all';
 function deptFilter(m){
+  _deptMode=m;
   document.querySelectorAll('.dept-filter-btn').forEach(b=>b.classList.remove('active'));
   document.getElementById('dft-'+m).classList.add('active');
-  document.querySelectorAll('.dept-table tbody tr').forEach(r=>{
-    const jp=r.dataset.jp==='1';
-    r.style.display=(m==='all'||(m==='jp'&&jp)||(m==='us'&&!jp))?'':'none';
+  _applyDeptFilter();
+}
+function deptSectorFilter(){ _applyDeptFilter(); }
+function _applyDeptFilter(){
+  var sel=document.getElementById('dept-sector-sel');
+  var sec=sel?sel.value:'';
+  document.querySelectorAll('.dept-table tbody tr').forEach(function(r){
+    var jp=r.dataset.jp==='1';
+    var ok=((_deptMode==='all')||(_deptMode==='jp'&&jp)||(_deptMode==='us'&&!jp));
+    if(ok&&sec) ok=(r.dataset.sector||'')=== sec;
+    r.style.display=ok?'':'none';
   });
 }
 </script>
 </main>
 <footer>
   <p>© HG Analytics — AIによる自動分析・スクリーニング</p>
-  <p style="margin-top:.2rem;font-size:.7rem;">最終更新: 2026年6月1日 22:49 JST</p>
+  <p style="margin-top:.2rem;font-size:.7rem;">最終更新: 2026年6月1日 23:00 JST</p>
   <p style="margin-top:.3rem;">投資の最終判断はご自身でお願いします（金融商品取引法準拠）。当サイトの情報は投資勧誘を目的としません。</p>
   <p style="margin-top:.5rem;font-size:.7rem;">
     <a href="/privacy/" style="color:var(--text-sub);">プライバシーポリシー・運営者情報</a>
@@ -456,5 +467,29 @@ function deptFilter(m){
     <a href="mailto:hori.kobe.1022@gmail.com" style="color:var(--text-sub);">お問い合わせ</a>
   </p>
 </footer>
+<script>
+(function(){
+  var K='hg_wl';
+  function get(){ return JSON.parse(localStorage.getItem(K)||'[]'); }
+  function save(w){ localStorage.setItem(K,JSON.stringify(w)); }
+  window.toggleWL=function(t){
+    var w=get(),i=w.indexOf(t);
+    if(i<0) w.push(t); else w.splice(i,1);
+    save(w);
+    document.querySelectorAll('[data-wl="'+t+'"]').forEach(function(b){
+      b.classList.toggle('wl-active',w.indexOf(t)>=0);
+    });
+    if(typeof window.renderWLCount==='function') window.renderWLCount();
+  };
+  document.addEventListener('DOMContentLoaded',function(){
+    var w=get();
+    w.forEach(function(t){
+      document.querySelectorAll('[data-wl="'+t+'"]').forEach(function(b){
+        b.classList.add('wl-active');
+      });
+    });
+  });
+})();
+</script>
 </body>
 </html>

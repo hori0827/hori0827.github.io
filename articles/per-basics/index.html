@@ -32,6 +32,13 @@
   <div class="article-toc-title">目次</div>
   <ol><li><a href="#s1">PERとは何か</a></li><li><a href="#s2">PERの計算式</a></li><li><a href="#s3">PERの水準目安（日本株・米国株）</a></li><li><a href="#s4">PERが低いほど良いのか？</a></li><li><a href="#s5">HG Analyticsでの使われ方</a></li></ol>
 </div>
+<div class="article-cta">
+  <div class="article-cta-left">
+    <div class="article-cta-label">💎 今日の割安株を見る</div>
+    <div class="article-cta-sub">バリュー部門 — 低PER・低PBR銘柄を今日のスコアで確認</div>
+  </div>
+  <a class="article-cta-btn" href="/value/">見る →</a>
+</div>
 <div class="article-body">
 
 <h2 id="s1">PERとは何か</h2>
@@ -111,7 +118,7 @@
 </main>
 <footer>
   <p>© HG Analytics — AIによる自動分析・スクリーニング</p>
-  <p style="margin-top:.2rem;font-size:.7rem;">最終更新: 2026年6月1日 22:49 JST</p>
+  <p style="margin-top:.2rem;font-size:.7rem;">最終更新: 2026年6月1日 23:00 JST</p>
   <p style="margin-top:.3rem;">投資の最終判断はご自身でお願いします（金融商品取引法準拠）。当サイトの情報は投資勧誘を目的としません。</p>
   <p style="margin-top:.5rem;font-size:.7rem;">
     <a href="/privacy/" style="color:var(--text-sub);">プライバシーポリシー・運営者情報</a>
@@ -121,5 +128,29 @@
     <a href="mailto:hori.kobe.1022@gmail.com" style="color:var(--text-sub);">お問い合わせ</a>
   </p>
 </footer>
+<script>
+(function(){
+  var K='hg_wl';
+  function get(){ return JSON.parse(localStorage.getItem(K)||'[]'); }
+  function save(w){ localStorage.setItem(K,JSON.stringify(w)); }
+  window.toggleWL=function(t){
+    var w=get(),i=w.indexOf(t);
+    if(i<0) w.push(t); else w.splice(i,1);
+    save(w);
+    document.querySelectorAll('[data-wl="'+t+'"]').forEach(function(b){
+      b.classList.toggle('wl-active',w.indexOf(t)>=0);
+    });
+    if(typeof window.renderWLCount==='function') window.renderWLCount();
+  };
+  document.addEventListener('DOMContentLoaded',function(){
+    var w=get();
+    w.forEach(function(t){
+      document.querySelectorAll('[data-wl="'+t+'"]').forEach(function(b){
+        b.classList.add('wl-active');
+      });
+    });
+  });
+})();
+</script>
 </body>
 </html>

@@ -464,6 +464,73 @@ h2::before {
   padding: 1rem 1.3rem; font-size: .82rem; line-height: 1.7; margin-top: 2rem; color: var(--text);
 }
 
+/* ── モバイル対応: 部門テーブルの低優先列を非表示 ── */
+@media (max-width: 680px) {
+  .dept-table .col-hide { display: none; }
+  .dept-table td, .dept-table th { padding: .4rem .45rem; font-size: .76rem; }
+}
+
+/* ── ウォッチリスト星ボタン ── */
+.wl-btn {
+  background: none; border: none; cursor: pointer; font-size: .9rem;
+  padding: 0 .15rem; opacity: .3; transition: opacity .15s; line-height: 1;
+  vertical-align: middle;
+}
+.wl-btn:hover { opacity: .75; }
+.wl-btn.wl-active { opacity: 1; }
+
+/* ── NEW BUY 点滅バッジ ── */
+.badge-new {
+  display: inline-block; font-size: .58rem; font-weight: 900; letter-spacing: .04em;
+  background: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%);
+  color: #fff; padding: .15em .5em; border-radius: 4px;
+  animation: newbuy 1s ease-in-out infinite alternate;
+}
+@keyframes newbuy { from { opacity: .5; } to { opacity: 1; } }
+
+/* ── 最低投資額 ── */
+.price-min-lot { font-size: .63rem; color: var(--text-sub); margin-top: .1rem; }
+
+/* ── データ欠損ツールチップ ── */
+[data-tip] { position: relative; cursor: help; }
+[data-tip]::after {
+  content: attr(data-tip); position: absolute; bottom: 130%; left: 50%;
+  transform: translateX(-50%); background: var(--text); color: var(--bg);
+  font-size: .67rem; padding: .2rem .5rem; border-radius: 4px; white-space: nowrap;
+  opacity: 0; pointer-events: none; transition: opacity .12s; z-index: 200;
+}
+[data-tip]:hover::after { opacity: 1; }
+
+/* ── セクターフィルター ── */
+.sector-select {
+  font-size: .78rem; padding: .3rem .65rem; border-radius: 6px;
+  border: 1px solid var(--border); background: var(--bg); color: var(--text);
+  cursor: pointer; outline: none;
+}
+.sector-select:focus { border-color: var(--primary); }
+
+/* ── ピックカード内ブローカーリンク ── */
+.pick-brokers {
+  display: flex; gap: .45rem; align-items: center; flex-wrap: wrap;
+  border-top: 1px solid var(--border); padding-top: .45rem; margin-top: .1rem;
+}
+.pick-broker-lbl { font-size: .63rem; color: var(--text-sub); }
+.pick-broker-link {
+  font-size: .68rem; font-weight: 800; padding: .15em .6em;
+  border-radius: 4px; text-decoration: none; transition: opacity .12s;
+}
+.pick-broker-link:hover { opacity: .8; text-decoration: none; }
+.pick-broker-sbi     { background: #ff6600; color: #fff; }
+.pick-broker-rakuten { background: #bf0000; color: #fff; }
+
+/* ── チャートリンクボタン ── */
+.chart-link {
+  font-size: .68rem; font-weight: 700; color: var(--primary);
+  background: var(--primary-light); border: 1px solid var(--primary);
+  padding: .1em .5em; border-radius: 4px; text-decoration: none; transition: opacity .12s;
+}
+.chart-link:hover { opacity: .8; text-decoration: none; }
+
 /* ── ベンチマーク比較 ── */
 .pt-bench {
   display: flex; gap: 1.5rem; flex-wrap: wrap; margin-top: .6rem;
