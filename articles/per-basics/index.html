@@ -118,7 +118,7 @@
 </main>
 <footer>
   <p>© HG Analytics — AIによる自動分析・スクリーニング</p>
-  <p style="margin-top:.2rem;font-size:.7rem;">最終更新: 2026年6月2日 07:11 JST</p>
+  <p style="margin-top:.2rem;font-size:.7rem;">最終更新: 2026年6月2日 08:43 JST</p>
   <p style="margin-top:.3rem;">投資の最終判断はご自身でお願いします（金融商品取引法準拠）。当サイトの情報は投資勧誘を目的としません。</p>
   <p style="margin-top:.5rem;font-size:.7rem;">
     <a href="/privacy/" style="color:var(--text-sub);">プライバシーポリシー・運営者情報</a>
@@ -128,6 +128,28 @@
     <a href="mailto:hori.kobe.1022@gmail.com" style="color:var(--text-sub);">お問い合わせ</a>
   </p>
 </footer>
+<div id="pick-modal-overlay" onclick="if(event.target===this)closePickModal()">
+  <div id="pick-modal-box">
+    <button id="pick-modal-close" onclick="closePickModal()" aria-label="閉じる">×</button>
+    <div id="pick-modal-content"></div>
+  </div>
+</div>
+<script>
+function openPickModal(id){
+  var src=document.getElementById('md-'+id);
+  if(!src) return;
+  document.getElementById('pick-modal-content').innerHTML=src.innerHTML;
+  document.getElementById('pick-modal-overlay').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closePickModal(){
+  document.getElementById('pick-modal-overlay').classList.remove('open');
+  document.body.style.overflow='';
+}
+document.addEventListener('keydown',function(e){
+  if(e.key==='Escape') closePickModal();
+});
+</script>
 <script>
 (function(){
   var K='hg_wl';
